@@ -1,6 +1,6 @@
 # Pokémon: Neo Emerald — development workspace
 
-**Status: first game-source change committed (Grimyena + provisional Lv38 evolution). Not yet compiled or playtested.** This subfolder keeps Neo Emerald design data separate from the upstream `pokeemerald-expansion` source.
+**Status: first game-source change committed (Grimyena + provisional Lv38 evolution). Prototype compiled and boot-tested through Birch’s introduction in mGBA; the in-game evolution test is pending.** This subfolder keeps Neo Emerald design data separate from the upstream `pokeemerald-expansion` source.
 
 ## Design decisions
 
@@ -10,7 +10,7 @@
 - Custom Megas: Breloom (Grass/Fighting), Walrein (Water/Ice), Milotic (Water), and Grimyena.
 - **Chaos Spores:** Mega Breloom's contact-hit status attempt (20%; burn/sleep/poison/paralysis).
 - **Permafrost:** Mega Walrein brings hail/snow upon Mega Evolution, then gains +1 Sp. Atk and +1 Sp. Def at turn end while weather persists.
-- All eight Gyms use a signature Mega ace and scale their teams by number of badges, regardless of challenge order.
+- All eight Gyms use a signature Mega ace in a fixed story order. See [the campaign blueprint](CAMPAIGN_BLUEPRINT.md) for the chapter route, proposed encounters and ending.
 - Story mysteries: Professor Birch missing, Norman missing for ~15 years, Team Null led by May.
 - The precise fates of Norman/Birch, Milotic's ability, Grimyena's evolution method, and individual Gym teams are **not locked**.
 
@@ -28,7 +28,7 @@
 3. Build/playtest Grimyena before integrating **Mega Grimyena**, Grimyenite, and a chosen Twin Fang specification.
 4. Implement **Mega Breloom** + Chaos Spores and **Mega Walrein** + Permafrost (and battle tests).
 5. Implement Mega Milotic after ability and stats are confirmed. Its current sprite artwork is a **concept image**, not verified GBA-ready sprite data.
-6. Add badge-count Gym teams, then redesign Hoenn maps and implement Mossdeep evacuation events.
+6. Add fixed chapter-specific Gym teams, then redesign Hoenn maps and implement Mossdeep evacuation events.
 
 ## Verified source entry points (expansion fork)
 
