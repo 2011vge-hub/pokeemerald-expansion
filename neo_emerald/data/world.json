@@ -1,6 +1,6 @@
 {
   "setting": "Hoenn, 25 years after an Emerald/ORAS-inspired reimagined history",
-  "structural_rule": "Open-order 8 gyms; trainer team variants chosen by badges; main storyline advances independent of gym order",
+  "structural_rule": "Eight fixed-order Gyms in listed sequence; chapter objectives and badges unlock the next story battle. Major act checkpoints occur at 0, 2, 4, 6 and 8 badges.",
   "story_progress_badges": [
     0,
     2,
