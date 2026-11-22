@@ -1691,7 +1691,8 @@ enum __attribute__((packed)) Species
     SPECIES_GLIMMORA_MEGA = 1572,
 
     SPECIES_CUSTOM_START = SPECIES_GLIMMORA_MEGA,
-    // Add any custom species between here and SPECIES_CUSTOM_END
+    // Neo Emerald custom species (append only; do not reorder saved IDs).
+    SPECIES_GRIMYENA,
     SPECIES_CUSTOM_END,
 
     SPECIES_EGG = SPECIES_CUSTOM_END,

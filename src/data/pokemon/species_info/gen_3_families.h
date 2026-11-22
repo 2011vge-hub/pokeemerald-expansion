@@ -1076,6 +1076,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sMightyenaLevelUpLearnset,
         .teachableLearnset = sMightyenaTeachableLearnset,
+        // Neo Emerald prototype: level 38 is provisional until balance testing.
+        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_GRIMYENA}),
     },
 #endif //P_FAMILY_POOCHYENA
 

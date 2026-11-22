@@ -1,6 +1,6 @@
 # Pokémon: Neo Emerald — development workspace
 
-**Status: planning data committed; playable engine changes NOT yet installed.** This subfolder keeps Neo Emerald design data separate from the upstream `pokeemerald-expansion` source.
+**Status: first game-source change committed (Grimyena + provisional Lv38 evolution). Not yet compiled or playtested.** This subfolder keeps Neo Emerald design data separate from the upstream `pokeemerald-expansion` source.
 
 ## Design decisions
 
@@ -23,8 +23,8 @@
 
 ## Implementation milestones
 
-1. **Baseline build** of unmodified expansion, using a supported ARM toolchain. Do not assume GitHub Actions quota is available.
-2. Implement **Grimyena** as a proper new species (Mightyena evolution) with temporary **distinct and appropriately licensed** battle sprite, learnsets, evolution, encounters and Pokédex registration.
+1. **First build** of the Neo Emerald working branch, using a supported ARM toolchain. Do not assume GitHub Actions quota is available.
+2. **Grimyena prototype data added:** species ID, Dark/Fire stats, temporary Mightyena artwork and cry, and provisional level-38 evolution. Build/playtest this before replacing the placeholders with original battle/overworld sprites, learnset, cry and unique Pokédex registration. The placeholder National Dex number is NONE; the Pokédex integration is not finished.
 3. Build/playtest Grimyena before integrating **Mega Grimyena**, Grimyenite, and a chosen Twin Fang specification.
 4. Implement **Mega Breloom** + Chaos Spores and **Mega Walrein** + Permafrost (and battle tests).
 5. Implement Mega Milotic after ability and stats are confirmed. Its current sprite artwork is a **concept image**, not verified GBA-ready sprite data.
@@ -43,3 +43,15 @@ Custom species require **additional coordinated changes**: graphics/palettes, ev
 ## Safety
 
 Do not commit retail ROMs, proprietary game assets, credentials, or private data. Distribute a patch rather than the source ROM. Leave `master` stable and make code changes on working branches. Credit the RHH expansion contributors as their README requests.
+
+## First build (Codespaces or Ubuntu/WSL)
+
+Open this branch in a configured development environment. The repository includes a `.devcontainer` for GitHub Codespaces; using Codespaces can consume your account's monthly quota or incur charges. From the terminal:
+
+```bash
+bash neo_emerald/tools/build.sh
+```
+
+If successful, the **prototype** ROM is `neo_emerald/out/NeoEmerald_Prototype.gba`. The build script does not upload the ROM. It still uses original Emerald maps and story, and Grimyena currently looks/sounds like Mightyena until our graphics pipeline is ready.
+
+The simple design/source checks run separately with `python3 neo_emerald/tools/check_source.py`; they do not replace a compiler or emulator test.

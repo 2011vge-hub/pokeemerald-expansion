@@ -160,6 +160,71 @@ const struct SpeciesInfo gSpeciesInfo[] =
     #include "species_info/gen_8_families.h"
     #include "species_info/gen_9_families.h"
 
+
+    // Neo Emerald prototype. Distinct graphics, Pokédex number, cry, and learnset
+    // will replace these Mightyena placeholders after the first successful build.
+    [SPECIES_GRIMYENA] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 125,
+        .baseDefense   = 75,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 85,
+        .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
+        .catchRate = 45,
+        .expYield = 220,
+        .evYield_Attack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_INTIMIDATE, ABILITY_QUICK_FEET, ABILITY_MOXIE },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("Grimyena"),
+        .cryId = CRY_MIGHTYENA,
+        .natDexNum = NATIONAL_DEX_NONE,
+        .categoryName = _("Infernal"),
+        .height = 15,
+        .weight = 510,
+        .description = COMPOUND_STRING(
+            "Its fur crackles with embers when it\\n"
+            "gives chase. The hottest flames flare\\n"
+            "along its mane when guarding its pack."),
+        .pokemonScale = 362,
+        .pokemonOffset = 9,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Mightyena,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
+        .frontAnimId = ANIM_V_SHAKE,
+        .backPic = gMonBackPic_Mightyena,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
+        .backAnimId = BACK_ANIM_H_SHAKE,
+        .palette = gMonPalette_Mightyena,
+        .shinyPalette = gMonShinyPalette_Mightyena,
+        .iconSprite = gMonIcon_Mightyena,
+        .iconPalIndex = 2,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-2, 6, SHADOW_SIZE_L)
+        FOOTPRINT(Mightyena)
+        OVERWORLD(
+            sPicTable_Mightyena,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Mightyena,
+            gShinyOverworldPalette_Mightyena
+        )
+        .levelUpLearnset = sMightyenaLevelUpLearnset,
+        .teachableLearnset = sMightyenaTeachableLearnset,
+        .eggMoveLearnset = sPoochyenaEggMoveLearnset,
+    },
+
     [SPECIES_EGG] =
     {
         .frontPic = gMonFrontPic_Egg,

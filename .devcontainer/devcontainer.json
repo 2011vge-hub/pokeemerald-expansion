@@ -1,0 +1,16 @@
+{
+  "name": "Pokémon Neo Emerald - GBA development",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python"
+      ]
+    }
+  },
+  "postCreateCommand": "python3 neo_emerald/tools/validate_design.py && python3 neo_emerald/tools/check_source.py",
+  "remoteUser": "vscode"
+}

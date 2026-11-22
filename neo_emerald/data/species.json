@@ -15,9 +15,10 @@
       "sp_defense": 85,
       "speed": 100
     },
-    "evolution_method": null,
+    "evolution_method": "Mightyena level 38 (prototype decision; may change after balance testing)",
     "design": "Sleek black-and-ember wolf; third stage of Poochyena line",
-    "status": "type_and_stats_agreed"
+    "status": "engine_data_added_uncompiled",
+    "asset_status": "Using temporary Mightyena battle, icon and overworld assets until original Grimyena sprite is ready"
   },
   {
     "id": "GRIMYENA_MEGA",
@@ -38,7 +39,7 @@
     "stone": "GRIMYENITE",
     "ability": "TWIN_FANG",
     "design": "Fast Cerberus silhouette: physical main head, full second infernal head and a suggestion of a third flame head",
-    "status": "form_agreed_ability_proposed"
+    "status": "not_yet_implemented"
   },
   {
     "id": "BRELOOM_MEGA",
