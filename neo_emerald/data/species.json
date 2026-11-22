@@ -1,0 +1,98 @@
+[
+  {
+    "id": "GRIMYENA",
+    "kind": "evolution",
+    "base": "MIGHTYENA",
+    "types": [
+      "DARK",
+      "FIRE"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 125,
+      "defense": 75,
+      "sp_attack": 70,
+      "sp_defense": 85,
+      "speed": 100
+    },
+    "evolution_method": null,
+    "design": "Sleek black-and-ember wolf; third stage of Poochyena line",
+    "status": "type_and_stats_agreed"
+  },
+  {
+    "id": "GRIMYENA_MEGA",
+    "kind": "mega",
+    "base": "GRIMYENA",
+    "types": [
+      "DARK",
+      "FIRE"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 160,
+      "defense": 90,
+      "sp_attack": 80,
+      "sp_defense": 105,
+      "speed": 120
+    },
+    "stone": "GRIMYENITE",
+    "ability": "TWIN_FANG",
+    "design": "Fast Cerberus silhouette: physical main head, full second infernal head and a suggestion of a third flame head",
+    "status": "form_agreed_ability_proposed"
+  },
+  {
+    "id": "BRELOOM_MEGA",
+    "kind": "mega",
+    "base": "BRELOOM",
+    "types": [
+      "GRASS",
+      "FIGHTING"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 155,
+      "defense": 95,
+      "sp_attack": 60,
+      "sp_defense": 90,
+      "speed": 100
+    },
+    "stone": "BRELOOMITE",
+    "ability": "CHAOS_SPORES",
+    "design": "Fungal prizefighter, huge spore gauntlets, broad mushroom cap",
+    "status": "agreed"
+  },
+  {
+    "id": "WALREIN_MEGA",
+    "kind": "mega",
+    "base": "WALREIN",
+    "types": [
+      "WATER",
+      "ICE"
+    ],
+    "stats": {
+      "hp": 110,
+      "attack": 90,
+      "defense": 110,
+      "sp_attack": 125,
+      "sp_defense": 120,
+      "speed": 75
+    },
+    "stone": "WALREINITE",
+    "ability": "PERMAFROST",
+    "design": "Armored glacial monarch with crystalline tusks; preserve recognizable Walrein outline",
+    "status": "agreed"
+  },
+  {
+    "id": "MILOTIC_MEGA",
+    "kind": "mega",
+    "base": "MILOTIC",
+    "types": [
+      "WATER"
+    ],
+    "stats": null,
+    "stone": "MILOTICITE",
+    "ability": "SERENE_VEIL",
+    "design": "Recognizably Milotic: cream serpentine body, elegant head streamers, pearlescent crest, large patterned fin-tail",
+    "status": "art_direction_agreed_stats_and_ability_pending"
+  }
+]

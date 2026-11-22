@@ -1,0 +1,28 @@
+[
+  {
+    "id": "CHAOS_SPORES",
+    "state": "agreed",
+    "owner": "BRELOOM_MEGA",
+    "description": "On a damaging contact move, one 20% activation attempt per move (including multi-hit); if activated, choose burn, sleep, poison or paralysis uniformly. No reroll on immunity or already-statused target.",
+    "chance_percent": 20
+  },
+  {
+    "id": "PERMAFROST",
+    "state": "agreed",
+    "owner": "WALREIN_MEGA",
+    "description": "Mega Evolution starts hail/snow; at the end of each turn with active hail/snow, holder gains +1 Sp. Atk and +1 Sp. Def, capped at +6 each. Weather change stops further boosts.",
+    "chance_percent": 100
+  },
+  {
+    "id": "TWIN_FANG",
+    "state": "proposed_not_locked",
+    "owner": "GRIMYENA_MEGA",
+    "description": "Possible follow-up strike from infernal second head after a damaging contact attack; exact proc and mechanics not finalized."
+  },
+  {
+    "id": "SERENE_VEIL",
+    "state": "proposed_not_locked",
+    "owner": "MILOTIC_MEGA",
+    "description": "Possible prevention of newly inflicted major statuses for the user and partner; singles/doubles balance not finalized."
+  }
+]

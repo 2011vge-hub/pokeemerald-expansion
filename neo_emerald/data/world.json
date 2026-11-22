@@ -1,0 +1,149 @@
+{
+  "setting": "Hoenn, 25 years after an Emerald/ORAS-inspired reimagined history",
+  "structural_rule": "Open-order 8 gyms; trainer team variants chosen by badges; main storyline advances independent of gym order",
+  "story_progress_badges": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "opening": "Mossdeep evacuation (map design must be completed before event scripting)",
+  "factions": [
+    "Neo Magma - successor led by Maxie's child",
+    "Neo Aqua - successor led by Archie's child",
+    "Team Null - ranger/conservation intervention group led by May; exact history involving Birch and Norman unresolved"
+  ],
+  "people": [
+    "Professor Birch missing; moved newer lab to Mauville before disappearance",
+    "Norman has been missing for 15 years; Wally succeeded him at Petalburg Gym",
+    "Wattson retired",
+    "Fortree reclaimed by the wilds",
+    "Brendan proposed as Champion",
+    "Steven, Wallace, Giovanni, and Tate & Liza proposed for Elite Four; specifics not locked"
+  ],
+  "locations": [
+    {
+      "name": "Mossdeep",
+      "role": "Evacuation opening; sinking technological metropolis with elevated and flooded districts"
+    },
+    {
+      "name": "Slateport",
+      "role": "Major commercial port metropolis and Water Gym"
+    },
+    {
+      "name": "Pacifidlog",
+      "role": "Expanded floating city and proposed Ghost Gym"
+    },
+    {
+      "name": "Rustboro",
+      "role": "Steel Gym led by veteran academy teacher Roxanne"
+    },
+    {
+      "name": "Mauville",
+      "role": "Electric transport metropolis; Wattson retired; newer Birch research institute"
+    },
+    {
+      "name": "Littleroot",
+      "role": "Abandoned, overgrown village; enlarged original Birch lab with Grimyenite vault"
+    },
+    {
+      "name": "Petalburg",
+      "role": "Gym led by Wally; Norman missing for approximately 15 years"
+    },
+    {
+      "name": "Dewford",
+      "role": "Much of settlement relocated inside Granite Cave"
+    },
+    {
+      "name": "Granite Cave",
+      "role": "Ten-floor cave; increasingly dangerous wild Pokémon deeper down"
+    },
+    {
+      "name": "Fortree",
+      "role": "Former city overrun by wilderness and no longer a functioning settlement"
+    },
+    {
+      "name": "Lavaridge",
+      "role": "Bustling hot-spring resort city with veteran Flannery"
+    },
+    {
+      "name": "Route 111 desert",
+      "role": "Dangerously expanded sands uncover fossil ruins and new cave networks"
+    },
+    {
+      "name": "Relicrest",
+      "role": "New archaeological desert city with Fossil-specialist Gym"
+    },
+    {
+      "name": "Fallarbor",
+      "role": "Regional research outpost tracking desert expansion and geological instability"
+    },
+    {
+      "name": "Sootopolis",
+      "role": "Protected ancient historical city"
+    },
+    {
+      "name": "Ever Grande",
+      "role": "Modernized Pokémon League capital"
+    }
+  ],
+  "gyms": [
+    {
+      "city": "Rustboro",
+      "leader": "Roxanne",
+      "specialty": "STEEL",
+      "mega_ace": "AGGRON_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Relicrest",
+      "leader": "New paleontologist",
+      "specialty": "FOSSIL",
+      "mega_ace": "AERODACTYL_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Lavaridge",
+      "leader": "Flannery",
+      "specialty": "FIRE",
+      "mega_ace": "CAMERUPT_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Slateport",
+      "leader": "Harbor captain",
+      "specialty": "WATER",
+      "mega_ace": "MILOTIC_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Mauville",
+      "leader": "Wattson successor",
+      "specialty": "ELECTRIC",
+      "mega_ace": "MANECTRIC_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Petalburg",
+      "leader": "Wally",
+      "specialty": "MIXED",
+      "mega_ace": "GALLADE_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Dewford Cavern",
+      "leader": "Brawly successor",
+      "specialty": "FIGHTING",
+      "mega_ace": "BRELOOM_MEGA",
+      "ace_status": "proposed"
+    },
+    {
+      "city": "Pacifidlog",
+      "leader": "Phoebe",
+      "specialty": "GHOST",
+      "mega_ace": "BANETTE_MEGA",
+      "ace_status": "proposed"
+    }
+  ]
+}
