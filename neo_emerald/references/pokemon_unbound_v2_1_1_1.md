@@ -44,6 +44,8 @@ Unbound is a FireRed-based hack by Skeli featuring an original Borrius region, u
 5. Implement a minimal, **original** mission journal, before broad content production.
 6. Draft each new location as maps + encounter tables + required sprite/tileset assets; integrate one location at a time.
 
-## Open design question
+## Player feedback (confirmed 2026-11-22)
 
-Which particular Unbound elements does the player value most (mission structure, gym battles/difficulty, progression, geography, menus, Pokédex, postgame)? Prioritize those without equating every Unbound feature to an implementation request.
+The player's specific reason for loving **Unbound** is **its story, and how it feels like a genuinely new, fun game**. Therefore story originality, pacing, region identity and exploration should outrank sheer feature count. We should not interpret admiration for Unbound as a request for copied characters, set pieces, or one-for-one mechanics.
+
+Use the story-pillar document at `neo_emerald/design/story_pillars.md` as the north star. It remains secondary to technical prerequisites (a compiling engine build).
