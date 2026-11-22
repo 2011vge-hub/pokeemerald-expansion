@@ -8,5 +8,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libnewlib-arm-none-eabi \
     git \
     libpng-dev \
+    pkg-config \
     python3 \
     && rm -rf /var/lib/apt/lists/
