@@ -21,7 +21,7 @@ for name, field in {
     "hp": "baseHP", "attack": "baseAttack", "defense": "baseDefense",
     "speed": "baseSpeed", "sp_attack": "baseSpAttack", "sp_defense": "baseSpDefense"
 }.items():
-    pattern = r"\\." + field + r"\\s*=\\s*" + str(grimyena["stats"][name]) + r"\\b"
+    pattern = r"\." + field + r"\s*=\s*" + str(grimyena["stats"][name]) + r"\b"
     assert re.search(pattern, body), f"Grimyena {name} does not match canonical stats"
 assert ".natDexNum = NATIONAL_DEX_NONE," in body, "Prototype Pokédex placeholder changed unexpectedly"
 print("Neo Emerald source contract OK: Grimyena (Dark/Fire), 530 BST, Lv38 evolution")

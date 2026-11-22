@@ -189,8 +189,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 15,
         .weight = 510,
         .description = COMPOUND_STRING(
-            "Its fur crackles with embers when it\\n"
-            "gives chase. The hottest flames flare\\n"
+            "Its fur crackles with embers when it\n"
+            "gives chase. The hottest flames flare\n"
             "along its mane when guarding its pack."),
         .pokemonScale = 362,
         .pokemonOffset = 9,
