@@ -1,0 +1,582 @@
+{
+  "project": "Pokemon: Neo Emerald",
+  "spec_version": "chapters-1-3-draft-2026-11-23",
+  "spec_status": "source integration not verified",
+  "setting": "Hoenn, 25 years later",
+  "player": {
+    "role": "Ranger rookie",
+    "starter_level": 5,
+    "starter_options": [
+      {
+        "species": "POOCHYENA",
+        "initial_move": "FIRE_FANG",
+        "rival_species": "SPHEAL"
+      },
+      {
+        "species": "SPHEAL",
+        "initial_move": "ICE_BEAM",
+        "rival_species": "SHROOMISH"
+      },
+      {
+        "species": "SHROOMISH",
+        "initial_move": "GIGA_DRAIN",
+        "rival_species": "POOCHYENA"
+      }
+    ],
+    "leveling": "ordinary battle experience, normal evolution; no level 5 cap",
+    "rival": {
+      "male_player": {
+        "name": "Nessa",
+        "gender": "female",
+        "hair": "purple"
+      },
+      "female_player": {
+        "name": "Vern",
+        "gender": "male",
+        "hair": "blue"
+      },
+      "father": "Commander Hale",
+      "script_model": "one shared dialogue system with variable rival name",
+      "starter_logic": "rival_species from chosen starter mapping",
+      "battle_scenes": [
+        "C2_RIVAL_PRACTICE_OPTIONAL",
+        "C3_RIVAL_PRACTICE_OPTIONAL"
+      ]
+    }
+  },
+  "antagonists": [
+    {
+      "id": "NEO_MAGMA",
+      "display_trainer_class": "Neo Magma Grunt",
+      "unnamed_grunts": true,
+      "uniform": "black",
+      "emblem": "red M",
+      "base_asset": "original Emerald Team Magma sprites, cloned for recolor",
+      "secret_goal": "Volcanion",
+      "successor_leader": "child of Maxie"
+    },
+    {
+      "id": "NEO_AQUA",
+      "display_trainer_class": "Neo Aqua Grunt",
+      "unnamed_grunts": true,
+      "uniform": "white",
+      "emblem": "blue A",
+      "base_asset": "original Emerald Team Aqua sprites, cloned for recolor",
+      "secret_goal": "Volcanion",
+      "successor_leader": "child of Archie"
+    },
+    {
+      "id": "TEAM_NULL",
+      "display_trainer_class": "Team Null Grunt",
+      "unnamed_grunts": true,
+      "uniform": "TBD",
+      "emblem": "TBD",
+      "secret_goal": "Arceus",
+      "onscreen_ch1_to_ch3": false
+    }
+  ],
+  "pokemonnarrative": {
+    "elite_four_champion_weather_pokemon": [
+      "GROUDON",
+      "KYOGRE",
+      "RAYQUAZA"
+    ],
+    "unrevealable_before_chapter4": [
+      "VOLCANION",
+      "ARCEUS",
+      "Team Null leadership"
+    ]
+  },
+  "rank_rewards": {
+    "1": {
+      "title": "Rookie",
+      "min_badges": 0,
+      "partner_exp_per_routine_mission": 250
+    },
+    "2": {
+      "title": "Ranger",
+      "min_badges": 1,
+      "partner_exp_per_routine_mission": 300,
+      "gear": "RANGER_CUTTER"
+    },
+    "3": {
+      "title": "Senior Ranger",
+      "min_badges": null,
+      "partner_exp_per_routine_mission": 350
+    },
+    "4": {
+      "title": "Area Ranger",
+      "min_badges": null,
+      "partner_exp_per_routine_mission": 400
+    },
+    "5": {
+      "title": "High Ranger",
+      "min_badges": null,
+      "partner_exp_per_routine_mission": 450
+    }
+  },
+  "major_story_partner_exp": 1000,
+  "chapter_events": [
+    {
+      "id": "C1_ORIENTATION",
+      "chapter": 1,
+      "map": "Mossdeep Ranger orientation room",
+      "type": "existing_preserve",
+      "precondition": "new game",
+      "effects": [
+        "Birch recorded opening",
+        "Ari/June orientation",
+        "starter selection"
+      ]
+    },
+    {
+      "id": "C1_RESCUE",
+      "chapter": 1,
+      "map": "Mossdeep City",
+      "type": "existing_preserve",
+      "precondition": "C1_ORIENTATION",
+      "effects": [
+        "flood rescue",
+        "missing child and Poochyena",
+        "late-siren clue",
+        "Mossdeep rescue flag",
+        "+100 Ranger XP as established"
+      ]
+    },
+    {
+      "id": "C1_HALE_FLIGHT",
+      "chapter": 1,
+      "map": "Mossdeep headquarters -> Rustboro outpost",
+      "type": "cutscene",
+      "precondition": "FLAG_NEO_C1_RESCUE_DONE",
+      "effects": [
+        "FLAG_NEO_C1_HALE_CALL",
+        "FLAG_NEO_C1_FLIGHT_RUSTBORO",
+        "warp Rustboro"
+      ],
+      "messages": [
+        {
+          "speaker": "Commander Hale",
+          "text": "Well done, Ranger. Considering the conditions out there, you've performed admirably."
+        },
+        {
+          "speaker": "Commander Hale",
+          "text": "An emergency landing? Near Route 104? Mr. Briney's old cottage... Understood."
+        },
+        {
+          "speaker": "Commander Hale",
+          "text": "I'm sending you to Rustboro. You'll meet your field contact at the Ranger outpost."
+        }
+      ]
+    },
+    {
+      "id": "C2_RIVAL_CONTACT",
+      "chapter": 2,
+      "map": "Rustboro Ranger outpost",
+      "type": "cutscene",
+      "precondition": "FLAG_NEO_C1_FLIGHT_RUSTBORO",
+      "effects": [
+        "FLAG_NEO_C2_RIVAL_MET",
+        "MISSION_SUPPLY_CORRIDOR"
+      ],
+      "messages": [
+        {
+          "speaker": "Rival",
+          "text": "So you're the rookie Dad's been talking about?"
+        },
+        {
+          "speaker": "Rival",
+          "text": "I'm {RIVAL_NAME}. Future greatest Ranger in Hoenn. Maybe the world."
+        },
+        {
+          "speaker": "Rival",
+          "text": "We've been assigned to the same supply corridor. Don't slow me down, okay?"
+        }
+      ]
+    },
+    {
+      "id": "C2_MAGMA_WOODS",
+      "chapter": 2,
+      "map": "Petalburg Woods",
+      "type": "encounter",
+      "precondition": "FLAG_NEO_C2_RIVAL_MET",
+      "battles": [
+        "NM_WOODS_A",
+        "NM_WOODS_B"
+      ],
+      "effects": [
+        "FLAG_NEO_C2_WOODS_MAGMA_DEFEATED",
+        "HEAT_PROBE_READOUT"
+      ],
+      "messages": [
+        {
+          "speaker": "Neo Magma Grunt",
+          "text": "Keep the probe steady. If the temperature spikes again, we'll finally have a direction."
+        },
+        {
+          "speaker": "Rival",
+          "text": "That equipment is making the roots steam. Turn it off before somebody gets hurt!"
+        },
+        {
+          "speaker": "Neo Magma Grunt",
+          "text": "Stay out of Neo Magma's work, Ranger. You have no idea what we're preventing."
+        }
+      ]
+    },
+    {
+      "id": "C2_TREE_CUT",
+      "chapter": 2,
+      "map": "Petalburg Woods southern exit",
+      "type": "cutscene",
+      "precondition": "FLAG_NEO_C2_WOODS_MAGMA_DEFEATED && !FLAG_NEO_C2_TREE_CLEARED",
+      "effects": [
+        "FLAG_NEO_C2_TREE_CLEARED",
+        "remove fallen tree collision permanently"
+      ],
+      "messages": [
+        {
+          "speaker": "Rival",
+          "text": "Watch this: Ranger Cutter module."
+        },
+        {
+          "speaker": "Rival",
+          "text": "Field gear isn't free. You earn the certification by advancing as a Ranger—and badges are part of that."
+        }
+      ]
+    },
+    {
+      "id": "C2_AQUA_BRINEY",
+      "chapter": 2,
+      "map": "Route 104 South / Briney cottage",
+      "type": "encounter",
+      "precondition": "FLAG_NEO_C2_TREE_CLEARED",
+      "battles": [
+        "NA_BRINEY_A",
+        "NA_BRINEY_B"
+      ],
+      "effects": [
+        "FLAG_NEO_C2_AQUA_DEFEATED",
+        "SHIP_LOG_FRAGMENT_FOUND"
+      ],
+      "messages": [
+        {
+          "speaker": "Neo Aqua Grunt",
+          "text": "The ocean went wild before any warning came. The ship recorded something valuable."
+        },
+        {
+          "speaker": "Rival",
+          "text": "You're threatening evacuees over a notebook? That's enough."
+        }
+      ]
+    },
+    {
+      "id": "C2_BRINEY_DELIVERY",
+      "chapter": 2,
+      "map": "Mr. Briney cottage",
+      "type": "dialogue_mission",
+      "precondition": "FLAG_NEO_C2_AQUA_DEFEATED",
+      "effects": [
+        "FLAG_NEO_C2_SUPPLIES_DELIVERED",
+        "FLAG_NEO_MISSION002_REWARD"
+      ],
+      "messages": [
+        {
+          "speaker": "Mr. Briney",
+          "text": "A hundred and four years I've been kickin' around. A little rain won't finish me!"
+        },
+        {
+          "speaker": "Mr. Briney",
+          "text": "Ain't that right, Peeko?"
+        },
+        {
+          "speaker": "Peeko",
+          "text": "Peeeeko!"
+        }
+      ],
+      "reward": {
+        "partner_pokemon_exp": 250,
+        "once": true
+      }
+    },
+    {
+      "id": "C2_HALE_REPORT",
+      "chapter": 2,
+      "map": "Rustboro Ranger outpost",
+      "type": "dialogue",
+      "precondition": "FLAG_NEO_C2_SUPPLIES_DELIVERED",
+      "effects": [
+        "FLAG_NEO_C2_REPORT_DONE",
+        "unlock C3 first badge objective"
+      ],
+      "messages": [
+        {
+          "speaker": "Commander Hale",
+          "text": "Earn one Gym badge, then return to headquarters. Once your field evaluation is confirmed, we'll authorize Rank 2 and your Cutter module.",
+          "if": "badge_count == 0"
+        },
+        {
+          "speaker": "Commander Hale",
+          "text": "You've already earned a Gym badge? Excellent. Your qualification is satisfied. Report to the quartermaster for Rank 2 certification.",
+          "if": "badge_count >= 1"
+        }
+      ]
+    },
+    {
+      "id": "C3_RANK2_PROMOTION",
+      "chapter": 3,
+      "map": "Rustboro Ranger outpost",
+      "type": "conditional_upgrade",
+      "precondition": "FLAG_NEO_C2_REPORT_DONE && badge_count >= 1 && !FLAG_NEO_RANK2_CERTIFIED",
+      "effects": [
+        "ranger_rank=2",
+        "FLAG_NEO_RANK2_CERTIFIED",
+        "gear RANGER_CUTTER",
+        "unlock MISSION_RELAY_ROUTE_116"
+      ],
+      "messages": [
+        {
+          "speaker": "Commander Hale",
+          "text": "One badge. Field evaluation complete. Congratulations—you're cleared for Rank 2 Ranger duty."
+        },
+        {
+          "speaker": "Quartermaster",
+          "text": "Ranger Cutter installed. It can clear approved vegetation and certain fallen obstacles."
+        }
+      ]
+    },
+    {
+      "id": "C3_CUTTER_FIRST_USE",
+      "chapter": 3,
+      "map": "Route 116",
+      "type": "field_tool",
+      "precondition": "FLAG_NEO_RANK2_CERTIFIED && !FLAG_NEO_C3_CUTTER_TUTORIAL",
+      "effects": [
+        "FLAG_NEO_C3_CUTTER_TUTORIAL",
+        "remove branch collision"
+      ]
+    },
+    {
+      "id": "C3_RUSTURF_RESCUE",
+      "chapter": 3,
+      "map": "Rusturf Tunnel",
+      "type": "rescue_mission",
+      "precondition": "FLAG_NEO_C3_CUTTER_TUTORIAL",
+      "effects": [
+        "FLAG_NEO_C3_TECHNICIANS_RESCUED"
+      ],
+      "messages": [
+        {
+          "speaker": "Technician",
+          "text": "Heat underground, pressure in the air—both at once."
+        },
+        {
+          "speaker": "Technician",
+          "text": "Then another signal cut through ours. Not static. Something deliberate."
+        }
+      ]
+    },
+    {
+      "id": "C3_MAGMA_RELAY",
+      "chapter": 3,
+      "map": "Route 116 relay area",
+      "type": "encounter",
+      "precondition": "FLAG_NEO_C3_TECHNICIANS_RESCUED",
+      "battles": [
+        "NM_RELAY_A"
+      ],
+      "effects": [
+        "FLAG_NEO_C3_MAGMA_DEFEATED"
+      ],
+      "messages": [
+        {
+          "speaker": "Neo Magma Grunt",
+          "text": "We didn't cut your signal. Someone beat us here."
+        }
+      ]
+    },
+    {
+      "id": "C3_THIRD_SIGNAL",
+      "chapter": 3,
+      "map": "Route 116 relay console",
+      "type": "investigation",
+      "precondition": "FLAG_NEO_C3_MAGMA_DEFEATED",
+      "effects": [
+        "FLAG_NEO_C3_RELAY_LOG_FOUND"
+      ],
+      "messages": [
+        {
+          "speaker": "Terminal",
+          "text": "UPLINK INTERRUPTED. SOURCE: UNKNOWN. ACCESS KEY: [UNREADABLE]."
+        },
+        {
+          "speaker": "Rival",
+          "text": "That's not Neo Magma's equipment. And the Aqua log doesn't match it either. Someone else is listening."
+        }
+      ]
+    },
+    {
+      "id": "C3_HALE_REPORT",
+      "chapter": 3,
+      "map": "Rustboro Ranger outpost",
+      "type": "dialogue_mission",
+      "precondition": "FLAG_NEO_C3_RELAY_LOG_FOUND",
+      "effects": [
+        "FLAG_NEO_C3_REPORT_DONE",
+        "FLAG_NEO_MISSION003_REWARD",
+        "unlock wider mainland assignments"
+      ],
+      "reward": {
+        "partner_pokemon_exp": 300,
+        "once": true
+      },
+      "messages": [
+        {
+          "speaker": "Commander Hale",
+          "text": "The people you brought out of the tunnel are safe. That's what matters most."
+        },
+        {
+          "speaker": "Commander Hale",
+          "text": "But this third signal worries me. No civilian transmitter should have access to that relay."
+        },
+        {
+          "speaker": "Rival",
+          "text": "You're getting better at this. Don't get comfortable. I'm still going to be the greatest Ranger Hoenn's ever seen."
+        }
+      ]
+    }
+  ],
+  "battle_definitions": [
+    {
+      "id": "NM_WOODS_A",
+      "trainer_class": "Neo Magma Grunt",
+      "party": [
+        {
+          "species": "NUMEL",
+          "level": 8
+        }
+      ]
+    },
+    {
+      "id": "NM_WOODS_B",
+      "trainer_class": "Neo Magma Grunt",
+      "party": [
+        {
+          "species": "SLUGMA",
+          "level": 9
+        }
+      ]
+    },
+    {
+      "id": "NA_BRINEY_A",
+      "trainer_class": "Neo Aqua Grunt",
+      "party": [
+        {
+          "species": "WINGULL",
+          "level": 9
+        }
+      ]
+    },
+    {
+      "id": "NA_BRINEY_B",
+      "trainer_class": "Neo Aqua Grunt",
+      "party": [
+        {
+          "species": "CARVANHA",
+          "level": 10
+        },
+        {
+          "species": "LOTAD",
+          "level": 8
+        }
+      ]
+    },
+    {
+      "id": "NM_RELAY_A",
+      "trainer_class": "Neo Magma Grunt",
+      "party": [
+        {
+          "species": "NUMEL",
+          "level": 13
+        },
+        {
+          "species": "BALTOY",
+          "level": 12
+        }
+      ]
+    },
+    {
+      "id": "C2_RIVAL_PRACTICE_OPTIONAL",
+      "trainer_class": "Rival",
+      "party": [
+        {
+          "species": "RIVAL_STARTER",
+          "level": 11
+        },
+        {
+          "species": "TAILLOW",
+          "level": 10
+        }
+      ],
+      "optional": true
+    },
+    {
+      "id": "C3_RIVAL_PRACTICE_OPTIONAL",
+      "trainer_class": "Rival",
+      "party": [
+        {
+          "species": "RIVAL_STARTER",
+          "level": 16
+        },
+        {
+          "species": "TAILLOW",
+          "level": 14
+        },
+        {
+          "species": "ELECTRIKE",
+          "level": 15
+        }
+      ],
+      "optional": true
+    }
+  ],
+  "gym_rustboro": {
+    "leader": "Roxanne",
+    "type": "STEEL",
+    "early_open": true,
+    "badge_name": "Stone Badge",
+    "dynamic_dialogue": true,
+    "first_badge_party_draft": [
+      {
+        "species": "ARON",
+        "level": 12
+      },
+      {
+        "species": "MAGNEMITE",
+        "level": 14
+      }
+    ],
+    "long_term_signature_mega": "MEGA_AGGRON",
+    "mega_not_used_in_first_badge_tier": true
+  },
+  "side_missions": [
+    {
+      "id": "C3_LOST_EQUIPMENT",
+      "loc": "Route 116",
+      "reward_partner_exp": 300,
+      "once": true
+    },
+    {
+      "id": "C3_FOREST_FOLLOWUP",
+      "loc": "Petalburg Woods",
+      "reward_partner_exp": 0,
+      "once": true
+    },
+    {
+      "id": "C3_BRINEYS_FAVOR",
+      "loc": "Route 104 South",
+      "reward_partner_exp": 300,
+      "once": true
+    }
+  ],
+  "explicitly_unimplemented": "Everything in this JSON requires game-source integration and emulator testing. Event IDs and party levels are design identifiers, not addresses or compiled symbols."
+}
