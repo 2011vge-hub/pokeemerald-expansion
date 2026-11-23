@@ -21,6 +21,7 @@ group=json.loads(r("data/maps/map_groups.json"))
 assert group["gMapGroup_IndoorMossdeep"][-1]=="MossdeepCity_RangerBriefingRoom"
 layouts=json.loads(r("data/layouts/layouts.json"))["layouts"]
 assert sum(l["id"]=="LAYOUT_MOSSDEEP_CITY_RANGER_BRIEFING_ROOM" for l in layouts)==1
+assert 'data/maps/MossdeepCity_RangerBriefingRoom/scripts.inc' in r("data/event_scripts.s"), "Missing room script assembler include"
 room_data=json.loads(r("data/maps/MossdeepCity_RangerBriefingRoom/map.json"))
 assert room_data["object_events"]==[] and room_data["map_type"]=="MAP_TYPE_INDOOR"
 assert len((ROOT/"data/layouts/MossdeepCity_RangerBriefingRoom/map.bin").read_bytes())==320
