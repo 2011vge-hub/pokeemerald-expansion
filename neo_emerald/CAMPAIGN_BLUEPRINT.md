@@ -1,12 +1,28 @@
-# Pokémon: Neo Emerald — campaign blueprint v1
+# Pokémon: Neo Emerald — campaign blueprint v2
 
 **Adopted direction:** Eight Gyms in one authored order. Each leader fields a signature Mega. Optional exploration, team building and rematches carry player choice. The main campaign follows chapter events and badge victories. The route, ace levels, mystery resolution and encounter designs below are proposals for playtesting.
 
 ## Opening — The last ferry
 
-Twenty-five years after Emerald, Mossdeep has built upward. The player begins at a ferry terminal with two boarding passes. Their younger neighbor has gone back for the family's Poochyena. Go down one level, choose a rescue partner from Treecko, Torchic and Mudkip, and follow pawprints through the market. The return stairs flood in sight of the player. Open a shop's cargo shutter from the inside and lead the child and Pokémon across its loading bridge. A frightened wild Pokémon blocks the winch. The first battle teaches a status move and gives every starter a viable damage option. Losing returns the player to the medic at the bridge.
+The player is a rookie Ranger from Mossdeep. On their first real call they have two ferry tickets and one assignment: check names at the upper terminal. The neighbor kid runs back for the family's Poochyena. Dispatch says to hold position. From the platform, the player sees the incoming crew's access stairs collapse. Give control back here. Let the player radio the obstruction, choose Treecko, Torchic or Mudkip at the rescue post, and take the market stairs while they are still passable.
 
-Back aboard, the child asks why the siren sounded *after* the water came in. Give the player the ferry's time-stamped distress receipt. In Rustboro that scrap of paper becomes the first piece of evidence they can show someone. Revisit the survivors throughout the game. Let the child identify the market by its awning when its roof is all that remains.
+Follow wet pawprints past the shopkeeper to the child. A frightened wild Pokémon blocks the landing; give each starter a viable battle and recovery at the medic. Clip the line to the railing and lower the child to the shop landing. The railing tears loose; salt water floods the powered reel and transmitter. The shopkeeper opens their apartment and you lead everyone across the upstairs balcony to the tram platform. Keep the Space Center ridge visible from all three elevations. On the ferry, the radio still receives. Let the player hear the stranded crews while they walk the deck. The child asks why the siren sounded after the water came in. Retain the time-stamped ferry receipt. Land on the Rustboro-side coast and walk with the survivors to the academy shelter.
+
+## Ranger service and field gear
+
+May led some of Hoenn's best rescues before she and the Rangers who became Team Null broke with command. The rookie and May learn the same lesson at Mossdeep: the person on the ground can see what dispatch misses. In Mauville the player hears why May delayed the siren. Meet both the ranger who cut the locked gate and the shopkeeper who lost their home. When May hears the rookie's account, she asks, “You saw the stairs go down. Dispatch told you to stay. Tell me, Rookie—how long did you wait?” In the finale, the rookie gets the overlooked refuge onto the radio and waits for confirmation from the last boat. This time the people bearing the risk get a voice in the decision.
+
+One recognizable rig gains permanent functions. Field assignments grant equipment while Gym victories measure battle progression. Pokémon retain their moveslots. Dispatch calls lead the player to people who need help; optional calls remain available after the chapter. Log the call and destination so a returning player can pick up the thread.
+
+| Field training | First use on duty | Return journey |
+|---|---|---|
+| Rustboro mechanic repairs radio and line launcher | Transmit the shelter headcount. Anchor a line across the washed-out academy approach for the people behind you. | Cross marked gaps and hear familiar dispatch voices. |
+| Relicrest crew fits a rescue winch | Rig the repaired line through a pulley to raise a beam off the trapped survey crew's exit. | Move marked debris and operate freight lifts. |
+| Slateport captain issues an inflatable board before the Gym | Read the dock current, launch and bring a stranded passenger aboard. | Paddle back to Mossdeep, tie up at the same balcony and hear “Front door’s upstairs now.” |
+| Mauville equips a dive regulator | Enter Birch's flooded archive through a marked pocket of air beneath a working transit station. | Explore drowned streets beneath Pacifidlog. |
+| Fortree Ranger fits an ascent and carry harness | Bring a witness safely down from the canopy. Fresh knots on old bridges reveal that people live here before anyone says so. | Ascend marked cliffs and reach deeper Granite Cave shafts. |
+
+Tools move obstacles; partners find and reassure the people and Pokémon behind them. If a player raised Poochyena into Grimyena, give it a scent-tracking moment on a later rescue. Supply a local search partner for other teams. Keep required tools independent of party composition. Save each unlock and rescue outcome; test defeat, withdrawal and reload on either side of each crossing. Leave a walkable exit wherever the moving water changes a map.
 
 ## The eight chapters
 
