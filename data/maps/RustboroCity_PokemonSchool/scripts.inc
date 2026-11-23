@@ -342,3 +342,26 @@ RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge:
 	.string "It's hard to tell what you're like as\n"
 	.string "a TRAINER from a LEAGUE BADGE.$"
 
+
+
+@ Temporary on-wall lift terminal, preserving three existing blackboard topics.
+@ A proper elevator metatile and bigger exterior will replace this frontage.
+RustboroCity_PokemonSchool_EventScript_UniversityLift::
+	lockall
+	msgbox RustboroCity_PokemonSchool_Text_UniversityLiftPrompt, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_PokemonSchool_EventScript_UniversityLiftDeclined
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 7
+	waitstate
+	end
+
+RustboroCity_PokemonSchool_EventScript_UniversityLiftDeclined:
+	releaseall
+	end
+
+RustboroCity_PokemonSchool_Text_UniversityLiftPrompt:
+	.string "RUSTBORO UNIVERSITY LIFT\n"
+	.string "Upper lecture and research\n"
+	.string "floors are now accessible.\p"
+	.string "Go up to FLOOR TWO?$"
