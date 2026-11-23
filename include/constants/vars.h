@@ -271,9 +271,9 @@
 #define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
 #define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_NEO_RANGER_RANK                              0x40FC // Ranger rank (neo_ranger.h)
+#define VAR_NEO_RANGER_MISSIONS                          0x40FD // Completed Ranger missions
+#define VAR_NEO_RANGER_XP                                0x40FE // Earned field experience
 #define VAR_NEO_FERRY_DISPATCH                           0x40FF // 1: incoming, 2: report to sailor, 3: checked in
 
 #define VARS_END                                         0x40FF
