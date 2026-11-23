@@ -31,6 +31,8 @@ NEW_METATILES = [
     ('walkway_deck_shaded', ('mauville', 758), {}),
     ('walkway_deck', ('mauville', 766), {}),
     ('walkway_rail_south', ('mauville', 774), {}),
+    ('civic_roof_plain', 936, {4: (661, 8, 0, 0), 5: (661, 8, 0, 0), 6: (661, 8, 0, 0), 7: (661, 8, 0, 0)}),
+    ('civic_roof_top', 936, {4: (523, 8, 0, 0), 5: (523, 8, 0, 0), 6: (661, 8, 0, 0), 7: (661, 8, 0, 0)}),
 ]
 BEHAVIOR_OVERRIDE = {
     'walkway_rail_north': 0, 'walkway_deck_shaded': 0,

@@ -548,3 +548,13 @@ MossdeepCity_Text_RangerChildFound:
 MossdeepCity_Text_RangerPoochyena:
 	.string "POOCHYENA is shaking.\n"
 	.string "It won't take its eyes off the water.$"
+
+@ Neo Emerald v2: Ranger HQ placeholder facade (no interior yet).
+MossdeepCity_EventScript_RangerHQSign::
+	msgbox MossdeepCity_Text_RangerHQSign, MSGBOX_SIGN
+	end
+
+MossdeepCity_Text_RangerHQSign:
+	.string "MOSSDEEP RANGER HEADQUARTERS\p"
+	.string "Storm response in progress.\n"
+	.string "Rangers, report to DISPATCH.$"
