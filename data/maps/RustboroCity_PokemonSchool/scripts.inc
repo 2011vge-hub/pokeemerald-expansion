@@ -245,53 +245,54 @@ RustboroCity_PokemonSchool_Text_ExplainFreeze:
 	.string "Thaw it out using an ICE HEAL.$"
 
 RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw:
-	.string "Welcome to RUSTBORO UNIVERSITY!"
-	.string "My class studies field readiness.\p"
-	.string "ROXANNE still gives lectures"
-	.string "between her GYM challenges.\p"
-	.string "Take this QUICK CLAW for your"
-	.string "first practical assignment.$"
+	.string "Welcome to RUSTBORO\n"
+	.string "UNIVERSITY! This is Field\n"
+	.string "Studies 101.\p"
+	.string "ROXANNE still teaches here\n"
+	.string "between GYM challenges.\p"
+	.string "Take this QUICK CLAW for\n"
+	.string "your first field assignment.$"
 
 RustboroCity_PokemonSchool_Text_ExplainQuickClaw:
-	.string "The QUICK CLAW sometimes lets a"
-	.string "POKéMON move first in battle.\p"
-	.string "Out in the field, preparation"
+	.string "The QUICK CLAW may let a\n"
+	.string "POKéMON act first in battle.\p"
+	.string "In the field, preparation\n"
 	.string "matters as much as speed.$"
 
 RustboroCity_PokemonSchool_Text_TradingRightNow:
-	.string "We're trading field observations"
-	.string "from last week's storm.\p"
-	.string "Our ecology class tracks every"
-	.string "new POKéMON sighting.$"
+	.string "We are comparing notes on\n"
+	.string "last week's heavy storm.\p"
+	.string "Our class tracks new\n"
+	.string "POKéMON sightings.$"
 
 RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot:
-	.string "My friend came from GALAR!"
-	.string "We're comparing our regional"
-	.string "POKéMON habitats for class.$"
+	.string "My roommate is from GALAR!\p"
+	.string "We compare native habitats\n"
+	.string "for our ecology project.$"
 
 RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems:
-	.string "I'm researching DEVON's RANGER"
-	.string "gear for my final project.\p"
-	.string "Useful tools should help people"
-	.string "without replacing POKéMON.$"
+	.string "My final project studies\n"
+	.string "DEVON's RANGER equipment.\p"
+	.string "Tools should protect people\n"
+	.string "and POKéMON alike.$"
 
 RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself:
-	.string "Exams are coming up already..."
-	.string "My thesis is on POKéMON stress"
-	.string "during extreme weather.$"
+	.string "Exams are coming up...\p"
+	.string "My thesis is on POKéMON\n"
+	.string "stress in extreme weather.$"
 
 RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry:
-	.string "A POKéMON can use a BERRY, but"
-	.string "RANGERS need first-aid plans"
-	.string "for people and POKéMON alike.$"
+	.string "POKéMON can eat BERRIES,\n"
+	.string "but RANGERS must be ready\n"
+	.string "to help anyone in danger.$"
 
 RustboroCity_PokemonSchool_Text_StudentsNotes:
-	.string "Field Studies lecture notes:\p"
-	.string "1. Assess danger before acting.\p"
-	.string "2. Protect people and POKéMON.\p"
-	.string "3. Report environmental changes"
-	.string "   to the RANGER office.\p"
-	.string "4. Document each rescue.$"
+	.string "FIELD STUDIES NOTES:\p"
+	.string "1. Check risks before acting.\p"
+	.string "2. Protect everyone nearby.\p"
+	.string "3. Log unusual weather\n"
+	.string "   at the RANGER office.\p"
+	.string "4. Document every rescue.$"
 
 RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut:
 	.string "Hello? Didn't we meet before?\n"

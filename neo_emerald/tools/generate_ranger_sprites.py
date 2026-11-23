@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Generate Neo Emerald's first-pass male and female Ranger uniform pixel sprites.
+"""Build Neo Emerald Ranger player sprites from native Emerald overworld art.
 
-Reuses the game's proven Brendan/May animation frame geometry and animation
-tables, but paints new dark-haired Ranger heads, teal/navy field uniforms,
-silver-blue Ranger hair and rescue strap for the boy, and the girl's blue hair,
-orange top and teal shorts, to match the already-approved full ID portraits.
-This is a functional v1 art pass rather than finished hand-drawn animation art.
+In Ruby/Sapphire/Emerald the Pokémon Ranger trainer-class overworld uses the
+Campers (male) and Picnickers (female) art. Those built-in nine-frame 144x32
+sheets—not Brendan/May recolors—become the player's walking/running sheets.
+The hair, uniform and field-kit palette receives Neo Emerald Ranger colors.
+Other actions (surfing, fishing, cycling and battle backs) retain the player
+animation geometry and a temporary matching palette while dedicated Ranger
+action art is built and play-tested.
 
-Edits indexed PNGs and their JASC-PAL files in the build workspace so the
-underlying engine graphics IDs, palettes and sprite tables stay compatible.
-Source originals in Git are not changed by this script's CI invocation.
+Only modifies PNGs/PALs inside the *build workspace*, not tracked source assets.
+The 16-color indexed files retain compatible GBA animation tables.
 """
 import argparse
 from pathlib import Path
@@ -24,18 +25,33 @@ OUT=ROOT/'neo_emerald/out'
 # 4bpp-compatible shared identity, 16 entries including the transparency key.
 # Skin stays natural; deep navy silhouette, teal jacket, gray reflective panel,
 # gold identification, and a warm orange rescue tab.
+# Native Camper/Picnicker sprite indices 8–10 are their coat/uniform,
+# 4–7 are hair/headgear shadows, and 11–13 are warm accent/shoe tones.
+# Keep original 0=transparent, 1–3=skin, 14=white, 15=outline conventions.
 MALE=[
 (115,197,164),(255,213,180),(245,184,147),(204,133,105),
-(110,66,62),(49,86,121),(35,64,97),(22,43,73),
-(14,29,50),(191,210,213),(42,163,150),(21,112,112),
-(246,181,75),(205,97,57),(239,245,240),(10,18,31)
+(79,104,129),(181,207,221),(114,155,184),(45,78,111),
+(44,162,150),(27,111,113),(12,62,75),
+(245,171,74),(203,98,55),(111,50,40),(239,245,240),(10,18,31)
 ]
 FEMALE=[
 (115,197,164),(255,222,205),(232,177,153),(194,121,102),
-(107,53,50),(57,91,116),(39,64,100),(27,47,76),
-(19,31,55),(192,208,219),(44,169,153),(26,111,109),
-(247,178,75),(210,97,53),(241,242,238),(11,20,34)
+(36,54,96),(105,160,207),(62,117,167),(29,76,121),
+(46,163,151),(26,111,119),(13,69,78),
+(247,178,75),(210,97,53),(105,49,44),(241,242,238),(11,20,34)
 ]
+NATIVE_RANGER_SOURCES = {'brendan':'camper.png', 'may':'picnicker.png'}
+
+def native_ranger_walking(img, female=False):
+    # The original game gives campers/picnickers full matching 9x16 frames.
+    # Replacing the *pixel silhouette* is what corrects the wrong Brendan/May
+    # look; simply modifying Brendan/May's palette is not sufficient.
+    assert img.mode == 'P' and img.size == (144,32), (img.mode,img.size)
+    colors = FEMALE if female else MALE
+    img = img.copy()
+    assert max(img.getdata()) <= 15
+    img.putpalette([v for rgb in colors for v in rgb] + [0]*(768-48))
+    return img
 
 def paltext(colors):
     assert len(colors)==16
@@ -130,10 +146,14 @@ def apply():
                   'underwater.png','decorating.png','watering.png'}
         assert expected.issubset({p.name for p in sheets}),f'Missing {gender} graphics'
         for path in sheets:
-            with Image.open(path) as raw:
-                img=raw.copy()
             walk=path.name in ('walking.png','running.png')
-            img=reindex(img,isfemale,walk)
+            source = ASSETS / NATIVE_RANGER_SOURCES[gender] if walk else path
+            with Image.open(source) as raw:
+                img=raw.copy()
+            if walk:
+                img=native_ranger_walking(img,isfemale)
+            else:
+                img=reindex(img,isfemale,False)
             img.save(path, optimize=True, bits=4)
             if path.name=='walking.png':
                 views.append(img.convert('RGBA').resize((img.width*5,img.height*5),Image.Resampling.NEAREST))
