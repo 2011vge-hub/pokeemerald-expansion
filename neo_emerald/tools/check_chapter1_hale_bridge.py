@@ -26,6 +26,13 @@ assert "setvar VAR_NEO_FERRY_DISPATCH, 5" in waterfront, "Rescue credit must pre
 assert "HALE: The evacuation vessel made" in hq
 assert "Near MR. BRINEY's old cottage" in hq
 assert "siren sounded far too late" in hq
+assert "#define FLAG_NEO_C2_RIVAL_MET 0x26" in flags
+assert "setflag FLAG_NEO_C2_RIVAL_MET" in campus
+assert "checkplayergender" in campus.split("RustboroCity_EventScript_NeoRivalContact::", 1)[1]
+assert "RustboroCity_Text_NeoRivalNessaIntro" in campus
+assert "RustboroCity_Text_NeoRivalVernIntro" in campus
+assert "VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL" in campus
+assert "VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL" in campus
 
 body = hq.split("MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:", 1)[1].split(
     "MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:", 1
