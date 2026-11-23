@@ -50,6 +50,7 @@ static void SpriteCB_Pokeball(struct Sprite *sprite);
 static void SpriteCB_StarterPokemon(struct Sprite *sprite);
 
 static u16 sStarterLabelWindowId;
+static const u8 sRangerPartnerPrompt[] = _("Choose your Ranger partner!");
 
 const u16 gBirchBagGrass_Pal[] = INCGFX_U16("graphics/starter_choose/tiles.png", ".gbapal");
 static const u16 sPokeballSelection_Pal[] = INCGFX_U16("graphics/starter_choose/pokeball_selection.png", ".gbapal");
@@ -110,15 +111,16 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-#define GRASS_STARTER (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_TREECKO)
-#define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
-#define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
+// Neo Emerald's rescue partners; keep FireRed/LeafGreen's original choices intact.
+#define FIRST_STARTER  (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_POOCHYENA)
+#define SECOND_STARTER (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_SPHEAL)
+#define THIRD_STARTER  (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_BRELOOM)
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    GRASS_STARTER,
-    FIRE_STARTER,
-    WATER_STARTER,
+    FIRST_STARTER,
+    SECOND_STARTER,
+    THIRD_STARTER,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -349,7 +351,7 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
+    if (chosenStarterId >= STARTER_MON_COUNT)
         chosenStarterId = 0;
     return sStarterMon[chosenStarterId];
 }
@@ -474,7 +476,10 @@ static void Task_StarterChoose(u8 taskId)
 {
     CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
     DrawStdFrameWithCustomTileAndPalette(0, FALSE, 0x2A8, 0xD);
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_BirchInTrouble, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(0, FONT_NORMAL,
+                                !IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2
+                                    ? sRangerPartnerPrompt : gText_BirchInTrouble,
+                                0, 1, 0, NULL);
     PutWindowTilemap(0);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_HandleStarterChooseInput;
