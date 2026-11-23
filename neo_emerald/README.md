@@ -10,7 +10,7 @@
 - Custom Megas: Breloom (Grass/Fighting), Walrein (Water/Ice), Milotic (Water), and Grimyena.
 - **Chaos Spores:** Mega Breloom's contact-hit status attempt (20%; burn/sleep/poison/paralysis).
 - **Permafrost:** Mega Walrein brings hail/snow upon Mega Evolution, then gains +1 Sp. Atk and +1 Sp. Def at turn end while weather persists.
-- All eight Gyms use a signature Mega ace in a fixed story order. See [the campaign blueprint](CAMPAIGN_BLUEPRINT.md) for the chapter route, proposed encounters and ending.
+- The Gym circuit is now OPEN-ORDER with progression-scaled teams and signature Mega aces. Lower-level Gyms such as Rustboro remain available early. The older [campaign blueprint](CAMPAIGN_BLUEPRINT.md) retains historical proposals but is superseded where inconsistent by [current canon](design/current_canon_2026_11_23.md).
 - Story mysteries: Professor Birch missing, Norman missing for ~15 years, Team Null led by May.
 - The precise fates of Norman/Birch, Milotic's ability, Grimyena's evolution method, and individual Gym teams are **not locked**.
 
@@ -20,6 +20,13 @@
 - `data/abilities.json`: agreed vs proposed custom ability behavior.
 - `data/world.json`: evolving Hoenn, characters, geography, and Gym roster.
 - `tools/validate_design.py`: standard-library checks; run `python3 neo_emerald/tools/validate_design.py`.
+
+## Current integration handoff (2026-11-23)
+
+- **Working branch:** neo-emerald/rustboro-university-v1 (branched from mossdeep-city-v3-streets; do not modify master).
+- **Current canon:** [Current Story Canon](design/current_canon_2026_11_23.md), superseding fixed-order Gym and older ferry-route assumptions.
+- **Rustboro college town:** [Rustboro University stage A/B plan](design/rustboro_university_v1.md). Stage A has actual source changes to Rustboro NPCs, signs and the university classroom, with a new source-only validator. New exterior tiles and full story remain unimplemented.
+- **Game binaries:** previously generated Build 10/11 .gba files are separate patch-based prototypes, not proven compilations of this branch. An ARM compile and emulator regression playthrough are required before release.
 
 ## Ranger opening and terrain (development branch)
 

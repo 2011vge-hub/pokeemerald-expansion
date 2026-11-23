@@ -200,8 +200,9 @@ RustboroCity_PokemonSchool_EventScript_ScottWatchStudents::
 	end
 
 RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges:
-	.string "The blackboard lists status changes\n"
-	.string "that may affect POKéMON in battle.$"
+	.string "RUSTBORO UNIVERSITY\p"
+	.string "Battle Studies 101: status"
+	.string "conditions and safety.$"
 
 RustboroCity_PokemonSchool_Text_ReadWhichTopic:
 	.string "Which topic do you want to read?$"
@@ -244,62 +245,53 @@ RustboroCity_PokemonSchool_Text_ExplainFreeze:
 	.string "Thaw it out using an ICE HEAL.$"
 
 RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw:
-	.string "Students who don't study get a little\n"
-	.string "taste of my QUICK CLAW.\p"
-	.string "Whether or not you are a good student \n"
-	.string "will be evident from the way you use\l"
-	.string "this item.$"
+	.string "Welcome to RUSTBORO UNIVERSITY!"
+	.string "My class studies field readiness.\p"
+	.string "ROXANNE still gives lectures"
+	.string "between her GYM challenges.\p"
+	.string "Take this QUICK CLAW for your"
+	.string "first practical assignment.$"
 
 RustboroCity_PokemonSchool_Text_ExplainQuickClaw:
-	.string "A POKéMON holding the QUICK CLAW will\n"
-	.string "occasionally speed up and get to move\l"
-	.string "before its opponent.\p"
-	.string "There are many other items that are\n"
-	.string "meant to be held by POKéMON.\p"
-	.string "Just those alone will give you many\n"
-	.string "topics to study!$"
+	.string "The QUICK CLAW sometimes lets a"
+	.string "POKéMON move first in battle.\p"
+	.string "Out in the field, preparation"
+	.string "matters as much as speed.$"
 
 RustboroCity_PokemonSchool_Text_TradingRightNow:
-	.string "I'm trading POKéMON with my friend\n"
-	.string "right now.$"
+	.string "We're trading field observations"
+	.string "from last week's storm.\p"
+	.string "Our ecology class tracks every"
+	.string "new POKéMON sighting.$"
 
 RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot:
-	.string "I always wanted a SEEDOT, and\n"
-	.string "I'm finally getting one!$"
+	.string "My friend came from GALAR!"
+	.string "We're comparing our regional"
+	.string "POKéMON habitats for class.$"
 
 RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems:
-	.string "POKéMON can hold items, but they\n"
-	.string "don't know what to do with man-made\l"
-	.string "items like POTION and ANTIDOTE.$"
+	.string "I'm researching DEVON's RANGER"
+	.string "gear for my final project.\p"
+	.string "Useful tools should help people"
+	.string "without replacing POKéMON.$"
 
 RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself:
-	.string "You know how some POKéMON moves can\n"
-	.string "confuse a POKéMON?\p"
-	.string "A confused POKéMON will sometimes\n"
-	.string "attack itself without meaning to.\p"
-	.string "But once it leaves battle, it will\n"
-	.string "return to normal.$"
+	.string "Exams are coming up already..."
+	.string "My thesis is on POKéMON stress"
+	.string "during extreme weather.$"
 
 RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry:
-	.string "A POKéMON holding a BERRY will heal\n"
-	.string "itself…\p"
-	.string "There are many kinds of items that\n"
-	.string "POKéMON can hold…\p"
-	.string "Boy, it sure is hard taking notes\n"
-	.string "down…$"
+	.string "A POKéMON can use a BERRY, but"
+	.string "RANGERS need first-aid plans"
+	.string "for people and POKéMON alike.$"
 
 RustboroCity_PokemonSchool_Text_StudentsNotes:
-	.string "It's this student's notebook…\p"
-	.string "POKéMON are to be caught using\n"
-	.string "POKé BALLS.\p"
-	.string "Up to six POKéMON can accompany\n"
-	.string "a TRAINER.\p"
-	.string "A TRAINER is someone who catches\n"
-	.string "POKéMON, raises them, and battles\l"
-	.string "with them.\p"
-	.string "A TRAINER's mission is to defeat\n"
-	.string "the strong TRAINERS who await\l"
-	.string "challengers in POKéMON GYMS.$"
+	.string "Field Studies lecture notes:\p"
+	.string "1. Assess danger before acting.\p"
+	.string "2. Protect people and POKéMON.\p"
+	.string "3. Report environmental changes"
+	.string "   to the RANGER office.\p"
+	.string "4. Document each rescue.$"
 
 RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut:
 	.string "Hello? Didn't we meet before?\n"

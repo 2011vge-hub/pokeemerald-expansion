@@ -1,5 +1,7 @@
 # Pokémon: Neo Emerald — campaign blueprint v2
 
+> **HISTORICAL PLANNING DOCUMENT — SUPERSEDED IN PART (2026-11-23).** The fixed eight-Gym order and the ferry-landing/walking-to-Rustboro opening below are no longer current. The live design is an **open-order Gym circuit**, with Commander Hale flying the player to Rustboro after the full Mossdeep rescue, a university-campus Rustboro hub, and first mainland mission to Petalburg Woods/Briney's cottage. See [current canon](design/current_canon_2026_11_23.md) and [Rustboro University](design/rustboro_university_v1.md). Preserve older ideas only where they do not contradict those documents.
+
 **Adopted direction:** Eight Gyms in one authored order. Each leader fields a signature Mega. Optional exploration, team building and rematches carry player choice. The main campaign follows chapter events and badge victories. The route, ace levels, mystery resolution and encounter designs below are proposals for playtesting.
 
 ## Opening — Birch’s recording and the last ferry
