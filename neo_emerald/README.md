@@ -21,6 +21,15 @@
 - `data/world.json`: evolving Hoenn, characters, geography, and Gym roster.
 - `tools/validate_design.py`: standard-library checks; run `python3 neo_emerald/tools/validate_design.py`.
 
+## Ranger opening and terrain (development branch)
+
+- In-game Ranger starter selection: **Poochyena / Spheal / Shroomish** on `neo-emerald/phase-1-ranger-starters` (code committed, ROM not yet built or playtested).
+- Mossdeep dispatch now opens the three-ball chooser and returns to the map instead of the old Route 101 first battle; sailor and local NPCs provide first rescue clues.
+- Terrain plan and source coordinates: [Mossdeep opening and terrain specification](design/mossdeep_opening_terrain.md).
+- Original Mossdeep map collision and visuals have **not** yet been rebuilt.
+- This branch does not yet include Claude's local-only respawn patch from `neo-emerald/phase-1-opening`; reconcile before building the next ROM.
+- Shroomish still evolves into Breloom normally; a future third-stage evolution after Breloom is a design idea, not implemented.
+
 ## Implementation milestones
 
 1. **First build** of the Neo Emerald working branch, using a supported ARM toolchain. Do not assume GitHub Actions quota is available.
