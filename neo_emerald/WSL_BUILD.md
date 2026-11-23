@@ -63,6 +63,18 @@ Copy the new .gba into iCloud Drive, OneDrive or another file-transfer location 
 - Save/reload and blackout return to Mossdeep's safe heal location
 - Lower shelf is walkable but upper exits remain open
 
+Run the map collision smoke check before changing geometry:
+
+```bash
+python3 neo_emerald/tools/map/mossdeep_paths.py data/layouts/MossdeepCity_Storm/map.bin
+```
+
+To regenerate terrain screenshots, optionally install Pillow via `sudo apt install python3-pil`, then run:
+
+```bash
+python3 neo_emerald/tools/map/render_layout.py data/layouts/MossdeepCity_Storm/map.bin mossdeep_storm.png
+```
+
 Record the **first build error** (not merely the last line) if compilation fails.
 
 ## Porymap
