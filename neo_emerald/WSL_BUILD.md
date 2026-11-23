@@ -21,10 +21,10 @@ arm-none-eabi-gcc --version
 ```
 
 
-If your Ubuntu architecture doesn't offer those packages, follow the repository's current \`docs/install/windows/WSL.md\` guidance rather than downloading random third-party compilers.
+If your Ubuntu architecture doesn't offer those packages, follow the repository's current `docs/install/windows/WSL.md` guidance rather than downloading random third-party compilers.
 
 ## 3. Clone and select the flood branch
-Keep files in the Linux home directory, not \`/mnt/c/\`.
+Keep files in the Linux home directory, not `/mnt/c/`.
 
 ```bash
 git clone https://github.com/2011vge-hub/pokeemerald-expansion.git ~/pokeemerald-expansion
@@ -33,7 +33,7 @@ git switch neo-emerald/mossdeep-flood-m1
 ```
 
 
-**Do not apply \`mossdeep-flood-m1.patch\`:** its storm terrain and NPCs are already committed to this branch, with the correct binary SHA.
+**Do not apply `mossdeep-flood-m1.patch`:** its storm terrain and NPCs are already committed to this branch, with the correct binary SHA.
 
 ## 4. Build and check
 ```bash
@@ -43,7 +43,7 @@ bash neo_emerald/tools/build.sh
 ```
 
 
-If successful, the output is \`neo_emerald/out/NeoEmerald_Prototype.gba\`.
+If successful, the output is `neo_emerald/out/NeoEmerald_Prototype.gba`.
 
 ## 5. Import to Delta
 Use Windows File Explorer to open:
@@ -66,4 +66,4 @@ Copy the new .gba into iCloud Drive, OneDrive or another file-transfer location 
 Record the **first build error** (not merely the last line) if compilation fails.
 
 ## Porymap
-Open the WSL repo through the \`\\wsl.localhost\Ubuntu\home\...\` path. Edit \`LAYOUT_MOSSDEEP_CITY_STORM\` only; the original \`LAYOUT_MOSSDEEP_CITY\` is the preserved baseline. Modernize the upper city according to \`neo_emerald/design/mossdeep_city_v2.md\`.
+Open the WSL repo through the `\\wsl.localhost\Ubuntu\home\...` path. Edit `LAYOUT_MOSSDEEP_CITY_STORM` only; the original `LAYOUT_MOSSDEEP_CITY` is the preserved baseline. Modernize the upper city according to `neo_emerald/design/mossdeep_city_v2.md`.
