@@ -18,6 +18,7 @@ python3 neo_emerald/tools/check_starters_and_gym.py
 python3 neo_emerald/tools/check_mission_training.py
 python3 neo_emerald/tools/check_rustboro_university.py
 python3 neo_emerald/tools/check_chapter1_hale_bridge.py
+python3 neo_emerald/tools/check_delta_playtest_fixes.py
 python3 neo_emerald/tools/generate_ranger_sprites.py
 
 JOBS="${JOBS:-2}"

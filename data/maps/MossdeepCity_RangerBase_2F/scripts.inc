@@ -30,6 +30,11 @@ MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:
 	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1EmergencyCall, MSGBOX_DEFAULT
 	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1FlightOrders, MSGBOX_DEFAULT
 	closemessage
+	@ Rustboro becomes the respawn destination before risking a Gym whiteout.
+	setrespawn HEAL_LOCATION_RUSTBORO_CITY
+	@ Simple fade and travel audio are provisional until Hale's flight animation exists.
+	playse SE_WARP_OUT
+	fadescreen FADE_TO_BLACK
 	@ Commit the transfer before warping so revisiting Hale never repeats it.
 	setflag FLAG_NEO_C1_FLIGHT_RUSTBORO
 	warp MAP_RUSTBORO_CITY, 27, 35

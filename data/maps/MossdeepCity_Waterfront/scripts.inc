@@ -23,6 +23,10 @@ MossdeepCity_Waterfront_OnFrame:
 @ On-frame boarding scene. State 5 is set before paying +1 mission and +100 XP.
 MossdeepCity_Waterfront_EventScript_Boarding:
 	lockall
+	@ Both evacuees turn toward the Ranger before thanks and boarding.
+	applymovement LOCALID_WATERFRONT_RESCUE_CHILD, Common_Movement_FacePlayer
+	applymovement LOCALID_WATERFRONT_RESCUE_POOCHYENA, Common_Movement_FacePlayer
+	waitmovement 0
 	msgbox MossdeepCity_Waterfront_Text_CrewSpotsThem, MSGBOX_DEFAULT
 	msgbox MossdeepCity_Waterfront_Text_BoyThanks, MSGBOX_DEFAULT
 	msgbox MossdeepCity_Waterfront_Text_CrewDodges, MSGBOX_DEFAULT

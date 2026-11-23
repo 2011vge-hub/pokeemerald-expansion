@@ -17,7 +17,7 @@ assert (door["x"], door["y"])==(38,9)
 guards=[o for o in gym["object_events"] if o.get("local_id")=="LOCALID_NEO_MOSSDEEP_GYM_GUARD"]
 assert len(guards)==1
 guard=guards[0]
-assert (guard["x"],guard["y"],guard["elevation"])==(38,10,5)
+assert (guard["x"],guard["y"],guard["elevation"])==(38,9,5)  # Door tile, not pedestrian walkway
 assert guard["flag"]=="FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED"
 assert guard["script"]=="MossdeepCity_EventScript_NeoGymClosed"
 city=read("data/maps/MossdeepCity/scripts.inc")
