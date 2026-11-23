@@ -10,7 +10,11 @@ MossdeepCity_RangerOnFrame:
 MossdeepCity_RangerFirstCall:
 	lockall
 	msgbox MossdeepCity_Text_RangerFirstCall, MSGBOX_DEFAULT
+	msgbox MossdeepCity_Text_RangerPartnerOffer, MSGBOX_DEFAULT
 	setvar VAR_NEO_FERRY_DISPATCH, 2
+	setflag FLAG_SYS_POKEMON_GET
+	special ChooseStarter
+	msgbox MossdeepCity_Text_RangerPartnerAssigned, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -20,6 +24,17 @@ MossdeepCity_Text_RangerFirstCall:
 	.string "We need a head count.\p"
 	.string "Find the sailor by the GYM.\n"
 	.string "He has your passenger list.$"
+
+MossdeepCity_Text_RangerPartnerOffer:
+	.string "DISPATCH: Three rescue partners\n"
+	.string "are available for this mission.\p"
+	.string "Choose POOCHYENA, SPHEAL,\n"
+	.string "or BRELOOM.$"
+
+MossdeepCity_Text_RangerPartnerAssigned:
+	.string "DISPATCH: Partner registered.\p"
+	.string "Proceed to the sailor and\n"
+	.string "report for duty, Ranger.$"
 
 MossdeepCity_RangerCheckIn:
 	lock
