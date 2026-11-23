@@ -52,8 +52,8 @@
 #else
 
 #define FLAG_NEO_RANGER_KIT_ISSUED    0x20 // Neo Emerald: Quartermaster issued rookie kit
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
+#define FLAG_NEO_HIDE_LANDING_RESCUEES 0x21 // Hides boy and Poochyena on Mossdeep landing
+#define FLAG_NEO_HIDE_QUAY_RESCUEES    0x22 // Hides pair on ferry quay
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag

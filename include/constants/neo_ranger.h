@@ -34,4 +34,7 @@
 #define RANGER_REQ_TOP_XP            1600
 #define RANGER_REQ_TOP_BADGES        8
 
+// First rescue pays once when the ferry boarding scene is completed.
+#define NEO_MISSION_FERRY_RESCUE_XP  100
+
 #endif // GUARD_CONSTANTS_NEO_RANGER_H
