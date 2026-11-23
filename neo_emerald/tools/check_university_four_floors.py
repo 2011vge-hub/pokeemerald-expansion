@@ -31,6 +31,13 @@ for floor,(layout,targets) in expect.items():
     assert [w["dest_map"] for w in m["warp_events"]]==targets
     assert len(m["object_events"])==2
     assert all(f'{e["script"]}::' in src for e in m["object_events"])
+# Both map_events and maps.s refer to labels defined in data/event_scripts.s.
+# Ensure that actual event assembly includes all new floor scripts, not just
+# that their files exist in the source checkout.
+assembly=read("data/event_scripts.s")
+for floor in ("2F", "3F", "4F"):
+    include=f'\t.include "data/maps/RustboroCity_University_{floor}/scripts.inc"'
+    assert assembly.count(include)==1, f"University {floor} scripts not linked exactly once"
 assert "OBJ_EVENT_GFX_ROXANNE" in read("data/maps/RustboroCity_University_4F/map.json")
 assert "I lead this university" in read("data/maps/RustboroCity_University_4F/scripts.inc")
 print("Four-floor Rustboro University source checks PASS; still needs compile/emulator walkability test")
