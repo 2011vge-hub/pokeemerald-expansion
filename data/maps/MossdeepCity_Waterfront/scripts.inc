@@ -43,9 +43,15 @@ MossdeepCity_Waterfront_EventScript_Boarding:
 	setvar VAR_NEO_FERRY_DISPATCH, 5
 	addvar VAR_NEO_RANGER_MISSIONS, 1
 	addvar VAR_NEO_RANGER_XP, NEO_MISSION_FERRY_RESCUE_XP
+	@ 0 = ordinary rank-scaled mission (250..450 EXP), 1 = major story mission (1,000).
+	@ This Pokémon credit is saved and applied during the registered partner's
+	@ next EXP-earning battle, preserving level-up moves and evolution.
+	setvar VAR_0x8004, 0
+	special NeoRangerCreditMissionTraining
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	msgbox MossdeepCity_Waterfront_Text_MissionComplete, MSGBOX_DEFAULT
+	msgbox MossdeepCity_Waterfront_Text_PartnerTraining, MSGBOX_DEFAULT
 	msgbox MossdeepCity_Waterfront_Text_DispatchDebrief, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -101,6 +107,12 @@ MossdeepCity_Waterfront_Text_MissionComplete:
 	.string "MOSSDEEP EVACUATION\p"
 	.string "+1 RANGER MISSION\n"
 	.string "+100 RANGER XP$"
+
+MossdeepCity_Waterfront_Text_PartnerTraining:
+	.string "RANGER PARTNER TRAINING:\n"
+	.string "+{STR_VAR_1} POKéMON EXP reserved!\p"
+	.string "Your partner earns this bonus\n"
+	.string "after its next battle.$"
 
 MossdeepCity_Waterfront_Text_DispatchDebrief:
 	.string "DISPATCH: Every passenger accounted\n"

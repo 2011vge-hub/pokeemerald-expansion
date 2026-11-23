@@ -70,6 +70,7 @@
 #include "constants/slot_machine.h"
 #include "constants/songs.h"
 #include "constants/moves.h"
+#include "constants/neo_ranger.h"
 #include "constants/party_menu.h"
 #include "constants/battle_frontier.h"
 #include "constants/weather.h"
@@ -5765,4 +5766,29 @@ bool8 CheckAddCoins(void)
         return FALSE;
     else
         return TRUE;
+}
+
+// Bank mission-based Pokémon EXP instead of directly editing levels.
+// The normal battle controller awards it during the starter's next
+// eligible battle, so move-learning, evolution, and level-up UI all
+// remain identical to battle-earned experience.
+void NeoRangerCreditMissionTraining(void)
+{
+    u16 rank = VarGet(VAR_NEO_RANGER_RANK);
+    u16 amount;
+    u32 total;
+
+    if (gSpecialVar_0x8004 == 1) // Major story mission
+        amount = NEO_RANGER_TRAINING_XP_MAJOR;
+    else
+        amount = NEO_RANGER_TRAINING_XP_ROOKIE
+               + min(rank, RANGER_RANK_TOP) * NEO_RANGER_TRAINING_XP_STEP;
+
+    total = VarGet(VAR_NEO_PARTNER_EXP_PENDING) + amount;
+    if (total > 0xFFFF)
+        total = 0xFFFF;
+
+    VarSet(VAR_NEO_PARTNER_EXP_PENDING, total);
+    ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, 4);
+    gSpecialVar_Result = amount;
 }

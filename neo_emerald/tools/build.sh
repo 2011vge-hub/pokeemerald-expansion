@@ -15,6 +15,7 @@ python3 neo_emerald/tools/check_rescue_once.py
 python3 neo_emerald/tools/check_ferry_visuals.py
 python3 neo_emerald/tools/check_ranger_opening.py
 python3 neo_emerald/tools/check_starters_and_gym.py
+python3 neo_emerald/tools/check_mission_training.py
 python3 neo_emerald/tools/generate_ranger_sprites.py
 
 JOBS="${JOBS:-2}"

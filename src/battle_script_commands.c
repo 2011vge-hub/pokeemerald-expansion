@@ -64,6 +64,7 @@
 #include "constants/item_effects.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
+#include "constants/vars.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainer_slide.h"
@@ -2294,6 +2295,34 @@ static void Cmd_getexp(void)
                     }
 
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
+
+                    // Neo Emerald Ranger field training credit is paid only to
+                    // the ORIGINAL selected partner, on its next eligible EXP
+                    // award. This goes through the normal EXP controller so
+                    // level-up moves and evolution are not skipped.
+                    if (!IS_FRLG && VarGet(VAR_NEO_PARTNER_EXP_PENDING) > 0)
+                    {
+                        struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][*expMonId];
+                        u32 personality = GetMonData(partner, MON_DATA_PERSONALITY);
+                        u32 registered = VarGet(VAR_NEO_STARTER_PERSONALITY_LO)
+                                       | ((u32)VarGet(VAR_NEO_STARTER_PERSONALITY_HI) << 16);
+                        if (personality == registered && gBattleStruct->battlerExpReward > 0)
+                        {
+                            enum GrowthRate rate = gSpeciesInfo[GetMonData(partner, MON_DATA_SPECIES)].growthRate;
+                            u32 ceilingLevel = B_EXP_CAP_TYPE == EXP_CAP_HARD ? GetCurrentLevelCap() : MAX_LEVEL;
+                            u32 ceiling = gExperienceTables[rate][ceilingLevel];
+                            u32 current = GetMonData(partner, MON_DATA_EXP);
+                            u32 pending = VarGet(VAR_NEO_PARTNER_EXP_PENDING);
+                            u32 room = 0;
+                            u32 bonus;
+
+                            if (ceiling > current + gBattleStruct->battlerExpReward)
+                                room = ceiling - (current + gBattleStruct->battlerExpReward);
+                            bonus = min(pending, room);
+                            gBattleStruct->battlerExpReward += bonus;
+                            VarSet(VAR_NEO_PARTNER_EXP_PENDING, pending - bonus);
+                        }
+                    }
 
                     if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
                     {

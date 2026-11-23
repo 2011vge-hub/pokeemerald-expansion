@@ -1044,6 +1044,14 @@ static void CB2_GiveStarter(void)
             // signature on variants with a full four-move level-5 learnset.
             if (GiveMoveToMon(partner, signature) == MON_HAS_MAX_MOVES)
                 SetMonMoveSlot(partner, signature, MAX_MON_MOVES - 1);
+
+            // Keep a permanent ID for this exact Pokémon across evolution,
+            // party reshuffles, deposits and withdrawals. Never match species
+            // alone: the player could catch another Poochyena/Spheal/Shroomish.
+            u32 personality = GetMonData(partner, MON_DATA_PERSONALITY);
+            VarSet(VAR_NEO_STARTER_PERSONALITY_LO, personality & 0xFFFF);
+            VarSet(VAR_NEO_STARTER_PERSONALITY_HI, personality >> 16);
+            VarSet(VAR_NEO_PARTNER_EXP_PENDING, 0);
         }
     }
     ResetTasks();

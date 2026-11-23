@@ -6,10 +6,11 @@
 // VAR_NEO_RANGER_MISSIONS and VAR_NEO_RANGER_XP.
 // Badges are counted from FLAG_BADGE01_GET through FLAG_BADGE08_GET.
 // Commander Hale promotes one rank at a time when all requirements are met.
-// Mission credit is not yet wired into the ferry rescue.
-// Example of a future completion script:
-//   addvar VAR_NEO_RANGER_MISSIONS, 1
-//   addvar VAR_NEO_RANGER_XP, 100
+// Ferry rescue credits +1 mission and +100 Ranger career XP exactly once.
+// Pokémon training EXP is separate: +250 Rookie, +300 Ranger, +350 Senior,
+// +400 Area, +450 Top (plateau); major story events can grant +1000.
+// Training EXP is saved until the ORIGINAL registered starter earns battle
+// EXP, preserving the standard leveling, move-learning and evolution UI.
 
 #define RANGER_RANK_ROOKIE   0
 #define RANGER_RANK_RANGER   1
@@ -36,5 +37,8 @@
 
 // First rescue pays once when the ferry boarding scene is completed.
 #define NEO_MISSION_FERRY_RESCUE_XP  100
+#define NEO_RANGER_TRAINING_XP_ROOKIE 250
+#define NEO_RANGER_TRAINING_XP_STEP     50
+#define NEO_RANGER_TRAINING_XP_MAJOR 1000
 
 #endif // GUARD_CONSTANTS_NEO_RANGER_H
