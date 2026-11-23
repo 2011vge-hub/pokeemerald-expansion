@@ -8,11 +8,11 @@
     6,
     8
   ],
-  "opening": "Mossdeep evacuation (map design must be completed before event scripting)",
+  "opening": "Two boarding passes at the upper ferry terminal. Rescue the neighbor and Poochyena through the market and shopkeeper’s balcony. The powered reel and radio transmitter fail during the rescue.",
   "factions": [
     "Neo Magma - successor led by Maxie's child",
     "Neo Aqua - successor led by Archie's child",
-    "Team Null - ranger/conservation intervention group led by May; exact history involving Birch and Norman unresolved"
+    "Team Null — former Hoenn Rangers who broke from command under May. They still conduct rescues and intervene without dispatch approval."
   ],
   "people": [
     "Professor Birch missing; moved newer lab to Mauville before disappearance",
@@ -145,5 +145,31 @@
       "mega_ace": "BANETTE_MEGA",
       "ace_status": "proposed"
     }
-  ]
+  ],
+  "protagonist": "A rookie Pokémon Ranger from Mossdeep on their first evacuation call.",
+  "field_progression": {
+    "rule": "Persistent Ranger rig upgrades replace HM traversal. Dispatch and local field training grant equipment independently of badges.",
+    "upgrades": [
+      [
+        "Rustboro",
+        "Two-way radio and line launcher"
+      ],
+      [
+        "Relicrest",
+        "Rescue winch"
+      ],
+      [
+        "Slateport, before Gym 4",
+        "Inflatable rescue board"
+      ],
+      [
+        "Mauville",
+        "Dive regulator"
+      ],
+      [
+        "Fortree refuge",
+        "Advanced climbing harness"
+      ]
+    ]
+  }
 }
