@@ -558,3 +558,13 @@ MossdeepCity_Text_RangerHQSign:
 	.string "MOSSDEEP RANGER HEADQUARTERS\p"
 	.string "Storm response in progress.\n"
 	.string "Rangers, report to DISPATCH.$"
+
+@ Neo Emerald v2: evacuated apartment facade (no interior yet).
+MossdeepCity_EventScript_EvacuatedApartment::
+	msgbox MossdeepCity_Text_EvacuatedApartment, MSGBOX_SIGN
+	end
+
+MossdeepCity_Text_EvacuatedApartment:
+	.string "The door is locked.\p"
+	.string "A note: EVACUATED - ALL RESIDENTS\n"
+	.string "ACCOUNTED FOR. -MOSSDEEP RANGERS$"

@@ -25,7 +25,23 @@ KITS={
 }
 DOOR_COLUMN={'apartment_3f':1,'apartment_4f':1,'ranger_hq':2,'ranger_hq_tower':1}
 WALK_BEHIND_TOP={'apartment_3f':True,'apartment_4f':True,'ranger_hq':False,'ranger_hq_tower':False}
-PLACEMENTS=[('ranger_hq_tower',32,13)]
+SPAWN=(28,17)
+
+
+def protected_tiles():
+    """Preserve spawn and tile in front of each door or north-facing sign."""
+    m=json.load(open(u.MAP))
+    doors=[(w['x'],w['y']) for w in m['warp_events']] + [
+        (b['x'],b['y']) for b in m['bg_events']
+        if b.get('player_facing_dir')=='BG_EVENT_PLAYER_FACING_NORTH'
+    ]
+    return {SPAWN}|{(x,y+1) for x,y in doors}
+
+
+# House 4 gets a third storey while preserving its original base, door and warp.
+RAISES=[('apartment_3f',17,16)]
+# Earlier HQ was placed in the preceding commit; do not re-run it.
+PLACEMENTS=[('apartment_3f',46,25)]
 
 
 def collision(kit,row_index):
@@ -50,6 +66,8 @@ def site_ok(g,kit,x0,y0,events):
         return False
     if any((g[y*u.W+x]>>10)&3 for x,y in fp) or any(p in events for p in fp):
         return False
+    if any(p in protected_tiles() for p in fp):
+        return False
     dx,dy=door(kit,x0,y0)
     front=(dx,dy+1)
     return 0<=front[1]<u.H and not (g[front[1]*u.W+front[0]]>>10)&3 and front not in events
@@ -60,6 +78,30 @@ def place(g,kit,x0,y0):
         for i,mid in enumerate(row):
             t=(y0+j)*u.W+x0+i
             g[t]=mid | collision(kit,j)<<10 | (g[t]&0xf000)
+
+
+def raise_ok(g,kit,x0,base_y,events):
+    rows=KITS[kit]
+    top=base_y-len(rows)+1
+    have_base=[g[base_y*u.W+x0+i]&0x3ff for i in range(4)]
+    if have_base!=BASE:
+        return False
+    old_top=base_y-3
+    for y in range(top,old_top):
+        for x in range(x0,x0+4):
+            v=g[y*u.W+x]
+            if (v>>10)&3 or (x,y) in events or (x,y) in protected_tiles() or v>>12 in (0,1,15):
+                return False
+    return True
+
+
+def raise_house(g,kit,x0,base_y):
+    rows=KITS[kit]
+    top=base_y-len(rows)+1
+    for j,row in enumerate(rows[:-1]):
+        for i,mid in enumerate(row):
+            t=(top+j)*u.W+x0+i
+            g[t]=mid|collision(kit,j)<<10|(g[t]&0xf000)
 
 
 def main():
@@ -79,6 +121,9 @@ def main():
                     ok=not bad and not sea and front in u.reachable(t)
                     print((x0,y0),'OK' if ok else f'breaks {bad},sea={sea},front={front in u.reachable(t)}')
         return
+    for kit,x0,base_y in RAISES:
+        assert raise_ok(g,kit,x0,base_y,events), f'cannot raise house at {x0},{base_y}; already raised?'
+        raise_house(g,kit,x0,base_y)
     for kit,x0,y0 in PLACEMENTS:
         assert site_ok(g,kit,x0,y0,events), f'site {x0},{y0} no longer suitable'
         place(g,kit,x0,y0)
