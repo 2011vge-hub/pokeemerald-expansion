@@ -510,3 +510,41 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
 
+
+@ Neo Emerald flood milestone 1: child and Poochyena on the last dry
+@ landing below south stairs. Dialogue only; no rescue completion state.
+MossdeepCity_EventScript_RangerChild::
+	lock
+	faceplayer
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerChildFound
+	msgbox MossdeepCity_Text_RangerChildEarly, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_RangerChildFound:
+	msgbox MossdeepCity_Text_RangerChildFound, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_EventScript_RangerPoochyena::
+	lock
+	faceplayer
+	playmoncry SPECIES_POOCHYENA, CRY_MODE_NORMAL
+	msgbox MossdeepCity_Text_RangerPoochyena, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+MossdeepCity_Text_RangerChildEarly:
+	.string "The water came up so fast!\p"
+	.string "My POOCHYENA won't leave the\n"
+	.string "steps. I'm not going without him!$"
+
+MossdeepCity_Text_RangerChildFound:
+	.string "You're a RANGER? The sailor sent you?\p"
+	.string "POOCHYENA's too scared to climb.\n"
+	.string "Please don't let the ferry leave!$"
+
+MossdeepCity_Text_RangerPoochyena:
+	.string "POOCHYENA is shaking.\n"
+	.string "It won't take its eyes off the water.$"

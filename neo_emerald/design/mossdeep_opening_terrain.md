@@ -1,7 +1,19 @@
 # Mossdeep opening — terrain and story implementation plan (Neo Emerald)
 
-Status: **design specification, NOT yet an edited terrain map or verified ROM.**
-Source anchor: `data/maps/MossdeepCity/map.json`; layout `data/layouts/MossdeepCity_Storm/map.bin` is now a byte-identical working copy of the vanilla layout. The existing layout has 3,200 metatiles (80x40 at two bytes each). Ground walkability and collision **have not been verified** for proposed new geometry. All locations below marked **planned** are subject to map-editor validation.
+Status: **terrain milestone 1 integrated on `neo-emerald/mossdeep-flood-m1` (source only; ROM not yet compiled or playtested).**
+Source anchor: `data/maps/MossdeepCity/map.json`; layout `data/layouts/MossdeepCity_Storm/map.bin` now contains the first staged flood; original `data/layouts/MossdeepCity/map.bin` remains the backup. The existing layout has 3,200 metatiles (80x40 at two bytes each). Ground walkability and collision **have not been verified** for proposed new geometry. All locations below marked **planned** are subject to map-editor validation.
+
+
+## Flood milestone 1 — exact reconstructed Claude terrain
+
+- Storm layout matches Claude's supplied patch binary blob SHA: `f0fff01a0203450e36aab46b828a0af6c97c5afa` (6400 bytes, 80x40 metatiles). Original Mossdeep map remains unaltered.
+- Open sea replaces low western and southern walkable shoreline; impassable ocean is placed at the west staircase foot to avoid stepping onto ocean from elevation-zero transitions.
+- The south-east shelf, bounded x40–66, y32+, uses shallow-water metatile 414, preserving walkability.
+- The missing child (33,30) and Poochyena (32,30) appear together on a dry landing. Their dialogue has no rescue-completion state yet.
+- Two Black Belt NPCs were relocated to (23,21) and (34,26), elevation 5.
+- In-game thunderstorm weather is configured; dynamic lightning/rain behavior must be tested on emulator.
+- Source-level geometric checks and source scripts were reviewed, but no playable ROM has been produced or tested from this branch.
+- Follow-up polish: clean grey corners around half-submerged trees and the sharp western sandbank edge. Then improve city architecture per [Mossdeep City 2.0](mossdeep_city_v2.md).
 
 ## Creative objective
 
