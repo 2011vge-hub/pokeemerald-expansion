@@ -9,6 +9,11 @@ MossdeepCity_Waterfront_OnTransition:
 	goto_if_ne VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_OnTransitionDone
 	clearflag FLAG_NEO_HIDE_QUAY_RESCUEES
 MossdeepCity_Waterfront_OnTransitionDone:
+	@ Show the docked ferry until the evacuation has departed (state 5).
+	setflag FLAG_NEO_HIDE_DEPARTED_FERRY
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_Waterfront_FerryVisibilityDone
+	clearflag FLAG_NEO_HIDE_DEPARTED_FERRY
+MossdeepCity_Waterfront_FerryVisibilityDone:
 	end
 
 MossdeepCity_Waterfront_OnFrame:
@@ -28,6 +33,13 @@ MossdeepCity_Waterfront_EventScript_Boarding:
 	removeobject LOCALID_WATERFRONT_RESCUE_CHILD
 	removeobject LOCALID_WATERFRONT_RESCUE_POOCHYENA
 	setflag FLAG_NEO_HIDE_QUAY_RESCUEES
+	msgbox MossdeepCity_Waterfront_Text_FerryDeparts, MSGBOX_DEFAULT
+	closemessage
+	@ Small fade masks the ship's departure without changing travel or rank logic.
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_NEO_HIDE_DEPARTED_FERRY
+	removeobject LOCALID_WATERFRONT_FERRY
+	fadescreen FADE_FROM_BLACK
 	setvar VAR_NEO_FERRY_DISPATCH, 5
 	addvar VAR_NEO_RANGER_MISSIONS, 1
 	addvar VAR_NEO_RANGER_XP, NEO_MISSION_FERRY_RESCUE_XP
@@ -79,6 +91,10 @@ MossdeepCity_Waterfront_Text_BoyThanks:
 MossdeepCity_Waterfront_Text_CrewDodges:
 	.string "SAILOR: ...Equipment fault. Storms\n"
 	.string "do that. Come on, kid. Aboard.$"
+
+MossdeepCity_Waterfront_Text_FerryDeparts:
+	.string "The ferry's engines roar to life.\p"
+	.string "The last evacuees are aboard!$"
 
 MossdeepCity_Waterfront_Text_MissionComplete:
 	.string "MISSION COMPLETE:\n"

@@ -41,6 +41,13 @@ BEHAVIOR_OVERRIDE = {
     'walkway_deck': 0, 'walkway_rail_south': 0,
     'walkway_deck_rail_west': 0, 'walkway_deck_rail_east': 0,
 }
+# 0=normal: upper art goes to BG1 (draws OVER characters).
+# 1=covered: upper art goes to BG2 (draws BEHIND characters).
+# Every walkable board/plank must be COVERED; solid rails remain NORMAL.
+LAYER_OVERRIDE = {
+    'walkway_deck_shaded': 1, 'walkway_deck': 1,
+    'walkway_deck_rail_west': 1, 'walkway_deck_rail_east': 1,
+}
 
 
 def read_u16(path):
@@ -101,6 +108,8 @@ def build(metas, attrs):
             entries, attr = foreign(*base)
             if name in BEHAVIOR_OVERRIDE:
                 attr = (attr & 0xff00) | BEHAVIOR_OVERRIDE[name]
+            if name in LAYER_OVERRIDE:
+                attr = (attr & 0x0fff) | (LAYER_OVERRIDE[name] << 12)
             out_m += entries
             out_a.append(attr)
             continue

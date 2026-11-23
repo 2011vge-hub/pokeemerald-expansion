@@ -79,7 +79,7 @@ Visibility: `FLAG_NEO_HIDE_LANDING_RESCUEES` hides the pair on the landing at st
 
 At state 3, speaking to the boy calms his Poochyena and fades the party to the waterfront. At state 4, the boy asks why the siren sounded late; the ferry crew offers an evasive answer. The pair walks toward the ferry, the mission reaches state 5, and **one mission and 100 field XP** are awarded before the completion message. Re-entry at state 5 should not replay the reward.
 
-Still planned: a walking escort/follower, first battle, tether mechanic, visible ferry boat, and dated ticket evidence.
+Still planned: a walking escort/follower, first battle, tether mechanic, animated ferry sailing, and dated ticket evidence. A docked SS Tidal sprite is now placed on the quay (26,37, sea elevation 1) while the rescue is pending; it disappears during boarding and remains hidden after state 5. The rescue warp now lands at (19,37) so the ship is on-screen during the scene. This is a prototype use of the original Emerald ship artwork.
 
 ### Additional emulator tests
 
@@ -93,3 +93,11 @@ Still planned: a walking escort/follower, first battle, tether mechanic, visible
 8. Test entry and scene playback in both mGBA and Delta.
 
 The static guard checks that only the boarding scene adds mission/XP and that it sets state 5 before paying. It does not establish a compiled game or a completed emulator test.
+
+## Delta playtest feedback: November 22, 2026
+
+Delta screenshots confirmed working storm/weather and dialogue but revealed characters drawing *behind* the new elevated decks. The Route 110 imported walkway metatiles (969, 970, 974, 975) inherited layer type NORMAL (0): their upper art painted BG1, obscuring Ranger/player sprites. Their layer attribute now uses COVERED (1, encoded 0x1000), which moves deck artwork behind overworld sprites on BG2. Guardrails (968/971) remain solid, foreground-capable tiles.
+
+The waterfront map now includes an existing 96x40 S.S. Tidal overworld ship sprite at (26,37), hidden permanently after state 5. The boarding destination is (19,37) to frame the boat, child, and crew together. Ferry disappears during a brief black-screen transition; no physical sailing animation or ferry interior has been added. Existing missions, XP and starter logic are unchanged.
+
+**Test in a newly built ROM:** walk across both city bridges and the waterfront deck with your character fully visible above planks; confirm the ferry is visible before rescue completion, the child + Poochyena board without clipping/softlock, ship vanishes after boarding, +1 mission / +100 XP is awarded once, and saved state 5 never brings the ferry back. A fresh new game is required to see the pre-boarding ship if your existing save has already completed the rescue.

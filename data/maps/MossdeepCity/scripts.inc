@@ -555,7 +555,7 @@ MossdeepCity_RangerChildRescue:
 	closemessage
 	setvar VAR_NEO_FERRY_DISPATCH, 4
 	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
-	warp MAP_MOSSDEEP_CITY_WATERFRONT, 12, 35
+	warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37
 	waitstate
 	release
 	end
