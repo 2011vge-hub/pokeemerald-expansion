@@ -37,30 +37,30 @@ MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:
 	end
 
 MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:
-	.string "HALE: You found the missing child\\n"
-	.string "and brought his POOCHYENA back.\\p"
-	.string "Against that flood, you kept\\n"
+	.string "HALE: You found the missing child\n"
+	.string "and brought his POOCHYENA back.\p"
+	.string "Against that flood, you kept\n"
 	.string "your head. Well done, Ranger.$"
 
 MossdeepCity_RangerBase_2F_Text_Chapter1LateSiren:
-	.string "One thing bothers me. The public\\n"
-	.string "siren sounded far too late.\\p"
-	.string "Keep that in your report.\\n"
+	.string "One thing bothers me. The public\n"
+	.string "siren sounded far too late.\p"
+	.string "Keep that in your report.\n"
 	.string "We will investigate.$"
 
 MossdeepCity_RangerBase_2F_Text_Chapter1EmergencyCall:
-	.string "BEEP! INCOMING EMERGENCY CALL!\\p"
-	.string "HALE: The evacuation vessel made\\n"
-	.string "an emergency landing? Route 104?\\p"
-	.string "Near MR. BRINEY's old cottage...\\n"
+	.string "BEEP! INCOMING EMERGENCY CALL!\p"
+	.string "HALE: The evacuation vessel made\n"
+	.string "an emergency landing? Route 104?\p"
+	.string "Near MR. BRINEY's old cottage...\n"
 	.string "Understood.$"
 
 MossdeepCity_RangerBase_2F_Text_Chapter1FlightOrders:
-	.string "HALE: I'll fly you to RUSTBORO.\\n"
-	.string "My field contact will meet you.\\p"
-	.string "Your first rescue is over, Ranger.\\n"
-	.string "The next assignment starts now.\\p"
-	.string "Hale's aircraft lifts into\\n"
+	.string "HALE: I'll fly you to RUSTBORO.\n"
+	.string "My field contact will meet you.\p"
+	.string "Your first rescue is over, Ranger.\n"
+	.string "The next assignment starts now.\p"
+	.string "Hale's aircraft lifts into\n"
 	.string "the clouds above MOSSDEEP...$"
 
 MossdeepCity_RangerBase_2F_EventScript_ReqRanger:
