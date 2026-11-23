@@ -2,6 +2,10 @@
 
 **Source:** `neo-emerald/player-ranger-sprite-v1`, based on Chapter 2 PR #5. User supplied reference images of male/female orange-capped Rangers in dark field uniforms.
 
+## Canonical existing Ranger encounter art
+
+The original Emerald ROM *already contains* the distinctive 64×64 Pokémon Ranger trainer battle-front artwork at `graphics/trainers/front_pics/pokemon_ranger_m.png` and `pokemon_ranger_f.png`. Their orange cap and dark field clothing match the user's intended class more closely than Camper/Picnicker NPCs. The standard overworld set does not contain Ranger walking frames. We therefore keep our separate 16×32 nine-frame movement art, but derive its final orange/black uniform shades from the **real male/female Ranger class encounter artwork** during each build. Do not substitute Camper/Picnicker or invent arbitrary uniform colors. Future battle-back/rival assets should use the same references.
+
 ## Implemented in the game source
 Four NEW original indexed PNG sprites (not Brendan/May art, not Camper/Picnicker recolors), 144×32 pixels, 9 frames each:
 

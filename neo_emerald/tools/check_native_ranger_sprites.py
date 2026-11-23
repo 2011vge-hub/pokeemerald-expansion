@@ -39,9 +39,23 @@ for gender,npc in (("brendan","camper.png"),("may","picnicker.png")):
                 assert any(c in (11,12,13) for c in boots.getdata()), (gender,mode,k,"boots")
             frames[mode]=data
     assert frames["walking.png"]!=frames["running.png"], "Running frames cannot be static walking clones"
+# Emerald's actual Pkmn Ranger encounter sprites are front-facing 64x64 art,
+# not overworld 16x32 frames. Require both original sources.
+for gender in ("m","f"):
+    p=ROOT/"graphics/trainers/front_pics"/f"pokemon_ranger_{gender}.png"
+    with Image.open(p) as portrait:
+        assert portrait.mode=="P" and portrait.size==(64,64)
+        c=portrait.getpalette()
+        assert c is not None and len(c)>=48
+        assert tuple(c[30:33])==(255,205,65), "Missing official Ranger cap color"
+
 generator=(ROOT/"neo_emerald/tools/generate_ranger_sprites.py").read_text()
 assert "RANGER_PIXEL_ART_V1" in generator
-assert "img=validate_ranger_art(img,path,colors)" in generator, "Build must preserve original art"
+assert "img=validate_ranger_art(img,path,RANGER_PALETTE)" in generator, "Build must preserve original art"
+assert "RANGER_FRONT_PALETTE_MAP" in generator, "Official Ranger class art not referenced"
+assert "MALE=native_ranger_trainer_palette('brendan')" in generator
+assert "FEMALE=native_ranger_trainer_palette('may')" in generator
+assert "img.putpalette([n for rgb in colors for n in rgb]" in generator
 assert "img=native_ranger_walking" not in generator, "NPC recolor generator still active"
 assert "img=reindex(img,isfemale,False)" in generator, "Other poses retain provisional compatibility"
 print("Original orange Ranger walking/running art: four 9-frame 4bpp sheets PASS. Delta testing pending.")

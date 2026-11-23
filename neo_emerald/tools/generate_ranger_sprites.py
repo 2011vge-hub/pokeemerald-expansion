@@ -2,7 +2,8 @@
 """Build Neo Emerald Ranger player sprites from native Emerald overworld art.
 
 Walking and running use checked-in original 144x32 (9-frame) Ranger pixel
-sprites in native GBA 4bpp format, not the old Camper/Picnicker recolors.
+sprites in native GBA 4bpp format, with palette shades pulled from Emerald's
+actual male/female Pokemon Ranger trainer battle portraits.
 Frames have orange cap and field vest, dark trousers, gloves, boots, and a
 hip-mounted Ranger Styler, matching the user's uploaded visual references.
 Other actions (surfing, fishing, cycling and battle backs) use provisional
@@ -33,8 +34,24 @@ RANGER_PALETTE=[
  (167,64,39),(29,43,70),(67,82,111),(23,35,60),
  (186,76,45),(10,19,36),(241,242,229),(255,209,104)
 ]
-MALE=list(RANGER_PALETTE)
-FEMALE=list(RANGER_PALETTE)
+# Original Emerald encounter portraits (64x64) are the canonical color source.
+# There is no native Pokemon Ranger overworld sprite; these custom 16x32
+# walking frames instead use the actual battle art's 16 indexed colors.
+# Indices are remapped by clothing role: skin, cap, vest, trousers, boots.
+RANGER_FRONT_PALETTE_MAP = (0,1,2,3,8,7,10,11,12,8,6,5,13,15,14,10)
+
+def native_ranger_trainer_palette(gender):
+    name = 'pokemon_ranger_f.png' if gender == 'may' else 'pokemon_ranger_m.png'
+    with Image.open(TRAINER/'front_pics'/name) as pic:
+        assert pic.mode == 'P' and pic.size == (64, 64), name
+        pal = pic.getpalette()
+        assert pal is not None and len(pal) >= 48, name
+        base = [tuple(pal[3*n:3*n+3]) for n in range(16)]
+    assert base[0] == RANGER_PALETTE[0], 'Transparency mismatch'
+    return [base[n] for n in RANGER_FRONT_PALETTE_MAP]
+
+MALE=native_ranger_trainer_palette('brendan')
+FEMALE=native_ranger_trainer_palette('may')
 
 def validate_ranger_art(img, path, colors):
     """Refuse to overwrite the user's actual Ranger pixels during CI."""
@@ -149,7 +166,8 @@ def apply():
             if walk:
                 # This is original drawn pixel art checked into GitHub; do
                 # not regenerate it from Brendan, May, Camper or Picnicker.
-                img=validate_ranger_art(img,path,colors)
+                img=validate_ranger_art(img,path,RANGER_PALETTE)
+                img.putpalette([n for rgb in colors for n in rgb] + [0]*(768-48))
             else:
                 # Temporary action set: old engine pose geometry recolored
                 # to match the orange Ranger palette; true 16x32 custom
