@@ -98,7 +98,7 @@ def apply():
                 img=raw.copy()
             walk=path.name in ('walking.png','running.png')
             img=reindex(img,isfemale,walk)
-            img.save(path,optimize=True)
+            img.save(path, optimize=True, bits=4)
             if path.name=='walking.png':
                 views.append(img.convert('RGBA').resize((img.width*5,img.height*5),Image.Resampling.NEAREST))
         save_palette(PAL/(gender+'.pal'),colors)
@@ -111,7 +111,7 @@ def apply():
         with Image.open(bpath) as raw:
             b=raw.copy()
         b=reindex(b,isfemale,False)
-        b.save(bpath,optimize=True)
+        b.save(bpath, optimize=True, bits=4)
         save_palette(TRAINER/'palettes'/(gender+'.pal'),colors)
         print(f'Generated {gender} Ranger uniform: {len(sheets)} action sheets, battle back, palettes')
     if views:

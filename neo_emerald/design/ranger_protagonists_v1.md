@@ -19,3 +19,5 @@ The original engine player sprite IDs, animation table addresses, and gender sel
 - Start a NEW GAME separately as each gender. Verify uniform, movement, face directions and running.
 - Check battle back and cards, then later cycling/surfing/fishing and reflections.
 - Review for source pose remnants, transparent pixel artifacts and mismatched art; adjust next art pass based on playtest.
+
+Asset export: PIL explicitly saves indexed PNGs with `bits=4` (16-entry `PLTE`), matching the native GBA 4bpp sprite input format. Build-generated art is verified by opening the resulting PNGs and ensuring they use a 4-bit palette.
