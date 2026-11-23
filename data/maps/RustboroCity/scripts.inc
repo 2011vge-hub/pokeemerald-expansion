@@ -1291,7 +1291,14 @@ RustboroCity_Text_YouCanHave2On2Battle:
 
 @ Neo Emerald: campus voices added without replacing vanilla quest scripts.
 RustboroCity_EventScript_NeoCampusFieldStudent::
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_EventScript_NeoCampusFieldStudentRanger
 	msgbox RustboroCity_Text_NeoCampusFieldStudent, MSGBOX_NPC
+	end
+
+@ Campus help point after Hale's one-time airlift. The true rival and Ranger
+@ outpost quest remain to be implemented; do not award or unlock them here.
+RustboroCity_EventScript_NeoCampusFieldStudentRanger:
+	msgbox RustboroCity_Text_NeoCampusFieldStudentRanger, MSGBOX_NPC
 	end
 
 RustboroCity_EventScript_NeoCampusDevonIntern::
@@ -1310,6 +1317,15 @@ RustboroCity_Text_NeoCampusFieldStudent:
 	.string "Field Studies practical today!\p"
 	.string "We map blocked paths, help lost\n"
 	.string "POKéMON, then report to RANGERS.$"
+
+RustboroCity_Text_NeoCampusFieldStudentRanger:
+	.string "You arrived with COMMANDER HALE?\\p"
+	.string "RUSTBORO UNIVERSITY is helping\\n"
+	.string "the RANGERS with relief work.\\p"
+	.string "We heard about that emergency\\n"
+	.string "landing near ROUTE 104.\\p"
+	.string "Your field contact should\\n"
+	.string "be here soon, Ranger.$"
 
 RustboroCity_Text_NeoCampusDevonIntern:
 	.string "I landed a DEVON internship!\p"
