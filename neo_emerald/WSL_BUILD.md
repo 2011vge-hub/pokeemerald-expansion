@@ -1,6 +1,6 @@
 # Building Neo Emerald on a Windows Surface (free, local)
 
-Build the current flooded Mossdeep test branch without consuming GitHub Actions or Codespaces.
+Build the current Mossdeep City 2.0 test branch without consuming GitHub Actions or Codespaces.
 
 ## 1. Install WSL + Ubuntu (once)
 Open PowerShell **as Administrator** and run:
@@ -29,11 +29,11 @@ Keep files in the Linux home directory, not `/mnt/c/`.
 ```bash
 git clone https://github.com/2011vge-hub/pokeemerald-expansion.git ~/pokeemerald-expansion
 cd ~/pokeemerald-expansion
-git switch neo-emerald/mossdeep-flood-m1
+git switch neo-emerald/mossdeep-city-v2
 ```
 
 
-**Do not apply `mossdeep-flood-m1.patch`:** its storm terrain and NPCs are already committed to this branch, with the correct binary SHA.
+**Do not apply any previous Claude Mossdeep patch:** the flood, observatory, bridge, HQ, housing, tileset and waterfront source changes have been committed to this branch.
 
 ## 4. Build and check
 ```bash
@@ -63,7 +63,7 @@ Copy the new .gba into iCloud Drive, OneDrive or another file-transfer location 
 - Save/reload and blackout return to Mossdeep's safe heal location
 - Lower shelf is walkable but upper exits remain open
 
-Run the map collision smoke check before changing geometry:
+Run the map collision smoke check before changing geometry (Mossdeep; waterfront connectivity should also be checked in-game):
 
 ```bash
 python3 neo_emerald/tools/map/mossdeep_paths.py data/layouts/MossdeepCity_Storm/map.bin

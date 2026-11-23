@@ -1,6 +1,6 @@
 # Mossdeep City 2.0 — tileset plan
 
-Status: pipeline proven with 2 appended metatiles (966-967, annex roof). No new pixel art yet. The new metatiles and attributes match Claude's supplied binary patch byte-for-byte. Nothing here is "playable" until a ROM is built and tested in mGBA/Delta.
+Status: 10 Neo metatiles appended (966–975). Import of 9 Route 110 tile patterns into blank Mossdeep slots completed; existing metatile IDs preserved. The metatile/attribute binaries match Claude's supplied patch bytes. No ROM playtest yet.
 
 ## Decision: extend `gTileset_Mossdeep`, don't fork it
 
@@ -12,8 +12,8 @@ Status: pipeline proven with 2 appended metatiles (966-967, annex roof). No new 
 
 | Resource | Limit | Used | Free |
 |---|---|---|---|
-| Metatiles | 512 | 456 (454 vanilla + 2 Neo) | 56 |
-| 8x8 tile slots | 512 | 254 referenced (Claude's inventory) | 258 unreferenced/blank slots |
+| Metatiles | 512 | **464 (454 vanilla + 10 Neo)** | **48** |
+| 8x8 tile slots | 512 | At least 9 more used by Route 110 walkway imports | Recount usable free slots; slots 496–511 are door-animation reserved |
 | Palettes (slots 6-12) | 7 | 7, 8, 9, 10, 11 | 6 and 12 |
 | Tile animation | — | none reported for Mossdeep | confirm in game |
 
@@ -45,3 +45,15 @@ Budget is a planning constraint, not a substitute for a successful ROM build. Ne
 |---|---|---|---|
 | 966 | annex_roof_left_top | 928 with helipad marking removed (tile 661) | observatory annex x46,y10 |
 | 967 | annex_roof_left_mid | 936 with helipad marking removed (tile 661) | observatory annex x46,y11 |
+
+
+## Neo metatile registry
+
+| IDs | Source | Purpose |
+|---|---|---|
+| 966–967 | Existing Space Center roof | Observatory roof correction |
+| 968–971 | Route 110 / Mauville art and General palettes | North rail, shaded deck, deck, south rail |
+| 972–973 | Space Center plain roof | Ranger HQ civic tower |
+| 974–975 | Route 110 / Mauville art | Quay platform side railing |
+
+`data/tilesets/secondary/mossdeep/tiles.png` is an indexed PNG with nine imported 8×8 graphics patterns. The visual pattern mapping is verified against the source tiles; the binary differs from the collaborator's PNG only due to image re-encoding. Do not reapply the old patches.

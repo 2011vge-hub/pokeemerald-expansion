@@ -1,5 +1,5 @@
 # Mossdeep City 2.0 — Storm-Era Urban Redesign
-**Status:** production brief with the first upper-city change implemented on `neo-emerald/mossdeep-city-v2` (source-checked, not yet built or playtested). Flood milestone 1 is integrated (identical binary terrain), prologue weather is `WEATHER_RAIN_THUNDERSTORM`.
+**Status:** Upper-city, market bridge, Ranger HQ facade, residential, and waterfront map milestones integrated on `neo-emerald/mossdeep-city-v2`. Source and geometry verified; ROM build and gameplay playtest still pending. Thunderstorm is configured but not emulator-verified.
 
 ## Implemented so far (v2)
 
@@ -7,6 +7,12 @@
 |---|---|---|
 | Space Center weather-observatory annex: 5x7 building assembled from the existing Space Center metatiles (dish roof, glass/steel wall, pillared base) | Ridge terrace west of the Space Center, top-left (46,10), footprint x 46-50, y 10-16 | Implemented as a **facade only** (no door, warp or interior). 35 tiles changed, collision copied from the source building, elevation kept at the terrace's 7 |
 | Annex roof and forecourt polish: roof entries 966/967 without helipad marks at (46,10)/(46,11), plain wall at x47,y13–16, sand stub to grass at (48,17)/(49,17) | Same annex footprint, 8 tiles updated | Implemented in source; no new door, warp, or interior |
+| Market-to-child bridge using Route 110 walkway art (metatiles 968–971) | x35–43, y28–30 | Source implemented; landing reachable even when south stairs are blocked |
+| Ranger HQ civic tower, 3×7; sign, no usable interior | x32–34, y13–19 | Source implemented; avoids blocking main street |
+| House 4 raised to three floors with existing door/warp retained | x17–20, y12–16 | Source implemented |
+| Three-story evacuated apartment facade with sign, no usable interior | x46–49, y25–29 | Source implemented |
+| East walkway leading from southeastern shelf to city boundary | row35, x64–79 | Source implemented and reachable |
+| New linked waterfront district with quay and ferry terminal facade | 32×40 map `MossdeepCity_Waterfront` | Source implemented; no ferry, boat boarding, or NPCs yet |
 
 Verified with `neo_emerald/tools/map/mossdeep_v2_upper.py` (re-applies only after checking the site and every route) and `mossdeep_paths.py`: spawn still reaches the Center, sailor, Mart, Gym, Space Center, child landing, Steven's house, House 2, all three ridge NPCs and the flooded shelf; 0 reachable sea tiles; `LAYOUT_MOSSDEEP_CITY` untouched.
 
@@ -64,3 +70,19 @@ A separate waterfront map with boat sprite or scripted tiles, boarding ramp and 
 
 ## Handoff to collaborator
 Flood milestone 1 was integrated from an exactly reproduced binary patch; the shared branch's `MossdeepCity_Storm/map.bin` matches Claude's byte-for-byte. v2 work continues on `neo-emerald/mossdeep-city-v2`, one verified terrain change per commit. Never merge to master.
+
+## Weather and map transition test (not yet completed)
+
+Mossdeep and the connected waterfront are configured with `WEATHER_RAIN_THUNDERSTORM`. The engine provides this weather type, but **no compiled .gba has verified it** on this branch.
+
+1. Start **New Game** in mGBA, finish Birch's briefing and spawn in Mossdeep.
+2. Check visible falling rain, occasional lightning and thunder, player input, and menu/message interactions during flashes.
+3. Traverse the east walkway to the ferry waterfront and back. Confirm the weather persists and camera/map connections do not glitch.
+4. Repeat in Delta on iPhone, save/reload, test blackout/respawn and all three Ranger partners.
+5. Test approaching the child through the new bridge while treating southern stairs as blocked.
+
+## Source-integrity notes
+
+The first six milestone map and metatile binaries were reconstructed and their Git blob IDs matched Claude's patch targets exactly, including the 32×40 waterfront. The Mossdeep `tiles.png` bridge-art import is **pixel-equivalent** to the script's nine-tile import, but was re-encoded into a valid indexed PNG and therefore has a different Git blob ID than Claude's original patch. The current checker uses map collision/elevation approximations: it does not replace in-emulator QA.
+
+The secondary Mossdeep tileset now contains **464/512 metatiles**, leaving **48 free** (454 vanilla + 10 Neo). The previously supplied 466/46 count was a two-metatile arithmetic error. Nine formerly blank 8×8 art slots are now occupied by imported walkway art; slots 496–511 are reserved for runtime door animations.

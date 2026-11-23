@@ -23,6 +23,9 @@
 
 ## Ranger opening and terrain (development branch)
 
+**Current source test branch:** `neo-emerald/mossdeep-city-v2` includes flood terrain, thunderstorm weather, Space Center annex, walkway bridge to child landing, Ranger HQ facade, taller housing, east quay and a connected 32×40 ferry waterfront map. **No compiled ROM/emulator playtest yet.** The ferry, boarding and rescue completion remain planned. See [Mossdeep City 2.0](design/mossdeep_city_v2.md) and [WSL build guide](WSL_BUILD.md).
+
+
 - In-game Ranger starter selection: **Poochyena / Spheal / Shroomish** on `neo-emerald/phase-1-ranger-starters` (code committed, ROM not yet built or playtested).
 - Mossdeep dispatch now opens the three-ball chooser and returns to the map instead of the old Route 101 first battle; sailor and local NPCs provide first rescue clues.
 - Terrain plan and source coordinates: [Mossdeep opening and terrain specification](design/mossdeep_opening_terrain.md).
