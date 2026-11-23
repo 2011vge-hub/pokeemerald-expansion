@@ -1015,6 +1015,15 @@ static void CB2_GiveStarter(void)
     starterMon = GetStarterPokemon(gSpecialVar_Result);
     ScriptGiveMon(starterMon, 5, ITEM_NONE);
     ResetTasks();
+
+    // Neo Emerald starts at Mossdeep, not in Birch's Route 101 rescue battle.
+    // Resume the Ranger event script without forcing the original first battle.
+    if (!IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2)
+    {
+        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        return;
+    }
+
     PlayBattleBGM();
     SetMainCallback2(CB2_StartFirstBattle);
     BattleTransition_Start(B_TRANSITION_BLUR);
