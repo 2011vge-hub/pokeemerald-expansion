@@ -6,10 +6,11 @@
 | Change | Where | State |
 |---|---|---|
 | Space Center weather-observatory annex: 5x7 building assembled from the existing Space Center metatiles (dish roof, glass/steel wall, pillared base) | Ridge terrace west of the Space Center, top-left (46,10), footprint x 46-50, y 10-16 | Implemented as a **facade only** (no door, warp or interior). 35 tiles changed, collision copied from the source building, elevation kept at the terrace's 7 |
+| Annex roof and forecourt polish: roof entries 966/967 without helipad marks at (46,10)/(46,11), plain wall at x47,y13–16, sand stub to grass at (48,17)/(49,17) | Same annex footprint, 8 tiles updated | Implemented in source; no new door, warp, or interior |
 
 Verified with `neo_emerald/tools/map/mossdeep_v2_upper.py` (re-applies only after checking the site and every route) and `mossdeep_paths.py`: spawn still reaches the Center, sailor, Mart, Gym, Space Center, child landing, Steven's house, House 2, all three ridge NPCs and the flooded shelf; 0 reachable sea tiles; `LAYOUT_MOSSDEEP_CITY` untouched.
 
-Constraint found: a map can only use General + one secondary tileset (Mossdeep). Larger *modern* houses, Ranger HQ signage, walkways and a ferry terminal need new metatiles (tileset pass); with existing art only Space Center-style and vanilla-house pieces are available.
+Tileset plan and remaining tile budget: [mossdeep_tileset_v2.md](mossdeep_tileset_v2.md). Constraint found: a map can only use General + one secondary tileset (Mossdeep). Larger *modern* houses, Ranger HQ signage, walkways and a ferry terminal need new metatiles (tileset pass); with existing art only Space Center-style and vanilla-house pieces are available.
 
 ## Core visual direction
 Mossdeep is a **25-years-later coastal technology capital**, built upward after repeated high-water emergencies, not a vanilla small island with ocean painted over the sidewalks. It remains recognizable through its Space Center ridge, Gym, Center and shoreline contours, but now reads as a layered settlement. **Modern upper city / forgotten lower city** is the contrast. The first ten minutes should reveal this through movement and landmarks, not expositional dialogue.
