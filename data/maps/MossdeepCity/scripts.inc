@@ -1,6 +1,40 @@
 MossdeepCity_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_RangerOnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
+
+MossdeepCity_RangerOnFrame:
+	map_script_2 VAR_NEO_FERRY_DISPATCH, 1, MossdeepCity_RangerFirstCall
+	.2byte 0
+
+MossdeepCity_RangerFirstCall:
+	lockall
+	msgbox MossdeepCity_Text_RangerFirstCall, MSGBOX_DEFAULT
+	setvar VAR_NEO_FERRY_DISPATCH, 2
+	releaseall
+	end
+
+MossdeepCity_Text_RangerFirstCall:
+	.string "DISPATCH: Ranger {PLAYER}, come in.\p"
+	.string "The ferry is taking evacuees.\n"
+	.string "We need a head count.\p"
+	.string "Find the sailor by the GYM.\n"
+	.string "He has your passenger list.$"
+
+MossdeepCity_RangerCheckIn:
+	lock
+	faceplayer
+	msgbox MossdeepCity_Text_RangerTickets, MSGBOX_DEFAULT
+	setvar VAR_NEO_FERRY_DISPATCH, 3
+	release
+	end
+
+MossdeepCity_Text_RangerTickets:
+	.string "SAILOR: Two tickets left, Ranger.\p"
+	.string "That kid was right here a minute\n"
+	.string "ago. Said his POOCHYENA was scared.\p"
+	.string "Then I saw him running back toward\n"
+	.string "the market.$"
 
 MossdeepCity_OnTransition:
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
@@ -24,6 +58,7 @@ MossdeepCity_EventScript_PokefanFMagmaGone::
 	end
 
 MossdeepCity_EventScript_Sailor::
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_RangerCheckIn
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_SailorMagmaGone
