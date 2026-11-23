@@ -29,7 +29,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             build-essential gcc-arm-none-eabi binutils-arm-none-eabi \
-            libnewlib-arm-none-eabi libpng-dev pkg-config python3 git
+            libnewlib-arm-none-eabi libpng-dev pkg-config python3-pil python3 git
 
       - name: Compile Neo Emerald (save full diagnostic log)
         shell: bash
@@ -52,6 +52,15 @@ jobs:
         with:
           name: neo-emerald-build-log-${{ github.run_number }}
           path: neo_emerald/out/build.log
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Upload Ranger sprite preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neo-emerald-ranger-sprite-preview-${{ github.run_number }}
+          path: neo_emerald/out/NeoEmerald_RangerSpritePreview.png
           if-no-files-found: warn
           retention-days: 7
 
