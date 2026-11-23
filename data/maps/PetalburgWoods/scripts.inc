@@ -1,7 +1,9 @@
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, NeoWoods_Setup
 	.byte 0
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
+	goto_if_ge VAR_NEO_ASSIGNMENT, 1, NeoWoods_Quiet
 	lockall
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerLeft
@@ -37,6 +39,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	end
 
 PetalburgWoods_EventScript_DevonResearcherRight::
+	goto_if_ge VAR_NEO_ASSIGNMENT, 1, NeoWoods_Quiet
 	lockall
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerRight
@@ -471,3 +474,63 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+
+NeoWoods::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_ASSIGNMENT, 2, NeoWoodsIdle
+	msgbox NeoWoodsChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_WOODS, NeoWoodsLoss
+	setvar VAR_NEO_ASSIGNMENT, 3
+	setflag FLAG_NEO_WOODS_SECURED
+	msgbox NeoWoodsAfter, MSGBOX_DEFAULT
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoWoodsIdle:
+	msgbox NeoWoodsIdleText, MSGBOX_DEFAULT
+	release
+	end
+NeoWoodsChallenge:
+	.string "That gauge logged heat under the\n"
+	.string "roots. Hand over the readings!$"
+NeoWoodsLoss:
+	.string "You can keep the paper.$"
+NeoWoodsAfter:
+	.string "The gauge is still warm. Your\n"
+	.string "partner hears a branch cracking.$"
+NeoWoodsIdleText:
+	.string "Keep walking, Ranger.$"
+
+NeoDemo::
+	lock
+	goto_if_ne VAR_NEO_ASSIGNMENT, 3, NeoTreeWait
+	msgbox NeoDemoText, MSGBOX_DEFAULT
+	setvar VAR_NEO_ASSIGNMENT, 4
+	setflag FLAG_NEO_WOODS_CLEAR
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoTreeWait:
+	msgbox NeoWaitText, MSGBOX_DEFAULT
+	release
+	end
+NeoDemoText:
+	.string "Watch my gauntlet. One clean cut.\p"
+	.string "The supply crew went south to the\n"
+	.string "old cottage. Meet me there!$"
+NeoWaitText:
+	.string "A fallen branch bars this trail.$"
+
+NeoWoods_Setup:
+	call Common_EventScript_SetupRivalGfxId
+	end
+NeoWoods_Partner::
+	msgbox NeoWoods_PartnerText, MSGBOX_NPC
+	end
+NeoWoods_PartnerText:
+	.string "The north gauge first. Then try\n"
+	.string "the fallen branch just east of it.$"
+
+NeoWoods_Quiet:
+	end

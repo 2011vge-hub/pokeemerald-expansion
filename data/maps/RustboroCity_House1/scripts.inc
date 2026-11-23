@@ -55,8 +55,16 @@ RustboroCity_House1_Text_AnyPokemonCanBeCute:
 	.string "it with care and kindness.$"
 
 RustboroCity_House1_Text_AllSortsOfPlaces:
-	.string "In all sorts of places, there are all\n"
-	.string "sorts of POKéMON and people.\p"
-	.string "I find that fascinating, so I go to all\n"
-	.string "sorts of places.$"
+	.string "This is the climate archive.\n"
+	.string "The tide ledger is on the back wall.$"
 
+NeoArchive::
+	msgbox NeoArchive_Log, MSGBOX_SIGN
+	end
+
+NeoArchive_Log:
+	.string "CLIMATE ARCHIVE - GAUGE BOOK 01\p"
+	.string "Twenty-five years ago, the tide\n"
+	.string "stopped below the harbor steps.\p"
+	.string "The newest entry is in pencil.\n"
+	.string "The ink washed off the gauge.$"

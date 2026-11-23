@@ -14,7 +14,8 @@ for f in sorted((ROOT/'data').rglob('*.inc')):
         if re.match(r'\s*(addvar|setvar)\s+VAR_NEO_RANGER_(MISSIONS|XP)\b',line):
             payers.append((f.relative_to(ROOT),i,line.strip()))
 expected='data/maps/MossdeepCity_Waterfront/scripts.inc'
-if [str(x[0]) for x in payers]!=[expected,expected]:
+office='data/maps/RustboroCity_Flat1_1F/scripts.inc'
+if sorted(str(x[0]) for x in payers)!=sorted([expected,expected,office,office]):
     fail.append(f'mission/XP changed outside the boarding scene: {payers}')
 wf=(ROOT/expected).read_text()
 if not re.search(r'map_script_2 VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding',wf):

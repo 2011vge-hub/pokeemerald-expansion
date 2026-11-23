@@ -525,3 +525,31 @@ RusturfTunnel_Text_MikePostBattle:
 	.string "protect POKéMON, right?\l"
 	.string "There's a feel-good story!$"
 
+
+NeoTunnel::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_ASSIGNMENT, 7, NeoTunnelIdle
+	msgbox NeoTunnelChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_TUNNEL, NeoTunnelLoss
+	setvar VAR_NEO_ASSIGNMENT, 8
+	setflag FLAG_NEO_TUNNEL_SECURED
+	msgbox NeoTunnelAfter, MSGBOX_DEFAULT
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoTunnelIdle:
+	msgbox NeoTunnelIdleText, MSGBOX_DEFAULT
+	release
+	end
+NeoTunnelChallenge:
+	.string "Get away from that relay! Nobody\n"
+	.string "leaves with the tunnel recording.$"
+NeoTunnelLoss:
+	.string "The relay is yours.$"
+NeoTunnelAfter:
+	.string "You guide the survey crew outside.\p"
+	.string "Two voices fade. A third signal\n"
+	.string "keeps pulsing. Take the log to Hale.$"
+NeoTunnelIdleText:
+	.string "Keep walking, Ranger.$"

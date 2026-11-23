@@ -269,7 +269,7 @@
 #define VAR_NEO_STARTER_PERSONALITY_LO                    0x40F7 // Starter personality lower 16 bits
 #define VAR_NEO_STARTER_PERSONALITY_HI                    0x40F8 // Starter personality upper 16 bits
 #define VAR_NEO_PARTNER_EXP_PENDING                      0x40F9 // Ranger mission EXP credit, saved until partner battles
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
+#define VAR_NEO_ASSIGNMENT                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_NEO_RANGER_RANK                              0x40FC // Ranger rank (neo_ranger.h)
 #define VAR_NEO_RANGER_MISSIONS                          0x40FD // Completed Ranger missions

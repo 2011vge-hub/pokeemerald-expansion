@@ -3,6 +3,7 @@ Route104_MrBrineysHouse_MapScripts::
 	.byte 0
 
 Route104_MrBrineysHouse_OnTransition:
+	call_if_ge VAR_NEO_ASSIGNMENT, 4, NeoBriney_Present
 	setflag FLAG_LANDMARK_MR_BRINEY_HOUSE
 	call_if_eq VAR_BRINEY_HOUSE_STATE, 1, Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos
 	call_if_set FLAG_RECEIVED_POKENAV, Route104_MrBrineysHouse_EventScript_HideRustboroRival
@@ -22,6 +23,7 @@ Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
 Route104_MrBrineysHouse_EventScript_Briney::
 	lock
 	faceplayer
+	goto_if_ge VAR_NEO_ASSIGNMENT, 4, NeoBriney_Chat
 	call_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_MrBrineysHouse_EventScript_SailBothDeliveries
 	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route104_MrBrineysHouse_EventScript_SailDeliverPackage
@@ -156,3 +158,46 @@ Route104_MrBrineysHouse_Text_TellMeWheneverYouWantToSail:
 Route104_MrBrineysHouse_Text_Peeko:
 	.string "PEEKO: Pii piihyoro!$"
 
+
+NeoCargo::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_ASSIGNMENT, 4, NeoCargoIdle
+	msgbox NeoCargoChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_CARGO, NeoCargoLoss
+	setvar VAR_NEO_ASSIGNMENT, 5
+	call NeoOffice_MissionCredit
+	setflag FLAG_NEO_CARGO_SECURED
+	msgbox NeoCargoAfter, MSGBOX_DEFAULT
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoCargoIdle:
+	msgbox NeoCargoIdleText, MSGBOX_DEFAULT
+	release
+	end
+NeoCargoChallenge:
+	.string "Keep the blankets. We want the\n"
+	.string "pressure log from that vessel.$"
+NeoCargoLoss:
+	.string "So much for the log.$"
+NeoCargoAfter:
+	.string "BRINEY: I am 104, not Route 104!\n"
+	.string "Peeko, give the crew their chart.\p"
+	.string "The cargo is safe. Report to Hale\n"
+	.string "at the university field office.$"
+NeoCargoIdleText:
+	.string "Keep walking, Ranger.$"
+
+NeoBriney_Present:
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	return
+NeoBriney_Chat:
+	msgbox NeoBriney_Age, MSGBOX_DEFAULT
+	release
+	end
+NeoBriney_Age:
+	.string "They named this road after me!\p"
+	.string "Oh, all right. I'm 104. The road\n"
+	.string "was here first. Right, Peeko?$"

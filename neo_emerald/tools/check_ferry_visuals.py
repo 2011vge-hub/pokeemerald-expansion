@@ -18,7 +18,9 @@ assert f['graphics_id']=='OBJ_EVENT_GFX_SS_TIDAL' and f['flag']=='FLAG_NEO_HIDE_
 assert (f['x'],f['y'],f['elevation'])==(26,37,1)
 w=(ROOT/'data/maps/MossdeepCity_Waterfront/scripts.inc').read_text()
 s=(ROOT/'data/maps/MossdeepCity/scripts.inc').read_text()
-assert 'warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37' in s
+assert 'warp MAP_MOSSDEEP_CITY_SHOP_LOFT, 4, 6' in s
+loft=(ROOT/'data/maps/MossdeepCity_ShopLoft/scripts.inc').read_text()
+assert 'warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37' in loft
 assert 'removeobject LOCALID_WATERFRONT_FERRY' in w
 assert w.count('setflag FLAG_NEO_HIDE_DEPARTED_FERRY')==2
 assert 'goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_Waterfront_FerryVisibilityDone' in w

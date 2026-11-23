@@ -7,6 +7,7 @@ MossdeepCity_RangerBase_2F_MapScripts::
 MossdeepCity_RangerBase_2F_EventScript_Commander::
 	lock
 	faceplayer
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 5, NeoHale_Depart
 	goto_if_ge VAR_NEO_RANGER_RANK, RANGER_RANK_MAX, MossdeepCity_RangerBase_2F_EventScript_CommanderTopRank
 	msgbox MossdeepCity_RangerBase_2F_Text_CommanderIntro, MSGBOX_DEFAULT
 	call MossdeepCity_RangerBase_2F_EventScript_CountBadges
@@ -187,3 +188,25 @@ MossdeepCity_RangerBase_2F_Text_Comms:
 	.string "Relay open: SOOTOPOLIS, LILYCOVE,\n"
 	.string "EVER GRANDE.\p"
 	.string "SLATEPORT band: static only.$"
+
+NeoHale_Depart:
+	msgbox NeoHale_Debrief, MSGBOX_DEFAULT
+	msgbox NeoHale_Call, MSGBOX_DEFAULT
+	goto_if_ne VAR_NEO_ASSIGNMENT, 0, NeoHale_Flight
+	setvar VAR_NEO_ASSIGNMENT, 1
+NeoHale_Flight:
+	setrespawn HEAL_LOCATION_RUSTBORO_CITY
+	closemessage
+	warp MAP_RUSTBORO_CITY_FLAT1_1F, 6, 6
+	waitstate
+	release
+	end
+NeoHale_Debrief:
+	.string "HALE: Both passengers are safe.\p"
+	.string "The siren log says the alarm rang\n"
+	.string "after the stairs gave way. Why?$"
+NeoHale_Call:
+	.string "RADIO: Emergency landing! We are\n"
+	.string "off Briney's cottage on Route 104!\p"
+	.string "HALE: My aircraft is ready. Meet\n"
+	.string "my kid at the Rustboro field office.$"

@@ -563,7 +563,7 @@ MossdeepCity_RangerChildRescue:
 	closemessage
 	setvar VAR_NEO_FERRY_DISPATCH, 4
 	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
-	warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37
+	warp MAP_MOSSDEEP_CITY_SHOP_LOFT, 4, 6
 	waitstate
 	release
 	end
@@ -602,9 +602,9 @@ MossdeepCity_Text_RangerPoochyenaCalmed:
 	.string "ready. Let's go!$"
 
 MossdeepCity_Text_RangerEscort:
-	.string "You lead the boy and POOCHYENA\n"
-	.string "up the stairs, past the rising\l"
-	.string "water, to the ferry quay...$"
+	.string "The stairs buckle. Your rescue rig\n"
+	.string "jams halfway up! A shopkeeper\l"
+	.string "hauls you through a window.$"
 
 @ Neo Emerald: Ranger Base sign next to the door (warp 10 at 33,19).
 MossdeepCity_EventScript_RangerHQSign::
@@ -625,3 +625,29 @@ MossdeepCity_Text_EvacuatedApartment:
 	.string "The door is locked.\p"
 	.string "A note: EVACUATED - ALL RESIDENTS\n"
 	.string "ACCOUNTED FOR. -MOSSDEEP RANGERS$"
+
+NeoSpaceGuard::
+	lock
+	faceplayer
+	goto_if_lt VAR_NEO_FERRY_DISPATCH, 3, NeoGuardSailor
+	goto_if_lt VAR_NEO_FERRY_DISPATCH, 5, NeoGuardRescue
+	msgbox NeoGuardHaleText, MSGBOX_DEFAULT
+	release
+	end
+NeoGuardSailor:
+	msgbox NeoGuardSailorText, MSGBOX_DEFAULT
+	release
+	end
+NeoGuardRescue:
+	msgbox NeoGuardRescueText, MSGBOX_DEFAULT
+	release
+	end
+NeoGuardSailorText:
+	.string "Launch control is sealed. The sailor\n"
+	.string "by the Gym needs your head count.$"
+NeoGuardRescueText:
+	.string "The center is closed. A child is\n"
+	.string "missing on the lower landing!$"
+NeoGuardHaleText:
+	.string "Steven must authorize entry.\n"
+	.string "Check with Hale for your assignment.$"

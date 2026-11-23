@@ -468,3 +468,16 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+
+NeoPlayerCutter::
+	lock
+	goto_if_ne VAR_NEO_ASSIGNMENT, 6, NeoTreeWait
+	msgbox NeoCutterText, MSGBOX_DEFAULT
+	setvar VAR_NEO_ASSIGNMENT, 7
+	setflag FLAG_NEO_ROUTE116_CLEAR
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoCutterText:
+	.string "Your Cutter slices the branch.\n"
+	.string "A radio crackles inside the tunnel.$"
