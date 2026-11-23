@@ -5,6 +5,7 @@ This check does not substitute for an ARM compile, in-game map tests, or
 collision/pathfinding validation after a metatile redesign.
 """
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,6 +17,11 @@ data = json.loads((CITY / "map.json").read_text(encoding="utf-8"))
 city = (CITY / "scripts.inc").read_text(encoding="utf-8")
 school = (SCHOOL / "scripts.inc").read_text(encoding="utf-8")
 house = (HOUSE / "scripts.inc").read_text(encoding="utf-8")
+
+# The map assembler accepts string IDs that must exist in the graphics enum.
+# A previously undefined female schoolkid ID caused an ARM linker failure.
+gfx_source = (ROOT / "include/constants/event_objects.h").read_text(encoding="utf-8")
+valid_gfx_ids = set(re.findall(r"^\s*(OBJ_EVENT_GFX_[A-Z0-9_]+)\s*,", gfx_source, re.MULTILINE))
 
 new_npcs = {
     (28, 36): "RustboroCity_EventScript_NeoCampusFieldStudent",
@@ -39,6 +45,7 @@ for pos, script in new_npcs.items():
     assert matches[0]["trainer_type"] == "TRAINER_TYPE_NONE"
     assert matches[0]["flag"] == "0", "Campus ambiance should have no progression flag"
     assert f"{script}::" in city, f"Missing script label {script}"
+    assert matches[0]["graphics_id"] in valid_gfx_ids, (f"Unknown graphics ID for {script}: " f"{matches[0]['graphics_id']}")
 
 for required in (
     "RUSTBORO UNIVERSITY",
