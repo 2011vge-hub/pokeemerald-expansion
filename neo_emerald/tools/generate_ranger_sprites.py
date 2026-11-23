@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Build Neo Emerald Ranger player sprites from native Emerald overworld art.
 
-In Ruby/Sapphire/Emerald the Pokémon Ranger trainer-class overworld uses the
-Campers (male) and Picnickers (female) art. Those built-in nine-frame 144x32
-sheets—not Brendan/May recolors—become the player's walking/running sheets.
-The hair, uniform and field-kit palette uses orange caps/vests with dark trousers following the user's Ranger reference images.
-Other actions (surfing, fishing, cycling and battle backs) retain the player
-animation geometry and a temporary matching palette while dedicated Ranger
-action art is built and play-tested.
+Walking and running use checked-in original 144x32 (9-frame) Ranger pixel
+sprites in native GBA 4bpp format, not the old Camper/Picnicker recolors.
+Frames have orange cap and field vest, dark trousers, gloves, boots, and a
+hip-mounted Ranger Styler, matching the user's uploaded visual references.
+Other actions (surfing, fishing, cycling and battle backs) use provisional
+existing pose geometry with Ranger recoloring until dedicated action art is
+finished and Delta-tested.
 
-Only modifies PNGs/PALs inside the *build workspace*, not tracked source assets.
-The 16-color indexed files retain compatible GBA animation tables.
+The four original walking/running PNGs are committed source assets and are
+validated but never repainted during builds. All 16-color indexes retain
+compatible native GBA animation tables.
 """
 import argparse
 from pathlib import Path
@@ -22,40 +23,31 @@ PAL=ROOT/'graphics/object_events/palettes'
 TRAINER=ROOT/'graphics/trainers'
 OUT=ROOT/'neo_emerald/out'
 
-# 4bpp-compatible shared identity, 16 entries including the transparency key.
-# Skin stays natural; deep navy silhouette, teal jacket, gray reflective panel,
-# gold identification, and a warm orange rescue tab.
-# Native Camper/Picnicker sprite indices 8–10 are their coat/uniform,
-# 4–7 are hair/headgear shadows, and 11–13 are warm accent/shoe tones.
-# Keep original 0=transparent, 1–3=skin, 14=white, 15=outline conventions.
-# The user's reference is the orange-cap Ranger uniform (not teal).
-# Index mapping respects native Gen3 Camper/Picnicker sprite geometry:
-# 0 transparent, 1-3 skin, 4-7 hair/cap, 8-10 vest, 11-13 legs/boots.
-# This is a palette-only prototype. Capture stylus, shoulder gear, detailed
-# hat insignia and complete action poses require bespoke pixel sprite edits.
-MALE=[
-(115,197,164),(255,213,180),(245,184,147),(204,133,105),
-(42,45,63),(255,174,87),(221,104,51),(127,58,45),
-(244,131,52),(207,90,39),(114,48,39),
-(52,62,88),(27,36,62),(9,19,39),(239,245,240),(10,18,31)
+# RANGER_PIXEL_ART_V1: palette shared across all original front/back/side
+# Ranger pixel poses. Sprite pixel index 0 is transparent (GBA hardware).
+# All sixteen source colors are intentionally fixed; never silently reindex
+# the four checked-in player walking/running sheets back to NPC silhouettes.
+RANGER_PALETTE=[
+ (115,197,164),(255,215,184),(234,174,143),(166,105,95),
+ (25,30,45),(52,59,91),(255,184,80),(238,125,52),
+ (167,64,39),(29,43,70),(67,82,111),(23,35,60),
+ (186,76,45),(10,19,36),(241,242,229),(255,209,104)
 ]
-FEMALE=[
-(115,197,164),(255,222,205),(232,177,153),(194,121,102),
-(33,42,71),(255,171,86),(220,100,48),(124,51,42),
-(250,135,57),(207,88,39),(114,48,42),
-(53,64,92),(29,40,65),(13,22,42),(241,242,238),(11,20,34)
-]
-NATIVE_RANGER_SOURCES = {'brendan':'camper.png', 'may':'picnicker.png'}
+MALE=list(RANGER_PALETTE)
+FEMALE=list(RANGER_PALETTE)
 
-def native_ranger_walking(img, female=False):
-    # The original game gives campers/picnickers full matching 9x16 frames.
-    # Replacing the *pixel silhouette* is what corrects the wrong Brendan/May
-    # look; simply modifying Brendan/May's palette is not sufficient.
-    assert img.mode == 'P' and img.size == (144,32), (img.mode,img.size)
-    colors = FEMALE if female else MALE
-    img = img.copy()
-    assert max(img.getdata()) <= 15
-    img.putpalette([v for rgb in colors for v in rgb] + [0]*(768-48))
+def validate_ranger_art(img, path, colors):
+    """Refuse to overwrite the user's actual Ranger pixels during CI."""
+    assert img.mode=='P' and img.size==(144,32), f"Invalid Ranger sheet: {path}"
+    assert max(img.getdata()) <= 15, f"Must be GBA 4bpp indexed: {path}"
+    assert img.getpalette()[:48] == [n for rgb in colors for n in rgb], (
+        f"Palette mismatch in {path}: artwork is not using shared Ranger colors")
+    assert sum(px in (6,7,8) for px in img.getdata()) >= 30, (
+        f"Missing orange cap/vest colors in {path}")
+    # 9 native 16x32 animation frames all have body pixels in the correct cell.
+    for frame in range(9):
+        assert img.crop((16*frame,0,16*(frame+1),32)).getbbox() is not None, (
+            f"Empty movement frame {frame}: {path}")
     return img
 
 def paltext(colors):
@@ -152,12 +144,16 @@ def apply():
         assert expected.issubset({p.name for p in sheets}),f'Missing {gender} graphics'
         for path in sheets:
             walk=path.name in ('walking.png','running.png')
-            source = ASSETS / NATIVE_RANGER_SOURCES[gender] if walk else path
-            with Image.open(source) as raw:
+            with Image.open(path) as raw:
                 img=raw.copy()
             if walk:
-                img=native_ranger_walking(img,isfemale)
+                # This is original drawn pixel art checked into GitHub; do
+                # not regenerate it from Brendan, May, Camper or Picnicker.
+                img=validate_ranger_art(img,path,colors)
             else:
+                # Temporary action set: old engine pose geometry recolored
+                # to match the orange Ranger palette; true 16x32 custom
+                # bike/surf/fishing/etc silhouettes remain on the art board.
                 img=reindex(img,isfemale,False)
             img.save(path, optimize=True, bits=4)
             if path.name=='walking.png':
