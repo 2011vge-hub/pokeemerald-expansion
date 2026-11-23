@@ -7,6 +7,7 @@ on:
       - neo-emerald/rustboro-university-v1
       - neo-emerald/ch1-hale-rustboro-bridge
       - neo-emerald/qa-delta-playtest-fixes
+      - neo-emerald/ch2-woods-cutter-briney
       - neo-emerald/rustboro-university-four-floors
   workflow_dispatch:
 
@@ -19,7 +20,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors'
+    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/ch2-woods-cutter-briney' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:

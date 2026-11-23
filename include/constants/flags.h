@@ -58,11 +58,11 @@
 #define FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED 0x24 // Future plot clearance; hides gym door guard
 #define FLAG_NEO_C1_FLIGHT_RUSTBORO 0x25 // After rescue debrief, Hale transferred Ranger to Rustboro (save-persistent)
 #define FLAG_NEO_C2_RIVAL_MET 0x26 // First meeting with Hale's Ranger child
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
+#define FLAG_NEO_C2_MAGMA_DONE 0x027 // Persistent Chapter 2 progression
+#define FLAG_NEO_C2_CUTTER_DEMO 0x028 // Persistent Chapter 2 progression
+#define FLAG_NEO_C2_AQUA_DONE 0x029 // Persistent Chapter 2 progression
+#define FLAG_NEO_C2_BRINEY_REPORTED 0x02A // Persistent Chapter 2 progression
+#define FLAG_NEO_C2_DEBRIEF_DONE 0x02B // Persistent Chapter 2 progression
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag

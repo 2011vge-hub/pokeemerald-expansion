@@ -21,6 +21,7 @@ python3 neo_emerald/tools/check_chapter1_hale_bridge.py
 python3 neo_emerald/tools/check_delta_playtest_fixes.py
 python3 neo_emerald/tools/check_native_ranger_sprites.py
 python3 neo_emerald/tools/check_university_four_floors.py
+python3 neo_emerald/tools/check_chapter2_mainland.py
 python3 neo_emerald/tools/generate_ranger_sprites.py
 
 JOBS="${JOBS:-2}"
