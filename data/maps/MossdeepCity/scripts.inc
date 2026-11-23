@@ -39,10 +39,22 @@ MossdeepCity_Text_RangerPartnerAssigned:
 MossdeepCity_RangerCheckIn:
 	lock
 	faceplayer
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerCheckedIn
 	msgbox MossdeepCity_Text_RangerTickets, MSGBOX_DEFAULT
 	setvar VAR_NEO_FERRY_DISPATCH, 3
 	release
 	end
+
+MossdeepCity_RangerCheckedIn:
+	msgbox MossdeepCity_Text_RangerStillMissing, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_Text_RangerStillMissing:
+	.string "SAILOR: The kid and his POOCHYENA\\n"
+	.string "are still missing. Check the MART.\\p"
+	.string "Watch the lower stairs, Ranger.\\n"
+	.string "The water keeps climbing.$"
 
 MossdeepCity_Text_RangerTickets:
 	.string "SAILOR: Two tickets left, Ranger.\p"
@@ -87,16 +99,38 @@ MossdeepCity_EventScript_SailorMagmaGone::
 	end
 
 MossdeepCity_EventScript_NinjaBoy::
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerWestStairWitness
 	msgbox MossdeepCity_Text_WailmerWatching, MSGBOX_NPC
 	end
+
+MossdeepCity_RangerWestStairWitness:
+	msgbox MossdeepCity_Text_WestStairWitness, MSGBOX_NPC
+	end
+
+MossdeepCity_Text_WestStairWitness:
+	.string "The lower stairs are soaked!\\n"
+	.string "I heard the railing buckle.\\p"
+	.string "Look for higher ground near\\n"
+	.string "the shops, Ranger.$"
 
 MossdeepCity_EventScript_ExpertM::
 	msgbox MossdeepCity_Text_LifeNeedsSeaToLive, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_Girl::
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerMarketWitness
 	msgbox MossdeepCity_Text_NiceIfWorldCoveredByFlowers, MSGBOX_NPC
 	end
+
+MossdeepCity_RangerMarketWitness:
+	msgbox MossdeepCity_Text_MarketWitness, MSGBOX_NPC
+	end
+
+MossdeepCity_Text_MarketWitness:
+	.string "A boy passed through here,\\n"
+	.string "calling for his POOCHYENA.\\p"
+	.string "The MART is still open, but\\n"
+	.string "the lower street is flooding.$"
 
 MossdeepCity_EventScript_Woman::
 	msgbox MossdeepCity_Text_SpecialSpaceCenterRock, MSGBOX_NPC
