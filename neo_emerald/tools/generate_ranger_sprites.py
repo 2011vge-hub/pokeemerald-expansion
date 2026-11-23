@@ -4,7 +4,7 @@
 In Ruby/Sapphire/Emerald the Pokémon Ranger trainer-class overworld uses the
 Campers (male) and Picnickers (female) art. Those built-in nine-frame 144x32
 sheets—not Brendan/May recolors—become the player's walking/running sheets.
-The hair, uniform and field-kit palette receives Neo Emerald Ranger colors.
+The hair, uniform and field-kit palette uses orange caps/vests with dark trousers following the user's Ranger reference images.
 Other actions (surfing, fishing, cycling and battle backs) retain the player
 animation geometry and a temporary matching palette while dedicated Ranger
 action art is built and play-tested.
@@ -28,17 +28,22 @@ OUT=ROOT/'neo_emerald/out'
 # Native Camper/Picnicker sprite indices 8–10 are their coat/uniform,
 # 4–7 are hair/headgear shadows, and 11–13 are warm accent/shoe tones.
 # Keep original 0=transparent, 1–3=skin, 14=white, 15=outline conventions.
+# The user's reference is the orange-cap Ranger uniform (not teal).
+# Index mapping respects native Gen3 Camper/Picnicker sprite geometry:
+# 0 transparent, 1-3 skin, 4-7 hair/cap, 8-10 vest, 11-13 legs/boots.
+# This is a palette-only prototype. Capture stylus, shoulder gear, detailed
+# hat insignia and complete action poses require bespoke pixel sprite edits.
 MALE=[
 (115,197,164),(255,213,180),(245,184,147),(204,133,105),
-(79,104,129),(181,207,221),(114,155,184),(45,78,111),
-(44,162,150),(27,111,113),(12,62,75),
-(245,171,74),(203,98,55),(111,50,40),(239,245,240),(10,18,31)
+(42,45,63),(255,174,87),(221,104,51),(127,58,45),
+(244,131,52),(207,90,39),(114,48,39),
+(52,62,88),(27,36,62),(9,19,39),(239,245,240),(10,18,31)
 ]
 FEMALE=[
 (115,197,164),(255,222,205),(232,177,153),(194,121,102),
-(36,54,96),(105,160,207),(62,117,167),(29,76,121),
-(46,163,151),(26,111,119),(13,69,78),
-(247,178,75),(210,97,53),(105,49,44),(241,242,238),(11,20,34)
+(33,42,71),(255,171,86),(220,100,48),(124,51,42),
+(250,135,57),(207,88,39),(114,48,42),
+(53,64,92),(29,40,65),(13,22,42),(241,242,238),(11,20,34)
 ]
 NATIVE_RANGER_SOURCES = {'brendan':'camper.png', 'may':'picnicker.png'}
 
