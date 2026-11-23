@@ -9,6 +9,7 @@ MossdeepCity_RangerBase_1F_MapScripts::
 MossdeepCity_RangerBase_1F_EventScript_Dispatch::
 	lock
 	faceplayer
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_DispatchDone
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_DispatchSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_DispatchCheckIn, MSGBOX_DEFAULT
 	release
@@ -18,6 +19,17 @@ MossdeepCity_RangerBase_1F_EventScript_DispatchSearch:
 	msgbox MossdeepCity_RangerBase_1F_Text_DispatchSearch, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_RangerBase_1F_EventScript_DispatchDone:
+	msgbox MossdeepCity_RangerBase_1F_Text_DispatchDone, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_RangerBase_1F_Text_DispatchDone:
+	.string "DISPATCHER JUNE: Evacuation logged.\n"
+	.string "Your first mission is on record.\p"
+	.string "CMDR. HALE is upstairs. He'll want\n"
+	.string "to see it.$"
 
 MossdeepCity_RangerBase_1F_Text_DispatchCheckIn:
 	.string "DISPATCHER JUNE: Rookie, you're on\n"
@@ -40,6 +52,7 @@ MossdeepCity_RangerBase_1F_Text_DispatchSearch:
 MossdeepCity_RangerBase_1F_EventScript_Rookie::
 	lock
 	faceplayer
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_RookieDone
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_RookieSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_RookieWelcome, MSGBOX_DEFAULT
 	release
@@ -49,6 +62,16 @@ MossdeepCity_RangerBase_1F_EventScript_RookieSearch:
 	msgbox MossdeepCity_RangerBase_1F_Text_RookieSearch, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_RangerBase_1F_EventScript_RookieDone:
+	msgbox MossdeepCity_RangerBase_1F_Text_RookieDone, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_RangerBase_1F_Text_RookieDone:
+	.string "ROOKIE ARI: You got the kid AND his\n"
+	.string "POOCHYENA aboard? On day one?\p"
+	.string "Okay. I'm officially jealous.$"
 
 MossdeepCity_RangerBase_1F_Text_RookieWelcome:
 	.string "ROOKIE ARI: Welcome to MOSSDEEP\n"
@@ -126,6 +149,7 @@ MossdeepCity_RangerBase_1F_Text_QuartermasterBagFull:
 	.string "full. Make room and come back.$"
 
 MossdeepCity_RangerBase_1F_EventScript_MissionBoard::
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_MissionBoardDone
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_MissionBoardSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_MissionBoardCheckIn, MSGBOX_SIGN
 	end
@@ -133,6 +157,16 @@ MossdeepCity_RangerBase_1F_EventScript_MissionBoard::
 MossdeepCity_RangerBase_1F_EventScript_MissionBoardSearch:
 	msgbox MossdeepCity_RangerBase_1F_Text_MissionBoardSearch, MSGBOX_SIGN
 	end
+
+MossdeepCity_RangerBase_1F_EventScript_MissionBoardDone:
+	msgbox MossdeepCity_RangerBase_1F_Text_MissionBoardDone, MSGBOX_SIGN
+	end
+
+MossdeepCity_RangerBase_1F_Text_MissionBoardDone:
+	.string "MISSION BOARD\n"
+	.string "MOSSDEEP EVACUATION - COMPLETE\p"
+	.string "All passengers aboard.\n"
+	.string "Next assignment: pending.$"
 
 MossdeepCity_RangerBase_1F_Text_MissionBoardCheckIn:
 	.string "MISSION BOARD - URGENT\n"
