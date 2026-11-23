@@ -275,7 +275,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_RangerChild",
-      "flag": "0"
+      "flag": "FLAG_NEO_HIDE_LANDING_RESCUEES"
     },
     {
       "local_id": "LOCALID_MOSSDEEP_RANGER_POOCHYENA",
@@ -289,7 +289,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_RangerPoochyena",
-      "flag": "0"
+      "flag": "FLAG_NEO_HIDE_LANDING_RESCUEES"
     }
   ],
   "warp_events": [

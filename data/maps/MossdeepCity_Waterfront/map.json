@@ -20,7 +20,50 @@
       "direction": "left"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_WATERFRONT_RESCUE_CHILD",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 14,
+      "y": 35,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_Waterfront_EventScript_RescuedChild",
+      "flag": "FLAG_NEO_HIDE_QUAY_RESCUEES"
+    },
+    {
+      "local_id": "LOCALID_WATERFRONT_RESCUE_POOCHYENA",
+      "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
+      "x": 14,
+      "y": 36,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_Waterfront_EventScript_RescuedChild",
+      "flag": "FLAG_NEO_HIDE_QUAY_RESCUEES"
+    },
+    {
+      "local_id": "LOCALID_WATERFRONT_FERRY_CREW",
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 21,
+      "y": 34,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_Waterfront_EventScript_FerryCrew",
+      "flag": "0"
+    }
+  ],
   "warp_events": [],
   "coord_events": [],
   "bg_events": [

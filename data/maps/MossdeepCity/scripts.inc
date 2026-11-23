@@ -49,9 +49,20 @@ MossdeepCity_RangerCheckIn:
 	end
 
 MossdeepCity_RangerCheckedIn:
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerAllAboard
 	msgbox MossdeepCity_Text_RangerStillMissing, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_RangerAllAboard:
+	msgbox MossdeepCity_Text_RangerAllAboard, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_Text_RangerAllAboard:
+	.string "SAILOR: Head count's complete.\n"
+	.string "Every ticket accounted for.\p"
+	.string "You did good, Ranger. Real good.$"
 
 MossdeepCity_Text_RangerStillMissing:
 	.string "SAILOR: The kid and his POOCHYENA\n"
@@ -72,7 +83,16 @@ MossdeepCity_OnTransition:
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call MossdeepCity_EventScript_RangerRescueVisibility
 	end
+
+@ Sync whether the rescuees are visible on the landing each time Mossdeep loads.
+MossdeepCity_EventScript_RangerRescueVisibility:
+	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_EventScript_RangerRescueVisibilityDone
+	clearflag FLAG_NEO_HIDE_LANDING_RESCUEES
+MossdeepCity_EventScript_RangerRescueVisibilityDone:
+	return
 
 MossdeepCity_EventScript_PokefanF::
 	lock
@@ -514,18 +534,29 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "mentored WALLACE.$"
 
 
-@ Neo Emerald flood milestone 1: child and Poochyena on the last dry
-@ landing below south stairs. Dialogue only; no rescue completion state.
+@ First rescue is gated on checking in with the sailor (state 3).
+@ Calm the boy's Poochyena, then escort both to the waterfront (state 4).
+@ The waterfront boarding event pays mission/XP credit once at state 5.
 MossdeepCity_EventScript_RangerChild::
 	lock
 	faceplayer
-	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerChildFound
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerChildRescue
 	msgbox MossdeepCity_Text_RangerChildEarly, MSGBOX_DEFAULT
 	release
 	end
 
-MossdeepCity_RangerChildFound:
+MossdeepCity_RangerChildRescue:
 	msgbox MossdeepCity_Text_RangerChildFound, MSGBOX_DEFAULT
+	msgbox MossdeepCity_Text_RangerCalmPoochyena, MSGBOX_DEFAULT
+	playmoncry SPECIES_POOCHYENA, CRY_MODE_NORMAL
+	waitmoncry
+	msgbox MossdeepCity_Text_RangerPoochyenaCalmed, MSGBOX_DEFAULT
+	msgbox MossdeepCity_Text_RangerEscort, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_NEO_FERRY_DISPATCH, 4
+	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
+	warp MAP_MOSSDEEP_CITY_WATERFRONT, 12, 35
+	waitstate
 	release
 	end
 
@@ -551,6 +582,21 @@ MossdeepCity_Text_RangerChildFound:
 MossdeepCity_Text_RangerPoochyena:
 	.string "POOCHYENA is shaking.\n"
 	.string "It won't take its eyes off the water.$"
+
+MossdeepCity_Text_RangerCalmPoochyena:
+	.string "{PLAYER} kneels down slowly and\n"
+	.string "holds out a steady hand.\p"
+	.string "Your partner stays close and calm.$"
+
+MossdeepCity_Text_RangerPoochyenaCalmed:
+	.string "POOCHYENA stopped shaking!\p"
+	.string "BOY: He trusts you! Okay, I'm\n"
+	.string "ready. Let's go!$"
+
+MossdeepCity_Text_RangerEscort:
+	.string "You lead the boy and POOCHYENA\n"
+	.string "up the stairs, past the rising\l"
+	.string "water, to the ferry quay...$"
 
 @ Neo Emerald: Ranger Base sign next to the door (warp 10 at 33,19).
 MossdeepCity_EventScript_RangerHQSign::
