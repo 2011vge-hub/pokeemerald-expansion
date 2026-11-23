@@ -5,7 +5,7 @@
 ## Design decisions
 
 - Hoenn, 25 years later, significantly changed by climate and geological events.
-- Opening: Mossdeep evacuation; its tech metropolis is sinking into the sea.
+- The player is a rookie Mossdeep Ranger. Their field rig breaks during the evacuation; dispatch calls and equipment upgrades replace HM traversal. May leads Team Null, a breakaway group of Rangers.
 - New playable line: Poochyena → Mightyena → **Grimyena** (Dark/Fire) → **Mega Grimyena** (Dark/Fire, Cerberus-style).
 - Custom Megas: Breloom (Grass/Fighting), Walrein (Water/Ice), Milotic (Water), and Grimyena.
 - **Chaos Spores:** Mega Breloom's contact-hit status attempt (20%; burn/sleep/poison/paralysis).
