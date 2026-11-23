@@ -1319,12 +1319,12 @@ RustboroCity_Text_NeoCampusFieldStudent:
 	.string "POKéMON, then report to RANGERS.$"
 
 RustboroCity_Text_NeoCampusFieldStudentRanger:
-	.string "You arrived with COMMANDER HALE?\\p"
-	.string "RUSTBORO UNIVERSITY is helping\\n"
-	.string "the RANGERS with relief work.\\p"
-	.string "We heard about that emergency\\n"
-	.string "landing near ROUTE 104.\\p"
-	.string "Your field contact should\\n"
+	.string "You arrived with COMMANDER HALE?\p"
+	.string "RUSTBORO UNIVERSITY is helping\n"
+	.string "the RANGERS with relief work.\p"
+	.string "We heard about that emergency\n"
+	.string "landing near ROUTE 104.\p"
+	.string "Your field contact should\n"
 	.string "be here soon, Ranger.$"
 
 RustboroCity_Text_NeoCampusDevonIntern:
