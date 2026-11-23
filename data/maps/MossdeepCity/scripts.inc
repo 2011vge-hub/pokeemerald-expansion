@@ -29,7 +29,7 @@ MossdeepCity_Text_RangerPartnerOffer:
 	.string "DISPATCH: Three rescue partners\n"
 	.string "are available for this mission.\p"
 	.string "Choose POOCHYENA, SPHEAL,\n"
-	.string "or BRELOOM.$"
+	.string "or SHROOMISH.$"
 
 MossdeepCity_Text_RangerPartnerAssigned:
 	.string "DISPATCH: Partner registered.\p"
