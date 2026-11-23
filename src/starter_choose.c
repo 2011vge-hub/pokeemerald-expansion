@@ -115,7 +115,7 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 // Neo Emerald's rescue partners; keep FireRed/LeafGreen's original choices intact.
 #define FIRST_STARTER  (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_POOCHYENA)
 #define SECOND_STARTER (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_SPHEAL)
-#define THIRD_STARTER  (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_BRELOOM)
+#define THIRD_STARTER  (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_SHROOMISH)
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
