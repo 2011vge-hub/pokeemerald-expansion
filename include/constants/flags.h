@@ -55,7 +55,7 @@
 #define FLAG_NEO_HIDE_LANDING_RESCUEES 0x21 // Hides boy and Poochyena on Mossdeep landing
 #define FLAG_NEO_HIDE_QUAY_RESCUEES    0x22 // Hides pair on ferry quay
 #define FLAG_NEO_HIDE_DEPARTED_FERRY 0x23 // Hides the evacuation ferry after rescue boarding
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED 0x24 // Future plot clearance; hides gym door guard
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag

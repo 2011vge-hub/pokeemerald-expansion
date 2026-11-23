@@ -126,6 +126,51 @@ MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
 	end
 
+@ Emergency access control: only unlock this gym after a later story
+@ mission explicitly sets FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED.
+@ The guard occupies (38,10), directly in front of gym warp (38,9).
+@ Rustboro and other early gyms are NOT restricted by this rule.
+MossdeepCity_EventScript_NeoGymClosed::
+	lock
+	faceplayer
+	goto_if_lt VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_EventScript_NeoGymNeedSailor
+	goto_if_lt VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_EventScript_NeoGymFinishRescue
+	goto_if_lt VAR_NEO_RANGER_RANK, RANGER_RANK_RANGER, MossdeepCity_EventScript_NeoGymSeeCommander
+	msgbox MossdeepCity_Text_NeoGymAwaitClearance, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_EventScript_NeoGymNeedSailor:
+	msgbox MossdeepCity_Text_NeoGymNeedSailor, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_EventScript_NeoGymFinishRescue:
+	msgbox MossdeepCity_Text_NeoGymFinishRescue, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_EventScript_NeoGymSeeCommander:
+	msgbox MossdeepCity_Text_NeoGymSeeCommander, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_Text_NeoGymNeedSailor:
+	.string "Now's not the time. I should\p"
+	.string "check with the sailor nearby.$"
+
+MossdeepCity_Text_NeoGymFinishRescue:
+	.string "The rescue isn't finished yet.\p"
+	.string "I need to get back to the ferry.$"
+
+MossdeepCity_Text_NeoGymSeeCommander:
+	.string "The storm's not over for MOSSDEEP.\p"
+	.string "I should report to CMDR. HALE.$"
+
+MossdeepCity_Text_NeoGymAwaitClearance:
+	.string "No GYM challenge without\p"
+	.string "clearance from COMMANDER HALE.$"
+
 MossdeepCity_EventScript_GymSign::
 	msgbox MossdeepCity_Text_GymSign, MSGBOX_SIGN
 	end

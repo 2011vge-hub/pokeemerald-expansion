@@ -34,6 +34,8 @@
 #include "random.h"
 #include "safari_zone.h"
 #include "script.h"
+#include "pokemon.h"
+#include "constants/moves.h"
 #include "script_pokemon_util.h"
 #include "secret_base.h"
 #include "sound.h"
@@ -1015,6 +1017,35 @@ static void CB2_GiveStarter(void)
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
     ScriptGiveMon(starterMon, 5, ITEM_NONE);
+
+    // Neo Emerald: Ranger partner receives one distinctive field move on
+    // recruitment. Level 5 is a STARTING level, not a level cap; ordinary
+    // battle EXP, moves, and evolution remain handled by the core engine.
+    if (!IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2 && gPartiesCount[B_TRAINER_PLAYER] > 0)
+    {
+        struct Pokemon *partner = &gParties[B_TRAINER_PLAYER][gPartiesCount[B_TRAINER_PLAYER] - 1];
+        enum Move signature = MOVE_NONE;
+
+        switch (starterMon)
+        {
+        case SPECIES_POOCHYENA:
+            signature = MOVE_FIRE_FANG;
+            break;
+        case SPECIES_SPHEAL:
+            signature = MOVE_ICE_BEAM;
+            break;
+        case SPECIES_SHROOMISH:
+            signature = MOVE_GIGA_DRAIN;
+            break;
+        }
+        if (signature != MOVE_NONE && GetMonData(partner, MON_DATA_SPECIES) == starterMon)
+        {
+            // Normally a starter has room; the fallback also guarantees the
+            // signature on variants with a full four-move level-5 learnset.
+            if (GiveMoveToMon(partner, signature) == MON_HAS_MAX_MOVES)
+                SetMonMoveSlot(partner, signature, MAX_MON_MOVES - 1);
+        }
+    }
     ResetTasks();
 
     // Neo Emerald starts at Mossdeep, not in Birch's Route 101 rescue battle.

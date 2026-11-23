@@ -290,6 +290,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_RangerPoochyena",
       "flag": "FLAG_NEO_HIDE_LANDING_RESCUEES"
+    },
+    {
+      "local_id": "LOCALID_NEO_MOSSDEEP_GYM_GUARD",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 38,
+      "y": 10,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_EventScript_NeoGymClosed",
+      "flag": "FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED"
     }
   ],
   "warp_events": [
