@@ -67,3 +67,5 @@ bash neo_emerald/tools/build.sh
 If successful, the **prototype** ROM is `neo_emerald/out/NeoEmerald_Prototype.gba`. The build script does not upload the ROM. It still uses original Emerald maps and story, and Grimyena currently looks/sounds like Mightyena until our graphics pipeline is ready.
 
 The simple design/source checks run separately with `python3 neo_emerald/tools/check_source.py`; they do not replace a compiler or emulator test.
+
+- Mossdeep Ranger Base: [two floors, six staff and rank framework](design/ranger_base.md). Committed source only: requires .gba compilation and emulator QA.
