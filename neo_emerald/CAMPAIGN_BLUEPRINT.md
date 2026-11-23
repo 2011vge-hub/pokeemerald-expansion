@@ -2,7 +2,9 @@
 
 **Adopted direction:** Eight Gyms in one authored order. Each leader fields a signature Mega. Optional exploration, team building and rematches carry player choice. The main campaign follows chapter events and badge victories. The route, ace levels, mystery resolution and encounter designs below are proposals for playtesting.
 
-## Opening — The last ferry
+## Opening — Birch’s recording and the last ferry
+
+New Game opens with Professor Birch’s recorded Ranger induction. He welcomes the rookie to their first active rescue, recalls Hoenn’s last 25 years, and encourages the League challenge. Badges support training stronger Pokémon and most Ranger promotions carry badge requirements. Field gear still comes from mission training. Issue the player’s Ranger ID during character creation. Birch signs off with a wish for their safe return and the words “End recording.” The first live dispatch follows at the ferry. Birch’s present whereabouts remain unknown.
 
 The player is a rookie Ranger from Mossdeep. On their first real call they have two ferry tickets and one assignment: check names at the upper terminal. The neighbor kid runs back for the family's Poochyena. Dispatch says to hold position. From the platform, the player sees the incoming crew's access stairs collapse. Give control back here. Let the player radio the obstruction, choose Treecko, Torchic or Mudkip at the rescue post, and take the market stairs while they are still passable.
 
