@@ -4,7 +4,61 @@
 @ Dialogue follows VAR_NEO_FERRY_DISPATCH: 2 = partner chosen, 3 = checked in.
 
 MossdeepCity_RangerBase_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_RangerBase_1F_OnFrame
 	.byte 0
+
+@ The first scripted event starts at the reception mat on a NEW GAME only.
+@ Dispatch state 1 is initialized by src/new_game.c. Set state 2 before
+@ opening the existing starter selection, so map reloads never repeat it.
+MossdeepCity_RangerBase_1F_OnFrame:
+	map_script_2 VAR_NEO_FERRY_DISPATCH, 1, MossdeepCity_RangerBase_1F_EventScript_NewRecruit
+	.2byte 0
+
+MossdeepCity_RangerBase_1F_EventScript_NewRecruit:
+	lockall
+	msgbox MossdeepCity_RangerBase_1F_Text_AriGreeting, MSGBOX_DEFAULT
+	msgbox MossdeepCity_RangerBase_1F_Text_JuneAssignment, MSGBOX_DEFAULT
+	setvar VAR_NEO_FERRY_DISPATCH, 2
+	setflag FLAG_SYS_POKEMON_GET
+	special ChooseStarter
+	msgbox MossdeepCity_RangerBase_1F_Text_PartnerRegistered, MSGBOX_DEFAULT
+	msgbox MossdeepCity_RangerBase_1F_Text_StormEmergency, MSGBOX_DEFAULT
+	msgbox MossdeepCity_RangerBase_1F_Text_AriFarewell, MSGBOX_DEFAULT
+	releaseall
+	end
+
+MossdeepCity_RangerBase_1F_Text_AriGreeting:
+	.string "ROOKIE ARI: You're the new recruit!\p"
+	.string "Welcome to MOSSDEEP RANGER BASE.\n"
+	.string "I'm ARI. Reception duty, for now.\p"
+	.string "DISPATCHER JUNE is waiting for you.$"
+
+MossdeepCity_RangerBase_1F_Text_JuneAssignment:
+	.string "JUNE: Welcome aboard, {PLAYER}.\p"
+	.string "Your field registration is still\n"
+	.string "missing one important thing.\p"
+	.string "No RANGER operates alone.\n"
+	.string "Choose your POKéMON partner.$"
+
+MossdeepCity_RangerBase_1F_Text_PartnerRegistered:
+	.string "JUNE: Partner officially registered.\p"
+	.string "That POKéMON is yours to train.\n"
+	.string "Keep each other safe out there.$"
+
+MossdeepCity_RangerBase_1F_Text_StormEmergency:
+	.string "BEEP! BEEP! BEEP!\p"
+	.string "HALE: ALL RANGERS, REPORT IN!\p"
+	.string "Floodwaters have reached the\n"
+	.string "lower streets of MOSSDEEP!\p"
+	.string "JUNE: The ferry by the GYM needs\n"
+	.string "a passenger head count. Go now!\p"
+	.string "MEDIC and QUARTERMASTER are here\n"
+	.string "if you need supplies first.$"
+
+MossdeepCity_RangerBase_1F_Text_AriFarewell:
+	.string "ARI: First day and already on call?\p"
+	.string "Those people need a RANGER.\n"
+	.string "Go show them one!$"
 
 MossdeepCity_RangerBase_1F_EventScript_Dispatch::
 	lock

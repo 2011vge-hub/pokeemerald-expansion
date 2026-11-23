@@ -1,43 +1,6 @@
 MossdeepCity_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_RangerOnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
-
-MossdeepCity_RangerOnFrame:
-	map_script_2 VAR_NEO_FERRY_DISPATCH, 1, MossdeepCity_RangerFirstCall
-	.2byte 0
-
-MossdeepCity_RangerFirstCall:
-	lockall
-	msgbox MossdeepCity_Text_RangerFirstCall, MSGBOX_DEFAULT
-	msgbox MossdeepCity_Text_RangerPartnerOffer, MSGBOX_DEFAULT
-	setvar VAR_NEO_FERRY_DISPATCH, 2
-	setflag FLAG_SYS_POKEMON_GET
-	special ChooseStarter
-	msgbox MossdeepCity_Text_RangerPartnerAssigned, MSGBOX_DEFAULT
-	releaseall
-	end
-
-MossdeepCity_Text_RangerFirstCall:
-	.string "DISPATCH: Ranger {PLAYER}, come in.\p"
-	.string "The ferry is taking evacuees.\n"
-	.string "We need a head count.\p"
-	.string "Find the sailor by the GYM.\n"
-	.string "He has your passenger list.$"
-
-MossdeepCity_Text_RangerPartnerOffer:
-	.string "DISPATCH: Three rescue partners\n"
-	.string "are available for this mission.\p"
-	.string "Choose POOCHYENA, SPHEAL,\n"
-	.string "or SHROOMISH.$"
-
-MossdeepCity_Text_RangerPartnerAssigned:
-	.string "DISPATCH: Partner registered.\p"
-	.string "Proceed to the sailor and\n"
-	.string "report for duty, Ranger.\p"
-	.string "RANGER BASE is beside the\n"
-	.string "POKéMON CENTER: supplies, briefings\l"
-	.string "and our MEDIC. Keep it quick.$"
 
 MossdeepCity_RangerCheckIn:
 	lock
