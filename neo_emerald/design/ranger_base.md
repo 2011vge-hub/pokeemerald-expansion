@@ -17,7 +17,7 @@ Status: implemented in source on `neo-emerald/mossdeep-city-v3-streets`;
 
 | Role | Name | Floor | In-source function | Limit |
 |---|---|---|---|---|
-| Commander | Hale | 2F (7,6) | Checks mission count, field XP and badges; promotes one rank at a time | No mission reward scripts yet |
+| Commander | Hale | 2F (7,6) | Checks mission count, field XP and badges; promotes one rank at a time | First ferry rescue now credits +1 mission/100 XP in source; a badge is still required to promote |
 | Dispatch | June | 1F (3,4) | Briefs player on sailor check-in and missing child | Future missions need additional states |
 | Medic | Tala | 1F (13,6) | `special HealPlayerParty`, healing fanfare | Must test in emulator |
 | Quartermaster | Brant | 1F (3,7) | Issues 3 Potions once using a persistent flag; handles full bag | Later gear upgrades dialogue-only |
@@ -45,7 +45,7 @@ The commander's requirements to **reach** each rank are:
 | Top | 10 | 1600 | 8 |
 
 Persistent counters: `VAR_NEO_RANGER_RANK` (0x40FC), `VAR_NEO_RANGER_MISSIONS` (0x40FD), `VAR_NEO_RANGER_XP` (0x40FE); the kit-claimed flag is `FLAG_NEO_RANGER_KIT_ISSUED` (0x20).
-**No mission completion currently increases mission count or field XP**, so promotions cannot yet be earned. The ferry rescue is the appropriate first milestone to credit.
+The **ferry rescue** is now scripted to award +1 completed Ranger mission and +100 Ranger XP (`NEO_MISSION_FERRY_RESCUE_XP`) once when the waterfront boarding scene completes. Commander Hale can evaluate promotion afterward; the first **RANGER** promotion still requires one Gym Badge. The static guard `neo_emerald/tools/check_rescue_once.py` is called by `build.sh`. This verifies script structure, not runtime behavior.
 The badge count reads `FLAG_BADGE01_GET` through `FLAG_BADGE08_GET`.
 
 ## Opening
@@ -63,3 +63,33 @@ After the Ranger partner selection, dispatch mentions the base as an optional st
 7. Read mission board, command consoles and HQ sign; save and reload within 1F or 2F.
 
 All floor tiles and the HQ-door tile were reconstructed to the exact Git blob checksums in Claude's original patches. Reachability checks use collision/elevation approximations and do **not** prove actual warp animation, runtime scripts, saving or graphics are bug-free.
+
+
+## Mossdeep ferry rescue: source implementation, not playtested
+
+| State | Meaning | Source |
+|---|---|---|
+| 1 | Initial dispatch call pending | New game |
+| 2 | Ranger partner selected; check in with the sailor | Mossdeep opening |
+| 3 | Sailor check-in done, child rescue available | Mossdeep sailor |
+| 4 | Boy and Poochyena escorted to the quay; boarding pending | Child dialogue at southern landing, scripted warp |
+| 5 | Boarding completed; mission and XP credited | Waterfront on-frame scene |
+
+Visibility: `FLAG_NEO_HIDE_LANDING_RESCUEES` hides the pair on the landing at state 4 and later; `FLAG_NEO_HIDE_QUAY_RESCUEES` shows them only at state 4 on the quay. Both flags are synchronized by their maps' ON_TRANSITION scripts.
+
+At state 3, speaking to the boy calms his Poochyena and fades the party to the waterfront. At state 4, the boy asks why the siren sounded late; the ferry crew offers an evasive answer. The pair walks toward the ferry, the mission reaches state 5, and **one mission and 100 field XP** are awarded before the completion message. Re-entry at state 5 should not replay the reward.
+
+Still planned: a walking escort/follower, first battle, tether mechanic, visible ferry boat, and dated ticket evidence.
+
+### Additional emulator tests
+
+1. Check in with sailor and find the boy using either the south stairs or elevated bridge.
+2. Talk to him; verify the fade to the waterfront and both rescuees spawning.
+3. Verify the movement, dialogue, sound and mission completion message without freezing.
+4. Return to Mossdeep. Neither child nor Poochyena should remain at the landing.
+5. Revisit waterfront; confirm no duplicate dialogue or extra +1 mission/+100 XP.
+6. Speak to Commander Hale: record should show one mission and 100 XP, but promotion requires one Gym Badge.
+7. Save/reload on Mossdeep and waterfront, confirming visibility, mission credit and rescue completion persist.
+8. Test entry and scene playback in both mGBA and Delta.
+
+The static guard checks that only the boarding scene adds mission/XP and that it sets state 5 before paying. It does not establish a compiled game or a completed emulator test.

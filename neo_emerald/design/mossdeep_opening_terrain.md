@@ -62,12 +62,12 @@ New map/interior space required. A quick level-appropriate wild encounter blocks
 | 2 | Choose Poochyena / Spheal / Shroomish | Partner registered at level 5 | Choice wired to Mossdeep on phase-1-ranger-starters; untested |
 | 3 | Speak to sailor near Gym | Two tickets left, child ran toward market | Source script present |
 | 4 | Investigate market terrace | Wet pawprints; first warnings of blocked lower steps | Dialogue support planned first; geometry pending |
-| 5 | Reach child and their Poochyena | Small first battle, then tether rescue | Not implemented |
+| 5 | Reach child and their Poochyena | Small first battle, then tether rescue | In source: calm Poochyena + scripted escort; battle/tether still planned, not playtested |
 | 6 | Cross upper balcony | Reel breaks, radio loses transmission | Not implemented |
-| 7 | Ferry departs | Siren heard **after** water arrived; dated ticket/receipt | Not implemented |
+| 7 | Ferry departs | Siren heard **after** water arrived; dated ticket/receipt | Boarding scene, siren dialogue and first mission credit in source; receipt/visible boat not implemented |
 | 8 | Arrive Rustboro coast | Rangers' testimony conflicts with dispatch log | Not implemented |
 
-**Progress-state design:** `VAR_NEO_FERRY_DISPATCH` is currently used with values 1=new call, 2=select partner/report, 3=checked in. Extend only with explicit migration and recovery handling; never use global trainer flags as story gates. Do not add child-rescue completion state before a map and script can deliver that outcome.
+**Progress-state implementation:** `VAR_NEO_FERRY_DISPATCH` uses 1=new call, 2=partner/report, 3=sailor checked in, 4=escorted to quay, 5=boarding/mission credited. The first rescue is source-scripted and requires compilation/emulator playtesting. The rescue pair use map-specific hide flags; no global trainer flags gate story progress.
 
 ## Terrain production procedure
 
