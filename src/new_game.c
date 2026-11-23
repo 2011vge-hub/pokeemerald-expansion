@@ -20,6 +20,7 @@
 #include "easy_chat.h"
 #include "event_data.h"
 #include "constants/vars.h"
+#include "constants/heal_locations.h"
 #include "money.h"
 #include "trainer_hill.h"
 #include "trainer_tower.h"
@@ -142,6 +143,7 @@ static void WarpToStartingLocation(void)
     {
         VarSet(VAR_NEO_FERRY_DISPATCH, 1);
         SetWarpDestination(MAP_GROUP(MAP_MOSSDEEP_CITY), MAP_NUM(MAP_MOSSDEEP_CITY), WARP_ID_NONE, 28, 17);
+        SetLastHealLocationWarp(HEAL_LOCATION_MOSSDEEP_CITY);
     }
     WarpIntoMap();
 }

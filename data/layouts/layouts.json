@@ -9323,6 +9323,17 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_STORM",
+      "name": "MossdeepCity_Storm_Layout",
+      "width": 80,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/MossdeepCity_Storm/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_Storm/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

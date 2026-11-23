@@ -1,7 +1,7 @@
 # Mossdeep opening — terrain and story implementation plan (Neo Emerald)
 
 Status: **design specification, NOT yet an edited terrain map or verified ROM.**
-Source anchor: `data/maps/MossdeepCity/map.json`; layout `data/layouts/MossdeepCity/map.bin` remains vanilla. The existing layout has 3,200 metatiles (80x40 at two bytes each). Ground walkability and collision **have not been verified** for proposed new geometry. All locations below marked **planned** are subject to map-editor validation.
+Source anchor: `data/maps/MossdeepCity/map.json`; layout `data/layouts/MossdeepCity_Storm/map.bin` is now a byte-identical working copy of the vanilla layout. The existing layout has 3,200 metatiles (80x40 at two bytes each). Ground walkability and collision **have not been verified** for proposed new geometry. All locations below marked **planned** are subject to map-editor validation.
 
 ## Creative objective
 
@@ -80,6 +80,6 @@ Don't explain Team Null, May's decisions or Birch's disappearance too early. Kee
 ## Design conflicts to reconcile
 
 - Latest `CAMPAIGN_BLUEPRINT.md` adopts **fixed, authored Gym chapter order**; `design/story_pillars.md` still suggests open-order Gyms. Treat the newer campaign blueprint as current until explicitly changed.
-- Claude reported a local, unpushed Mossdeep **respawn fix** on `neo-emerald/phase-1-opening`; this branch started from `phase-1-grimyena`, so its savepoint fix is **not included**.
+- Claude reported a local, unpushed Mossdeep **respawn fix** on `neo-emerald/phase-1-opening`; the equivalent respawn initialization is now committed to this branch, subject to a ROM test.
 - Starter choice is currently hooked to the existing Birch bag screen for stability; eventually redesign that UI as a Ranger partner assignment interface. Keep the starter source table centralized to avoid mismatches.
 - Poochyena -> Mightyena -> Grimyena; Spheal -> Sealeo -> Walrein; Shroomish -> Breloom -> **unnamed future third stage**. New third-stage evolution is a design request only. Mega Breloom remains a separate project.

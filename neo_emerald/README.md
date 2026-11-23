@@ -27,7 +27,7 @@
 - Mossdeep dispatch now opens the three-ball chooser and returns to the map instead of the old Route 101 first battle; sailor and local NPCs provide first rescue clues.
 - Terrain plan and source coordinates: [Mossdeep opening and terrain specification](design/mossdeep_opening_terrain.md).
 - Original Mossdeep map collision and visuals have **not** yet been rebuilt.
-- This branch does not yet include Claude's local-only respawn patch from `neo-emerald/phase-1-opening`; reconcile before building the next ROM.
+- This branch now initializes the Mossdeep respawn point on New Game. It also registers `LAYOUT_MOSSDEEP_CITY_STORM`, a byte-identical and independently editable copy of original Mossdeep terrain. Compile and emulator verification are still outstanding.
 - Shroomish still evolves into Breloom normally; a future third-stage evolution after Breloom is a design idea, not implemented.
 
 ## Implementation milestones

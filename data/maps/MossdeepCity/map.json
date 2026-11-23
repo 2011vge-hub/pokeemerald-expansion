@@ -1,7 +1,7 @@
 {
   "id": "MAP_MOSSDEEP_CITY",
   "name": "MossdeepCity",
-  "layout": "LAYOUT_MOSSDEEP_CITY",
+  "layout": "LAYOUT_MOSSDEEP_CITY_STORM",
   "music": "MUS_RUSTBORO",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_MOSSDEEP_CITY",
