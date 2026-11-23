@@ -1,6 +1,6 @@
 # Building Neo Emerald on a Windows Surface (free, local)
 
-Build the current Mossdeep City 2.0 test branch without consuming GitHub Actions or Codespaces.
+Build the current Mossdeep City v3 streets test branch without consuming GitHub Actions or Codespaces.
 
 ## 1. Install WSL + Ubuntu (once)
 Open PowerShell **as Administrator** and run:
@@ -23,17 +23,17 @@ arm-none-eabi-gcc --version
 
 If your Ubuntu architecture doesn't offer those packages, follow the repository's current `docs/install/windows/WSL.md` guidance rather than downloading random third-party compilers.
 
-## 3. Clone and select the flood branch
+## 3. Clone and select the City v3 branch
 Keep files in the Linux home directory, not `/mnt/c/`.
 
 ```bash
 git clone https://github.com/2011vge-hub/pokeemerald-expansion.git ~/pokeemerald-expansion
 cd ~/pokeemerald-expansion
-git switch neo-emerald/mossdeep-city-v2
+git switch neo-emerald/mossdeep-city-v3-streets
 ```
 
 
-**Do not apply any previous Claude Mossdeep patch:** the flood, observatory, bridge, HQ, housing, tileset and waterfront source changes have been committed to this branch.
+**Do not apply any previous Claude Mossdeep patch:** the flood, city upgrades, third bridge access, annex removal, paving, lamps and waterfront source changes have been committed to this branch.
 
 ## 4. Build and check
 ```bash
@@ -62,6 +62,9 @@ Copy the new .gba into iCloud Drive, OneDrive or another file-transfer location 
 - West stairs do not permit walking into the sea
 - Save/reload and blackout return to Mossdeep's safe heal location
 - Lower shelf is walkable but upper exits remain open
+- Third rescue-bridge entrance from the flooded south terrace (43,30) is traversable
+- Decorative observatory annex is absent; main Space Center still accessible
+- Ranger Commons, market, and Space Center campus show new pavement and six static streetlamps; collision remains sane
 
 Run the map collision smoke check before changing geometry (Mossdeep; waterfront connectivity should also be checked in-game):
 

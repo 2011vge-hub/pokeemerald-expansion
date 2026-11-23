@@ -1,19 +1,23 @@
 # Mossdeep City 2.0 — Storm-Era Urban Redesign
-**Status:** City v3 enhancements in progress on `neo-emerald/mossdeep-city-v3-streets`. The annex has been removed and the rescue bridge has a southern walkable entrance. Earlier v2 features remain. Source and geometry checked; ROM build/emulator playtest still pending. Thunderstorm configured, not playtested.
+**Status:** City v3 street/access enhancements committed on `neo-emerald/mossdeep-city-v3-streets`. The annex has been removed and the rescue bridge has a southern walkable entrance. Earlier v2 features remain. Source and geometry checked; ROM build/emulator playtest still pending. Thunderstorm configured, not playtested.
 
 ## V3 terrain refinements (source level)
 
 - **Bridge third entrance:** the south rail at **(43,30)** is now a walkable deck, joining the deck at (43,29) to the lower flooded-terrace approach at (43,31). Both sides retain their collision railings; the new side gate stays usable if the original south stairs become blocked.
-- **Decorative Space Center annex removed:** restore the 5×7 area **x46–50, y10–16** directly from untouched vanilla terrain. It had **no interior, warp, events, or unique gameplay**, so the original main Space Center retains all working content. The two formerly sandy forecourt squares remain grass until the streetscape pass.
+- **Decorative Space Center annex removed:** restore the 5×7 area **x46–50, y10–16** directly from untouched vanilla terrain. It had **no interior, warp, events, or unique gameplay**, so the original main Space Center retains all working content. The former annex terrace is now a paved public overlook with two lamps.
 - Original Space Center and all key warp approaches, ferry connection, and child/Poochyena remain unchanged. 0 open-sea tiles reachable by source-level path check.
+- **Urban pavement:** 121 originally walkable grass/path tiles were repainted in four areas: Space Center overlook (35), Ranger Commons (47), market approach (18), and bridge square (21). Existing doors, cliffs, and water remain unchanged.
+- **Trees selectively replaced:** two 2×2 clusters at (22,14) and (21,19) were cleared; remaining coastal trees and southern flooded grove retain their silhouette.
+- **Six static lamp posts:** pairs of 16×16 metatiles at (22,14), (21,19), (46,10), (50,10), (31,21), (44,27). These are custom 16×32 indexed tile graphics on General palette 0, **not animated lighting**.
+- **Safety:** source-level path search still reaches the sailor, child, Space Center, both shops, HQ, and the waterfront link with the south stairs open or blocked. No open sea walkable.
 - Historical annex-creation scripts should **not** be rerun on v3.
 
 ## Implemented so far (v2)
 
 | Change | Where | State |
 |---|---|---|
-| Space Center weather-observatory annex: 5x7 building assembled from the existing Space Center metatiles (dish roof, glass/steel wall, pillared base) | Ridge terrace west of the Space Center, top-left (46,10), footprint x 46-50, y 10-16 | Implemented as a **facade only** (no door, warp or interior). 35 tiles changed, collision copied from the source building, elevation kept at the terrace's 7 |
-| Annex roof and forecourt polish: roof entries 966/967 without helipad marks at (46,10)/(46,11), plain wall at x47,y13–16, sand stub to grass at (48,17)/(49,17) | Same annex footprint, 8 tiles updated | Implemented in source; no new door, warp, or interior |
+| Space Center observatory annex (historical) | Former ridge terrace x46–50, y10–16 | **Removed in v3**; original Space Center retains its door/interior, annex was exterior only |
+| Annex roof/forecourt polish (historical) | Same former footprint | **Superseded in v3**; unused metatiles 966/967 retained for compatibility |
 | Market-to-child bridge using Route 110 walkway art (metatiles 968–971) | x35–43, y28–30 | Source implemented; landing reachable even when south stairs are blocked |
 | Ranger HQ civic tower, 3×7; sign, no usable interior | x32–34, y13–19 | Source implemented; avoids blocking main street |
 | House 4 raised to three floors with existing door/warp retained | x17–20, y12–16 | Source implemented |
@@ -93,3 +97,14 @@ Mossdeep and the connected waterfront are configured with `WEATHER_RAIN_THUNDERS
 The first six milestone map and metatile binaries were reconstructed and their Git blob IDs matched Claude's patch targets exactly, including the 32×40 waterfront. The Mossdeep `tiles.png` bridge-art import is **pixel-equivalent** to the script's nine-tile import, but was re-encoded into a valid indexed PNG and therefore has a different Git blob ID than Claude's original patch. The current checker uses map collision/elevation approximations: it does not replace in-emulator QA.
 
 The secondary Mossdeep tileset now contains **464/512 metatiles**, leaving **48 free** (454 vanilla + 10 Neo). The previously supplied 466/46 count was a two-metatile arithmetic error. Nine formerly blank 8×8 art slots are now occupied by imported walkway art; slots 496–511 are reserved for runtime door animations.
+
+## Amenities and upgrades to prioritize next
+
+1. **Ranger HQ interior:** reception desk, dispatch console, field equipment, emergency bulletin, healing/supply station (requires new interior map and warp).
+2. **Storm shelters:** triage outside Center; temporary beds, NPC dialogue, power-loss/electrician story.
+3. **Market amenities:** reopened upstairs stores, repair kiosk, EV/charge-service station adapted for Pokémon technology, apartment residents and evacuation notices.
+4. **Waterfront:** queue barricades, rescue boats, ferry boarding ramp, evacuation NPCs, proper mission-completion flags and dated ferry receipt.
+5. **Modern skyline:** real custom glass/steel facades, upgraded signs, curb edging and streetlights with optional nighttime illumination. Current streetlight graphics are static pixels.
+6. **Flood polish:** smooth shoreline joins, remove cliff/tree visual artifacts, show barricaded stairs and environmental clues.
+
+Each should be a small testable map/tileset change before implementing more complicated weather or rescue systems.

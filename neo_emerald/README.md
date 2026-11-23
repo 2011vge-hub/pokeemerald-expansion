@@ -23,7 +23,7 @@
 
 ## Ranger opening and terrain (development branch)
 
-**Current source test branch:** `neo-emerald/mossdeep-city-v2` includes flood terrain, thunderstorm weather, Space Center annex, walkway bridge to child landing, Ranger HQ facade, taller housing, east quay and a connected 32×40 ferry waterfront map. **No compiled ROM/emulator playtest yet.** The ferry, boarding and rescue completion remain planned. See [Mossdeep City 2.0](design/mossdeep_city_v2.md) and [WSL build guide](WSL_BUILD.md).
+**Current source test branch:** `neo-emerald/mossdeep-city-v3-streets`. It includes the flood and thunderstorm, a third south-side access to the rescue bridge, a paved Space Center terrace after removal of the unused annex, six custom static lamps, two cleared tree clusters, upgraded Ranger HQ and housing facades, east quay and connected ferry waterfront. **Not yet compiled or emulator-playtested.** Ferry boarding/rescue completion remain planned. See [Mossdeep city plan](design/mossdeep_city_v2.md) and [WSL build guide](WSL_BUILD.md).
 
 
 - In-game Ranger starter selection: **Poochyena / Spheal / Shroomish** on `neo-emerald/phase-1-ranger-starters` (code committed, ROM not yet built or playtested).
