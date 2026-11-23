@@ -326,6 +326,8 @@ gStdScripts_End::
 	.include "data/maps/MossdeepCity_House4/scripts.inc"
 	.include "data/maps/MossdeepCity_SpaceCenter_1F/scripts.inc"
 	.include "data/maps/MossdeepCity_SpaceCenter_2F/scripts.inc"
+	.include "data/maps/MossdeepCity_RangerBase_1F/scripts.inc"
+	.include "data/maps/MossdeepCity_RangerBase_2F/scripts.inc"
 	.include "data/maps/MossdeepCity_GameCorner_1F/scripts.inc"
 	.include "data/maps/MossdeepCity_GameCorner_B1F/scripts.inc"
 	.include "data/maps/SootopolisCity_Gym_1F/scripts.inc"

@@ -9345,6 +9345,28 @@
       "border_filepath": "data/layouts/MossdeepCity_Waterfront/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_Waterfront/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_RANGER_BASE_1F",
+      "name": "MossdeepCity_RangerBase_1F_Layout",
+      "width": 16,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MossdeepCity_RangerBase_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_RangerBase_1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_RANGER_BASE_2F",
+      "name": "MossdeepCity_RangerBase_2F_Layout",
+      "width": 16,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MossdeepCity_RangerBase_2F/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_RangerBase_2F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
