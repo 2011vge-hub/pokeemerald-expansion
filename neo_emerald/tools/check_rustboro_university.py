@@ -22,6 +22,7 @@ house = (HOUSE / "scripts.inc").read_text(encoding="utf-8")
 # A previously undefined female schoolkid ID caused an ARM linker failure.
 gfx_source = (ROOT / "include/constants/event_objects.h").read_text(encoding="utf-8")
 valid_gfx_ids = set(re.findall(r"^\s*(OBJ_EVENT_GFX_[A-Z0-9_]+)\s*,", gfx_source, re.MULTILINE))
+valid_gfx_ids.update(re.findall(r"^#define\s+(OBJ_EVENT_GFX_VAR_[0-9A-F])\b", gfx_source, re.MULTILINE))
 
 new_npcs = {
     (28, 36): "RustboroCity_EventScript_NeoCampusFieldStudent",
@@ -30,7 +31,7 @@ new_npcs = {
     (33, 37): "RustboroCity_EventScript_NeoCampusResident",
 }
 objects = data["object_events"]
-assert len(objects) == 20, f"Expected 20 Rustboro NPCs, got {len(objects)}"
+assert len(objects) == 21, f"Expected 21 Rustboro NPCs, got {len(objects)}"
 positions = [(o["x"], o["y"]) for o in objects]
 assert len(set(positions)) == len(positions), "Overlapping NPC coordinates"
 warp_positions = {(w["x"], w["y"]) for w in data["warp_events"]}
@@ -47,6 +48,14 @@ for pos, script in new_npcs.items():
     assert f"{script}::" in city, f"Missing script label {script}"
     assert matches[0]["graphics_id"] in valid_gfx_ids, (f"Unknown graphics ID for {script}: " f"{matches[0]['graphics_id']}")
 
+contact = [o for o in objects if (o["x"], o["y"]) == (29, 37)]
+assert len(contact) == 1, "Ranger contact missing or duplicated"
+assert contact[0]["script"] == "RustboroCity_EventScript_NeoRivalContact"
+assert contact[0]["graphics_id"] == "OBJ_EVENT_GFX_VAR_1"
+assert contact[0]["graphics_id"] in valid_gfx_ids
+assert (29, 37) not in warp_positions | coord_positions, "Contact blocks an event"
+assert "RustboroCity_EventScript_SetupNeoRivalGfxId" in city
+assert "RustboroCity_EventScript_NeoRivalContact::" in city
 for required in (
     "RUSTBORO UNIVERSITY",
     "DEVON ENTERPRISES",

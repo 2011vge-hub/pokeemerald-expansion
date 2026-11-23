@@ -56,8 +56,8 @@
 #define FLAG_NEO_HIDE_QUAY_RESCUEES    0x22 // Hides pair on ferry quay
 #define FLAG_NEO_HIDE_DEPARTED_FERRY 0x23 // Hides the evacuation ferry after rescue boarding
 #define FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED 0x24 // Future plot clearance; hides gym door guard
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_NEO_C1_FLIGHT_RUSTBORO 0x25 // After rescue debrief, Hale transferred Ranger to Rustboro (save-persistent)
+#define FLAG_NEO_C2_RIVAL_MET 0x26 // First meeting with Hale's Ranger child
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag

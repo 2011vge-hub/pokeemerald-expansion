@@ -6,11 +6,22 @@ RustboroCity_MapScripts::
 RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	call Common_EventScript_SetupRivalGfxId
+	call RustboroCity_EventScript_SetupNeoRivalGfxId
 	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
 	end
 
+@ New Ranger rival graphics use slot 1; vanilla rival remains in slot 0.
+RustboroCity_EventScript_SetupNeoRivalGfxId:
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, RustboroCity_EventScript_NeoRivalGfxNessa
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	return
+
+RustboroCity_EventScript_NeoRivalGfxNessa:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	return
 RustboroCity_EventScript_PositionScientistForExit::
 	goto_if_eq VAR_TEMP_0, 11, RustboroCity_EventScript_PositionScientistLeftExit
 	setobjectxyperm LOCALID_RUSTBORO_SCIENTIST, 12, 15
@@ -1290,8 +1301,84 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "could beat two TRAINERS by yourself?$"
 
 @ Neo Emerald: campus voices added without replacing vanilla quest scripts.
+@ Chapter 2 opening contact. One persistent mission state for either gender.
+@ Overworld graphics are placeholders pending custom Nessa/Vern Ranger art.
+RustboroCity_EventScript_NeoRivalContact::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_EventScript_NeoRivalBeforeFlight
+	goto_if_set FLAG_NEO_C2_RIVAL_MET, RustboroCity_EventScript_NeoRivalAfterMeeting
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, RustboroCity_EventScript_NeoRivalNessaIntro
+	msgbox RustboroCity_Text_NeoRivalVernIntro, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_NeoRivalSharedIntroduction
+
+RustboroCity_EventScript_NeoRivalNessaIntro:
+	msgbox RustboroCity_Text_NeoRivalNessaIntro, MSGBOX_DEFAULT
+
+RustboroCity_EventScript_NeoRivalSharedIntroduction:
+	msgbox RustboroCity_Text_NeoRivalHaleFamily, MSGBOX_DEFAULT
+	msgbox RustboroCity_Text_NeoRivalFirstAssignment, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C2_RIVAL_MET
+	release
+	end
+
+RustboroCity_EventScript_NeoRivalBeforeFlight:
+	msgbox RustboroCity_Text_NeoRivalAwaitingTransfer, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_EventScript_NeoRivalAfterMeeting:
+	msgbox RustboroCity_Text_NeoRivalRepeatInstructions, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_NeoRivalNessaIntro:
+	.string "NESSA: So you are the rookie Dad\n"
+	.string "sent over from MOSSDEEP!\p"
+	.string "I am NESSA. Hoenn's future\n"
+	.string "greatest RANGER. Remember that.$"
+
+RustboroCity_Text_NeoRivalVernIntro:
+	.string "VERN: So you are the rookie Dad\n"
+	.string "sent over from MOSSDEEP!\p"
+	.string "I am VERN. Hoenn's future\n"
+	.string "greatest RANGER. Remember that.$"
+
+RustboroCity_Text_NeoRivalHaleFamily:
+	.string "COMMANDER HALE is my father.\p"
+	.string "He told me what you did for that\n"
+	.string "kid and his POOCHYENA. Nice work.\p"
+	.string "We are assigned to the same\n"
+	.string "supply corridor. Keep up, okay?$"
+
+RustboroCity_Text_NeoRivalFirstAssignment:
+	.string "NEO MAGMA was seen operating\n"
+	.string "strange equipment in the WOODS.\p"
+	.string "We need to investigate without\n"
+	.string "putting wild POKéMON at risk.\p"
+	.string "Our next lead is near BRINEY's\n"
+	.string "old cottage on ROUTE 104.$"
+
+RustboroCity_Text_NeoRivalAwaitingTransfer:
+	.string "RANGER LIAISON: We are expecting\n"
+	.string "a transfer from MOSSDEEP BASE.$"
+
+RustboroCity_Text_NeoRivalRepeatInstructions:
+	.string "Head toward PETALBURG WOODS.\n"
+	.string "We need to trace NEO MAGMA's\l"
+	.string "equipment, then check ROUTE 104.\p"
+	.string "Do not rush into the forest\n"
+	.string "without supplies, Ranger.$"
 RustboroCity_EventScript_NeoCampusFieldStudent::
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_EventScript_NeoCampusFieldStudentRanger
 	msgbox RustboroCity_Text_NeoCampusFieldStudent, MSGBOX_NPC
+	end
+
+@ Campus help point after Hale's one-time airlift. The true rival and Ranger
+@ outpost quest remain to be implemented; do not award or unlock them here.
+RustboroCity_EventScript_NeoCampusFieldStudentRanger:
+	msgbox RustboroCity_Text_NeoCampusFieldStudentRanger, MSGBOX_NPC
 	end
 
 RustboroCity_EventScript_NeoCampusDevonIntern::
@@ -1310,6 +1397,15 @@ RustboroCity_Text_NeoCampusFieldStudent:
 	.string "Field Studies practical today!\p"
 	.string "We map blocked paths, help lost\n"
 	.string "POKéMON, then report to RANGERS.$"
+
+RustboroCity_Text_NeoCampusFieldStudentRanger:
+	.string "You arrived with COMMANDER HALE?\p"
+	.string "RUSTBORO UNIVERSITY is helping\n"
+	.string "the RANGERS with relief work.\p"
+	.string "We heard about that emergency\n"
+	.string "landing near ROUTE 104.\p"
+	.string "Your field contact should\n"
+	.string "be here soon, Ranger.$"
 
 RustboroCity_Text_NeoCampusDevonIntern:
 	.string "I landed a DEVON internship!\p"

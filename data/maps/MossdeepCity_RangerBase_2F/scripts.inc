@@ -7,6 +7,9 @@ MossdeepCity_RangerBase_2F_MapScripts::
 MossdeepCity_RangerBase_2F_EventScript_Commander::
 	lock
 	faceplayer
+	@ Complete the rescue before receiving orders to leave Mossdeep.
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief
+MossdeepCity_RangerBase_2F_EventScript_RankCheck:
 	goto_if_ge VAR_NEO_RANGER_RANK, RANGER_RANK_MAX, MossdeepCity_RangerBase_2F_EventScript_CommanderTopRank
 	msgbox MossdeepCity_RangerBase_2F_Text_CommanderIntro, MSGBOX_DEFAULT
 	call MossdeepCity_RangerBase_2F_EventScript_CountBadges
@@ -15,6 +18,50 @@ MossdeepCity_RangerBase_2F_EventScript_Commander::
 	case RANGER_RANK_RANGER, MossdeepCity_RangerBase_2F_EventScript_ReqSenior
 	case RANGER_RANK_SENIOR, MossdeepCity_RangerBase_2F_EventScript_ReqArea
 	goto MossdeepCity_RangerBase_2F_EventScript_ReqTop
+
+@ Chapter 1 bridge: players return to Hale after the once-only evacuation
+@ credit. A save-persistent flag prevents replaying the debrief/flight.
+@ The full upstairs evacuation staging and air-transport visuals are still TODO.
+MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, MossdeepCity_RangerBase_2F_EventScript_RankCheck
+	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief, MSGBOX_DEFAULT
+	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1LateSiren, MSGBOX_DEFAULT
+	playse SE_PIN
+	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1EmergencyCall, MSGBOX_DEFAULT
+	msgbox MossdeepCity_RangerBase_2F_Text_Chapter1FlightOrders, MSGBOX_DEFAULT
+	closemessage
+	@ Commit the transfer before warping so revisiting Hale never repeats it.
+	setflag FLAG_NEO_C1_FLIGHT_RUSTBORO
+	warp MAP_RUSTBORO_CITY, 27, 35
+	waitstate
+	end
+
+MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:
+	.string "HALE: You found the missing child\n"
+	.string "and brought his POOCHYENA back.\p"
+	.string "Against that flood, you kept\n"
+	.string "your head. Well done, Ranger.$"
+
+MossdeepCity_RangerBase_2F_Text_Chapter1LateSiren:
+	.string "One thing bothers me. The public\n"
+	.string "siren sounded far too late.\p"
+	.string "Keep that in your report.\n"
+	.string "We will investigate.$"
+
+MossdeepCity_RangerBase_2F_Text_Chapter1EmergencyCall:
+	.string "BEEP! INCOMING EMERGENCY CALL!\p"
+	.string "HALE: The evacuation vessel made\n"
+	.string "an emergency landing? Route 104?\p"
+	.string "Near MR. BRINEY's old cottage...\n"
+	.string "Understood.$"
+
+MossdeepCity_RangerBase_2F_Text_Chapter1FlightOrders:
+	.string "HALE: I'll fly you to RUSTBORO.\n"
+	.string "My field contact will meet you.\p"
+	.string "Your first rescue is over, Ranger.\n"
+	.string "The next assignment starts now.\p"
+	.string "Hale's aircraft lifts into\n"
+	.string "the clouds above MOSSDEEP...$"
 
 MossdeepCity_RangerBase_2F_EventScript_ReqRanger:
 	setvar VAR_0x8005, RANGER_REQ_RANGER_MISSIONS
