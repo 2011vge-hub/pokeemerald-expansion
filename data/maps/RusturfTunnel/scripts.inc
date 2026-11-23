@@ -560,6 +560,21 @@ NeoTechnician::
 	msgbox NeoTechRescue, MSGBOX_DEFAULT
 	setvar VAR_NEO_ASSIGNMENT, 11
 NeoTechNote:
+	goto_if_eq VAR_NEO_ASSIGNMENT, 11, NeoTechGuard
+	goto_if_eq VAR_NEO_ASSIGNMENT, 12, NeoTechReader
+	goto_if_set FLAG_NEO_TUNNEL_SECURED, NeoTechSafe
+	msgbox NeoTechWaiting, MSGBOX_DEFAULT
+	release
+	end
+NeoTechGuard:
+	msgbox NeoTechGuardText, MSGBOX_DEFAULT
+	release
+	end
+NeoTechSafe:
+	msgbox NeoTechSafeText, MSGBOX_DEFAULT
+	release
+	end
+NeoTechReader:
 	msgbox NeoTechHint, MSGBOX_DEFAULT
 	release
 	end
@@ -568,9 +583,21 @@ NeoTechRescue:
 	.string "technicians scramble free.\p"
 	.string "First the rock got hot. Then our\n"
 	.string "pressure alarm went off underground.$"
+NeoTechWaiting:
+	.string "A voice echoes behind the frame.\\n"
+	.string "Someone is still in there.$"
+NeoTechGuardText:
+	.string "My partner is breathing again.\\n"
+	.string "See the guard beside the relay?\\p"
+	.string "Get them away from the controls.\\n"
+	.string "Our last reading is still in there.$"
+NeoTechSafeText:
+	.string "I called the lab. They heard me.\\p"
+	.string "First time all night my sister\\n"
+	.string "heard my voice. Thank you.$"
 NeoTechHint:
 	.string "The relay reader is next to us.\n"
-	.string "Make sure the interference is gone.$"
+	.string "Use it to copy the last reading.$"
 
 NeoRelayReader::
 	lock
@@ -580,6 +607,7 @@ NeoRelayReader::
 	release
 	end
 NeoRelayIdle:
+	goto_if_eq VAR_NEO_ASSIGNMENT, 8, NeoRelayCopied
 	msgbox NeoRelayHelp, MSGBOX_DEFAULT
 	release
 	end
@@ -588,5 +616,13 @@ NeoRelayLog:
 	.string "THIRD SIGNAL: ORIGIN UNKNOWN.\p"
 	.string "You save a copy of the relay log.\n"
 	.string "Return to Hale at the field office.$"
+NeoRelayCopied:
+	msgbox NeoRelayCopiedText, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayCopiedText:
+	.string "LOG COPIED.\\p"
+	.string "Hale needs this recording.\\n"
+	.string "Return to the field office.$"
 NeoRelayHelp:
 	.string "Relay access port. Signal unstable.$"
