@@ -9367,6 +9367,17 @@
       "border_filepath": "data/layouts/MossdeepCity_RangerBase_2F/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_RangerBase_2F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_RANGER_BRIEFING_ROOM",
+      "name": "MossdeepCity_RangerBriefingRoom_Layout",
+      "width": 16,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/MossdeepCity_RangerBriefingRoom/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_RangerBriefingRoom/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

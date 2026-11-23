@@ -3,7 +3,8 @@
 
 Reuses the game's proven Brendan/May animation frame geometry and animation
 tables, but paints new dark-haired Ranger heads, teal/navy field uniforms,
-reception-quality shoulder badges, belt highlights, and the female ponytail.
+silver-blue Ranger hair and rescue strap for the boy, and the girl's blue hair,
+orange top and teal shorts, to match the already-approved full ID portraits.
 This is a functional v1 art pass rather than finished hand-drawn animation art.
 
 Edits indexed PNGs and their JASC-PAL files in the build workspace so the
@@ -45,42 +46,77 @@ def save_palette(path,colors):
         raise FileNotFoundError(path)
     path.write_text(paltext(colors))
 
-def reindex(img,female=False,walk=False):
-    assert img.mode=='P', 'Expected indexed PNG; artwork must stay 4bpp-compatible'
-    cols=FEMALE if female else MALE
-    original=img.copy()
-    pixels=img.load()
-    width,height=img.size
+def reindex(img, female=False, walk=False):
+    """Match the existing large ID portraits, not Brendan/May's hat/bow colors.
+
+    Male: silver-blue spiked hair, navy suit, diagonal orange rescue strap.
+    Female: midnight-blue hair with teal streak, orange top, teal shorts.
+    Keep every engine animation in its existing frame grid and 16-color palette.
+    """
+    assert img.mode == "P", "Expected indexed PNG (not RGB)"
+    colors = FEMALE if female else MALE
+    orig = img.copy()
+    px = img.load()
+    width, height = img.size
     for y in range(height):
         for x in range(width):
-            idx=pixels[x,y]
-            if idx>15:
-                raise ValueError('PNG color outside 16-color GBA palette')
-            if idx==0: continue
-            # Original warm/red clothing becomes a dark/teal rescue jacket.
-            if idx==12: pixels[x,y]=10
-            elif idx==13: pixels[x,y]=11
-            # Replace signature Brendan/May white hats and May bow with hair.
-            # On 16x32 walking/running frames, source head lies at y=10..18.
-            # Only recolor the high head portion, preserve white eyes/gear below.
-            if walk and y%32<=16 and idx in (9,14):
-                pixels[x,y]=4 if female else 7
-    if walk and height==32 and width%16==0:
+            k = orig.getpixel((x, y))
+            if k > 15:
+                raise ValueError(f"Unexpected palette index at ({x},{y}): {k}")
+            if k == 0:
+                continue
+            yy, xx = y % 32, x % 16
+            if walk and yy <= 22:
+                if female:
+                    # Original May ribbon and warm hair are now midnight-blue locks.
+                    if yy <= 21 and k not in (1, 2, 3):
+                        px[x, y] = ([6, 5, 7, 8][(x+y) % 4]
+                                    if k not in (9, 14)
+                                    else [9, 10][(x+y) % 2])
+                    if yy <= 17 and k in (10, 11, 12, 13):
+                        px[x, y] = 6
+                else:
+                    # Former white hat silhouette becomes silver-blue hair.
+                    if yy <= 17 and k not in (1, 2, 3, 15):
+                        if yy <= 14:
+                            px[x, y] = 9 if (x+y) % 4 else 14
+                        else:
+                            px[x, y] = 5 if k in (5, 6, 7, 8) else 9
+                        if yy in (12, 13, 14, 15) and xx in (9, 10):
+                            px[x, y] = 10
+            if walk and 22 <= yy <= 28:
+                if not female:
+                    if yy in (23, 24, 25, 26) and 5 <= xx <= 10 and k not in (1, 2, 3):
+                        px[x, y] = 6 if (xx+yy) % 3 else 5
+                    if yy in (23, 24, 25, 26) and xx == yy - 23 + 5 and k not in (1, 2, 3):
+                        px[x, y] = 12
+                    if yy == 26 and 5 <= xx <= 10 and k not in (1, 2, 3):
+                        px[x, y] = 10
+                else:
+                    if yy in (23, 24, 25, 26) and 5 <= xx <= 10 and k not in (1, 2, 3):
+                        px[x, y] = 13 if (xx+yy) % 4 else 12
+                    if yy == 26 and 5 <= xx <= 10 and k not in (1, 2, 3):
+                        px[x, y] = 10
+                    if yy in (27, 28) and 5 <= xx <= 10 and k not in (1, 2, 3):
+                        px[x, y] = 6 if xx % 3 else 5
+            elif not walk:
+                # Fishing, riding, surfing and battle backs inherit a matched
+                # hair/uniform palette without changing fragile pose geometry.
+                if k in (12, 13):
+                    px[x, y] = 13 if female else 10
+                if k in (9, 14) and yy < 18:
+                    px[x, y] = 6 if female else 9
+    if walk and height == 32 and width % 16 == 0:
         for frame in range(width//16):
-            left=16*frame
-            # Badge and two seam highlights: draw only on existing opaque torso.
-            for px,py,color in [(7,24,9),(8,24,12),(9,24,9),(7,26,7),
-                                (8,26,7),(9,26,7),(5,23,10),(11,23,10)]:
-                if original.getpixel((left+px,py))!=0:
-                    pixels[left+px,py]=color
-            if female:
-                # A tied-back auburn ponytail makes the silhouette distinct.
-                # Add only against visible head outlines; avoid standalone pixels.
-                if original.getpixel((left+11,17))!=0:
-                    for px,py in [(12,17),(13,18),(12,19)]:
-                        if 0<=px<16 and original.getpixel((left+max(px-1,0),py))!=0:
-                            pixels[left+px,py]=4
-    img.putpalette([v for c in cols for v in c]+[0]*(768-48))
+            left = 16*frame
+            accents = ([(7, 12, 9), (8, 12, 10), (8, 13, 10),
+                        (10, 14, 10), (11, 17, 6)] if female else
+                       [(7, 11, 9), (8, 10, 14), (9, 10, 9),
+                        (10, 11, 10), (11, 12, 9)])
+            for dx, dy, col in accents:
+                if orig.getpixel((left+dx, dy)) != 0:
+                    px[left+dx, dy] = col
+    img.putpalette([c for rgb in colors for c in rgb] + [0]*(768-48))
     return img
 
 def apply():

@@ -16,17 +16,39 @@ MossdeepCity_RangerBase_1F_OnFrame:
 
 MossdeepCity_RangerBase_1F_EventScript_NewRecruit:
 	lockall
+	@ Ari leaves reception and approaches the recruit from the right.
+	applymovement LOCALID_RANGER_BASE_ROOKIE, MossdeepCity_RangerBase_1F_Movement_AriApproaches
+	waitmovement 0
 	msgbox MossdeepCity_RangerBase_1F_Text_AriGreeting, MSGBOX_DEFAULT
+	@ June comes from dispatch to explain official partner registration.
+	applymovement LOCALID_RANGER_BASE_DISPATCH, MossdeepCity_RangerBase_1F_Movement_JuneApproaches
+	waitmovement 0
 	msgbox MossdeepCity_RangerBase_1F_Text_JuneAssignment, MSGBOX_DEFAULT
 	setvar VAR_NEO_FERRY_DISPATCH, 2
 	setflag FLAG_SYS_POKEMON_GET
 	special ChooseStarter
 	msgbox MossdeepCity_RangerBase_1F_Text_PartnerRegistered, MSGBOX_DEFAULT
+	playse SE_SELECT
 	msgbox MossdeepCity_RangerBase_1F_Text_StormEmergency, MSGBOX_DEFAULT
 	msgbox MossdeepCity_RangerBase_1F_Text_AriFarewell, MSGBOX_DEFAULT
 	releaseall
 	end
 
+MossdeepCity_RangerBase_1F_Movement_AriApproaches:
+	walk_down
+	walk_down
+	walk_left
+	face_down
+	step_end
+
+MossdeepCity_RangerBase_1F_Movement_JuneApproaches:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	face_down
+	step_end
 MossdeepCity_RangerBase_1F_Text_AriGreeting:
 	.string "ROOKIE ARI: You're the new recruit!\p"
 	.string "Welcome to MOSSDEEP RANGER BASE.\n"

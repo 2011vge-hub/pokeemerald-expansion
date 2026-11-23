@@ -303,7 +303,8 @@
     "MossdeepCity_GameCorner_1F",
     "MossdeepCity_GameCorner_B1F",
     "MossdeepCity_RangerBase_1F",
-    "MossdeepCity_RangerBase_2F"
+    "MossdeepCity_RangerBase_2F",
+    "MossdeepCity_RangerBriefingRoom"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",

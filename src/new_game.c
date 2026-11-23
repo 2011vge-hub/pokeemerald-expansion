@@ -142,7 +142,7 @@ static void WarpToStartingLocation(void)
     else
     {
         VarSet(VAR_NEO_FERRY_DISPATCH, 1);
-        SetWarpDestination(MAP_GROUP(MAP_MOSSDEEP_CITY_RANGER_BASE_1F), MAP_NUM(MAP_MOSSDEEP_CITY_RANGER_BASE_1F), WARP_ID_NONE, 7, 8);
+        SetWarpDestination(MAP_GROUP(MAP_MOSSDEEP_CITY_RANGER_BRIEFING_ROOM), MAP_NUM(MAP_MOSSDEEP_CITY_RANGER_BRIEFING_ROOM), WARP_ID_NONE, 7, 6);
         SetLastHealLocationWarp(HEAL_LOCATION_MOSSDEEP_CITY);
     }
     WarpIntoMap();
