@@ -14,7 +14,7 @@ assert "GiveMoveToMon(partner, signature)" in battle
 gym=json.loads(read("data/maps/MossdeepCity/map.json"))
 door=next(x for x in gym["warp_events"] if x["dest_map"]=="MAP_MOSSDEEP_CITY_GYM")
 assert (door["x"], door["y"])==(38,9)
-guards=[o for o in gym["object_events"] if o["local_id"]=="LOCALID_NEO_MOSSDEEP_GYM_GUARD"]
+guards=[o for o in gym["object_events"] if o.get("local_id")=="LOCALID_NEO_MOSSDEEP_GYM_GUARD"]
 assert len(guards)==1
 guard=guards[0]
 assert (guard["x"],guard["y"],guard["elevation"])==(38,10,5)
