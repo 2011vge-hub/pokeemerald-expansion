@@ -34,7 +34,10 @@ MossdeepCity_Text_RangerPartnerOffer:
 MossdeepCity_Text_RangerPartnerAssigned:
 	.string "DISPATCH: Partner registered.\p"
 	.string "Proceed to the sailor and\n"
-	.string "report for duty, Ranger.$"
+	.string "report for duty, Ranger.\p"
+	.string "RANGER BASE is beside the\n"
+	.string "POKéMON CENTER: supplies, briefings\l"
+	.string "and our MEDIC. Keep it quick.$"
 
 MossdeepCity_RangerCheckIn:
 	lock
@@ -549,15 +552,15 @@ MossdeepCity_Text_RangerPoochyena:
 	.string "POOCHYENA is shaking.\n"
 	.string "It won't take its eyes off the water.$"
 
-@ Neo Emerald v2: Ranger HQ placeholder facade (no interior yet).
+@ Neo Emerald: Ranger Base sign next to the door (warp 10 at 33,19).
 MossdeepCity_EventScript_RangerHQSign::
 	msgbox MossdeepCity_Text_RangerHQSign, MSGBOX_SIGN
 	end
 
 MossdeepCity_Text_RangerHQSign:
-	.string "MOSSDEEP RANGER HEADQUARTERS\p"
+	.string "MOSSDEEP RANGER BASE\p"
 	.string "Storm response in progress.\n"
-	.string "Rangers, report to DISPATCH.$"
+	.string "Evacuees: MEDIC on the ground floor.$"
 
 @ Neo Emerald v2: evacuated apartment facade (no interior yet).
 MossdeepCity_EventScript_EvacuatedApartment::
