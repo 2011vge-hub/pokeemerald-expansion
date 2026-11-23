@@ -1013,10 +1013,10 @@ RustboroCity_EventScript_Boy1::
 	end
 
 RustboroCity_Text_WeShortenItToDevon:
-	.string "The DEVON CORPORATION…\n"
-	.string "We all just shorten it to DEVON.\p"
-	.string "That company makes all sorts of\n"
-	.string "convenient products.$"
+	.string "DEVON has changed since the old"
+	.string "days. STEVEN leads it now.\p"
+	.string "Half the campus works on sensors"
+	.string "for the next big storm.$"
 
 RustboroCity_Text_SneakyLookingManWentAroundCorner:
 	.string "Hm? A sneaky-looking man?\p"
@@ -1024,11 +1024,10 @@ RustboroCity_Text_SneakyLookingManWentAroundCorner:
 	.string "looking guy went around the corner.$"
 
 RustboroCity_Text_HaveYouChallengedGym:
-	.string "Have you taken the POKéMON GYM\n"
-	.string "challenge?\p"
-	.string "When you get that shiny GYM BADGE\n"
-	.string "in hand, I guess TRAINERS begin to\l"
-	.string "realize what is required of them.$"
+	.string "Did you come for the UNIVERSITY"
+	.string "or ROXANNE's GYM?\p"
+	.string "Both teach a lot about growing"
+	.string "into a stronger TRAINER.$"
 
 RustboroCity_Text_HeyThatsRustborosGymBadge:
 	.string "Hey, that's RUSTBORO's GYM BADGE!\p"
@@ -1036,17 +1035,17 @@ RustboroCity_Text_HeyThatsRustborosGymBadge:
 	.string "RUSTBORO's is the coolest, I'd say.$"
 
 RustboroCity_Text_YoureNewAroundHere:
-	.string "Oh? Who might you be?\n"
-	.string "You're a new face around these parts.\p"
-	.string "Have you just transferred into the\n"
-	.string "POKéMON TRAINER'S SCHOOL?$"
+	.string "New to RUSTBORO? Welcome!\p"
+	.string "The UNIVERSITY brings students"
+	.string "from all over the region.\p"
+	.string "The RANGER office is helping"
+	.string "families from MOSSDEEP.$"
 
 RustboroCity_Text_GymLeaderIsntEasyWithFire:
-	.string "I challenged the GYM LEADER, but…\p"
-	.string "It's not going to be easy winning with\n"
-	.string "my FIRE-type POKéMON…\p"
-	.string "FIRE-type POKéMON don't match up\n"
-	.string "well against ROCK-type POKéMON…$"
+	.string "ROXANNE still teaches classes"
+	.string "between GYM challenges.\p"
+	.string "After 25 years, her exams are"
+	.string "every bit as tough as her battles!$"
 
 RustboroCity_Text_MrBrineyWalksInTheTunnel:
 	.string "The old sailor MR. BRINEY lives in\n"
@@ -1068,9 +1067,9 @@ RustboroCity_Text_WowYouHavePokemon:
 	.string "places with POKéMON, too.$"
 
 RustboroCity_Text_CatchRarePokemonIfIGoToSchool:
-	.string "POKéMON TRAINER'S SCHOOL!\p"
-	.string "If I go to this school, will I be able\n"
-	.string "to catch rare POKéMON easily?$"
+	.string "I want to study field ecology.\p"
+	.string "Rangers go into flooded woods"
+	.string "and learn why POKéMON migrate.$"
 
 RustboroCity_Text_PokemonCanChangeLookFromExp:
 	.string "If a POKéMON gains experience in\n"
@@ -1082,10 +1081,10 @@ RustboroCity_Text_PokemonChangeShape:
 	.string "If one did that, I would be shocked!$"
 
 RustboroCity_Text_TradePokemonGrowFast:
-	.string "A POKéMON you get in a trade from\n"
-	.string "someone grows fast.\p"
-	.string "But if you don't have certain GYM\n"
-	.string "BADGES, it may not obey you…$"
+	.string "My ecology professor studies"
+	.string "POKéMON from distant regions.\p"
+	.string "New species keep arriving after"
+	.string "these strange weather events.$"
 
 RustboroCity_Text_OutOfTheWay:
 	.string "Get out!\n"
@@ -1226,14 +1225,15 @@ RustboroCity_Text_TunnelNearingCompletion:
 	.string "across it in red paint…$"
 
 RustboroCity_Text_DevonCorpSign:
-	.string "DEVON CORPORATION\p"
-	.string "“For all your living needs, we make\n"
-	.string "it all.”$"
+	.string "DEVON ENTERPRISES\p"
+	.string "President STEVEN STONE\p"
+	.string "Research, technology, and"
+	.string "regional recovery.$"
 
 RustboroCity_Text_GymSign:
-	.string "RUSTBORO CITY POKéMON GYM\n"
+	.string "RUSTBORO CITY POKéMON GYM\p"
 	.string "LEADER: ROXANNE\p"
-	.string "“The ROCK-loving honors student!”$"
+	.string "Educator. Researcher. Trainer.$"
 
 RustboroCity_Text_DevonCorpBranchOfficeSign:
 	.string "DEVON CORP. BRANCH OFFICE\p"
@@ -1242,13 +1242,13 @@ RustboroCity_Text_DevonCorpBranchOfficeSign:
 
 RustboroCity_Text_CitySign:
 	.string "RUSTBORO CITY\p"
-	.string "“The city probing the integration of\n"
-	.string "nature and science.”$"
+	.string "University and research capital"
+	.string "of the Hoenn region.$"
 
 RustboroCity_Text_TrainersSchoolSign:
-	.string "POKéMON TRAINER'S SCHOOL\p"
-	.string "“We'll teach you anything about\n"
-	.string "POKéMON!”$"
+	.string "RUSTBORO UNIVERSITY\p"
+	.string "Trainer Sciences and Ranger"
+	.string "Field Studies Campus$"
 
 RustboroCity_Text_CuttersHouse:
 	.string "CUTTER'S HOUSE$"
@@ -1288,3 +1288,41 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+@ Neo Emerald: campus voices added without replacing vanilla quest scripts.
+RustboroCity_EventScript_NeoCampusFieldStudent::
+	msgbox RustboroCity_Text_NeoCampusFieldStudent, MSGBOX_NPC
+	end
+
+RustboroCity_EventScript_NeoCampusDevonIntern::
+	msgbox RustboroCity_Text_NeoCampusDevonIntern, MSGBOX_NPC
+	end
+
+RustboroCity_EventScript_NeoCampusExchangeStudent::
+	msgbox RustboroCity_Text_NeoCampusExchangeStudent, MSGBOX_NPC
+	end
+
+RustboroCity_EventScript_NeoCampusResident::
+	msgbox RustboroCity_Text_NeoCampusResident, MSGBOX_NPC
+	end
+
+RustboroCity_Text_NeoCampusFieldStudent:
+	.string "Field Studies practical today!\p"
+	.string "We map blocked paths, help lost\n"
+	.string "POKéMON, then report to RANGERS.$"
+
+RustboroCity_Text_NeoCampusDevonIntern:
+	.string "I landed a DEVON internship!\p"
+	.string "We're designing flood sensors\n"
+	.string "with PRESIDENT STEVEN's team.$"
+
+RustboroCity_Text_NeoCampusExchangeStudent:
+	.string "I came here from GALAR to learn\n"
+	.string "why wild POKéMON are moving.\p"
+	.string "One storm can change a habitat.$"
+
+RustboroCity_Text_NeoCampusResident:
+	.string "Finals, rent, and a late shift\n"
+	.string "at the POKé MART...\p"
+	.string "Being a student is exhausting!$"
+
