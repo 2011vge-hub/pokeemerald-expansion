@@ -28,7 +28,7 @@ assert len(objects) == 20, f"Expected 20 Rustboro NPCs, got {len(objects)}"
 positions = [(o["x"], o["y"]) for o in objects]
 assert len(set(positions)) == len(positions), "Overlapping NPC coordinates"
 warp_positions = {(w["x"], w["y"]) for w in data["warp_events"]}
-assert len(data["warp_events"]) == 12, "Vanilla city warp count changed"
+assert len(data["warp_events"]) == 13 and data["warp_events"][12]["dest_map"] == "MAP_RUSTBORO_CITY_CLIMATE_ARCHIVE", "Campus archive entrance missing"
 assert not warp_positions.intersection(new_npcs), "Campus NPC on a doorway"
 coord_positions = {(e["x"], e["y"]) for e in data.get("coord_events", [])}
 assert not coord_positions.intersection(new_npcs), "Campus NPC on story trigger"

@@ -1326,3 +1326,12 @@ RustboroCity_Text_NeoCampusResident:
 	.string "at the POKé MART...\p"
 	.string "Being a student is exhausting!$"
 
+
+NeoCampus_Directory::
+	msgbox NeoCampus_DirectoryText, MSGBOX_SIGN
+	end
+NeoCampus_DirectoryText:
+	.string "RUSTBORO UNIVERSITY\n"
+	.string "West: Ranger desk and residences\p"
+	.string "East: climate archive and sensor lab\n"
+	.string "South fountain: commons CAFE$"

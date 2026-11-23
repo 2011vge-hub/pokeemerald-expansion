@@ -5,6 +5,7 @@ RustboroCity_DevonCorp_3F_MapScripts::
 	.byte 0
 
 RustboroCity_DevonCorp_3F_OnTransition:
+	call_if_ge VAR_NEO_ASSIGNMENT, 1, NeoDevon_OpenOffice
 	call_if_eq VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
 	end
 
@@ -147,6 +148,7 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 	step_end
 
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
+	goto_if_ge VAR_NEO_ASSIGNMENT, 1, NeoDevon_President
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_EXP_SHARE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
@@ -304,3 +306,17 @@ RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the PRESIDENT.$"
 
+
+NeoDevon_OpenOffice:
+	goto_if_ne VAR_DEVON_CORP_3F_STATE, 0, NeoDevon_Ready
+	setvar VAR_DEVON_CORP_3F_STATE, 1
+NeoDevon_Ready:
+	return
+NeoDevon_President:
+	msgbox NeoDevon_Steven, MSGBOX_NPC
+	end
+NeoDevon_Steven:
+	.string "STEVEN: This used to be my father's\n"
+	.string "desk. The geodes were mine already.\p"
+	.string "The university can use our gauges.\n"
+	.string "Share your logs with the sensor lab.$"

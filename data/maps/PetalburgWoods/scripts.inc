@@ -241,6 +241,7 @@ PetalburgWoods_Movement_AquaApproachPlayer:
 	step_end
 
 PetalburgWoods_EventScript_Boy1::
+	goto_if_eq VAR_NEO_ASSIGNMENT, 9, NeoStudyCanopy
 	msgbox PetalburgWoods_Text_StayOutOfTallGrass, MSGBOX_NPC
 	end
 
@@ -479,6 +480,7 @@ NeoWoods::
 	lock
 	faceplayer
 	goto_if_ne VAR_NEO_ASSIGNMENT, 2, NeoWoodsIdle
+	goto_if_unset FLAG_NEO_PROBE_GUARD, NeoWoodsGuardHint
 	msgbox NeoWoodsChallenge, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_NEO_WOODS, NeoWoodsLoss
 	setvar VAR_NEO_ASSIGNMENT, 3
@@ -507,6 +509,10 @@ NeoDemo::
 	goto_if_ne VAR_NEO_ASSIGNMENT, 3, NeoTreeWait
 	msgbox NeoDemoText, MSGBOX_DEFAULT
 	setvar VAR_NEO_ASSIGNMENT, 4
+	closemessage
+	playse SE_M_CUT
+	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
+	waitmovement 0
 	setflag FLAG_NEO_WOODS_CLEAR
 	removeobject VAR_LAST_TALKED
 	release
@@ -534,3 +540,40 @@ NeoWoods_PartnerText:
 
 NeoWoods_Quiet:
 	end
+
+NeoStudyCanopy:
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_STUDY_CANOPY, NeoStudyCanopyDone
+	setflag FLAG_NEO_STUDY_CANOPY
+	msgbox NeoCanopyNote, MSGBOX_DEFAULT
+	release
+	end
+NeoStudyCanopyDone:
+	msgbox NeoStudyFiled, MSGBOX_DEFAULT
+	release
+	end
+NeoCanopyNote:
+	.string "All clear. The canopy held through\n"
+	.string "the last night of rain.$"
+
+NeoWoodsGuard::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_ASSIGNMENT, 2, NeoWoodsIdle
+	msgbox NeoWoodsGuardText, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_WOODS, NeoWoodsLoss
+	setflag FLAG_NEO_PROBE_GUARD
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoWoodsGuardHint:
+	msgbox NeoWoodsHintText, MSGBOX_DEFAULT
+	release
+	end
+NeoWoodsGuardText:
+	.string "That heat probe belongs to us.\n"
+	.string "Step away from the readout.$"
+NeoWoodsHintText:
+	.string "My lookout is right beside me.\n"
+	.string "Good luck getting past her.$"

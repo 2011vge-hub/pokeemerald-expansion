@@ -2269,6 +2269,34 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
 
 static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
+    // The two guards at each incident share a class and portrait. Their
+    // mission flags select the opening battle without consuming trainer IDs.
+    if (!IS_FRLG && ((trainerNum == TRAINER_NEO_WOODS && !FlagGet(FLAG_NEO_PROBE_GUARD))
+                  || (trainerNum == TRAINER_NEO_CARGO && !FlagGet(FLAG_NEO_DOCK_GUARD))))
+    {
+        struct Trainer guard = *GetTrainerStructFromId(trainerNum);
+        struct TrainerMon lead = guard.party[0];
+        lead.species = trainerNum == TRAINER_NEO_WOODS ? SPECIES_NUMEL : SPECIES_WINGULL;
+        lead.lvl = trainerNum == TRAINER_NEO_WOODS ? 8 : 9;
+        guard.party = &lead;
+        guard.partySize = 1;
+        guard.poolSize = 1;
+        CreateNPCTrainerPartyFromTrainer(party, &guard);
+        return;
+    }
+
+    if (!IS_FRLG && trainerNum == TRAINER_ROXANNE_1)
+    {
+        static const u16 teams[] = {
+            TRAINER_ROXANNE_1, TRAINER_ROXANNE_2, TRAINER_ROXANNE_3,
+            TRAINER_ROXANNE_4, TRAINER_ROXANNE_5,
+        };
+        u32 badges = 0;
+        for (u32 flag = FLAG_BADGE01_GET; flag <= FLAG_BADGE08_GET; flag++)
+            badges += FlagGet(flag);
+        trainerNum = teams[min(badges, ARRAY_COUNT(teams) - 1)];
+    }
+
     if (!GetTrainerStructFromId(trainerNum)->overrideTrainer)
     {
         CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum));

@@ -529,10 +529,10 @@ RusturfTunnel_Text_MikePostBattle:
 NeoTunnel::
 	lock
 	faceplayer
-	goto_if_ne VAR_NEO_ASSIGNMENT, 7, NeoTunnelIdle
+	goto_if_ne VAR_NEO_ASSIGNMENT, 11, NeoTunnelIdle
 	msgbox NeoTunnelChallenge, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_NEO_TUNNEL, NeoTunnelLoss
-	setvar VAR_NEO_ASSIGNMENT, 8
+	setvar VAR_NEO_ASSIGNMENT, 12
 	setflag FLAG_NEO_TUNNEL_SECURED
 	msgbox NeoTunnelAfter, MSGBOX_DEFAULT
 	removeobject VAR_LAST_TALKED
@@ -548,8 +548,45 @@ NeoTunnelChallenge:
 NeoTunnelLoss:
 	.string "The relay is yours.$"
 NeoTunnelAfter:
-	.string "You guide the survey crew outside.\p"
-	.string "Two voices fade. A third signal\n"
-	.string "keeps pulsing. Take the log to Hale.$"
+	.string "We never cut your signal! Someone\n"
+	.string "got to the relay before us.$"
 NeoTunnelIdleText:
 	.string "Keep walking, Ranger.$"
+
+NeoTechnician::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_ASSIGNMENT, 7, NeoTechNote
+	msgbox NeoTechRescue, MSGBOX_DEFAULT
+	setvar VAR_NEO_ASSIGNMENT, 11
+NeoTechNote:
+	msgbox NeoTechHint, MSGBOX_DEFAULT
+	release
+	end
+NeoTechRescue:
+	.string "You lift the fallen frame. Both\n"
+	.string "technicians scramble free.\p"
+	.string "First the rock got hot. Then our\n"
+	.string "pressure alarm went off underground.$"
+NeoTechHint:
+	.string "The relay reader is next to us.\n"
+	.string "Make sure the interference is gone.$"
+
+NeoRelayReader::
+	lock
+	goto_if_ne VAR_NEO_ASSIGNMENT, 12, NeoRelayIdle
+	setvar VAR_NEO_ASSIGNMENT, 8
+	msgbox NeoRelayLog, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayIdle:
+	msgbox NeoRelayHelp, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayLog:
+	.string "UPLINK INTERRUPTED.\n"
+	.string "THIRD SIGNAL: ORIGIN UNKNOWN.\p"
+	.string "You save a copy of the relay log.\n"
+	.string "Return to Hale at the field office.$"
+NeoRelayHelp:
+	.string "Relay access port. Signal unstable.$"

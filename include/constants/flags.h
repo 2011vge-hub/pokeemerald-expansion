@@ -671,11 +671,11 @@
 #define FLAG_NEO_WOODS_SECURED  0x268 // Unused Flag
 #define FLAG_NEO_CARGO_SECURED  0x269 // Unused Flag
 #define FLAG_NEO_RIVAL_SPARRED  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
+#define FLAG_NEO_STUDY_EQUIPMENT  0x26B // Unused Flag
+#define FLAG_NEO_STUDY_CANOPY  0x26C // Unused Flag
+#define FLAG_NEO_STUDY_BLANKETS  0x26D // Unused Flag
+#define FLAG_NEO_PROBE_GUARD  0x26E // Unused Flag
+#define FLAG_NEO_DOCK_GUARD  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag

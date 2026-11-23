@@ -36,7 +36,8 @@ NeoOffice_Hale::
 	lock
 	faceplayer
 	goto_if_lt VAR_NEO_ASSIGNMENT, 5, NeoOffice_Early
-	goto_if_ge VAR_NEO_ASSIGNMENT, 9, NeoOffice_Complete
+	goto_if_eq VAR_NEO_ASSIGNMENT, 9, NeoOffice_Complete
+	goto_if_eq VAR_NEO_ASSIGNMENT, 10, NeoOffice_Early
 	goto_if_eq VAR_NEO_ASSIGNMENT, 8, NeoOffice_Report
 	goto_if_ge VAR_NEO_ASSIGNMENT, 6, NeoOffice_Tunnel
 	call MossdeepCity_RangerBase_2F_EventScript_CountBadges
@@ -59,6 +60,7 @@ NeoOffice_Early:
 	release
 	end
 NeoOffice_Report:
+	clearflag FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE
 	setvar VAR_NEO_ASSIGNMENT, 9
 	call NeoOffice_MissionCredit
 	msgbox NeoOffice_Log, MSGBOX_DEFAULT
@@ -158,3 +160,24 @@ NeoOffice_Offer:
 NeoOffice_Later:
 	.string "Check in with Dad. His desk has\n"
 	.string "the latest assignment.$"
+
+NeoBoard::
+	lock
+	goto_if_ne VAR_NEO_ASSIGNMENT, 9, NeoBoardClosed
+	msgbox NeoBoardOpen, MSGBOX_DEFAULT
+	release
+	end
+NeoBoardClosed:
+	msgbox NeoBoardPending, MSGBOX_DEFAULT
+	release
+	end
+NeoBoardOpen:
+	.string "OPEN FIELD STUDIES\n"
+	.string "Equipment inventory: Route 116\p"
+	.string "Canopy inspection: Petalburg Woods\n"
+	.string "Emergency blankets: Route 104$"
+NeoBoardPending:
+	.string "Regional assignments await clearance.$"
+
+NeoStudyFiled:
+	.string "Field report already on file.$"

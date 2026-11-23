@@ -583,8 +583,16 @@ const union AnimCmd *const sBackAnims_OldManPokedude[] = {
         .animation = anim,                                                                   \
     }}
 
+static const u32 sTrainerFrontPic_Vern[] = INCGFX_U32("graphics/trainers/front_pics/neo_vern.png", ".4bpp.smol");
+static const u16 sTrainerPalette_Vern[] = INCGFX_U16("graphics/trainers/front_pics/neo_vern.png", ".gbapal");
+
+static const u32 sTrainerFrontPic_Nessa[] = INCGFX_U32("graphics/trainers/front_pics/neo_nessa.png", ".4bpp.smol");
+static const u16 sTrainerPalette_Nessa[] = INCGFX_U16("graphics/trainers/front_pics/neo_nessa.png", ".gbapal");
+
 const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
 {
+    [TRAINER_PIC_NEO_VERN] = { .frontPic = TRAINER_FRONT_PIC(sTrainerFrontPic_Vern, sTrainerPalette_Vern) },
+    [TRAINER_PIC_NEO_NESSA] = { .frontPic = TRAINER_FRONT_PIC(sTrainerFrontPic_Nessa, sTrainerPalette_Nessa) },
     [TRAINER_PIC_NONE] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_None, gTrainerPalette_None),

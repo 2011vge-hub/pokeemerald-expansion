@@ -44,6 +44,7 @@ Route116_EventScript_BoyfriendGruntInTunnel::
 	end
 
 Route116_EventScript_DevonEmployee::
+	goto_if_eq VAR_NEO_ASSIGNMENT, 9, NeoStudyEquipment
 	lock
 	faceplayer
 	goto_if_set FLAG_MET_DEVON_EMPLOYEE, Route116_EventScript_TryGiveRepeatBallAgain
@@ -474,6 +475,10 @@ NeoPlayerCutter::
 	goto_if_ne VAR_NEO_ASSIGNMENT, 6, NeoTreeWait
 	msgbox NeoCutterText, MSGBOX_DEFAULT
 	setvar VAR_NEO_ASSIGNMENT, 7
+	closemessage
+	playse SE_M_CUT
+	applymovement VAR_LAST_TALKED, Movement_CutTreeDown
+	waitmovement 0
 	setflag FLAG_NEO_ROUTE116_CLEAR
 	removeobject VAR_LAST_TALKED
 	release
@@ -481,3 +486,20 @@ NeoPlayerCutter::
 NeoCutterText:
 	.string "Your Cutter slices the branch.\n"
 	.string "A radio crackles inside the tunnel.$"
+
+NeoStudyEquipment:
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_STUDY_EQUIPMENT, NeoStudyEquipmentDone
+	setflag FLAG_NEO_STUDY_EQUIPMENT
+	call NeoOffice_MissionCredit
+	msgbox NeoEquipmentNote, MSGBOX_DEFAULT
+	release
+	end
+NeoStudyEquipmentDone:
+	msgbox NeoStudyFiled, MSGBOX_DEFAULT
+	release
+	end
+NeoEquipmentNote:
+	.string "The runaway survey tripod! Thanks.\n"
+	.string "I can finish the morning readings.$"

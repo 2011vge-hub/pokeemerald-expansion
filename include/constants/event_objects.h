@@ -602,6 +602,8 @@ enum
 // Gen VII
 #define OBJ_EVENT_PAL_TAG_BALL_BEAST              0x1169
 // Gen VIII
+#define OBJ_EVENT_PAL_TAG_VERN 0x116B
+#define OBJ_EVENT_PAL_TAG_NESSA 0x116C
 #define OBJ_EVENT_PAL_TAG_BALL_STRANGE            0x116A
 #endif //OW_FOLLOWERS_POKEBALLS
 // Used as a placeholder follower graphic
