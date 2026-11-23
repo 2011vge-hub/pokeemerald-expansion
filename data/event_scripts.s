@@ -137,6 +137,7 @@ gStdScripts_End::
 	.include "data/maps/FortreeCity/scripts.inc"
 	.include "data/maps/LilycoveCity/scripts.inc"
 	.include "data/maps/MossdeepCity/scripts.inc"
+	.include "data/maps/MossdeepCity_Waterfront/scripts.inc"
 	.include "data/maps/SootopolisCity/scripts.inc"
 	.include "data/maps/EverGrandeCity/scripts.inc"
 	.include "data/maps/LittlerootTown/scripts.inc"

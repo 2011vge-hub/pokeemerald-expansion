@@ -9334,6 +9334,17 @@
       "border_filepath": "data/layouts/MossdeepCity_Storm/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_Storm/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_WATERFRONT",
+      "name": "MossdeepCity_Waterfront_Layout",
+      "width": 32,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/MossdeepCity_Waterfront/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_Waterfront/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
