@@ -21,6 +21,7 @@ arm-none-eabi-gcc --version
 ```
 
 
+Snapdragon (ARM) Surface models run ARM64 Ubuntu; the same packages are in Ubuntu's archive for ARM64.
 If your Ubuntu architecture doesn't offer those packages, follow the repository's current `docs/install/windows/WSL.md` guidance rather than downloading random third-party compilers.
 
 ## 3. Clone and select the City v3 branch
@@ -35,15 +36,19 @@ git switch neo-emerald/mossdeep-city-v3-streets
 
 **Do not apply any previous Claude Mossdeep patch:** the flood, city upgrades, third bridge access, annex removal, paving, lamps and waterfront source changes have been committed to this branch.
 
-## 4. Build and check
+## 4. Check, then build
 ```bash
 cd ~/pokeemerald-expansion
 git pull --ff-only
-bash neo_emerald/tools/build.sh
+bash neo_emerald/tools/wsl_doctor.sh           # environment check only; fix anything marked [FIX]
+bash neo_emerald/tools/wsl_doctor.sh --build   # build with a saved log
 ```
 
-
-If successful, the output is `neo_emerald/out/NeoEmerald_Prototype.gba`.
+The doctor never installs anything; it prints the exact command for missing tools.
+On success it prints the ROM size and SHA-1 and opens the output folder in Windows Explorer;
+the ROM is `neo_emerald/out/NeoEmerald_Prototype.gba`.
+On failure it prints the **first** errors from `neo_emerald/out/build.log`: paste those lines into chat.
+If the build is killed (out of memory), rerun with `JOBS=2 bash neo_emerald/tools/wsl_doctor.sh --build`.
 
 ## 5. Import to Delta
 Use Windows File Explorer to open:
@@ -56,15 +61,28 @@ Use Windows File Explorer to open:
 Copy the new .gba into iCloud Drive, OneDrive or another file-transfer location accessible on iPhone, then use Delta's import button. Start a **new save** to exercise Ranger initialization.
 
 ## 6. Playtest checklist
-- Birch's briefing, Mossdeep spawn, animated rain/thunderstorm and starter choice (Poochyena / Spheal / Shroomish)
-- Sailor check-in and all three NPC clue dialogue branches
-- Reach the child/Poochyena below the south stairs; no completed rescue cutscene yet
-- West stairs do not permit walking into the sea
-- Save/reload and blackout return to Mossdeep's safe heal location
-- Lower shelf is walkable but upper exits remain open
-- Third rescue-bridge entrance from the flooded south terrace (43,30) is traversable
-- Decorative observatory annex is absent; main Space Center still accessible
-- Ranger Commons, market, and Space Center campus show new pavement and six static streetlamps; collision remains sane
+Test in mGBA first (easier to save states and read errors), then Delta. Start a **new game**.
+
+Opening
+- Birch's Ranger briefing, Mossdeep spawn, animated rain + lightning + thunder
+- Dispatch call, starter choice (Poochyena / Spheal / Shroomish), no Route 101 battle
+- Sailor check-in; the girl's and ninja boy's clue lines change after check-in
+
+Ranger Base (door between the Pokemon Center and the Mart)
+- Door animates, 1F loads, stairs both ways, exit returns you to the door
+- All six staff talk; Medic heals; Quartermaster gives 3 POTIONs once; Hale shows 1/100/1 needed and 0/0/0 record
+
+Rescue
+- Boy on the south landing only asks for help before the sailor check-in
+- After check-in: calm POOCHYENA, fade to the ferry quay, boarding scene, +1 mission / +100 XP once
+- Walk back: pair gone from the landing; return to the quay: no second scene; Hale shows 1 mission / 100 XP
+- Reach the landing both by the south stairs and by the east-terrace walkway
+
+World and safety
+- West stairs don't let you walk onto the sea; the flooded shelf is walkable; waterfront connects both ways
+- Save and reload in Mossdeep, in the Ranger Base and on the quay; blackout returns to Mossdeep
+
+Report: what you did, what happened, what you expected; mGBA screenshots help.
 
 Run the map collision smoke check before changing geometry (Mossdeep; waterfront connectivity should also be checked in-game):
 
