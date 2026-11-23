@@ -1,5 +1,15 @@
 # Mossdeep City 2.0 — Storm-Era Urban Redesign
-**Status:** design/production brief, not implemented terrain. The existing prologue weather has been switched to `WEATHER_RAIN_THUNDERSTORM` on the working branch; needs GBA build/playtest. Claude's flood milestone 1 is local/unpushed and has not been integrated here as a binary terrain change.
+**Status:** production brief with the first upper-city change implemented on `neo-emerald/mossdeep-city-v2` (source-checked, not yet built or playtested). Flood milestone 1 is integrated (identical binary terrain), prologue weather is `WEATHER_RAIN_THUNDERSTORM`.
+
+## Implemented so far (v2)
+
+| Change | Where | State |
+|---|---|---|
+| Space Center weather-observatory annex: 5x7 building assembled from the existing Space Center metatiles (dish roof, glass/steel wall, pillared base) | Ridge terrace west of the Space Center, top-left (46,10), footprint x 46-50, y 10-16 | Implemented as a **facade only** (no door, warp or interior). 35 tiles changed, collision copied from the source building, elevation kept at the terrace's 7 |
+
+Verified with `neo_emerald/tools/map/mossdeep_v2_upper.py` (re-applies only after checking the site and every route) and `mossdeep_paths.py`: spawn still reaches the Center, sailor, Mart, Gym, Space Center, child landing, Steven's house, House 2, all three ridge NPCs and the flooded shelf; 0 reachable sea tiles; `LAYOUT_MOSSDEEP_CITY` untouched.
+
+Constraint found: a map can only use General + one secondary tileset (Mossdeep). Larger *modern* houses, Ranger HQ signage, walkways and a ferry terminal need new metatiles (tileset pass); with existing art only Space Center-style and vanilla-house pieces are available.
 
 ## Core visual direction
 Mossdeep is a **25-years-later coastal technology capital**, built upward after repeated high-water emergencies, not a vanilla small island with ocean painted over the sidewalks. It remains recognizable through its Space Center ridge, Gym, Center and shoreline contours, but now reads as a layered settlement. **Modern upper city / forgotten lower city** is the contrast. The first ten minutes should reveal this through movement and landmarks, not expositional dialogue.
@@ -8,7 +18,7 @@ Mossdeep is a **25-years-later coastal technology capital**, built upward after 
 - Current source: `data/maps/MossdeepCity/map.json`, 80x40 `LAYOUT_MOSSDEEP_CITY_STORM`; `LAYOUT_MOSSDEEP_CITY` remains the vanilla backup.
 - Current visible anchors: Center by (28,16) with spawn (28,17); sailor (38,12), Gym (38,9), Mart (37,18), Space Center (64,15).
 - Claude's flood milestone 1 screenshots show most western/southern low coast replaced with ocean and the lower southeast shelf transformed into shallow floodwater, while the island's original one-story houses remain nearly unchanged.
-- Claude's *unmerged* child/Poochyena placements: child (33,30), Poochyena (32,30); maintain these, or preserve reachable equivalent landing when revising architecture.
+- Child (33,30) and Poochyena (32,30) on the south landing (integrated); keep them, or a reachable equivalent landing.
 - Do not mistake PNG concepts or screenshots for editable map tiles. Final in-game geometry is the Porymap layout + metatile/graphics assets.
 
 ## Weather
@@ -52,6 +62,4 @@ A separate waterfront map with boat sprite or scripted tiles, boarding ramp and 
 - The branch builds a `.gba` before claiming any map work 'playable.'
 
 ## Handoff to collaborator
-Claude's two-commit `mossdeep-flood-m1.patch` was pasted into chat, but the **actual binary patch file was not attached** here. The `map.bin` change is a Git binary delta and cannot be faithfully reconstructed by treating its human-readable diff as normal text. To integrate exactly Claude's terrain, provide the original `.patch` file or push Claude's branch; don't hand-copy or regenerate a visually similar binary without checking for differences and preserving collision data.
-
-Use the current shared branch, rebase Claude's patch onto the latest commit and validate the one-line weather change doesn't conflict. Prefer a new `neo-emerald/mossdeep-city-v2` branch before major map remodeling.
+Flood milestone 1 was integrated from an exactly reproduced binary patch; the shared branch's `MossdeepCity_Storm/map.bin` matches Claude's byte-for-byte. v2 work continues on `neo-emerald/mossdeep-city-v2`, one verified terrain change per commit. Never merge to master.
