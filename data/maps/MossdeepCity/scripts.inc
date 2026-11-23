@@ -51,9 +51,9 @@ MossdeepCity_RangerCheckedIn:
 	end
 
 MossdeepCity_Text_RangerStillMissing:
-	.string "SAILOR: The kid and his POOCHYENA\\n"
-	.string "are still missing. Check the MART.\\p"
-	.string "Watch the lower stairs, Ranger.\\n"
+	.string "SAILOR: The kid and his POOCHYENA\n"
+	.string "are still missing. Check the MART.\p"
+	.string "Watch the lower stairs, Ranger.\n"
 	.string "The water keeps climbing.$"
 
 MossdeepCity_Text_RangerTickets:
@@ -108,9 +108,9 @@ MossdeepCity_RangerWestStairWitness:
 	end
 
 MossdeepCity_Text_WestStairWitness:
-	.string "The lower stairs are soaked!\\n"
-	.string "I heard the railing buckle.\\p"
-	.string "Look for higher ground near\\n"
+	.string "The lower stairs are soaked!\n"
+	.string "I heard the railing buckle.\p"
+	.string "Look for higher ground near\n"
 	.string "the shops, Ranger.$"
 
 MossdeepCity_EventScript_ExpertM::
@@ -127,9 +127,9 @@ MossdeepCity_RangerMarketWitness:
 	end
 
 MossdeepCity_Text_MarketWitness:
-	.string "A boy passed through here,\\n"
-	.string "calling for his POOCHYENA.\\p"
-	.string "The MART is still open, but\\n"
+	.string "A boy passed through here,\n"
+	.string "calling for his POOCHYENA.\p"
+	.string "The MART is still open, but\n"
 	.string "the lower street is flooding.$"
 
 MossdeepCity_EventScript_Woman::
