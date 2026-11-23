@@ -1,5 +1,12 @@
 # Mossdeep City 2.0 — Storm-Era Urban Redesign
-**Status:** Upper-city, market bridge, Ranger HQ facade, residential, and waterfront map milestones integrated on `neo-emerald/mossdeep-city-v2`. Source and geometry verified; ROM build and gameplay playtest still pending. Thunderstorm is configured but not emulator-verified.
+**Status:** City v3 enhancements in progress on `neo-emerald/mossdeep-city-v3-streets`. The annex has been removed and the rescue bridge has a southern walkable entrance. Earlier v2 features remain. Source and geometry checked; ROM build/emulator playtest still pending. Thunderstorm configured, not playtested.
+
+## V3 terrain refinements (source level)
+
+- **Bridge third entrance:** the south rail at **(43,30)** is now a walkable deck, joining the deck at (43,29) to the lower flooded-terrace approach at (43,31). Both sides retain their collision railings; the new side gate stays usable if the original south stairs become blocked.
+- **Decorative Space Center annex removed:** restore the 5×7 area **x46–50, y10–16** directly from untouched vanilla terrain. It had **no interior, warp, events, or unique gameplay**, so the original main Space Center retains all working content. The two formerly sandy forecourt squares remain grass until the streetscape pass.
+- Original Space Center and all key warp approaches, ferry connection, and child/Poochyena remain unchanged. 0 open-sea tiles reachable by source-level path check.
+- Historical annex-creation scripts should **not** be rerun on v3.
 
 ## Implemented so far (v2)
 

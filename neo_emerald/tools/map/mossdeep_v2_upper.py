@@ -1,6 +1,9 @@
 """Mossdeep City 2.0, upper-city pass: place Space Center campus annexes built
 from the existing Space Center metatiles (no new art, no door/warp changes).
 
+HISTORICAL ONLY: the decorative annex built by this script was removed in the
+v3 streets milestone. Do not reapply this source generator to the active layout.
+
 usage:
   python3 neo_emerald/tools/map/mossdeep_v2_upper.py search   # list safe footprints
   python3 neo_emerald/tools/map/mossdeep_v2_upper.py apply    # write the chosen placements
@@ -116,6 +119,8 @@ def main():
                     t = list(g); place(t, src, x0, y0); bad, sea = check_routes(t)
                     print((x0, y0), 'OK' if not bad and not sea else f'breaks {bad} sea={sea}')
         return
+    if mode == 'apply':
+        raise SystemExit("ARCHIVED: the annex was removed in City v3; don't reapply")
     for x0, y0 in PLACEMENTS:
         assert site_ok(g, x0, y0, events), f'site {x0},{y0} no longer valid'
         place(g, src, x0, y0)
