@@ -22,11 +22,45 @@ Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
 Route104_MrBrineysHouse_EventScript_Briney::
 	lock
 	faceplayer
+	goto_if_set FLAG_NEO_C2_AQUA_DONE, Route104_MrBrineysHouse_EventScript_C2BrineyReport
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route104_MrBrineysHouse_EventScript_C2BeforeRelief
 	call_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_MrBrineysHouse_EventScript_SailBothDeliveries
 	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route104_MrBrineysHouse_EventScript_SailDeliverPackage
 	goto Route104_MrBrineysHouse_EventScript_WhereAreWeBound
 	end
+
+@ In Neo Emerald Briney's house is a Chapter 2 evidence stop, not a forced ferry.
+Route104_MrBrineysHouse_EventScript_C2BeforeRelief:
+	msgbox Route104_MrBrineysHouse_Text_C2BeforeRelief, MSGBOX_DEFAULT
+	release
+	end
+Route104_MrBrineysHouse_EventScript_C2BrineyReport:
+	goto_if_set FLAG_NEO_C2_BRINEY_REPORTED, Route104_MrBrineysHouse_EventScript_C2AfterReport
+	msgbox Route104_MrBrineysHouse_Text_C2BrineyReport, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C2_BRINEY_REPORTED
+	release
+	end
+Route104_MrBrineysHouse_EventScript_C2AfterReport:
+	msgbox Route104_MrBrineysHouse_Text_C2AfterReport, MSGBOX_DEFAULT
+	release
+	end
+Route104_MrBrineysHouse_Text_C2BeforeRelief:
+	.string "BRINEY: I'm 104 and still\n"
+	.string "have a nose for trouble!\p"
+	.string "Help the relief crew.\n"
+	.string "PEEKO and I will be fine.$"
+Route104_MrBrineysHouse_Text_C2BrineyReport:
+	.string "BRINEY: The cargo is safe!\n"
+	.string "Fine work, young RANGER.\p"
+	.string "I'm 104 years old, but\n"
+	.string "PEEKO is still my WINGULL!\p"
+	.string "Two groups wanted strange\n"
+	.string "pressure data. Tell HALE.$"
+Route104_MrBrineysHouse_Text_C2AfterReport:
+	.string "BRINEY: Report the strange\n"
+	.string "signal to COMMANDER HALE.\p"
+	.string "PEEKO and I will be fine.$"
 
 Route104_MrBrineysHouse_EventScript_SailingIntro::
 	setflag FLAG_MR_BRINEY_SAILING_INTRO
