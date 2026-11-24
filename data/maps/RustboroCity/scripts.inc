@@ -1430,7 +1430,8 @@ RustboroCity_Text_C2GoBriney:
 	.string "Check on BRINEY and PEEKO\n"
 	.string "in their cottage.$"
 RustboroCity_Text_C2HaleRadio:
-	.string "HALE: Good work, RANGER!\p"
+	.string "HALE: M-17 on the gauge and\n"
+	.string "on Briney\x27s manifest. Good catch.\p"
 	.string "The siren and pressure\n"
 	.string "data may be linked.\p"
 	.string "You need any ONE BADGE\n"

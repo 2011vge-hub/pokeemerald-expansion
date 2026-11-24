@@ -280,7 +280,9 @@ PetalburgWoods_Text_C2Magma:
 	.string "strange pressure sensors.\p"
 	.string "Help the DEVON researcher!$"
 PetalburgWoods_Text_C2CutterDemo:
-	.string "RANGER: Watch this!\p"
+	.string "See the brass tag on that gauge?\n"
+	.string "M-17. I\x27ll sketch it in my notes.\p"
+	.string "Now watch this!\p"
 	.string "This is RANGER CUTTER,\n"
 	.string "gear, not a POKéMON HM.$"
 PetalburgWoods_Text_C2CutSuccess:

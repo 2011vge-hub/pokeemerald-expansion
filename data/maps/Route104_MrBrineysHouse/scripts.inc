@@ -38,6 +38,14 @@ Route104_MrBrineysHouse_EventScript_C2BeforeRelief:
 Route104_MrBrineysHouse_EventScript_C2BrineyReport:
 	goto_if_set FLAG_NEO_C2_BRINEY_REPORTED, Route104_MrBrineysHouse_EventScript_C2AfterReport
 	msgbox Route104_MrBrineysHouse_Text_C2BrineyReport, MSGBOX_DEFAULT
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route104_MrBrineysHouse_ManifestNessa
+	msgbox Route104_MrBrineysHouse_VernRadio, MSGBOX_DEFAULT
+	goto Route104_MrBrineysHouse_FileManifest
+Route104_MrBrineysHouse_ManifestNessa:
+	msgbox Route104_MrBrineysHouse_NessaRadio, MSGBOX_DEFAULT
+Route104_MrBrineysHouse_FileManifest:
+	msgbox Route104_MrBrineysHouse_ManifestCopy, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C2_BRINEY_REPORTED
 	release
 	end
@@ -51,12 +59,24 @@ Route104_MrBrineysHouse_Text_C2BeforeRelief:
 	.string "Help the relief crew.\n"
 	.string "PEEKO and I will be fine.$"
 Route104_MrBrineysHouse_Text_C2BrineyReport:
-	.string "BRINEY: The cargo is safe!\n"
-	.string "Fine work, young RANGER.\p"
-	.string "I'm 104 years old, but\n"
-	.string "PEEKO is still my WINGULL!\p"
-	.string "Two groups wanted strange\n"
-	.string "pressure data. Tell HALE.$"
+	.string "Briney unfolds a cargo manifest\n"
+	.string "on the kitchen table.\p"
+	.string "BRINEY: See this thumbprint?\n"
+	.string "The raider turned straight to here.\p"
+	.string "Dry blankets, lamp oil... Ah.\n"
+	.string "Pressure records. Gauge M-17.$"
+Route104_MrBrineysHouse_NessaRadio:
+	.string "NESSA (radio): M-17? Hang on.\p"
+	.string "Right here in my sketch! That's\n"
+	.string "the gauge MAGMA had in the woods.$"
+Route104_MrBrineysHouse_VernRadio:
+	.string "VERN (radio): Wait. M-17?\p"
+	.string "I drew that brass tag. Same gauge\n"
+	.string "MAGMA had in the woods.$"
+Route104_MrBrineysHouse_ManifestCopy:
+	.string "BRINEY: Here. Take my carbon copy.\n"
+	.string "Leave the original for my books.\p"
+	.string "You fold the copy into your notes.$"
 Route104_MrBrineysHouse_Text_C2AfterReport:
 	.string "BRINEY: Report the strange\n"
 	.string "signal to COMMANDER HALE.\p"
