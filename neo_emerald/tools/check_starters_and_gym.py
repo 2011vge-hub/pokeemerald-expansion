@@ -5,11 +5,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 read=lambda x:(ROOT/x).read_text()
 battle=read("src/battle_setup.c")
-for token in ("SPECIES_POOCHYENA:", "signature = MOVE_FIRE_FANG",
-              "SPECIES_SHROOMISH:", "signature = MOVE_GIGA_DRAIN",
-              "SPECIES_SPHEAL:", "signature = MOVE_ICE_BEAM"):
-    assert token in battle, token
-assert "ScriptGiveMon(starterMon, 5, ITEM_NONE);" in battle
+for species, move in (("POOCHYENA", "FIRE_FANG"), ("SPHEAL", "ICE_BEAM"), ("SHROOMISH", "GIGA_DRAIN")):
+    case = battle.split(f"case SPECIES_{species}:", 1)[1].split("break;", 1)[0]
+    assert f"signature = MOVE_{move};" in case, species
+assert "isRangerRecruitment = !IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2;" in battle
+assert "ScriptGiveMon(starterMon, isRangerRecruitment ? 10 : 5, ITEM_NONE);" in battle
+assert "SetMonMoveSlot(partner, signature, MAX_MON_MOVES - 1);" in battle
 assert "GiveMoveToMon(partner, signature)" in battle
 gym=json.loads(read("data/maps/MossdeepCity/map.json"))
 door=next(x for x in gym["warp_events"] if x["dest_map"]=="MAP_MOSSDEEP_CITY_GYM")
