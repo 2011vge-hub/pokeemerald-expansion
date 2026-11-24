@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Chapter 2 source checks. Compiler/emulator tests remain required."""
 import json
+import re
 from pathlib import Path
 R=Path(__file__).resolve().parents[2]
 read=lambda p:(R/p).read_text(encoding="utf-8")
@@ -25,7 +26,14 @@ assert any(o.get("local_id")=="LOCALID_NEO_C2_WOODS_RIVAL" for o in wm["object_e
 foresttrainer=trainers.split("=== TRAINER_GRUNT_PETALBURG_WOODS ===")[1].split("===")[0]
 assert "Class: Team Magma" in foresttrainer
 assert "Pic: Magma Grunt M" in foresttrainer
-assert "TRAINER_NEO_AQUA_ROUTE104" in opps and "TRAINERS_COUNT_EMERALD     856" in opps
+def trainer_constant(name):
+    match = re.search(r"^#define\s+" + name + r"\s+(\d+)\b", opps, re.MULTILINE)
+    assert match, name
+    return int(match[1])
+
+assert trainer_constant("TRAINER_NEO_AQUA_ROUTE104") == 855
+assert trainer_constant("TRAINER_NEO_TUNNEL") == 856
+assert 856 < trainer_constant("TRAINERS_COUNT_EMERALD") <= trainer_constant("MAX_TRAINERS_COUNT_EMERALD")
 assert "=== TRAINER_NEO_AQUA_ROUTE104 ===" in trainers
 assert route.count("setflag FLAG_NEO_C2_AQUA_DONE")==1
 rm=json.loads(read("data/maps/Route104/map.json"))
