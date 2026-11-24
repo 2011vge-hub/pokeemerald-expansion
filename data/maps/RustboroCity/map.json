@@ -731,7 +731,7 @@
     {
       "type": "sign",
       "x": 32,
-      "y": 46,
+      "y": 47,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_CampusArchive"
@@ -739,7 +739,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 30,
+      "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_CampusOffice"
@@ -747,7 +747,7 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 46,
+      "y": 47,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_CampusCommons"
@@ -755,7 +755,7 @@
     {
       "type": "sign",
       "x": 4,
-      "y": 51,
+      "y": 52,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_CampusResidence"
@@ -763,7 +763,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 34,
+      "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_CampusLecture"
