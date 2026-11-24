@@ -10,6 +10,7 @@ on:
       - neo-emerald/ch2-woods-cutter-briney
       - neo-emerald/player-ranger-sprite-v1
       - neo-emerald/rustboro-university-four-floors
+      - neo-emerald/ranger-ch3-rusturf
   workflow_dispatch:
 
 permissions:
@@ -21,7 +22,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/ch2-woods-cutter-briney' || github.ref == 'refs/heads/neo-emerald/player-ranger-sprite-v1' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors'
+    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/ch2-woods-cutter-briney' || github.ref == 'refs/heads/neo-emerald/player-ranger-sprite-v1' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors' || github.ref == 'refs/heads/neo-emerald/ranger-ch3-rusturf'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:

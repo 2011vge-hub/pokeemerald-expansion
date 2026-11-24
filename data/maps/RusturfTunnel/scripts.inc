@@ -525,3 +525,104 @@ RusturfTunnel_Text_MikePostBattle:
 	.string "protect POKéMON, right?\l"
 	.string "There's a feel-good story!$"
 
+
+NeoTunnel::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_CH3_STEP, 11, NeoTunnelIdle
+	msgbox NeoTunnelChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_TUNNEL, NeoTunnelLoss
+	setvar VAR_NEO_CH3_STEP, 12
+	setflag FLAG_NEO_TUNNEL_SECURED
+	msgbox NeoTunnelAfter, MSGBOX_DEFAULT
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoTunnelIdle:
+	msgbox NeoTunnelIdleText, MSGBOX_DEFAULT
+	release
+	end
+NeoTunnelChallenge:
+	.string "Get away from that relay! Nobody\n"
+	.string "leaves with the tunnel recording.$"
+NeoTunnelLoss:
+	.string "The relay is yours.$"
+NeoTunnelAfter:
+	.string "We never cut your signal! Someone\n"
+	.string "got to the relay before us.$"
+NeoTunnelIdleText:
+	.string "Keep walking, Ranger.$"
+
+NeoTechnician::
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_CH3_STEP, 7, NeoTechNote
+	msgbox NeoTechRescue, MSGBOX_DEFAULT
+	setvar VAR_NEO_CH3_STEP, 11
+NeoTechNote:
+	goto_if_eq VAR_NEO_CH3_STEP, 11, NeoTechGuard
+	goto_if_eq VAR_NEO_CH3_STEP, 12, NeoTechReader
+	goto_if_set FLAG_NEO_TUNNEL_SECURED, NeoTechSafe
+	msgbox NeoTechWaiting, MSGBOX_DEFAULT
+	release
+	end
+NeoTechGuard:
+	msgbox NeoTechGuardText, MSGBOX_DEFAULT
+	release
+	end
+NeoTechSafe:
+	msgbox NeoTechSafeText, MSGBOX_DEFAULT
+	release
+	end
+NeoTechReader:
+	msgbox NeoTechHint, MSGBOX_DEFAULT
+	release
+	end
+NeoTechRescue:
+	.string "You lift the fallen frame. Both\n"
+	.string "technicians scramble free.\p"
+	.string "First the rock got hot. Then our\n"
+	.string "pressure alarm went off underground.$"
+NeoTechWaiting:
+	.string "A voice echoes behind the frame.\\n"
+	.string "Someone is still in there.$"
+NeoTechGuardText:
+	.string "My partner is breathing again.\\n"
+	.string "See the guard beside the relay?\\p"
+	.string "Get them away from the controls.\\n"
+	.string "Our last reading is still in there.$"
+NeoTechSafeText:
+	.string "I called the lab. They heard me.\\p"
+	.string "First time all night my sister\\n"
+	.string "heard my voice. Thank you.$"
+NeoTechHint:
+	.string "The relay reader is next to us.\n"
+	.string "Use it to copy the last reading.$"
+
+NeoRelayReader::
+	lock
+	goto_if_ne VAR_NEO_CH3_STEP, 12, NeoRelayIdle
+	setvar VAR_NEO_CH3_STEP, 8
+	msgbox NeoRelayLog, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayIdle:
+	goto_if_eq VAR_NEO_CH3_STEP, 8, NeoRelayCopied
+	msgbox NeoRelayHelp, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayLog:
+	.string "UPLINK INTERRUPTED.\n"
+	.string "THIRD SIGNAL: ORIGIN UNKNOWN.\p"
+	.string "You save a copy of the relay log.\n"
+	.string "Return to Hale at the field office.$"
+NeoRelayCopied:
+	msgbox NeoRelayCopiedText, MSGBOX_DEFAULT
+	release
+	end
+NeoRelayCopiedText:
+	.string "LOG COPIED.\\p"
+	.string "Hale needs this recording.\\n"
+	.string "Return to the field office.$"
+NeoRelayHelp:
+	.string "Relay access port. Signal unstable.$"

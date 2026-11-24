@@ -1440,11 +1440,14 @@ RustboroCity_Text_C2HaleRadio:
 RustboroCity_Text_C2MissionDone:
 	.string "CHAPTER 2 REPORT COMPLETE!\p"
 	.string "Mission and partner\n"
-	.string "training credited.$"
+	.string "training credited.\p"
+	.string "Meet Hale in the flats west\n"
+	.string "of the POKéMON CENTER.$"
 RustboroCity_Text_C2BadgeNext:
 	.string "HALE says earn any one\n"
 	.string "GYM BADGE, then request\n"
-	.string "RANK 2 certification.$"
+	.string "RANK 2 at the flats west\l"
+	.string "of the POKéMON CENTER.$"
 
 
 RustboroCity_EventScript_NeoCampusDevonIntern::
