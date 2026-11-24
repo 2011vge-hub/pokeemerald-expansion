@@ -25,17 +25,21 @@ valid_gfx_ids = set(re.findall(r"^\s*(OBJ_EVENT_GFX_[A-Z0-9_]+)\s*,", gfx_source
 valid_gfx_ids.update(re.findall(r"^#define\s+(OBJ_EVENT_GFX_VAR_[0-9A-F])\b", gfx_source, re.MULTILINE))
 
 new_npcs = {
-    (28, 36): "RustboroCity_EventScript_NeoCampusFieldStudent",
-    (32, 36): "RustboroCity_EventScript_NeoCampusDevonIntern",
-    (23, 39): "RustboroCity_EventScript_NeoCampusExchangeStudent",
-    (33, 37): "RustboroCity_EventScript_NeoCampusResident",
+    (14, 22): "RustboroCity_CampusTutor",
+    (16, 22): "RustboroCity_CampusSurvey",
+    (26, 48): "RustboroCity_CampusCourier",
+    (10, 52): "RustboroCity_CampusResident",
+    (26, 36): "RustboroCity_EventScript_NeoCampusFieldStudent",
+    (17, 33): "RustboroCity_EventScript_NeoCampusDevonIntern",
+    (23, 40): "RustboroCity_EventScript_NeoCampusExchangeStudent",
+    (32, 48): "RustboroCity_EventScript_NeoCampusResident",
 }
 objects = data["object_events"]
-assert len(objects) == 21, f"Expected 21 Rustboro NPCs, got {len(objects)}"
+assert len(objects) == 25, f"Expected 25 Rustboro NPCs, got {len(objects)}"
 positions = [(o["x"], o["y"]) for o in objects]
 assert len(set(positions)) == len(positions), "Overlapping NPC coordinates"
 warp_positions = {(w["x"], w["y"]) for w in data["warp_events"]}
-assert len(data["warp_events"]) == 12, "Vanilla city warp count changed"
+assert len(data["warp_events"]) == 13 and data["warp_events"][12]["dest_map"] == "MAP_RUSTBORO_CITY_CLIMATE_ARCHIVE"
 assert not warp_positions.intersection(new_npcs), "Campus NPC on a doorway"
 coord_positions = {(e["x"], e["y"]) for e in data.get("coord_events", [])}
 assert not coord_positions.intersection(new_npcs), "Campus NPC on story trigger"

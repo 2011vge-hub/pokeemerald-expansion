@@ -273,6 +273,8 @@ gStdScripts_End::
 	.include "data/maps/RustboroCity_University_2F/scripts.inc"
 	.include "data/maps/RustboroCity_University_3F/scripts.inc"
 	.include "data/maps/RustboroCity_University_4F/scripts.inc"
+	.include "data/maps/RustboroCity_ClimateArchive/scripts.inc"
+	.include "data/maps/RustboroCity_SensorLab/scripts.inc"
 	.include "data/maps/RustboroCity_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/RustboroCity_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/RustboroCity_Mart/scripts.inc"

@@ -1491,3 +1491,80 @@ RustboroCity_Text_NeoCampusResident:
 	.string "at the POKé MART...\p"
 	.string "Being a student is exhausting!$"
 
+
+RustboroCity_CampusArchive::
+	msgbox RustboroCity_CampusArchiveText, MSGBOX_SIGN
+	end
+RustboroCity_CampusArchiveText:
+	.string "CLIMATE ARCHIVE\n"
+	.string "Mossdeep tide records on display.\p"
+	.string "Devon Sensor Lab upstairs.$"
+
+RustboroCity_CampusOffice::
+	msgbox RustboroCity_CampusOfficeText, MSGBOX_SIGN
+	end
+RustboroCity_CampusOfficeText:
+	.string "RANGER FIELD OFFICE\n"
+	.string "Commander Hale takes field reports\p"
+	.string "inside the west flats.$"
+
+RustboroCity_CampusCommons::
+	msgbox RustboroCity_CampusCommonsText, MSGBOX_SIGN
+	end
+RustboroCity_CampusCommonsText:
+	.string "STUDENT COMMONS\n"
+	.string "Hot soup after the last lecture.\p"
+	.string "Rangers and partners welcome.$"
+
+RustboroCity_CampusResidence::
+	msgbox RustboroCity_CampusResidenceText, MSGBOX_SIGN
+	end
+RustboroCity_CampusResidenceText:
+	.string "DEVON STUDENT RESIDENCE\n"
+	.string "Quiet, please. Night shift sleeping.$"
+
+RustboroCity_CampusLecture::
+	msgbox RustboroCity_CampusLectureText, MSGBOX_SIGN
+	end
+RustboroCity_CampusLectureText:
+	.string "FIELD STUDIES HALL\n"
+	.string "Lectures on 2F. Research on 3F.\p"
+	.string "Dean Roxanne holds office on 4F.$"
+
+RustboroCity_CampusBoard::
+	msgbox RustboroCity_CampusBoardText, MSGBOX_SIGN
+	end
+RustboroCity_CampusBoardText:
+	.string "QUAD NOTICEBOARD\n"
+	.string "Lost: one left boot, size nine.\p"
+	.string "Found: one very pleased Poochyena.$"
+
+RustboroCity_CampusTutor::
+	msgbox RustboroCity_CampusTutorText, MSGBOX_NPC
+	end
+RustboroCity_CampusTutorText:
+	.string "Count the seconds from the siren\n"
+	.string "to the wave. Write yours down.\p"
+	.string "Different answers? Good. Compare!$"
+
+RustboroCity_CampusSurvey::
+	msgbox RustboroCity_CampusSurveyText, MSGBOX_NPC
+	end
+RustboroCity_CampusSurveyText:
+	.string "I got twelve seconds. My partner\n"
+	.string "got nine. We stood ten feet apart.$"
+
+RustboroCity_CampusCourier::
+	msgbox RustboroCity_CampusCourierText, MSGBOX_NPC
+	end
+RustboroCity_CampusCourierText:
+	.string "Soup for the night shift!\n"
+	.string "Can you hold the lab door?$"
+
+RustboroCity_CampusResident::
+	msgbox RustboroCity_CampusResidentText, MSGBOX_NPC
+	end
+RustboroCity_CampusResidentText:
+	.string "Our first week here, we got lost\n"
+	.string "on the way to orientation.\p"
+	.string "Now they let us give the tours.$"
