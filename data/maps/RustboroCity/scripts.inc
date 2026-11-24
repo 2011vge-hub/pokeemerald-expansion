@@ -1431,7 +1431,7 @@ RustboroCity_Text_C2GoBriney:
 	.string "in their cottage.$"
 RustboroCity_Text_C2HaleRadio:
 	.string "HALE: M-17 on the gauge and\n"
-	.string "on Briney\x27s manifest. Good catch.\p"
+	.string "on Briney's manifest. Good catch.\p"
 	.string "The siren and pressure\n"
 	.string "data may be linked.\p"
 	.string "You need any ONE BADGE\n"
