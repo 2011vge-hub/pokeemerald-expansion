@@ -7,6 +7,7 @@ RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	call Common_EventScript_SetupRivalGfxId
 	call RustboroCity_EventScript_SetupNeoRivalGfxId
+	call RustboroCity_EventScript_QueueNeoArrivalGreeting
 	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
@@ -36,6 +37,7 @@ RustboroCity_EventScript_HideMapNamePopup::
 	return
 
 RustboroCity_OnFrame:
+	map_script_2 VAR_TEMP_2, 1, RustboroCity_EventScript_NeoArrivalGreeting
 	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_ScientistAddMatchCall
 	.2byte 0
 
@@ -1301,6 +1303,34 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "could beat two TRAINERS by yourself?$"
 
 @ Neo Emerald: campus voices added without replacing vanilla quest scripts.
+@ Queue the greeting once the player arrives from Hale's transfer. Transition
+@ scripts cannot safely display dialogue; use a one-shot frame-table event.
+RustboroCity_EventScript_QueueNeoArrivalGreeting:
+	setvar VAR_TEMP_2, 0
+	goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_EventScript_NeoArrivalQueueReturn
+	goto_if_set FLAG_NEO_C2_RIVAL_MET, RustboroCity_EventScript_NeoArrivalQueueReturn
+	setvar VAR_TEMP_2, 1
+RustboroCity_EventScript_NeoArrivalQueueReturn:
+	return
+
+RustboroCity_EventScript_NeoArrivalGreeting::
+	lockall
+	setvar VAR_TEMP_2, 0
+	goto_if_set FLAG_NEO_C2_RIVAL_MET, RustboroCity_EventScript_NeoArrivalFinish
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, RustboroCity_EventScript_NeoArrivalNessa
+	msgbox RustboroCity_Text_NeoRivalVernIntro, MSGBOX_DEFAULT
+	goto RustboroCity_EventScript_NeoArrivalShared
+RustboroCity_EventScript_NeoArrivalNessa:
+	msgbox RustboroCity_Text_NeoRivalNessaIntro, MSGBOX_DEFAULT
+RustboroCity_EventScript_NeoArrivalShared:
+	msgbox RustboroCity_Text_NeoRivalHaleFamily, MSGBOX_DEFAULT
+	msgbox RustboroCity_Text_NeoRivalFirstAssignment, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C2_RIVAL_MET
+RustboroCity_EventScript_NeoArrivalFinish:
+	releaseall
+	end
+
 @ Chapter 2 opening contact. One persistent mission state for either gender.
 @ Overworld graphics are placeholders pending custom Nessa/Vern Ranger art.
 RustboroCity_EventScript_NeoRivalContact::
