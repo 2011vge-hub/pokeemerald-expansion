@@ -380,10 +380,14 @@ RustboroCity_PokemonSchool_EventScript_UniversityAttendant::
 
 RustboroCity_PokemonSchool_Text_Attendant:
 	.string "Welcome to RUSTBORO UNIVERSITY!\p"
-	.string "I'm operating the campus lift.\n"
-	.string "Floor two is FIELD STUDIES.\p"
-	.string "You can reach the upper floors\n"
-	.string "from there.$"
+	.string "1F: Reception and commons.\n"
+	.string "2F: RANGER field sciences.\p"
+	.string "3F: Climate Archive.\n"
+	.string "4F: Faculty and DEAN ROXANNE.\p"
+	.string "Visit the RANGER field office\n"
+	.string "in the west flats for missions.\p"
+	.string "Any one GYM BADGE qualifies\n"
+	.string "you for Rank 2 certification.$"
 
 @ University partnership research: optional gift, no badge requirement.
 RustboroCity_PokemonSchool_EventScript_RioluResearcher::
