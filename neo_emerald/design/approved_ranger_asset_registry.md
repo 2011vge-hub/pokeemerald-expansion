@@ -1,3 +1,8 @@
+# Approved refined trainer portraits — 2026-11-26
+User approved the new hatless full-body portrait reference `hatless_pixel_ranger_duo.png` (SHA-256 8526ae3090a42e815b535e0f8d4172b6b5ce5b2754878c3fb282b589e9f21c96). The derived 64x64, 16-entry indexed PNGs are stored with exact hashes and bytes in `neo_emerald/design/approved_hatless_ranger_portraits.json` on `neo-emerald/hatless-ranger-integration`, commit `c572cf19d87b9b4b0b8ae18a2e56e2f88c70f3b1`. Supersedes earlier front portrait candidates; preserve approved hatless overworld sprites separately. Runtime front/back palette reconciliation, battle-back artwork and emulator verification remain pending. Do not regenerate the visual identity.
+
+---
+
 # Superseding visual decision — 2026-11-26
 The user explicitly approved the revised hatless male/female Ranger design with compact Brendan/May-style legs, navy hair, navy/orange uniforms and black boots. This supersedes the helmeted Option A visual approval below. Do NOT restore helmeted art or its pending walking sheet. The new 144x32 indexed walking candidates and installer are on neo-emerald/hatless-ranger-integration, build integration commit 7d8b5c9d184b1bea8b33e7f355058abb8f363585. See neo_emerald/tools/install_hatless_rangers.py for exact embedded PNG hashes. The runtime conversion, walking steps and temporary running reuse have not been tested in an emulator; other actions, naming portraits, rivals and battle backs remain unfinished. Reconcile with current gameplay branches before release.
 
