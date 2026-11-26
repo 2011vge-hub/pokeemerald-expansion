@@ -1016,10 +1016,10 @@ static void CB2_GiveStarter(void)
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_NONE);
+    ScriptGiveMon(starterMon, (!IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2) ? 10 : 5, ITEM_NONE);
 
     // Neo Emerald: Ranger partner receives one distinctive field move on
-    // recruitment. Level 5 is a STARTING level, not a level cap; ordinary
+    // recruitment. Ranger partners start at level 10 (not a level cap); ordinary
     // battle EXP, moves, and evolution remain handled by the core engine.
     if (!IS_FRLG && VarGet(VAR_NEO_FERRY_DISPATCH) == 2 && gPartiesCount[B_TRAINER_PLAYER] > 0)
     {
@@ -1041,7 +1041,7 @@ static void CB2_GiveStarter(void)
         if (signature != MOVE_NONE && GetMonData(partner, MON_DATA_SPECIES) == starterMon)
         {
             // Normally a starter has room; the fallback also guarantees the
-            // signature on variants with a full four-move level-5 learnset.
+            // signature on variants with a full four-move starting learnset.
             if (GiveMoveToMon(partner, signature) == MON_HAS_MAX_MOVES)
                 SetMonMoveSlot(partner, signature, MAX_MON_MOVES - 1);
 
