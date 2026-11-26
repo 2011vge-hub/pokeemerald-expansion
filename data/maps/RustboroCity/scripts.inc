@@ -1479,21 +1479,16 @@ RustboroCity_Text_C2GoBriney:
 	.string "Check on BRINEY and PEEKO\n"
 	.string "in their cottage.$"
 RustboroCity_Text_C2HaleRadio:
-	.string "HALE: Good work, RANGER!\p"
-	.string "The siren and pressure\n"
-	.string "data may be linked.\p"
-	.string "You need any ONE BADGE\n"
-	.string "to qualify for RANK 2.\p"
-	.string "RUSTBORO is not required.\n"
-	.string "Keep learning, RANGER.$"
+	.string "HALE: M-17 appears in both reports.\p"
+	.string "The late siren and pressure\ndata may be connected.\p"
+	.string "Earn any one BADGE, then report\nat our field office for RANK 2.$"
 RustboroCity_Text_C2MissionDone:
 	.string "CHAPTER 2 REPORT COMPLETE!\p"
-	.string "Mission and partner\n"
-	.string "training credited.$"
+	.string "Mission and partner training\ncredited.\p"
+	.string "Meet HALE at the field office\nin the flats northwest of the CENTER.$"
 RustboroCity_Text_C2BadgeNext:
-	.string "HALE says earn any one\n"
-	.string "GYM BADGE, then request\n"
-	.string "RANK 2 certification.$"
+	.string "Earn any one GYM BADGE.\p"
+	.string "Report to HALE at the field office\nnorthwest of the POKéMON CENTER.$"
 
 
 RustboroCity_EventScript_NeoCampusDevonIntern::
@@ -1533,7 +1528,6 @@ RustboroCity_Text_NeoCampusExchangeStudent:
 	.string "One storm can change a habitat.$"
 
 RustboroCity_Text_NeoCampusResident:
-	.string "Finals, rent, and a late shift\n"
-	.string "at the POKé MART...\p"
-	.string "Being a student is exhausting!$"
+	.string "Finals, rent, and a late shift\nat the POKé MART...\p"
+	.string "Champion BRENDAN visited our\ncampus once. I missed the lecture!$"
 

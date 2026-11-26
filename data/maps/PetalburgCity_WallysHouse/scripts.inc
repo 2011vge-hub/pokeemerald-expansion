@@ -1,6 +1,4 @@
 PetalburgCity_WallysHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_WallysHouse_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PetalburgCity_WallysHouse_OnWarp
 	.byte 0
 
 PetalburgCity_WallysHouse_OnWarp:
@@ -27,14 +25,7 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 	end
 
 PetalburgCity_WallysHouse_EventScript_WallysDad::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, PetalburgCity_WallysHouse_EventScript_DefeatedWallyInVictoryRoad
-	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf
-	goto_if_set FLAG_THANKED_FOR_PLAYING_WITH_WALLY, PetalburgCity_WallysHouse_EventScript_PlayedWithWally
-	msgbox PetalburgCity_WallysHouse_Text_ThanksForPlayingWithWally, MSGBOX_DEFAULT
-	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
-	release
+	msgbox PetalburgCity_WallysHouse_Text_NeoDad, MSGBOX_NPC
 	end
 
 PetalburgCity_WallysHouse_EventScript_ReceievedHMSurf::
@@ -53,11 +44,7 @@ PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
 	end
 
 PetalburgCity_WallysHouse_EventScript_WallysMom::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_HM_SURF, PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf
-	msgbox PetalburgCity_WallysHouse_Text_WallyWasReallyHappy, MSGBOX_DEFAULT
-	release
+	msgbox PetalburgCity_WallysHouse_Text_NeoMom, MSGBOX_NPC
 	end
 
 PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf::
@@ -133,3 +120,14 @@ PetalburgCity_WallysHouse_Text_WallyLeftWithoutTelling:
 	.string "I'm sure that he'll come back safe\n"
 	.string "and sound one day!$"
 
+
+PetalburgCity_WallysHouse_Text_NeoDad:
+	.string "Our WALLY is a GYM LEADER now.\p"
+	.string "He never forgot how BRENDAN\n"
+	.string "helped him when he was young.\p"
+	.string "Imagine that boy becoming Champion!$"
+PetalburgCity_WallysHouse_Text_NeoMom:
+	.string "WALLY looks after the trainers\n"
+	.string "who come to PETALBURG.\p"
+	.string "NORMAN vanished years ago.\n"
+	.string "We still hope he'll come home.$"

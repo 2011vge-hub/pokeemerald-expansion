@@ -3,7 +3,6 @@ RustboroCity_DevonCorp_1F_MapScripts::
 	.byte 0
 
 RustboroCity_DevonCorp_1F_OnTransition:
-	call_if_unset FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_BlockStairs
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_BlockStairs::
@@ -12,12 +11,7 @@ RustboroCity_DevonCorp_1F_EventScript_BlockStairs::
 	return
 
 RustboroCity_DevonCorp_1F_EventScript_Employee::
-	lock
-	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GoodsRecovered
-	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright
-	msgbox RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct, MSGBOX_DEFAULT
-	release
+	msgbox RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct, MSGBOX_NPC
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright::
@@ -31,13 +25,7 @@ RustboroCity_DevonCorp_1F_EventScript_GoodsRecovered::
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_StairGuard::
-	lock
-	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_AlwaysWelcome
-	goto_if_set FLAG_RECOVERED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
-	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
-	msgbox RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter, MSGBOX_DEFAULT
-	release
+	msgbox RustboroCity_DevonCorp_1F_Text_YoureAlwaysWelcomeHere, MSGBOX_NPC
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_AlwaysWelcome::
@@ -51,13 +39,7 @@ RustboroCity_DevonCorp_1F_EventScript_GotRobbed::
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_Greeter::
-	lock
-	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_WelcomeToDevonCorp
-	goto_if_set FLAG_RECOVERED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_StaffGotRobbed
-	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_StaffGotRobbed
-	msgbox RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp, MSGBOX_DEFAULT
-	release
+	msgbox RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp, MSGBOX_NPC
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_WelcomeToDevonCorp::
@@ -79,20 +61,17 @@ RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay::
 	end
 
 RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp:
-	.string "Hello and welcome to the DEVON\n"
-	.string "CORPORATION.\p"
-	.string "We're proud producers of items and\n"
-	.string "medicine that enhance your life.$"
+	.string "Welcome to DEVON ENTERPRISES.\p"
+	.string "President STEVEN STONE leads\nour research teams.\p"
+	.string "We work with the UNIVERSITY\nand the RANGER service.$"
 
 RustboroCity_DevonCorp_1F_Text_StaffGotRobbed:
 	.string "One of our research staff stupidly\n"
 	.string "got robbed of an important parcel.$"
 
 RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct:
-	.string "Hey, those RUNNING SHOES!\n"
-	.string "They're one of our products!\p"
-	.string "It makes me happy when I see someone\n"
-	.string "using something we made.$"
+	.string "DEVON used to make RUNNING SHOES.\p"
+	.string "Now we build flood sensors and\nRANGER equipment as well.$"
 
 RustboroCity_DevonCorp_1F_Text_RobberWasntVeryBright:
 	.string "That stolen parcel…\p"
@@ -114,8 +93,8 @@ RustboroCity_DevonCorp_1F_Text_HowCouldWeGetRobbed:
 	.string "How could we get robbed?$"
 
 RustboroCity_DevonCorp_1F_Text_YoureAlwaysWelcomeHere:
-	.string "Hi, there!\n"
-	.string "You're always welcome here!$"
+	.string "Visitors may use the stairs.\p"
+	.string "Our labs are on the second floor.\nThe president works upstairs.$"
 
 RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay:
 	.string "Samples of rocks and metal are\n"

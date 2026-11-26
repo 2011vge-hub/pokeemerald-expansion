@@ -290,9 +290,8 @@ RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls:
 	.string "Please give them a try!$"
 
 RustboroCity_DevonCorp_2F_Text_IMadePokenav:
-	.string "I made the POKéNAV!\p"
-	.string "As an engineer, I feel blessed to have\n"
-	.string "made something so great!$"
+	.string "The old POKéNAV inspired our\nnew emergency radio network.\p"
+	.string "We're testing it with the RANGERS.$"
 
 RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav:
 	.string "Oh, wow!\n"
@@ -312,17 +311,12 @@ RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams:
 	.string "But it's not going well.$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils:
-	.string "I've been trying to develop a device\n"
-	.string "that resurrects POKéMON from fossils…\p"
-	.string "And, it's working!$"
+	.string "Fossil restoration has come a long\nway in the past 25 years.\p"
+	.string "We still restore ancient POKéMON\nright here in our lab.$"
 
 RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife:
-	.string "Wait! That thing you have there…\n"
 	.string "Is that a POKéMON fossil?\p"
-	.string "Would you like to bring that POKéMON\n"
-	.string "back to life?\p"
-	.string "I can with my newly developed\n"
-	.string "FOSSIL REGENERATOR.$"
+	.string "Shall we restore it using our\nFOSSIL REGENERATOR?$"
 
 RustboroCity_DevonCorp_2F_Text_OhIsThatSo:
 	.string "Oh, is that so?\p"

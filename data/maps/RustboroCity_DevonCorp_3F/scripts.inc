@@ -1,7 +1,4 @@
 RustboroCity_DevonCorp_3F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_3F_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, RustboroCity_DevonCorp_3F_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_DevonCorp_3F_OnFrame
 	.byte 0
 
 RustboroCity_DevonCorp_3F_OnTransition:
@@ -149,12 +146,8 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_EXP_SHARE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveExpShare
-	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
+	goto_if_set FLAG_NEO_C2_DEBRIEF_DONE, RustboroCity_DevonCorp_3F_NeoStevenBriefed
+	msgbox RustboroCity_DevonCorp_3F_Text_NeoSteven, MSGBOX_DEFAULT
 	release
 	end
 
@@ -179,11 +172,7 @@ RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor::
 	end
 
 RustboroCity_DevonCorp_3F_EventScript_Employee::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_REPEAT_BALL, RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls
-	msgbox RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard, MSGBOX_DEFAULT
-	release
+	msgbox RustboroCity_DevonCorp_3F_Text_NeoEmployee, MSGBOX_NPC
 	end
 
 RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls::
@@ -304,3 +293,25 @@ RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the PRESIDENT.$"
 
+
+RustboroCity_DevonCorp_3F_NeoStevenBriefed:
+	msgbox RustboroCity_DevonCorp_3F_Text_NeoStevenBriefed, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_DevonCorp_3F_Text_NeoSteven:
+	.string "STEVEN: Welcome, Ranger.\p"
+	.string "I lead DEVON now. Our sensors\n"
+	.string "help monitor HOENN's climate.\p"
+	.string "BRENDAN carries the Champion's\n"
+	.string "responsibilities. Mine are here.\p"
+	.string "HALE and I work closely together.$"
+RustboroCity_DevonCorp_3F_Text_NeoStevenBriefed:
+	.string "STEVEN: Hale sent your report.\p"
+	.string "The pressure readings are odd.\n"
+	.string "We're checking the instruments.\p"
+	.string "Keep the people safe, Ranger.\n"
+	.string "Leave the analysis to our team.$"
+RustboroCity_DevonCorp_3F_Text_NeoEmployee:
+	.string "President STEVEN still collects\n"
+	.string "rare stones when he has time.\p"
+	.string "His schedule is packed these days.$"

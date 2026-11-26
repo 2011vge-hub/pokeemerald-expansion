@@ -553,6 +553,5 @@ PetalburgWoods_Text_NeoMagmaContact:
 	.string "NEO MAGMA: Stand aside, RANGER!$"
 PetalburgWoods_Text_NeoPressureEvidence:
 	.string "DEVON: Thank you, RANGER!\p"
-	.string "The sensor logged a strange\n"
-	.string "pressure spike. Tell HALE.\p"
+	.string "That pressure gauge is marked M-17.\nI'll record its readings for HALE.\p"
 	.string "Your partner is near the trees.$"

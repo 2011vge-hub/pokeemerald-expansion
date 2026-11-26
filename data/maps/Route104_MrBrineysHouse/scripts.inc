@@ -51,12 +51,9 @@ Route104_MrBrineysHouse_Text_C2BeforeRelief:
 	.string "Help the relief crew.\n"
 	.string "PEEKO and I will be fine.$"
 Route104_MrBrineysHouse_Text_C2BrineyReport:
-	.string "BRINEY: The cargo is safe!\n"
-	.string "Fine work, young RANGER.\p"
-	.string "I'm 104 years old, but\n"
-	.string "PEEKO is still my WINGULL!\p"
-	.string "Two groups wanted strange\n"
-	.string "pressure data. Tell HALE.$"
+	.string "BRINEY: Fine work, young RANGER!\p"
+	.string "I'm 104 years old, but PEEKO\nis still my WINGULL!\p"
+	.string "Look at the ship's manifest.\nGauge M-17. Tell HALE about it.$"
 Route104_MrBrineysHouse_Text_C2AfterReport:
 	.string "BRINEY: Report the strange\n"
 	.string "signal to COMMANDER HALE.\p"

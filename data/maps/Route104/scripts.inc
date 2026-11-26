@@ -45,10 +45,8 @@ Route104_EventScript_C2SupplyHelp:
 	release
 	end
 Route104_Text_C2AquaChallenge:
-	.string "NEO AQUA GRUNT: This cargo\n"
-	.string "belongs to us now!\p"
-	.string "Volcanion's power will\n"
-	.string "reshape the seas, RANGER!$"
+	.string "NEO AQUA: The ship recorded a\npressure surge before the storm.\p"
+	.string "Hand over the log, RANGER!\nWe need those readings!$"
 Route104_Text_C2AquaLose:
 	.string "You stopped our shipment?!$"
 Route104_Text_C2AquaSaved:
