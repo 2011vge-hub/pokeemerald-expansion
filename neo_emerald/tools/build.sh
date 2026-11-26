@@ -24,6 +24,7 @@ python3 neo_emerald/tools/check_university_four_floors.py
 python3 neo_emerald/tools/generate_ranger_sprites.py
 # Install the approved hatless visual direction after the legacy generator.
 python3 neo_emerald/tools/install_hatless_rangers.py
+python3 neo_emerald/tools/install_approved_ranger_portraits.py
 
 JOBS="${JOBS:-2}"
 if [[ ! "$JOBS" =~ ^[1-9][0-9]*$ ]]; then
