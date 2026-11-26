@@ -7,6 +7,69 @@ Route104_OnFrame:
 	map_script_2 VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_StartSailToDewford
 	.2byte 0
 
+@ Independent Chapter 2 Neo Aqua relief cargo raid near Briney's cottage.
+Route104_EventScript_NeoAquaGrunt::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C2_CUTTER_DEMO, Route104_EventScript_C2AquaWait
+	goto_if_set FLAG_NEO_C2_AQUA_DONE, Route104_EventScript_C2AquaGone
+	msgbox Route104_Text_C2AquaChallenge, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_NEO_AQUA_ROUTE104, Route104_Text_C2AquaLose
+	setflag FLAG_NEO_C2_AQUA_DONE
+	removeobject LOCALID_NEO_C2_ROUTE104_AQUA_GRUNT
+	msgbox Route104_Text_C2AquaSaved, MSGBOX_DEFAULT
+	release
+	end
+Route104_EventScript_C2AquaWait:
+	msgbox Route104_Text_C2AquaWait, MSGBOX_DEFAULT
+	release
+	end
+Route104_EventScript_C2AquaGone:
+	msgbox Route104_Text_C2AquaSaved, MSGBOX_DEFAULT
+	release
+	end
+Route104_EventScript_NeoSupplyWorker::
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_C2_AQUA_DONE, Route104_EventScript_C2SupplySafe
+	goto_if_set FLAG_NEO_C2_CUTTER_DEMO, Route104_EventScript_C2SupplyHelp
+	msgbox Route104_Text_C2SupplyBefore, MSGBOX_DEFAULT
+	release
+	end
+Route104_EventScript_C2SupplySafe:
+	msgbox Route104_Text_C2SupplySafe, MSGBOX_DEFAULT
+	release
+	end
+Route104_EventScript_C2SupplyHelp:
+	msgbox Route104_Text_C2SupplyHelp, MSGBOX_DEFAULT
+	release
+	end
+Route104_Text_C2AquaChallenge:
+	.string "NEO AQUA GRUNT: This cargo\n"
+	.string "belongs to us now!\p"
+	.string "Volcanion's power will\n"
+	.string "reshape the seas, RANGER!$"
+Route104_Text_C2AquaLose:
+	.string "You stopped our shipment?!$"
+Route104_Text_C2AquaSaved:
+	.string "The raider retreats.\p"
+	.string "The relief cargo is safe!\n"
+	.string "Check on MR. BRINEY.$"
+Route104_Text_C2AquaWait:
+	.string "NEO AQUA: Keep clear of\n"
+	.string "our supply shipment!$"
+Route104_Text_C2SupplyBefore:
+	.string "Relief supplies went missing.\p"
+	.string "RANGERS are tracing the\n"
+	.string "route from the WOODS.$"
+Route104_Text_C2SupplySafe:
+	.string "The cargo is safe again!\p"
+	.string "BRINEY and PEEKO are\n"
+	.string "waiting in the cottage.$"
+Route104_Text_C2SupplyHelp:
+	.string "NEO AQUA stole the cargo!\n"
+	.string "Please help us, RANGER!$"
+
 Route104_EventScript_StartSailToDewford::
 	lockall
 	goto Route104_EventScript_SailToDewford

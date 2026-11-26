@@ -1,5 +1,10 @@
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
+
+PetalburgWoods_OnTransition:
+	call RustboroCity_EventScript_SetupNeoRivalGfxId
+	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
@@ -8,7 +13,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaEntrance
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
@@ -45,7 +50,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaEntrance
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
@@ -109,6 +114,7 @@ PetalburgWoods_EventScript_DevonResearcherFinish::
 PetalburgWoods_EventScript_RemoveDevonResearcher::
 	removeobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE
 	setvar VAR_PETALBURG_WOODS_STATE, 1
+	setflag FLAG_NEO_C2_MAGMA_DONE
 	releaseall
 	end
 
@@ -237,6 +243,56 @@ PetalburgWoods_Movement_AquaApproachPlayer:
 	walk_down
 	step_end
 
+@ Rival permanently clears the native branch obstacle using Ranger Cutter gear.
+PetalburgWoods_EventScript_NeoRivalCutter::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_EventScript_C2AwaitOrders
+	goto_if_unset FLAG_NEO_C2_MAGMA_DONE, PetalburgWoods_EventScript_C2AwaitMagma
+	goto_if_set FLAG_NEO_C2_CUTTER_DEMO, PetalburgWoods_EventScript_C2CutDone
+	msgbox PetalburgWoods_Text_C2CutterDemo, MSGBOX_DEFAULT
+	closemessage
+	playse SE_EXP
+	setflag FLAG_NEO_C2_CUTTER_DEMO
+	removeobject LOCALID_NEO_C2_WOODS_TREE_N
+	removeobject LOCALID_NEO_C2_WOODS_TREE_S
+	msgbox PetalburgWoods_Text_C2CutSuccess, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_EventScript_C2AwaitOrders:
+	msgbox PetalburgWoods_Text_C2Orders, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_EventScript_C2AwaitMagma:
+	msgbox PetalburgWoods_Text_C2Magma, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_EventScript_C2CutDone:
+	msgbox PetalburgWoods_Text_C2CutAgain, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_Text_C2Orders:
+	.string "HALE sent me to survey the\n"
+	.string "WOODS. Get your briefing\n"
+	.string "from RUSTBORO UNIVERSITY.$"
+PetalburgWoods_Text_C2Magma:
+	.string "NEO MAGMA is operating\n"
+	.string "strange pressure sensors.\p"
+	.string "Help the DEVON researcher!$"
+PetalburgWoods_Text_C2CutterDemo:
+	.string "RANGER: Watch this!\p"
+	.string "This is RANGER CUTTER,\n"
+	.string "gear, not a POKéMON HM.$"
+PetalburgWoods_Text_C2CutSuccess:
+	.string "The branches are cleared!\p"
+	.string "The path stays open.\n"
+	.string "Your turn comes at RANK 2.\p"
+	.string "Next: BRINEY on ROUTE 104.$"
+PetalburgWoods_Text_C2CutAgain:
+	.string "Our CUTTER work is done.\p"
+	.string "Meet the relief crew near\n"
+	.string "BRINEY's cottage.$"
+
 PetalburgWoods_EventScript_Boy1::
 	msgbox PetalburgWoods_Text_StayOutOfTallGrass, MSGBOX_NPC
 	end
@@ -342,7 +398,7 @@ PetalburgWoods_Text_YouHaveToHelpMe:
 PetalburgWoods_Text_NoOneCrossesTeamAqua:
 	.string "Hunh? What do you think you're doing?\n"
 	.string "What, you're going to protect him?\p"
-	.string "No one who crosses TEAM AQUA\n"
+	.string "No one who crosses NEO MAGMA\n"
 	.string "gets any mercy, not even a kid!\p"
 	.string "Come on and battle me!$"
 
@@ -351,11 +407,11 @@ PetalburgWoods_Text_YoureKiddingMe:
 
 PetalburgWoods_Text_YouveGotSomeNerve:
 	.string "Grrr… You've got some nerve\n"
-	.string "meddling with TEAM AQUA!\l"
+	.string "meddling with NEO MAGMA!\l"
 	.string "Come on and battle me again!\p"
 	.string "I wish I could say that, but I'm out of\n"
 	.string "POKéMON…\p"
-	.string "And, hey, we of TEAM AQUA are also\n"
+	.string "And, hey, we of NEO MAGMA are also\n"
 	.string "after something in RUSTBORO.\p"
 	.string "I'll let you go today!$"
 
@@ -368,7 +424,7 @@ PetalburgWoods_Text_ThatWasAwfullyClose:
 	.string "my thanks!$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
-	.string "Didn't that TEAM AQUA thug say\n"
+	.string "Didn't that NEO MAGMA thug say\n"
 	.string "they were after something in\l"
 	.string "RUSTBORO, too?$"
 
@@ -471,3 +527,32 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+
+@ Direct interaction supports both entrances and avoids fragile south-only choreography.
+PetalburgWoods_EventScript_NeoMagmaContact::
+	lockall
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_EventScript_NeoMagmaAwait
+	goto_if_set FLAG_NEO_C2_MAGMA_DONE, PetalburgWoods_EventScript_NeoMagmaFinished
+	msgbox PetalburgWoods_Text_NeoMagmaContact, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
+	msgbox PetalburgWoods_Text_NeoPressureEvidence, MSGBOX_DEFAULT
+	closemessage
+	removeobject LOCALID_PETALBURG_WOODS_GRUNT
+	goto PetalburgWoods_EventScript_RemoveDevonResearcher
+	end
+PetalburgWoods_EventScript_NeoMagmaAwait:
+	msgbox PetalburgWoods_Text_C2Orders, MSGBOX_DEFAULT
+	releaseall
+	end
+PetalburgWoods_EventScript_NeoMagmaFinished:
+	releaseall
+	end
+PetalburgWoods_Text_NeoMagmaContact:
+	.string "DEVON: They're stealing our\\n"
+	.string "pressure-sensor records!\\p"
+	.string "NEO MAGMA: Stand aside, RANGER!$"
+PetalburgWoods_Text_NeoPressureEvidence:
+	.string "DEVON: Thank you, RANGER!\\p"
+	.string "The sensor logged a strange\\n"
+	.string "pressure spike. Tell HALE.\\p"
+	.string "Your partner is near the trees.$"

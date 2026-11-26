@@ -1408,8 +1408,73 @@ RustboroCity_EventScript_NeoCampusFieldStudent::
 @ Campus help point after Hale's one-time airlift. The true rival and Ranger
 @ outpost quest remain to be implemented; do not award or unlock them here.
 RustboroCity_EventScript_NeoCampusFieldStudentRanger:
-	msgbox RustboroCity_Text_NeoCampusFieldStudentRanger, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_C2_DEBRIEF_DONE, RustboroCity_EventScript_C2ReportDone
+	goto_if_set FLAG_NEO_C2_BRINEY_REPORTED, RustboroCity_EventScript_C2ReportComplete
+	goto_if_set FLAG_NEO_C2_AQUA_DONE, RustboroCity_EventScript_C2GoBriney
+	goto_if_set FLAG_NEO_C2_CUTTER_DEMO, RustboroCity_EventScript_C2GoRoute
+	goto_if_set FLAG_NEO_C2_MAGMA_DONE, RustboroCity_EventScript_C2GoCutter
+	msgbox RustboroCity_Text_NeoCampusFieldStudentRanger, MSGBOX_DEFAULT
+	release
 	end
+RustboroCity_EventScript_C2GoCutter:
+	msgbox RustboroCity_Text_C2GoCutter, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_EventScript_C2GoRoute:
+	msgbox RustboroCity_Text_C2GoRoute, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_EventScript_C2GoBriney:
+	msgbox RustboroCity_Text_C2GoBriney, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_EventScript_C2ReportComplete:
+	msgbox RustboroCity_Text_C2HaleRadio, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C2_DEBRIEF_DONE
+	addvar VAR_NEO_RANGER_MISSIONS, 1
+	addvar VAR_NEO_RANGER_XP, 150
+	setvar VAR_0x8004, 0
+	special NeoRangerCreditMissionTraining
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox RustboroCity_Text_C2MissionDone, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_EventScript_C2ReportDone:
+	msgbox RustboroCity_Text_C2BadgeNext, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_Text_C2GoCutter:
+	.string "Our WOODS report is in.\p"
+	.string "Find HALE's child by the\n"
+	.string "fallen trees for CUTTER.$"
+RustboroCity_Text_C2GoRoute:
+	.string "CUTTER cleared the WOODS!\p"
+	.string "Check the NEO AQUA cargo\n"
+	.string "raid on ROUTE 104.$"
+RustboroCity_Text_C2GoBriney:
+	.string "The cargo is safe.\p"
+	.string "Check on BRINEY and PEEKO\n"
+	.string "in their cottage.$"
+RustboroCity_Text_C2HaleRadio:
+	.string "HALE: Good work, RANGER!\p"
+	.string "The siren and pressure\n"
+	.string "data may be linked.\p"
+	.string "You need any ONE BADGE\n"
+	.string "to qualify for RANK 2.\p"
+	.string "RUSTBORO is not required.\n"
+	.string "Keep learning, RANGER.$"
+RustboroCity_Text_C2MissionDone:
+	.string "CHAPTER 2 REPORT COMPLETE!\p"
+	.string "Mission and partner\n"
+	.string "training credited.$"
+RustboroCity_Text_C2BadgeNext:
+	.string "HALE says earn any one\n"
+	.string "GYM BADGE, then request\n"
+	.string "RANK 2 certification.$"
+
 
 RustboroCity_EventScript_NeoCampusDevonIntern::
 	msgbox RustboroCity_Text_NeoCampusDevonIntern, MSGBOX_NPC

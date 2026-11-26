@@ -1,14 +1,12 @@
 PetalburgCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_OnFrame
 	.byte 0
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
-	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
-	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
-	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
-	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLYS_DAD
+	setflag FLAG_HIDE_PETALBURG_CITY_SCOTT
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
@@ -732,7 +730,7 @@ PetalburgCity_Text_FullPartyExplanation:
 
 PetalburgCity_Text_GymSign:
 	.string "PETALBURG CITY POKéMON GYM\n"
-	.string "LEADER: NORMAN\l"
+	.string "LEADER: WALLY\l"
 	.string "“A man in pursuit of power!”$"
 
 PetalburgCity_Text_CitySign:
@@ -758,3 +756,17 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+PetalburgCity_EventScript_NeoGymNotice::
+	msgbox PetalburgCity_Text_NeoGymNotice, MSGBOX_NPC
+	end
+PetalburgCity_EventScript_NeoWallyFamily::
+	msgbox PetalburgCity_Text_NeoWallyFamily, MSGBOX_NPC
+	end
+PetalburgCity_Text_NeoGymNotice:
+	.string "WALLY is our GYM LEADER now.\\p"
+	.string "The challenge rooms are closed\\n"
+	.string "for the current relief effort.$"
+PetalburgCity_Text_NeoWallyFamily:
+	.string "WALLY has come a long way.\\p"
+	.string "We're proud of our GYM LEADER.$"

@@ -1,8 +1,5 @@
 PetalburgCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, PetalburgCity_Gym_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_Gym_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PetalburgCity_Gym_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_Gym_OnFrame
 	.byte 0
 
 PetalburgCity_Gym_OnLoad:
@@ -36,9 +33,9 @@ PetalburgCity_Gym_EventScript_UnlockAllDoors::
 	return
 
 PetalburgCity_Gym_OnTransition:
-	call_if_eq VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_MoveWallyToEntrance
-	call_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_MoveNormanToEntrance
-	call_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_CheckNormanForRematch
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD
+	setflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	end
 
 PetalburgCity_Gym_EventScript_MoveWallyToEntrance::
@@ -1589,3 +1586,15 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
 
+
+PetalburgCity_Gym_EventScript_NeoStaff::
+	msgbox PetalburgCity_Gym_Text_NeoStaff, MSGBOX_NPC
+	end
+PetalburgCity_Gym_EventScript_NeoNotice::
+	msgbox PetalburgCity_Gym_Text_NeoStaff, MSGBOX_SIGN
+	end
+PetalburgCity_Gym_Text_NeoStaff:
+	.string "LEADER WALLY is coordinating\\n"
+	.string "regional relief work.\\p"
+	.string "Gym challenges are temporarily\\n"
+	.string "suspended. Please check back.$"

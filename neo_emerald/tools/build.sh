@@ -12,6 +12,7 @@ fi
 python3 neo_emerald/tools/validate_design.py
 python3 neo_emerald/tools/check_source.py
 python3 neo_emerald/tools/check_rescue_once.py
+python3 neo_emerald/tools/check_chapter2_mainland.py
 python3 neo_emerald/tools/check_ferry_visuals.py
 python3 neo_emerald/tools/check_ranger_opening.py
 python3 neo_emerald/tools/check_starters_and_gym.py
