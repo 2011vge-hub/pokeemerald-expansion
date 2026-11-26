@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-26",
+  "status": "visual_reference_approved_runtime_conversion_unverified",
+  "source": {
+    "filename": "hatless_pixel_ranger_duo.png",
+    "sha256": "8526ae3090a42e815b535e0f8d4172b6b5ce5b2754878c3fb282b589e9f21c96",
+    "approval": "Perfecto that’s what we use"
+  },
+  "supersedes": "hatless_ranger_front_candidates.json",
+  "format": {
+    "width": 64,
+    "height": 64,
+    "indexed_colors": 16,
+    "transparent_index": 0
+  },
+  "note": "Preserve approved hatless navy hair, navy/orange uniforms, black boots and wrist gear. Derived PNGs use nearest-neighbor scaling, shared palette and transparent index zero. Not yet installed in runtime trainer tables; reconcile front/back palette sharing, frame dimensions, naming screen references and emulator test. Do not revert to earlier candidate or helmeted designs.",
+  "assets": [
+    {
+      "gender": "male",
+      "filename": "male-front.png",
+      "sha256": "20ea263d74d429a2bf9e1a2106e3fdbafa1a351175517417918d35fc8a64fae5",
+      "png_base64": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUA/wAQECEhKUI6QlpSWoRrhK0hKTqcQineWiH/lEL/xZT/3r3OhGOMUkKctdbm9/8f+diqAAAAAXRSTlMAQObYZgAAAnFJREFUeNqtlTtMFFEUhv87w7KAbPYOi/Iwa4bZxEQtHBnFqAmP+KoMq4W1wQSttbC1Q2NDZWtiYQg+WINWFDYmRA1midFCZBkgkTUqe9eFsGEdjiUzOGcqbncmX/5z5z+PC+z6ETIY1wXD1Ba1Qvm/6EHAO9VQpCoLiCEq7j/4J0AEFTRlybIRL7JAtbODqmjqWGYumbKNkkoK+swpHN6EsgtFkfTl0PxAYZW0iR+v9AoYQKUqc1sjD7DKAS1HetDYnLOJA3435tzRNfeMYq1+OdGM5h21CUT6tCqTnrG5FPAuwjQrdkSxY53jz+zIdjCGjeh+SX1LBztG2yFwG7lrHFAvoZ3Unlxov8sA9+9A/BVGlhbDgbZ2BYPGVP55Lhy42noPpts9ueNe2/3g1uzRjUOzZqaoe9WwH9QzXbHx1PWeL44jQ1Nsna0fNl/Au5EsZMOLJUaW+sdmJT2qrfWHV9OYwvGhWZzu63LCnSydOKcL4J3tcVaTwpteZ+5ARC2o/vGM1eYaLCB7TWDwZjc73U0bAFYG3q5zCkkICby+JTkFy4jrG6S+bw9fUEFzgA9KxJe5SxrzIE3Ceegyc7Hv0qKWztNHo8QopBfwExAosT5oIACSdVK5wCQi2l6Z5CIKCDlBwMSCUlRRHCDsJYpUiOW9PuCYlNwaTBoN09XUyub5PKNg2RXASybYFEfdBFARlOV2lGHp7yGk3+mgguZ8BejKXt6HmZAXAv+Ncg7si5P4VQKwZz1eZRTSJgBkiUshLBeAwOAAMziX56UEUIu1WG4o8ClTBwCxKfJtYz/QW+gHQE/L/o0f2A8gtftvPf4BnMLCLaZE34YAAAAASUVORK5CYII="
+    },
+    {
+      "gender": "female",
+      "filename": "female-front.png",
+      "sha256": "3a251c39a5688c9a132a32635fa799d505a014015f5f536032328775465b8353",
+      "png_base64": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUA/wAQECEhKUI6QlpSWoRrhK0hKTqcQineWiH/lEL/xZT/3r3OhGOMUkKctdbm9/8f+diqAAAAAXRSTlMAQObYZgAAAnlJREFUeNqtlU9oE0EUxr/ZpEtIwcxsWsUKzdYKIsU2f9RjKeJRNIJ4rhT1Wo9eiggePHrwIh5qr5XaiwhaMIogosHW4EGk7RapFGLcSWsb7Lr7PCRgIvO86Jx2Z398782b770F/vdS6o8N0fmW3+oPqdS+ZXUATn1YOLpjK94hMNivvUwPWAXHFyl3KSVZoJjx6+FDPcwCFbie/iz4EEdrZf/asUyFLUI6p9RCXzrHnUJE1bnuTw2scyGE0zWq+468OD3OVFLkk1PQtL8YQpsU7AnEAfnzPgrmEKEXYVxrSXKrrdqx34/kO4cHL0SzVq0MIwDbWa6kXs6u755dZK5bSFzxEzO+uQ57dzW9XvGqZTKX2r51FVjytduYN/thX2IHkME9V103KxRjd2FDSWjBuDW9hq9PLucPTgyYFTbdm9q3HmRB3WbA8t/U3zX8EkpjZiBYrRURxM4rNcl4khZ/wKEF2ONPGcM4a9VTUSNJnuAclQHSSetAHFJzprRPKKXU2+eSa72gdmPAmTxjuRxgXZoWePxqekQyQHoWGAvy0Z1BBoiUIkI4M7oqzcAeD6tCINxIGC0HFCRt7MpDH8NE1aggyh6+Ay52vjA5FIBAY4vt7hi53yDBtz/5IMJfgMiBB8IyC1ggIAN+RhGgcVvzIRRWgBF+gEBt9gCgiAPsTDgEaByXDBBomgfiKHMKDkgDgSaXreQ2AMgcp0BhNwDoxSxj2YtKNv8pXJLviwCA7XMckP3QssUYA5Sa8zPgSi1kK7n5Je6YrelEmgOaBeoqMkn2FppOkM+y5t5MLQ81r+RkpdcIjPqPmiHm2pMQ7XZpfVCdaf7r+gWf5tjUpmLmwwAAAABJRU5ErkJggg=="
+    }
+  ]
+}
