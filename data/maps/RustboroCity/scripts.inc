@@ -8,9 +8,7 @@ RustboroCity_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call RustboroCity_EventScript_SetupNeoRivalGfxId
 	call RustboroCity_EventScript_QueueNeoArrivalGreeting
-	call_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_HideMapNamePopup
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	goto_if_eq VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_PositionScientistForExit
+	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
 	end
 
 @ New Ranger rival graphics use slot 1; vanilla rival remains in slot 0.
@@ -38,7 +36,6 @@ RustboroCity_EventScript_HideMapNamePopup::
 
 RustboroCity_OnFrame:
 	map_script_2 VAR_TEMP_2, 1, RustboroCity_EventScript_NeoArrivalGreeting
-	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_ScientistAddMatchCall
 	.2byte 0
 
 RustboroCity_EventScript_ScientistAddMatchCall::

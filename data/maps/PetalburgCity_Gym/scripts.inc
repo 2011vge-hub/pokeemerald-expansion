@@ -1594,7 +1594,7 @@ PetalburgCity_Gym_EventScript_NeoNotice::
 	msgbox PetalburgCity_Gym_Text_NeoStaff, MSGBOX_SIGN
 	end
 PetalburgCity_Gym_Text_NeoStaff:
-	.string "LEADER WALLY is coordinating\\n"
-	.string "regional relief work.\\p"
-	.string "Gym challenges are temporarily\\n"
+	.string "LEADER WALLY is coordinating\n"
+	.string "regional relief work.\p"
+	.string "Gym challenges are temporarily\n"
 	.string "suspended. Please check back.$"

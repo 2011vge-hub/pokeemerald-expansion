@@ -548,11 +548,11 @@ PetalburgWoods_EventScript_NeoMagmaFinished:
 	releaseall
 	end
 PetalburgWoods_Text_NeoMagmaContact:
-	.string "DEVON: They're stealing our\\n"
-	.string "pressure-sensor records!\\p"
+	.string "DEVON: They're stealing our\n"
+	.string "pressure-sensor records!\p"
 	.string "NEO MAGMA: Stand aside, RANGER!$"
 PetalburgWoods_Text_NeoPressureEvidence:
-	.string "DEVON: Thank you, RANGER!\\p"
-	.string "The sensor logged a strange\\n"
-	.string "pressure spike. Tell HALE.\\p"
+	.string "DEVON: Thank you, RANGER!\p"
+	.string "The sensor logged a strange\n"
+	.string "pressure spike. Tell HALE.\p"
 	.string "Your partner is near the trees.$"

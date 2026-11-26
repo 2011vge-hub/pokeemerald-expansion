@@ -39,6 +39,7 @@
 #include "wild_encounter_ow.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
+#include "constants/flags.h"
 #include "constants/field_poison.h"
 #include "constants/layouts.h"
 #include "constants/metatile_behaviors.h"
@@ -1132,6 +1133,12 @@ static s8 GetWarpEventAtPosition(struct MapHeader *mapHeader, u16 x, u16 y, u8 e
     s32 i;
     const struct WarpEvent *warpEvent = mapHeader->events->warps;
     u8 warpCount = mapHeader->events->warpCount;
+
+    // Neo Emerald: a door warp can run before object collision resolves.
+    // Never activate Mossdeep's Gym entrance until Hale grants clearance.
+    if (mapHeader == &gMapHeader && mapHeader->mapLayoutId == LAYOUT_MOSSDEEP_CITY
+        && x == 38 && y == 9 && !FlagGet(FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED))
+        return WARP_ID_NONE;
 
     for (i = 0; i < warpCount; i++, warpEvent++)
     {

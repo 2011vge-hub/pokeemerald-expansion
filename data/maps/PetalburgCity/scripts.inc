@@ -764,9 +764,9 @@ PetalburgCity_EventScript_NeoWallyFamily::
 	msgbox PetalburgCity_Text_NeoWallyFamily, MSGBOX_NPC
 	end
 PetalburgCity_Text_NeoGymNotice:
-	.string "WALLY is our GYM LEADER now.\\p"
-	.string "The challenge rooms are closed\\n"
+	.string "WALLY is our GYM LEADER now.\p"
+	.string "The challenge rooms are closed\n"
 	.string "for the current relief effort.$"
 PetalburgCity_Text_NeoWallyFamily:
-	.string "WALLY has come a long way.\\p"
+	.string "WALLY has come a long way.\p"
 	.string "We're proud of our GYM LEADER.$"
