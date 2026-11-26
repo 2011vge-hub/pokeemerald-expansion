@@ -28,6 +28,17 @@ assert "Near MR. BRINEY's old cottage" in hq
 assert "siren sounded far too late" in hq
 assert "#define FLAG_NEO_C2_RIVAL_MET 0x26" in flags
 assert "setflag FLAG_NEO_C2_RIVAL_MET" in campus
+# First arrival must launch the contact conversation without manual interaction.
+assert "call RustboroCity_EventScript_QueueNeoArrivalGreeting" in campus
+assert "map_script_2 VAR_TEMP_2, 1, RustboroCity_EventScript_NeoArrivalGreeting" in campus
+queue = campus.split("RustboroCity_EventScript_QueueNeoArrivalGreeting:", 1)[1].split("RustboroCity_EventScript_NeoArrivalGreeting::", 1)[0]
+assert "goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO" in queue
+assert "goto_if_set FLAG_NEO_C2_RIVAL_MET" in queue
+assert "setvar VAR_TEMP_2, 1" in queue
+arrival = campus.split("RustboroCity_EventScript_NeoArrivalGreeting::", 1)[1].split("@ Chapter 2 opening contact.", 1)[0]
+for token in ("setvar VAR_TEMP_2, 0", "checkplayergender", "RustboroCity_Text_NeoRivalNessaIntro", "RustboroCity_Text_NeoRivalVernIntro", "setflag FLAG_NEO_C2_RIVAL_MET", "releaseall"):
+    assert token in arrival, token
+assert arrival.index("setvar VAR_TEMP_2, 0") < arrival.index("msgbox"), "Disarm greeting before dialogue"
 assert "checkplayergender" in campus.split("RustboroCity_EventScript_NeoRivalContact::", 1)[1]
 assert "RustboroCity_Text_NeoRivalNessaIntro" in campus
 assert "RustboroCity_Text_NeoRivalVernIntro" in campus
