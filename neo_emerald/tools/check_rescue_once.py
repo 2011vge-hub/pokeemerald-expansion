@@ -18,7 +18,8 @@ expected='data/maps/MossdeepCity_Waterfront/scripts.inc'
 # Restrict additional credit to one known guarded event; never allow a free
 # mission/XP change from arbitrary map scripts.
 city_path='data/maps/RustboroCity/scripts.inc'
-expected_payers=[expected,expected,city_path,city_path]
+office_path='data/maps/RustboroCity_Flat1_1F/scripts.inc'
+expected_payers=[expected,expected,city_path,city_path,office_path,office_path]
 if [str(x[0]) for x in payers]!=expected_payers:
     fail.append(f'Unexpected mission/XP writers: {payers}')
 city=(ROOT/city_path).read_text()
@@ -33,6 +34,13 @@ try:
         fail.append('Chapter 2 reward counts must be exactly once')
 except (ValueError,IndexError):
     fail.append('Missing guarded Chapter 2 liaison/debrief labels')
+office=(ROOT/office_path).read_text()
+report=office.split('NeoOffice_Report:',1)[1].split('NeoOffice_Complete:',1)[0]
+if report.index('setvar VAR_NEO_CH3_STEP, 9') >= report.index('call NeoOffice_MissionCredit'):
+    fail.append('Chapter 3 completion must precede mission credit')
+assert office.count('call NeoOffice_MissionCredit')==1
+assert 'goto_if_eq VAR_NEO_CH3_STEP, 9, NeoOffice_Complete' in office
+assert 'goto_if_eq VAR_NEO_CH3_STEP, 8, NeoOffice_Report' in office
 wf=(ROOT/expected).read_text()
 if not re.search(r'map_script_2 VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding',wf):
     fail.append('boarding scene must run only at state 4')

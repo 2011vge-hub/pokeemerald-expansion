@@ -5,7 +5,8 @@ Route116_MapScripts::
 	.byte 0
 
 Route116_OnTransition:
-	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
+	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
+	setflag FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE
 	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_NORTH, AbnormalWeather_StartGroudonWeather
 	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_116_SOUTH, AbnormalWeather_StartGroudonWeather
@@ -468,3 +469,27 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+
+NeoPlayerCutter::
+	lock
+	goto_if_ne VAR_NEO_CH3_STEP, 6, NeoTreeWait
+	msgbox NeoCutterText, MSGBOX_DEFAULT
+	setvar VAR_NEO_CH3_STEP, 7
+	closemessage
+	playse SE_M_CUT
+	waitse
+	setflag FLAG_NEO_ROUTE116_CLEAR
+	removeobject VAR_LAST_TALKED
+	release
+	end
+NeoCutterText:
+	.string "Your Cutter slices the branch.\n"
+	.string "A radio crackles inside the tunnel.$"
+
+NeoTreeWait:
+	msgbox NeoTreeLocked, MSGBOX_DEFAULT
+	release
+	end
+NeoTreeLocked:
+	.string "A branch blocks the trail.\p"
+	.string "A Ranger Cutter could clear it.$"
