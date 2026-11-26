@@ -1,0 +1,21 @@
+{
+  "status": "candidate_pending_visual_approval",
+  "date": "2026-11-26",
+  "note": "Native 64x64 front portrait poses with hand-redrawn hair and navy/orange uniforms; not battle backs or installed runtime assets. Decode base64 as PNG, verify SHA256. Preserve hatless overworld identity. Front/back palette sharing must be reconciled before installation.",
+  "assets": [
+    {
+      "gender": "male",
+      "native_blob": "b0c65b4be4be81fbfa0e694675372415e8b5ccaf",
+      "filename": "male-front-candidate.png",
+      "sha256": "e0104e293a3ff95b823c3edc74e4b9b43616dde45ddecd67fd9bca07ed835e35",
+      "png_base64": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUA/wAQECEhKUI6QlpSWoRrhK0hKTqcQineWiH/lEL/xZT/3r3OhGOMUkKctdbm9/8f+diqAAAAAXRSTlMAQObYZgAAAmhJREFUeJzllEFrE0EYhp/JukWNIbOp9qSStFIQxAZThJ4Uj4oQDPXkoSLFS4Ue/QfiQdCb4KH1JlUwKj2IhxYUBbV1peKh0jRqvQiaiREPWTbjpW12pzvFu3Pame/hfd/59tuF/3JJ8yAVeRYewjOBHdGNhygotLICynNyngGIqEOukFUQztkyyEJWAULagH6tap1a7ChmkcvlqWkhtF61KHQIVUPpmEMUyFJ7n51BYwM+N/TtGR42aViAzq729TrnqnWbAvPVuiSfnlOWW7AsfKmVU7EqlE5JUhStIWl9k+JgqhUHRGznPf1yyFCIvU0xUGEv26ydvRPPzYmJZsjIydfOEWnPIK4RVN3DUwCZjaxRhd5ndcCVQGbBTwBo1qBTBzJvniRkcIaGftado0EBFnQ7AXilOsXvIYzMw9XRH1sv+emlVxpeOn7xrc+V8bMrWxQyq8E8+mYI4cfg0Y3fW4DF1IWJaZZ4V8746cvOCRPYU2+u/TkJOM1fvFgbVibQvpcHCIu05OCQ3hy7zU6OpPffPQbsXlIZf6AbfUPBSVcmda0Eg3lakXrXov8BKIRHT/zyG8CH/GIRN5T4QTIgUhqkwBzJroW+BcABPzWWCBwuFRFlXz82BDZnUl9qAVKb9a7FVwXQqkA1GQD2hQAUrAACpq0W6yso2gFR9vUyZieiClUc0yD+XXigm9L4kUYtRstaadxY3QipwC2P2YFZoGxkiADjnF7PagECeoA7lnkAZoMAcDm/TUhAuvf7ovtIHzy3raDvDLNtlQT0jBFMgZD9rESAyE8s9DuAbtSI1GMWRpP/cf0FGZbEvdDqfC0AAAAASUVORK5CYII="
+    },
+    {
+      "gender": "female",
+      "native_blob": "47ebca40fb9ed02618aa32754fa395ebea95ae88",
+      "filename": "female-front-candidate.png",
+      "sha256": "2db087154323b3d4a7197b03763338e385136931a5a6f1a04639549b9c5448f1",
+      "png_base64": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEUA/wAQECEhKUI6QlpSWoRrhK0hKTqcQineWiH/lEL/xZT/3r3OhGOMUkKctdbm9/8f+diqAAAAAXRSTlMAQObYZgAAAjZJREFUeJzt1D9PFEEYx/HvzN1hLLzbiX8acmHvPGNBwSpqJckd0NhhjJWd0djiK5HaWBgTGxughAaxEwlZjSaKOe4KjQkad+BIDODuWKAyu7dDfAE+1ezsJ8/8Znd24X/1l1B9U0X7QgkPo91AKeq00S4gVF1ham6gpIpA1qKUkNbQj9jYcIcUZUgwG1K5OtCloyOdpDvYIF7bnV2s4AZbD/y9a+kFbBBoWObqtLPD9sj84HNu+bUt1xLyXgTc134+kB4fhn4uyTbCzwVg4gnv4p1MRvtBaXoPZ7X0TDe3QxLhvS7NqyRac4RsR70v/tOXXuZtWBk675GNmUyEP6ANgGZvIR9UB0M4EZ0jGbqQtwsxPPMdduTOI79r8oB5tToGg0ypvvNyUKLVUivPFpd5U39SzQ9J8boSFcbrmDAHmDAMXrDFFY4PE4c5HSK9erbeGC2Xf9xUpp1e3hpfSrYXPld2u+cnvuVnvT32drLeaK+cGmp5fSEBKE1DMnqM5sna3zn725QS/G4wIj4lhx1SGTxIuqaDqBx+oDYQLdH7WIijnG3+HhdYLwQBTgDgZ65TwMQQHgWENNpQcoMaRQyJ7wTNg801jwzZV2mwSaKPAMY0IcicGAsMhB1gKQpSwH5ZpvgYembA1aHMPvB1MnYBUxwHIHGBKWLAzDl3MUfmXhYUMr/xPsA+APE7BxBTlwHEjWFnhtgDTlPybHD4oO7mBMA+tGeqhXUNwitt5gPhkT7P/1i/AHbNssmJhbwyAAAAAElFTkSuQmCC"
+    }
+  ]
+}
