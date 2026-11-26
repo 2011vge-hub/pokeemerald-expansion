@@ -1,3 +1,8 @@
+# Superseding visual decision — 2026-11-26
+The user explicitly approved the revised hatless male/female Ranger design with compact Brendan/May-style legs, navy hair, navy/orange uniforms and black boots. This supersedes the helmeted Option A visual approval below. Do NOT restore helmeted art or its pending walking sheet. The new 144x32 indexed walking candidates and installer are on neo-emerald/hatless-ranger-integration, build integration commit 7d8b5c9d184b1bea8b33e7f355058abb8f363585. See neo_emerald/tools/install_hatless_rangers.py for exact embedded PNG hashes. The runtime conversion, walking steps and temporary running reuse have not been tested in an emulator; other actions, naming portraits, rivals and battle backs remain unfinished. Reconcile with current gameplay branches before release.
+
+---
+
 # Canonical Ranger asset registry — 2026-11-25
 Build 21 rejected. This registry locks approved stationary Option A only; no runtime installation. Source archive NeoEmerald-Ranger-approval.zip (library libfile_b46a175b51f881918cf78ec06afa5435). Locally authored pixel grids, orange shoulder yoke, black boots, navy fabric, wrist Styler. Native uniform references graphics/trainers/front_pics/pokemon_ranger_m.png and pokemon_ranger_f.png at c643dd8edf9b40bc8a2a8322be3fd48c611aa4c6; these are 64x64 battle portraits, not overworld sheets. Player geometry reference graphics/object_events/pics/people/{brendan,may}/walking.png at 22b2b010b8c11daf36262557d7de08fa65254672.
 Approved archive paths and SHA256:
