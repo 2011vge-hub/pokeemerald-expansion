@@ -384,3 +384,60 @@ RustboroCity_PokemonSchool_Text_Attendant:
 	.string "Floor two is FIELD STUDIES.\p"
 	.string "You can reach the upper floors\n"
 	.string "from there.$"
+
+@ University partnership research: optional gift, no badge requirement.
+RustboroCity_PokemonSchool_EventScript_RioluResearcher::
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_RECEIVED_RIOLU_EGG, NeoRioluEgg_Received
+	msgbox NeoRioluEgg_Offer, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, NeoRioluEgg_Declined
+	getpartysize
+	goto_if_eq VAR_RESULT, PARTY_SIZE, NeoRioluEgg_NoRoom
+	giveegg SPECIES_RIOLU
+	goto_if_ne VAR_RESULT, MON_GIVEN_TO_PARTY, NeoRioluEgg_Failed
+	setflag FLAG_NEO_RECEIVED_RIOLU_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox NeoRioluEgg_Obtained, MSGBOX_DEFAULT
+	waitfanfare
+	msgbox NeoRioluEgg_Care, MSGBOX_DEFAULT
+	release
+	end
+NeoRioluEgg_Received:
+	msgbox NeoRioluEgg_ReceivedText, MSGBOX_DEFAULT
+	release
+	end
+NeoRioluEgg_Declined:
+	msgbox NeoRioluEgg_DeclinedText, MSGBOX_DEFAULT
+	release
+	end
+NeoRioluEgg_NoRoom:
+	msgbox NeoRioluEgg_NoRoomText, MSGBOX_DEFAULT
+	release
+	end
+NeoRioluEgg_Failed:
+	msgbox NeoRioluEgg_NoRoomText, MSGBOX_DEFAULT
+	release
+	end
+NeoRioluEgg_Offer:
+	.string "I'm studying the bonds between\n"
+	.string "RANGERS and their partners.\p"
+	.string "Our SINNOH colleagues entrusted\n"
+	.string "us with this POKéMON EGG.\p"
+	.string "Would you care for it?$"
+NeoRioluEgg_Obtained:
+	.string "{PLAYER} received an EGG!$"
+NeoRioluEgg_Care:
+	.string "It needs warmth and time.\p"
+	.string "Walk with it on your missions.\n"
+	.string "You'll make a wonderful partner.$"
+NeoRioluEgg_ReceivedText:
+	.string "How is your partner doing?\p"
+	.string "Trust is earned through care,\n"
+	.string "not just through battles.$"
+NeoRioluEgg_DeclinedText:
+	.string "Of course! Come back if you'd\n"
+	.string "like to care for it later.$"
+NeoRioluEgg_NoRoomText:
+	.string "Make room in your party first.\n"
+	.string "I'll keep the EGG safe for you.$"

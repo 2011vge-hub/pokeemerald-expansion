@@ -1304,7 +1304,75 @@ enum NationalDexOrder
     F(GROUDON) \
     F(RAYQUAZA) \
     F(JIRACHI) \
-    F(DEOXYS)
+    F(DEOXYS) \
+    F(WIMPOD) \
+    F(GOLISOPOD) \
+    F(MAREANIE) \
+    F(TOXAPEX) \
+    F(FRILLISH) \
+    F(JELLICENT) \
+    F(YAMPER) \
+    F(BOLTUND) \
+    F(BUIZEL) \
+    F(FLOATZEL) \
+    F(SEWADDLE) \
+    F(SWADLOON) \
+    F(LEAVANNY) \
+    F(PHANTUMP) \
+    F(TREVENANT) \
+    F(FOONGUS) \
+    F(AMOONGUSS) \
+    F(RIOLU) \
+    F(LUCARIO) \
+    F(ROOKIDEE) \
+    F(CORVISQUIRE) \
+    F(CORVIKNIGHT) \
+    F(ROGGENROLA) \
+    F(BOLDORE) \
+    F(GIGALITH) \
+    F(DRILBUR) \
+    F(EXCADRILL) \
+    F(ROLYCOLY) \
+    F(CARKOL) \
+    F(COALOSSAL) \
+    F(NOIBAT) \
+    F(NOIVERN) \
+    F(WOOBAT) \
+    F(SWOOBAT) \
+    F(CARBINK) \
+    F(SANDILE) \
+    F(KROKOROK) \
+    F(KROOKODILE) \
+    F(GIBLE) \
+    F(GABITE) \
+    F(GARCHOMP) \
+    F(SILICOBRA) \
+    F(SANDACONDA) \
+    F(SALANDIT) \
+    F(SALAZZLE) \
+    F(LITWICK) \
+    F(LAMPENT) \
+    F(CHANDELURE) \
+    F(LARVESTA) \
+    F(VOLCARONA) \
+    F(FOMANTIS) \
+    F(LURANTIS) \
+    F(ROWLET) \
+    F(DARTRIX) \
+    F(DECIDUEYE) \
+    F(PIKIPEK) \
+    F(TRUMBEAK) \
+    F(TOUCANNON) \
+    F(BERGMITE) \
+    F(AVALUGG) \
+    F(SNOM) \
+    F(FROSMOTH) \
+    F(CLAUNCHER) \
+    F(CLAWITZER) \
+    F(SKRELP) \
+    F(DRAGALGE) \
+    F(FINIZEN) \
+    F(PALAFIN)
 
 // Hoenn Pokédex order
 enum HoennDexOrder

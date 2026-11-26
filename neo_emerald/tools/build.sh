@@ -15,6 +15,7 @@ python3 neo_emerald/tools/check_rescue_once.py
 python3 neo_emerald/tools/check_chapter2_mainland.py
 python3 neo_emerald/tools/check_build23_story_entry.py
 python3 neo_emerald/tools/check_chapter3_continuity.py
+python3 neo_emerald/tools/check_ecology_expansion.py
 python3 neo_emerald/tools/check_ferry_visuals.py
 python3 neo_emerald/tools/check_ranger_opening.py
 python3 neo_emerald/tools/check_starters_and_gym.py

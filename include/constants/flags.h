@@ -65,7 +65,7 @@
 #define FLAG_NEO_C2_DEBRIEF_DONE 0x02B // Persistent Chapter 2 progression
 #define FLAG_NEO_ROUTE116_CLEAR    0x2C // Unused Flag
 #define FLAG_NEO_TUNNEL_SECURED    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
+#define FLAG_NEO_RECEIVED_RIOLU_EGG 0x2E // One-time Rustboro University gift
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
