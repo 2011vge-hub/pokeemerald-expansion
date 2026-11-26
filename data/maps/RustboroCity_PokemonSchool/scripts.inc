@@ -1,5 +1,10 @@
 RustboroCity_PokemonSchool_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_PokemonSchool_NeoTransition
 	.byte 0
+
+RustboroCity_PokemonSchool_NeoTransition:
+	setflag FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT
+	end
 
 RustboroCity_PokemonSchool_EventScript_Blackboard::
 	lockall
@@ -365,3 +370,17 @@ RustboroCity_PokemonSchool_Text_UniversityLiftPrompt:
 	.string "Upper lecture and research\n"
 	.string "floors are now accessible.\p"
 	.string "Go up to FLOOR TWO?$"
+
+@ The attendant at (3,8) is approachable from the entrance; the sign is optional.
+RustboroCity_PokemonSchool_EventScript_UniversityAttendant::
+	lockall
+	msgbox RustboroCity_PokemonSchool_Text_Attendant, MSGBOX_DEFAULT
+	goto RustboroCity_PokemonSchool_EventScript_UniversityLift
+	end
+
+RustboroCity_PokemonSchool_Text_Attendant:
+	.string "Welcome to RUSTBORO UNIVERSITY!\p"
+	.string "I'm operating the campus lift.\n"
+	.string "Floor two is FIELD STUDIES.\p"
+	.string "You can reach the upper floors\n"
+	.string "from there.$"

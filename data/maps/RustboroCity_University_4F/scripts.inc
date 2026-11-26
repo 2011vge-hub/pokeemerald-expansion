@@ -15,8 +15,20 @@ RustboroCity_University_4F_EventScript_RoxanneWithBadge:
 	end
 
 RustboroCity_University_4F_EventScript_FacultyAide::
-	msgbox RustboroCity_University_4F_Text_FacultyAide, MSGBOX_NPC
+	lockall
+	msgbox RustboroCity_University_4F_Text_FacultyAide, MSGBOX_DEFAULT
+	msgbox RustboroCity_University_4F_Text_FacultyAideLift, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_4F_EventScript_FacultyAideDecline
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_POKEMON_SCHOOL, 5, 9
+	waitstate
 	end
+RustboroCity_University_4F_EventScript_FacultyAideDecline:
+	releaseall
+	end
+RustboroCity_University_4F_Text_FacultyAideLift:
+	.string "Return to the ground-floor lobby?$"
 
 RustboroCity_University_4F_Text_RoxanneGreeting:
 	.string "ROXANNE: Welcome to my\n"

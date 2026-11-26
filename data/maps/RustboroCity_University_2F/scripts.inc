@@ -6,8 +6,20 @@ RustboroCity_University_2F_EventScript_Student::
 	end
 
 RustboroCity_University_2F_EventScript_Instructor::
-	msgbox RustboroCity_University_2F_Text_Instructor, MSGBOX_NPC
+	lockall
+	msgbox RustboroCity_University_2F_Text_Instructor, MSGBOX_DEFAULT
+	msgbox RustboroCity_University_2F_Text_InstructorLift, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_2F_EventScript_InstructorDecline
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_3F, 3, 2
+	waitstate
 	end
+RustboroCity_University_2F_EventScript_InstructorDecline:
+	releaseall
+	end
+RustboroCity_University_2F_Text_InstructorLift:
+	.string "Take the lift to the laboratory?$"
 
 RustboroCity_University_2F_Text_Student:
 	.string "FIELD STUDIES II:\n"

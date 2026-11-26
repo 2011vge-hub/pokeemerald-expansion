@@ -6,8 +6,20 @@ RustboroCity_University_3F_EventScript_SensorEngineer::
 	end
 
 RustboroCity_University_3F_EventScript_ArchiveScholar::
-	msgbox RustboroCity_University_3F_Text_ArchiveScholar, MSGBOX_NPC
+	lockall
+	msgbox RustboroCity_University_3F_Text_ArchiveScholar, MSGBOX_DEFAULT
+	msgbox RustboroCity_University_3F_Text_ArchiveScholarLift, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ArchiveScholarDecline
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_4F, 1, 2
+	waitstate
 	end
+RustboroCity_University_3F_EventScript_ArchiveScholarDecline:
+	releaseall
+	end
+RustboroCity_University_3F_Text_ArchiveScholarLift:
+	.string "Take the lift to the dean's floor?$"
 
 RustboroCity_University_3F_Text_SensorEngineer:
 	.string "DEVON flood sensors read\n"

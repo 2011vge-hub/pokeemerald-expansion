@@ -128,7 +128,7 @@ MossdeepCity_EventScript_WhiteRock::
 
 @ Emergency access control: only unlock this gym after a later story
 @ mission explicitly sets FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED.
-@ The guard occupies (38,10), directly in front of gym warp (38,9).
+@ The guard occupies the actual gym door (38,9). The engine also checks clearance.
 @ Rustboro and other early gyms are NOT restricted by this rule.
 MossdeepCity_EventScript_NeoGymClosed::
 	lock
@@ -554,6 +554,10 @@ MossdeepCity_EventScript_RangerChild::
 	end
 
 MossdeepCity_RangerChildRescue:
+	lockall
+	applymovement LOCALID_MOSSDEEP_RANGER_CHILD, Common_Movement_FacePlayer
+	applymovement LOCALID_MOSSDEEP_RANGER_POOCHYENA, Common_Movement_FacePlayer
+	waitmovement 0
 	msgbox MossdeepCity_Text_RangerChildFound, MSGBOX_DEFAULT
 	msgbox MossdeepCity_Text_RangerCalmPoochyena, MSGBOX_DEFAULT
 	playmoncry SPECIES_POOCHYENA, CRY_MODE_NORMAL
@@ -562,10 +566,11 @@ MossdeepCity_RangerChildRescue:
 	msgbox MossdeepCity_Text_RangerEscort, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_NEO_FERRY_DISPATCH, 4
+	fadescreen FADE_TO_BLACK
 	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
 	warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37
 	waitstate
-	release
+	releaseall
 	end
 
 MossdeepCity_EventScript_RangerPoochyena::
