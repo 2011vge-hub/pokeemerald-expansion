@@ -101,26 +101,10 @@ RustboroCity_Gym_EventScript_RegisterRoxanne::
 	end
 
 RustboroCity_Gym_Text_GymGuideAdvice:
-	.string "Yo, how's it going?\p"
-	.string "Listen, my friend!\n"
-	.string "Would you like to become the CHAMPION?\p"
-	.string "I'm no TRAINER, not me, but I can\n"
-	.string "sure give you winning advice.\p"
-	.string "That's settled, then! We'll aim for the\n"
-	.string "POKéMON CHAMPIONSHIP together!\p"
-	.string "It's your job as a TRAINER to collect\n"
-	.string "GYM BADGES, am I right?\p"
-	.string "But GYM LEADERS aren't pushovers!\p"
-	.string "And that's where I come in!\n"
-	.string "I'm here to provide expert advice!\p"
-	.string "ROXANNE, the GYM LEADER, is a user\n"
-	.string "of ROCK-type POKéMON.\p"
-	.string "The ROCK type is very durable, but\n"
-	.string "it can't stand WATER-type and\l"
-	.string "GRASS-type moves.\p"
-	.string "Come see me afterwards, if you beat\n"
-	.string "the GYM LEADER.\p"
-	.string "Well, go for it!$"
+	.string "Welcome, RANGER!\p"
+	.string "ROXANNE specializes in STEEL now.\nHer teams can take a heavy hit.\p"
+	.string "FIRE, FIGHTING and GROUND moves\nare often good options.\p"
+	.string "Watch for her coverage moves.\nBring a balanced team!$"
 
 RustboroCity_Gym_Text_GymGuidePostVictory:
 	.string "Whoa! What a breathtaking victory!\n"
@@ -142,8 +126,7 @@ RustboroCity_Gym_Text_JoshDefeat:
 	.string "You were too good for me…$"
 
 RustboroCity_Gym_Text_JoshPostBattle:
-	.string "You haven't seen anything of the ROCK\n"
-	.string "type's terrifying power!$"
+	.string "You haven't seen the full strength\nof STEEL-type POKéMON yet!$"
 
 RustboroCity_Gym_Text_TommyIntro:
 	.string "If you can't beat me, you won't stand\n"
@@ -158,24 +141,19 @@ RustboroCity_Gym_Text_TommyPostBattle:
 	.string "You'd better be on your guard!$"
 
 RustboroCity_Gym_Text_MarcIntro:
-	.string "We might be in the middle of town,\n"
-	.string "but so what?\p"
-	.string "My ROCK POKéMON need room to\n"
-	.string "rampage!$"
+	.string "Steel is forged under pressure.\nLet's see how you handle it!$"
 
 RustboroCity_Gym_Text_MarcDefeat:
 	.string "Oh, man oh man!\n"
 	.string "Our challenger is one feisty customer!$"
 
 RustboroCity_Gym_Text_MarcPostBattle:
-	.string "I have to hand it to our LEADER.\p"
-	.string "It took smarts and sense for her to\n"
-	.string "pick the ROCK type at her young age.$"
+	.string "Our professor used to study ROCK.\pHer research led her to STEEL.$"
 
 RustboroCity_Gym_Text_RoxanneIntro:
 	.string "ROXANNE: Welcome, young RANGER.\p"
-	.string "I teach at the UNIVERSITY,\nand still lead the RUSTBORO GYM.\p"
-	.string "Show me how you and your partner\napply what you've learned.$"
+	.string "My research led me from ROCK\nPOKéMON to the STEEL type.\p"
+	.string "A strong partner is not enough.\nShow me your strategy.$"
 
 RustboroCity_Gym_Text_RoxanneDefeat:
 	.string "So…\n"

@@ -1,0 +1,238 @@
+{
+  "phase": 1,
+  "scope": "Early reachable trainers, Chapter 2–3 bosses, Roxanne first battle and rematches",
+  "rules": [
+    "No forced grinding or automatic level matching yet",
+    "Themed teams, type coverage, held items and better AI",
+    "Preserve trainer identifiers and script flags",
+    "Future badge-scaled teams and Mega ace mechanics require dedicated implementation and tests"
+  ],
+  "trainers": [
+    {
+      "trainer": "TRAINER_GRUNT_PETALBURG_WOODS",
+      "team": [
+        "Houndour|11|Ember,Bite,Howl,Smog",
+        "Numel|12|Ember,Magnitude,Rock Tomb,Growl|Oran Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_CINDY_1",
+      "team": [
+        "Zigzagoon|10|Headbutt,Sand Attack|Nugget",
+        "Skitty|11|Fake Out,Disarming Voice,Sing"
+      ]
+    },
+    {
+      "trainer": "TRAINER_WINSTON_1",
+      "team": [
+        "Zigzagoon|10|Headbutt,Sand Attack|Nugget",
+        "Yamper|11|Nuzzle,Bite"
+      ]
+    },
+    {
+      "trainer": "TRAINER_ROXANNE_1",
+      "team": [
+        "Aron|14|Metal Claw,Rock Tomb,Mud Slap,Protect|Oran Berry",
+        "Magnemite|15|Charge Beam,Thunder Wave,Sonic Boom,Light Screen",
+        "Mawile|17|Fairy Wind,Bite,Metal Claw,Rock Tomb|Oran Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JERRY_1",
+      "team": [
+        "Ralts|14|Confusion,Disarming Voice,Double Team",
+        "Magnemite|15|Thunder Shock,Thunder Wave,Sonic Boom"
+      ]
+    },
+    {
+      "trainer": "TRAINER_KAREN_1",
+      "team": [
+        "Shroomish|14|Mega Drain,Stun Spore,Headbutt",
+        "Budew|15|Mega Drain,Stun Spore,Growth"
+      ]
+    },
+    {
+      "trainer": "TRAINER_BILLY",
+      "team": [
+        "Zigzagoon|9|Tackle,Headbutt,Sand Attack",
+        "Yamper|10|Nuzzle,Bite,Tackle"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JOSH",
+      "team": [
+        "Rookidee|10|Peck,Power Trip,Hone Claws",
+        "Aron|12|Metal Claw,Rock Tomb,Mud Slap"
+      ]
+    },
+    {
+      "trainer": "TRAINER_TOMMY",
+      "team": [
+        "Magnemite|11|Thunder Shock,Thunder Wave,Supersonic",
+        "Mawile|12|Fairy Wind,Bite,Astonish"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JOEY",
+      "team": [
+        "Machop|14|Low Kick,Karate Chop,Focus Energy",
+        "Riolu|15|Quick Attack,Force Palm,Counter"
+      ]
+    },
+    {
+      "trainer": "TRAINER_IVAN",
+      "team": [
+        "Magikarp|9|Tackle",
+        "Buizel|10|Water Gun,Quick Attack"
+      ]
+    },
+    {
+      "trainer": "TRAINER_GINA_AND_MIA_1",
+      "team": [
+        "Seedot|10|Absorb,Growth,Protect",
+        "Lotad|10|Water Gun,Absorb,Astonish"
+      ]
+    },
+    {
+      "trainer": "TRAINER_MARC",
+      "team": [
+        "Rolycoly|12|Smack Down,Rapid Spin,Flame Charge",
+        "Aron|13|Metal Claw,Rock Tomb,Protect"
+      ]
+    },
+    {
+      "trainer": "TRAINER_HALEY_1",
+      "team": [
+        "Lotad|10|Absorb,Water Gun,Astonish",
+        "Shroomish|11|Mega Drain,Stun Spore,Tackle"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JANICE",
+      "team": [
+        "Marill|14|Aqua Jet,Bubble Beam,Defense Curl",
+        "Buizel|15|Water Pulse,Quick Attack,Aqua Jet"
+      ]
+    },
+    {
+      "trainer": "TRAINER_LYLE",
+      "team": [
+        "Wurmple|8|Poison Sting,Tackle,String Shot",
+        "Sewaddle|10|Bug Bite,Razor Leaf,String Shot",
+        "Silcoon|10|Tackle,Harden"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JOSE",
+      "team": [
+        "Nincada|13|Leech Life,Sand Attack,Metal Claw",
+        "Sewaddle|14|Bug Bite,Razor Leaf,Struggle Bug"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JAMES_1",
+      "team": [
+        "Nincada|10|Scratch,Sand Attack,Leech Life",
+        "Sewaddle|11|Bug Bite,Razor Leaf,String Shot"
+      ]
+    },
+    {
+      "trainer": "TRAINER_CLARK",
+      "team": [
+        "Roggenrola|14|Rock Blast,Mud Slap,Iron Defense",
+        "Drilbur|15|Mud Slap,Metal Claw,Rapid Spin"
+      ]
+    },
+    {
+      "trainer": "TRAINER_DAWSON",
+      "team": [
+        "Zigzagoon|14|Headbutt,Sand Attack|Nugget",
+        "Yamper|15|Nuzzle,Bite,Roar"
+      ]
+    },
+    {
+      "trainer": "TRAINER_SARAH",
+      "team": [
+        "Lotad|14|Water Gun,Mega Drain,Nature Power",
+        "Skitty|15|Fake Out,Disarming Voice,Sing"
+      ]
+    },
+    {
+      "trainer": "TRAINER_DARIAN",
+      "team": [
+        "Wingull|11|Water Gun,Wing Attack,Supersonic",
+        "Buizel|12|Aqua Jet,Quick Attack,Water Gun"
+      ]
+    },
+    {
+      "trainer": "TRAINER_DEVAN",
+      "team": [
+        "Roggenrola|14|Rock Blast,Iron Defense,Mud Slap",
+        "Rolycoly|15|Smack Down,Flame Charge,Rapid Spin"
+      ]
+    },
+    {
+      "trainer": "TRAINER_JOHNSON",
+      "team": [
+        "Shroomish|14|Mega Drain,Stun Spore,Headbutt",
+        "Lotad|15|Water Gun,Mega Drain,Nature Power"
+      ]
+    },
+    {
+      "trainer": "TRAINER_ROXANNE_2",
+      "team": [
+        "Lairon|32|Iron Head,Rock Slide,Protect,Roar",
+        "Magneton|34|Discharge,Flash Cannon,Thunder Wave,Protect",
+        "Probopass|34|Power Gem,Volt Switch,Thunder Wave,Wide Guard",
+        "Mawile|36|Iron Head,Play Rough,Sucker Punch,Protect|Sitrus Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_ROXANNE_3",
+      "team": [
+        "Skarmory|38|Steel Wing,Air Slash,Spikes,Roost",
+        "Excadrill|39|Iron Head,Drill Run,Rock Slide,Swords Dance",
+        "Probopass|40|Power Gem,Flash Cannon,Thunder Wave,Protect",
+        "Lucario|41|Aura Sphere,Flash Cannon,Extreme Speed,Protect",
+        "Aggron|43|Heavy Slam,Rock Slide,Earthquake,Protect|Sitrus Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_ROXANNE_4",
+      "team": [
+        "Skarmory|44|Brave Bird,Iron Head,Spikes,Roost",
+        "Magnezone|45|Thunderbolt,Flash Cannon,Volt Switch,Protect",
+        "Corviknight|46|Iron Head,Brave Bird,Body Press,Roost",
+        "Excadrill|47|Iron Head,Earthquake,Rock Slide,Protect",
+        "Aggron|49|Heavy Slam,Rock Slide,Earthquake,Protect|Sitrus Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_ROXANNE_5",
+      "team": [
+        "Corviknight|52|Iron Head,Brave Bird,Body Press,Roost",
+        "Magnezone|53|Thunderbolt,Flash Cannon,Volt Switch,Protect",
+        "Excadrill|53|Iron Head,Earthquake,Rock Slide,Protect",
+        "Lucario|54|Aura Sphere,Flash Cannon,Extreme Speed,Protect",
+        "Probopass|54|Power Gem,Wide Guard,Thunder Wave,Flash Cannon",
+        "Aggron|56|Heavy Slam,Rock Slide,Earthquake,Protect|Sitrus Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_NEO_AQUA_ROUTE104",
+      "team": [
+        "Buizel|12|Water Gun,Quick Attack,Aqua Jet,Growl",
+        "Wimpod|12|Struggle Bug,Aqua Jet,Sand Attack",
+        "Carvanha|13|Bite,Aqua Jet,Focus Energy,Ice Fang|Oran Berry"
+      ]
+    },
+    {
+      "trainer": "TRAINER_NEO_TUNNEL",
+      "team": [
+        "Rolycoly|16|Rock Tomb,Flame Charge,Smack Down,Rapid Spin",
+        "Baltoy|16|Psybeam,Mud Shot,Light Screen,Rock Tomb",
+        "Numel|18|Flame Burst,Magnitude,Rock Tomb,Yawn|Sitrus Berry"
+      ]
+    }
+  ]
+}
