@@ -308,7 +308,8 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_EventScript_NeoRivalContact",
-      "flag": "0"
+      "flag": "0",
+      "local_id": "LOCALID_NEO_RUSTBORO_RIVAL"
     }
   ],
   "warp_events": [

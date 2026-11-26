@@ -10,6 +10,7 @@ on:
       - neo-emerald/qa-delta-playtest-fixes
       - neo-emerald/rustboro-university-four-floors
       - neo-emerald/hatless-ranger-integration
+      - neo-emerald/build-23-story-integration
   workflow_dispatch:
 
 permissions:
@@ -21,7 +22,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors' || github.ref == 'refs/heads/neo-emerald/hatless-ranger-integration'
+    if: github.ref == 'refs/heads/neo-emerald/mossdeep-city-v3-streets' || github.ref == 'refs/heads/neo-emerald/rustboro-university-v1' || github.ref == 'refs/heads/neo-emerald/ch1-hale-rustboro-bridge' || github.ref == 'refs/heads/neo-emerald/qa-delta-playtest-fixes' || github.ref == 'refs/heads/neo-emerald/rustboro-university-four-floors' || github.ref == 'refs/heads/neo-emerald/hatless-ranger-integration' || github.ref == 'refs/heads/neo-emerald/build-23-story-integration'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:

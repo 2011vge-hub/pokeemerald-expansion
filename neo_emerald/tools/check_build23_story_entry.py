@@ -25,4 +25,6 @@ assert not mapdata("RustboroCity")["coord_events"]
 assert not mapdata("Route104")["coord_events"]
 assert "&& x == 38 && y == 9 && !FlagGet(FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED)" in read("src/field_control_avatar.c")
 assert any(o["script"]=="RustboroCity_PokemonSchool_EventScript_UniversityAttendant" for o in mapdata("RustboroCity_PokemonSchool")["object_events"])
+assert any(o.get("local_id")=="LOCALID_NEO_RUSTBORO_RIVAL" for o in mapdata("RustboroCity")["object_events"])
+assert "applymovement LOCALID_NEO_RUSTBORO_RIVAL, RustboroCity_Movement_NeoRivalApproach" in scripts("RustboroCity")
 print("Build 23 active-entry source checks pass; runtime tests still required")

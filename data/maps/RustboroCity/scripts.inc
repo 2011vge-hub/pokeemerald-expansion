@@ -1306,6 +1306,9 @@ RustboroCity_EventScript_QueueNeoArrivalGreeting:
 	setvar VAR_TEMP_2, 0
 	goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_EventScript_NeoArrivalQueueReturn
 	goto_if_set FLAG_NEO_C2_RIVAL_MET, RustboroCity_EventScript_NeoArrivalQueueReturn
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	goto_if_ne VAR_TEMP_0, 27, RustboroCity_EventScript_NeoArrivalQueueReturn
+	goto_if_ne VAR_TEMP_1, 35, RustboroCity_EventScript_NeoArrivalQueueReturn
 	setvar VAR_TEMP_2, 1
 RustboroCity_EventScript_NeoArrivalQueueReturn:
 	return
@@ -1314,6 +1317,10 @@ RustboroCity_EventScript_NeoArrivalGreeting::
 	lockall
 	setvar VAR_TEMP_2, 0
 	goto_if_set FLAG_NEO_C2_RIVAL_MET, RustboroCity_EventScript_NeoArrivalFinish
+	applymovement LOCALID_NEO_RUSTBORO_RIVAL, RustboroCity_Movement_NeoRivalApproach
+	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_NEO_RUSTBORO_RIVAL, DIR_NORTH
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, RustboroCity_EventScript_NeoArrivalNessa
 	msgbox RustboroCity_Text_NeoRivalVernIntro, MSGBOX_DEFAULT
@@ -1324,9 +1331,25 @@ RustboroCity_EventScript_NeoArrivalShared:
 	msgbox RustboroCity_Text_NeoRivalHaleFamily, MSGBOX_DEFAULT
 	msgbox RustboroCity_Text_NeoRivalFirstAssignment, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C2_RIVAL_MET
+	closemessage
+	applymovement LOCALID_NEO_RUSTBORO_RIVAL, RustboroCity_Movement_NeoRivalReturn
+	waitmovement 0
 RustboroCity_EventScript_NeoArrivalFinish:
 	releaseall
 	end
+
+RustboroCity_Movement_NeoRivalApproach:
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+RustboroCity_Movement_NeoRivalReturn:
+	walk_down
+	walk_right
+	walk_right
+	face_left
+	step_end
 
 @ Chapter 2 opening contact. One persistent mission state for either gender.
 @ Overworld graphics are placeholders pending custom Nessa/Vern Ranger art.
