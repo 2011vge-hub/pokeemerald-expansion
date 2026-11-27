@@ -1,0 +1,15 @@
+# Build 24 polish milestone (approved 2026-11-27)
+User approved scenic assets, narrative polish and cohesive next playtest. Source changes in this pass: existing Mossdeep Scott slot becomes recovery worker, old Magma hidden on entry, HQ directions and mission board correct retired Gym language; campus student sprites replace Game Boy kids, campus lift guidance and field office sign text; Route116 maintenance signs, Dewford town/Gym signs, Hale mission prompts. No new coordinates, warp edits, or custom binary graphics. Native dressing only, not a finished scenic revamp.
+| Area | Art / scene acceptance | Narrative / functional acceptance |
+|---|---|---|
+| Mossdeep | approved HQ exterior at former Gym, storm tiles, warning signs, equipment props and verified clear rescue paths | orientation, head count, child and Poochyena, ferry, return to HQ, flight; no original Gym/Maxie/Scott event |
+| Rustboro | approved exterior, four distinctive interiors, readable stair and lift art, student and research props | rival entrance, C2 contact, Roxanne battle, Riolu gift and all reciprocal exits; verify native palette and no overlays |
+| Woods | visible researcher/grunt staging, intact path and cutter obstacle | battle starts on deliberate contact, retry after loss, follow-on dialogue and clear next destination |
+| Rusturf | technicians, relay equipment, barricades and signs | exact step sequence through report; no stale original tunnel story |
+| Dewford | cave refuge/settlement, lanterns, supports, clear dock access | native round trip, Brawly six badge restriction, survey, report |
+| Verdanturf | recovery gardens, shelters and habitat props | C3 callbacks and safe travel |
+| Fallarbor/Meteor Falls | greenhouse, observatory, cave waterfall and survey props | two readings, safety check, Flannery lead, no original theft |
+| Lilycove | contest architecture, museum, coastal relief assets | public May before reveal, neutral dialogue after, no old rival blockade |
+| Mauville/New Mauville | substations, machinery, diagnostic props | fifth badge, optional generator case, no duplicate reward |
+| Shoal/Sky Pillar | ice/tide equipment, murals and heritage stones | optional research, crafting, no duplicate wild Rayquaza |
+Acceptance: run native compile before release, fresh saves for all starters and genders, inspect map collision/elevation/warp pairs and screenshots, test loss/retry/save/reload/full bag, record exact ROM SHA and source commit. Block release on unverified C1–4 route and encounter problems, even if later scripts exist. Later locations are separate exploratory tests only when legal routes exist. Artwork state is specified, not produced, unless actual runtime files and previews are attached. Preserve approved character visuals; resolve battle-back sprite distortion with native sheet/palette audit. No ROM built in this pass.

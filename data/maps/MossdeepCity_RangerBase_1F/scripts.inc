@@ -51,7 +51,7 @@ MossdeepCity_RangerBase_1F_Movement_JuneApproaches:
 	step_end
 MossdeepCity_RangerBase_1F_Text_AriGreeting:
 	.string "ROOKIE ARI: You're the new recruit!\p"
-	.string "Welcome to MOSSDEEP RANGER BASE.\n"
+	.string "Welcome to MOSSDEEP RANGER HQ.\n"
 	.string "I'm ARI. Reception duty, for now.\p"
 	.string "DISPATCHER JUNE is waiting for you.$"
 
@@ -72,7 +72,7 @@ MossdeepCity_RangerBase_1F_Text_StormEmergency:
 	.string "HALE: ALL RANGERS, REPORT IN!\p"
 	.string "Floodwaters have reached the\n"
 	.string "lower streets of MOSSDEEP!\p"
-	.string "JUNE: The ferry by the GYM needs\n"
+	.string "JUNE: The ferry outside the HQ needs\n"
 	.string "a passenger head count. Go now!\p"
 	.string "MEDIC and QUARTERMASTER are here\n"
 	.string "if you need supplies first.$"
@@ -111,7 +111,7 @@ MossdeepCity_RangerBase_1F_Text_DispatchCheckIn:
 	.string "DISPATCHER JUNE: Rookie, you're on\n"
 	.string "the evacuation detail.\p"
 	.string "The ferry is loading now. Report\n"
-	.string "to the sailor by the GYM for the\l"
+	.string "to the sailor outside the HQ for the\l"
 	.string "passenger head count.\p"
 	.string "Don't stay inside long. The surge\n"
 	.string "won't wait for us.$"
@@ -240,15 +240,15 @@ MossdeepCity_RangerBase_1F_EventScript_MissionBoardDone:
 
 MossdeepCity_RangerBase_1F_Text_MissionBoardDone:
 	.string "MISSION BOARD\n"
-	.string "MOSSDEEP EVACUATION - COMPLETE\p"
+	.string "EVACUATION - COMPLETE\p"
 	.string "All passengers aboard.\n"
-	.string "Next assignment: pending.$"
+	.string "Report upstairs to HALE.$"
 
 MossdeepCity_RangerBase_1F_Text_MissionBoardCheckIn:
 	.string "MISSION BOARD - URGENT\n"
 	.string "MOSSDEEP EVACUATION\p"
 	.string "1. Head count at the ferry.\n"
-	.string "   Report to sailor by the GYM.\p"
+	.string "   Report to sailor outside the HQ.\p"
 	.string "2. Account for all passengers.\n"
 	.string "3. Escort stragglers aboard.$"
 

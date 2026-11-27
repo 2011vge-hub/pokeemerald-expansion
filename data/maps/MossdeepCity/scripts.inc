@@ -41,6 +41,7 @@ MossdeepCity_Text_RangerTickets:
 	.string "the market.$"
 
 MossdeepCity_OnTransition:
+	setflag FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call MossdeepCity_EventScript_RangerRescueVisibility
 	end
@@ -54,11 +55,7 @@ MossdeepCity_EventScript_RangerRescueVisibilityDone:
 	return
 
 MossdeepCity_EventScript_PokefanF::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_PokefanFMagmaGone
-	msgbox MossdeepCity_Text_SpaceCenterReceivedLetter, MSGBOX_DEFAULT
-	release
+	msgbox MossdeepCity_NeoShelterText, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_PokefanFMagmaGone::
@@ -561,10 +558,9 @@ MossdeepCity_EventScript_RangerHQSign::
 
 MossdeepCity_Text_RangerHQSign:
 	.string "MOSSDEEP RANGER HQ\p"
-	.string "Storm response in progress.\n"
-	.string "Evacuees: MEDIC on the ground floor.$"
+	.string "1F: Dispatch and medical aid.\n"
+	.string "2F: Commander HALE.$"
 
-@ Neo Emerald v2: evacuated apartment facade (no interior yet).
 MossdeepCity_EventScript_EvacuatedApartment::
 	msgbox MossdeepCity_Text_EvacuatedApartment, MSGBOX_SIGN
 	end
@@ -573,3 +569,17 @@ MossdeepCity_Text_EvacuatedApartment:
 	.string "The door is locked.\p"
 	.string "A note: EVACUATED - ALL RESIDENTS\n"
 	.string "ACCOUNTED FOR. -MOSSDEEP RANGERS$"
+
+MossdeepCity_NeoRecoveryWorker::
+	msgbox MossdeepCity_NeoRecoveryWorkerText, MSGBOX_NPC
+	end
+MossdeepCity_NeoRecoveryWorkerText:
+	.string "We're checking the upper roads.\p"
+	.string "Keep the rescue routes clear\n"
+	.string "for the RANGERS.$"
+
+MossdeepCity_NeoShelterText:
+	.string "The RANGERS are keeping\n"
+	.string "families safe in the shelter.\p"
+	.string "I hope the lower streets\n"
+	.string "can be rebuilt soon.$"

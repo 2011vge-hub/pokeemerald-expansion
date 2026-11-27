@@ -1257,8 +1257,8 @@ RustboroCity_Text_CitySign:
 
 RustboroCity_Text_TrainersSchoolSign:
 	.string "RUSTBORO UNIVERSITY\p"
-	.string "Trainer Sciences and Ranger"
-	.string "Field Studies Campus$"
+	.string "Trainer sciences and\n"
+	.string "RANGER field studies.$"
 
 RustboroCity_Text_CuttersHouse:
 	.string "CUTTER'S HOUSE$"
@@ -1509,13 +1509,11 @@ RustboroCity_Text_NeoCampusFieldStudent:
 	.string "POKéMON, then report to RANGERS.$"
 
 RustboroCity_Text_NeoCampusFieldStudentRanger:
-	.string "You arrived with COMMANDER HALE?\p"
-	.string "RUSTBORO UNIVERSITY is helping\n"
-	.string "the RANGERS with relief work.\p"
-	.string "We heard about that emergency\n"
-	.string "landing near ROUTE 104.\p"
-	.string "Your field contact should\n"
-	.string "be here soon, Ranger.$"
+	.string "Welcome to RUSTBORO, RANGER!\p"
+	.string "Meet HALE's field contact\n"
+	.string "near the campus entrance.\p"
+	.string "Then follow the relief route\n"
+	.string "toward PETALBURG WOODS.$"
 
 RustboroCity_Text_NeoCampusDevonIntern:
 	.string "I landed a DEVON internship!\p"

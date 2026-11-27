@@ -81,17 +81,18 @@ NeoOffice_Certified:
 	.string "Hold still. There. Cutter's live.$"
 
 NeoOffice_Inspect:
-	.string "Take Route 116 east to Rusturf.\n"
-	.string "Cut the branch by the berries.\p"
-	.string "Find both technicians.\n"
-	.string "Radio me when they're safe.$"
+	.string "NEXT: ROUTE 116, east of town.\p"
+	.string "Cut the branch by the berries.\n"
+	.string "Find both technicians.\p"
+	.string "Follow their relay instructions.\n"
+	.string "Return here with the report.$"
 
 NeoOffice_OneBadge:
-	.string "HALE: Briney's report is here.\n"
-	.string "Two tunnel techs missed roll call.\p"
-	.string "I've got a crew on the radio.\n"
-	.string "Bring any Gym badge for Rank 2.\p"
-	.string "Then I can issue you a Cutter.$"
+	.string "HALE: Two tunnel technicians\n"
+	.string "missed their check-in.\p"
+	.string "Earn ROXANNE's STONE BADGE\n"
+	.string "and return to me for Rank 2.\p"
+	.string "Then I'll issue your CUTTER.$"
 
 NeoOffice_Notice:
 	.string "HALE: Follow the supply run from\n"
@@ -110,10 +111,12 @@ NeoOffice_Log:
 
 NeoOffice_Board:
 	.string "NEXT: DEWFORD ISLAND.\p"
-	.string "Ask BRINEY at his ROUTE 104\n"
-	.string "cottage to take you there.\p"
-	.string "Speak to BRAWLY at the GYM.\n"
-	.string "Check the cave survey for him.$"
+	.string "BRINEY's cottage is on ROUTE 104.\n"
+	.string "Ask him for passage.\p"
+	.string "Speak to BRAWLY near the GYM.\n"
+	.string "Check the cave survey.\p"
+	.string "Return here with your report.$"
+
 NeoOffice_C4ReportText:
 	.string "HALE: Good work. The cave crew\n"
 	.string "is accounted for.\p"
