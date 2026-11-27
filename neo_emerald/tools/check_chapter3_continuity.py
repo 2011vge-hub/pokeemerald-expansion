@@ -79,6 +79,8 @@ assert objective(set()) == "NeoLog_DewfordText"
 brief = {"FLAG_NEO_C4_BRIEF"}
 survey = brief | {"FLAG_NEO_C4_CREW_CHECKED", "FLAG_NEO_C4_READING_CHECKED", "FLAG_NEO_C4_SURVEY"}
 assert objective(brief, boat=2) == "NeoLog_DewfordText"
+assert objective({"FLAG_VISITED_DEWFORD_TOWN"}) == "NeoLog_DewfordBriefText"
+assert objective({"FLAG_VISITED_DEWFORD_TOWN"}, boat=2) == "NeoLog_DewfordText"
 assert objective(survey, boat=0) == "NeoLog_SailHomeText"
 assert objective(survey, boat=2) == "NeoLog_HaleReportText"
 assert objective(survey | {"FLAG_NEO_C4_REPORTED"}, boat=2) == "NeoLog_FiledText"
