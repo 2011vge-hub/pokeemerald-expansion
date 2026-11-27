@@ -290,6 +290,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_RangerPoochyena",
       "flag": "FLAG_NEO_HIDE_LANDING_RESCUEES"
+    },
+    {
+      "local_id": "LOCALID_NEO_HQ_RELIEF_BOX_1",
+      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+      "x": 39,
+      "y": 12,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_NeoReliefCrate",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_NEO_HQ_RELIEF_BOX_2",
+      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+      "x": 40,
+      "y": 12,
+      "elevation": 5,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_NeoReliefCrate",
+      "flag": "0"
     }
   ],
   "warp_events": [

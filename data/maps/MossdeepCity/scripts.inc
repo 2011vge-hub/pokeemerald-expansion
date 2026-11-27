@@ -583,3 +583,10 @@ MossdeepCity_NeoShelterText:
 	.string "families safe in the shelter.\p"
 	.string "I hope the lower streets\n"
 	.string "can be rebuilt soon.$"
+
+MossdeepCity_NeoReliefCrate::
+	msgbox MossdeepCity_NeoReliefCrateText, MSGBOX_SIGN
+	end
+MossdeepCity_NeoReliefCrateText:
+	.string "RANGER relief supplies.\n"
+	.string "Dry blankets and first aid.$"

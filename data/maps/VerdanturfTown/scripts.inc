@@ -149,3 +149,22 @@ Verdanturf_NeoGeneralText:
 	.string "Our air is still clean.\p"
 	.string "We help people and POKéMON\n"
 	.string "recover from the coastal storms.$"
+
+Verdanturf_NeoHabitatWorker::
+	msgbox Verdanturf_NeoHabitatWorkerText, MSGBOX_NPC
+	end
+Verdanturf_NeoRecoveringAzurill::
+	msgbox Verdanturf_NeoAzurillText, MSGBOX_NPC
+	end
+Verdanturf_NeoRecoveringPoochyena::
+	msgbox Verdanturf_NeoPoochyenaText, MSGBOX_NPC
+	end
+Verdanturf_NeoHabitatWorkerText:
+	.string "These two were displaced by\n"
+	.string "the storms on the coast.\p"
+	.string "They can rest here until\n"
+	.string "their habitats are safe again.$"
+Verdanturf_NeoAzurillText:
+	.string "AZURILL: Roo!$"
+Verdanturf_NeoPoochyenaText:
+	.string "POOCHYENA: Yip!$"
