@@ -69,9 +69,9 @@
 #define FLAG_NEO_RECEIVED_TM_METAL_CLAW 0x2F // One-time first badge reward
 #define FLAG_NEO_RECEIVED_TM_CALM_MIND 0x30
 #define FLAG_NEO_RECEIVED_TM_THUNDERBOLT 0x31
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
+#define FLAG_NEO_C4_BRIEF 0x32 // Persistent Chapter 4 survey state
+#define FLAG_NEO_C4_SURVEY 0x33 // Persistent Chapter 4 survey state
+#define FLAG_NEO_C4_REPORTED 0x34 // Persistent Chapter 4 survey state
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag

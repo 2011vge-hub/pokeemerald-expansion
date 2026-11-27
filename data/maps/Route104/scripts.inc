@@ -413,6 +413,7 @@ Route104_EventScript_SailToDewford::
 	waitmovement 0
 	hideobjectat LOCALID_PLAYER, MAP_ROUTE104
 	call Common_EventScript_PlayBrineysBoatMusic
+	goto_if_eq VAR_NEO_CH3_STEP, 9, Route104_EventScript_SailToDewfordNoCall
 	goto_if_set FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordNoCall
 	goto_if_unset FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordDadCalls
 	end
@@ -466,6 +467,7 @@ Route104_EventScript_ArriveInDewford::
 	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
 	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
+	goto_if_eq VAR_NEO_CH3_STEP, 9, Route104_NeoDewfordArrival
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_DeliverLetterReminder
 	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_LandedInDewford
 	end
@@ -1227,3 +1229,12 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_NeoDewfordArrival:
+	msgbox Route104_NeoDewfordArrivalText, MSGBOX_DEFAULT
+	releaseall
+	end
+Route104_NeoDewfordArrivalText:
+	.string "BRINEY: DEWFORD at last!\p"
+	.string "Find BRAWLY by the GYM.\n"
+	.string "I'll be here when you need me.$"

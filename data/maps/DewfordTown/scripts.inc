@@ -10,6 +10,7 @@ DewfordTown_OnTransition:
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
+	goto_if_eq VAR_NEO_CH3_STEP, 9, DewfordTown_NeoReturnOffer
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
@@ -806,6 +807,15 @@ DewfordTown_EventScript_NeoBrawlyGate::
 	lock
 	faceplayer
 	msgbox DewfordTown_NeoGateText, MSGBOX_DEFAULT
+	goto_if_ne VAR_NEO_CH3_STEP, 9, DewfordTown_NeoBriefEnd
+	goto_if_set FLAG_NEO_C4_REPORTED, DewfordTown_NeoBriefEnd
+	goto_if_set FLAG_NEO_C4_SURVEY, DewfordTown_NeoSurveyDone
+	setflag FLAG_NEO_C4_BRIEF
+	msgbox DewfordTown_NeoSurveyBrief, MSGBOX_DEFAULT
+	goto DewfordTown_NeoBriefEnd
+DewfordTown_NeoSurveyDone:
+	msgbox DewfordTown_NeoSurveyReturn, MSGBOX_DEFAULT
+DewfordTown_NeoBriefEnd:
 	release
 	end
 DewfordTown_NeoGateText:
@@ -813,3 +823,23 @@ DewfordTown_NeoGateText:
 	.string "this challenge yet, RANGER.\p"
 	.string "Earn six BADGES, grow stronger,\n"
 	.string "and come back to DEWFORD.$"
+
+DewfordTown_NeoReturnOffer:
+	msgbox DewfordTown_NeoReturnText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_ChoosePetalburg
+	msgbox DewfordTown_Text_JustTellMeWhenYouNeedToSetSail, MSGBOX_DEFAULT
+	release
+	end
+DewfordTown_NeoReturnText:
+	.string "BRINEY: Back to my cottage on\n"
+	.string "ROUTE 104?$"
+DewfordTown_NeoSurveyBrief:
+	.string "BRAWLY: The cave crew sent word.\p"
+	.string "Head north onto ROUTE 106.\n"
+	.string "Find the HIKER in GRANITE CAVE.\p"
+	.string "Check the survey with him.\n"
+	.string "Bring the result back to HALE.$"
+DewfordTown_NeoSurveyReturn:
+	.string "BRAWLY: The crew is safe.\p"
+	.string "Take BRINEY back to ROUTE 104.\n"
+	.string "Report to HALE in RUSTBORO.$"

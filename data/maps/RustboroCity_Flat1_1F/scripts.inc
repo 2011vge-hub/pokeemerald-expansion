@@ -50,7 +50,19 @@ NeoOffice_Report:
 	call NeoOffice_MissionCredit
 	msgbox NeoOffice_Log, MSGBOX_DEFAULT
 NeoOffice_Complete:
+	goto_if_set FLAG_NEO_C4_REPORTED, NeoOffice_C4Closed
+	goto_if_set FLAG_NEO_C4_SURVEY, NeoOffice_C4Report
 	msgbox NeoOffice_Board, MSGBOX_DEFAULT
+	release
+	end
+NeoOffice_C4Report:
+	setflag FLAG_NEO_C4_REPORTED
+	call NeoOffice_MissionCredit
+	msgbox NeoOffice_C4ReportText, MSGBOX_DEFAULT
+	release
+	end
+NeoOffice_C4Closed:
+	msgbox NeoOffice_C4ClosedText, MSGBOX_DEFAULT
 	release
 	end
 NeoOffice_MissionCredit:
@@ -92,11 +104,24 @@ NeoOffice_Log:
 	.string "That's our crew. That's Devon.\n"
 	.string "Hear that third call?\p"
 	.string "It came before the relay cut out.\n"
-	.string "I'll keep the original. Good work.$"
+	.string "I'll keep the original. Good work.\p"
+	.string "DEWFORD has asked for a survey.\n"
+	.string "We need a second record.$"
 
 NeoOffice_Board:
-	.string "Rusturf rescue complete.\n"
-	.string "Both technicians are home safe.$"
+	.string "NEXT: DEWFORD ISLAND.\p"
+	.string "Ask BRINEY at his ROUTE 104\n"
+	.string "cottage to take you there.\p"
+	.string "Speak to BRAWLY at the GYM.\n"
+	.string "Check the cave survey for him.$"
+NeoOffice_C4ReportText:
+	.string "HALE: Good work. The cave crew\n"
+	.string "is accounted for.\p"
+	.string "Their survey mentions FLINT.\n"
+	.string "We will check his inland records.$"
+NeoOffice_C4ClosedText:
+	.string "DEWFORD survey complete.\p"
+	.string "The inland dispatch is pending.$"
 
 
 NeoOffice_Secure:

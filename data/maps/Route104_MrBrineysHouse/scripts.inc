@@ -22,6 +22,7 @@ Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
 Route104_MrBrineysHouse_EventScript_Briney::
 	lock
 	faceplayer
+	goto_if_eq VAR_NEO_CH3_STEP, 9, Route104_MrBrineysHouse_NeoDewfordOffer
 	goto_if_set FLAG_NEO_C2_AQUA_DONE, Route104_MrBrineysHouse_EventScript_C2BrineyReport
 	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route104_MrBrineysHouse_EventScript_C2BeforeRelief
 	call_if_unset FLAG_MR_BRINEY_SAILING_INTRO, Route104_MrBrineysHouse_EventScript_SailingIntro
@@ -187,3 +188,24 @@ Route104_MrBrineysHouse_Text_TellMeWheneverYouWantToSail:
 Route104_MrBrineysHouse_Text_Peeko:
 	.string "PEEKO: Pii piihyoro!$"
 
+
+@ Native boat sequence, initiated by a confirmed Neo assignment; no legacy delivery flags.
+Route104_MrBrineysHouse_NeoDewfordOffer:
+	msgbox Route104_MrBrineysHouse_NeoDewfordText, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, Route104_MrBrineysHouse_EventScript_DeclineSailing
+	msgbox Route104_MrBrineysHouse_Text_SetSailForDewford, MSGBOX_DEFAULT
+	call EventScript_BackupMrBrineyLocation
+	setvar VAR_BOARD_BRINEY_BOAT_STATE, 1
+	clearflag FLAG_HIDE_ROUTE_104_MR_BRINEY
+	clearflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
+	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
+	setflag FLAG_HIDE_ROUTE_104_RIVAL
+	warp MAP_ROUTE104, 13, 51
+	waitstate
+	releaseall
+	end
+Route104_MrBrineysHouse_NeoDewfordText:
+	.string "BRINEY: HALE sent word!\p"
+	.string "Ready to sail to DEWFORD?$"
