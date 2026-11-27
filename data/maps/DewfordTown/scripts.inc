@@ -3,6 +3,7 @@ DewfordTown_MapScripts::
 	.byte 0
 
 DewfordTown_OnTransition:
+	call DewfordTown_NeoGateVisibility
 	setflag FLAG_VISITED_DEWFORD_TOWN
 	end
 
@@ -789,3 +790,26 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_NeoGateVisibility:
+	clearflag FLAG_TEMP_1
+	goto_if_unset FLAG_BADGE01_GET, DewfordTown_NeoGateDone
+	goto_if_unset FLAG_BADGE02_GET, DewfordTown_NeoGateDone
+	goto_if_unset FLAG_BADGE03_GET, DewfordTown_NeoGateDone
+	goto_if_unset FLAG_BADGE04_GET, DewfordTown_NeoGateDone
+	goto_if_unset FLAG_BADGE05_GET, DewfordTown_NeoGateDone
+	goto_if_unset FLAG_BADGE06_GET, DewfordTown_NeoGateDone
+	setflag FLAG_TEMP_1
+DewfordTown_NeoGateDone:
+	return
+DewfordTown_EventScript_NeoBrawlyGate::
+	lock
+	faceplayer
+	msgbox DewfordTown_NeoGateText, MSGBOX_DEFAULT
+	release
+	end
+DewfordTown_NeoGateText:
+	.string "BRAWLY: You're not ready for\n"
+	.string "this challenge yet, RANGER.\p"
+	.string "Earn six BADGES, grow stronger,\n"
+	.string "and come back to DEWFORD.$"

@@ -531,6 +531,7 @@ PetalburgWoods_Text_TrainerTipsPP:
 @ Direct interaction supports both entrances and avoids fragile south-only choreography.
 PetalburgWoods_EventScript_NeoMagmaContact::
 	lockall
+	faceplayer
 	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_EventScript_NeoMagmaAwait
 	goto_if_set FLAG_NEO_C2_MAGMA_DONE, PetalburgWoods_EventScript_NeoMagmaFinished
 	msgbox PetalburgWoods_Text_NeoMagmaContact, MSGBOX_DEFAULT
@@ -540,6 +541,23 @@ PetalburgWoods_EventScript_NeoMagmaContact::
 	removeobject LOCALID_PETALBURG_WOODS_GRUNT
 	goto PetalburgWoods_EventScript_RemoveDevonResearcher
 	end
+@ The researcher provides a rescue prompt; only the actual grunt initiates battle.
+PetalburgWoods_EventScript_NeoResearcherContact::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_EventScript_NeoResearcherAwait
+	msgbox PetalburgWoods_Text_NeoResearcherHelp, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_EventScript_NeoResearcherAwait:
+	msgbox PetalburgWoods_Text_C2Orders, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_Text_NeoResearcherHelp:
+	.string "DEVON: That NEO MAGMA grunt\n"
+	.string "is after our pressure records!\p"
+	.string "Please speak to him, RANGER.$"
+
 PetalburgWoods_EventScript_NeoMagmaAwait:
 	msgbox PetalburgWoods_Text_C2Orders, MSGBOX_DEFAULT
 	releaseall

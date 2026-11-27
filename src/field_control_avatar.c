@@ -1134,10 +1134,13 @@ static s8 GetWarpEventAtPosition(struct MapHeader *mapHeader, u16 x, u16 y, u8 e
     const struct WarpEvent *warpEvent = mapHeader->events->warps;
     u8 warpCount = mapHeader->events->warpCount;
 
-    // Neo Emerald: a door warp can run before object collision resolves.
-    // Never activate Mossdeep's Gym entrance until Hale grants clearance.
-    if (mapHeader == &gMapHeader && mapHeader->mapLayoutId == LAYOUT_MOSSDEEP_CITY
-        && x == 38 && y == 9 && !FlagGet(FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED))
+
+    // Neo Emerald: Dewford is the seventh Gym; protect the door warp itself.
+    if (mapHeader == &gMapHeader && mapHeader->mapLayoutId == LAYOUT_DEWFORD_TOWN
+        && x == 8 && y == 17
+        && (!FlagGet(FLAG_BADGE01_GET) || !FlagGet(FLAG_BADGE02_GET)
+            || !FlagGet(FLAG_BADGE03_GET) || !FlagGet(FLAG_BADGE04_GET)
+            || !FlagGet(FLAG_BADGE05_GET) || !FlagGet(FLAG_BADGE06_GET)))
         return WARP_ID_NONE;
 
     for (i = 0; i < warpCount; i++, warpEvent++)

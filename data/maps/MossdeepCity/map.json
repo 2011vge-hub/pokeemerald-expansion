@@ -290,20 +290,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_RangerPoochyena",
       "flag": "FLAG_NEO_HIDE_LANDING_RESCUEES"
-    },
-    {
-      "local_id": "LOCALID_NEO_MOSSDEEP_GYM_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 38,
-      "y": 9,
-      "elevation": 5,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "MossdeepCity_EventScript_NeoGymClosed",
-      "flag": "FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED"
     }
   ],
   "warp_events": [
@@ -318,7 +304,7 @@
       "x": 38,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY_GYM",
+      "dest_map": "MAP_MOSSDEEP_CITY_RANGER_BASE_1F",
       "dest_warp_id": "0"
     },
     {
@@ -376,13 +362,6 @@
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 33,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY_RANGER_BASE_1F",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -421,60 +400,6 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "MossdeepCity_EventScript_VisitedMossdeep"
-    },
-    {
-      "type": "trigger",
-      "x": 42,
-      "y": 21,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 41,
-      "y": 22,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 41,
-      "y": 23,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 41,
-      "y": 24,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 40,
-      "y": 25,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 40,
-      "y": 26,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     }
   ],
   "bg_events": [
@@ -492,7 +417,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MossdeepCity_EventScript_GymSign"
+      "script": "MossdeepCity_EventScript_RangerHQSign"
     },
     {
       "type": "sign",
@@ -541,14 +466,6 @@
       "elevation": 7,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MossdeepCity_EventScript_WhiteRock"
-    },
-    {
-      "type": "sign",
-      "x": 32,
-      "y": 19,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "MossdeepCity_EventScript_RangerHQSign"
     },
     {
       "type": "sign",

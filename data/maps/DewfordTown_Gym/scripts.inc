@@ -133,6 +133,14 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
 DewfordTown_Gym_EventScript_Brawly::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE01_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE07_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE03_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE04_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE05_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE06_GET, DewfordTown_Gym_NeoNotReady
 	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
@@ -148,7 +156,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_DEWFORD_GYM
-	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE07_GET
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 2
@@ -262,13 +270,13 @@ DewfordTown_Gym_EventScript_GymGuidePostVictory::
 
 DewfordTown_Gym_EventScript_LeftGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE07_GET, DewfordTown_Gym_EventScript_GymStatueCertified
 	goto DewfordTown_Gym_EventScript_GymStatue
 	end
 
 DewfordTown_Gym_EventScript_RightGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE07_GET, DewfordTown_Gym_EventScript_GymStatueCertified
 	goto DewfordTown_Gym_EventScript_GymStatue
 	end
 
@@ -457,3 +465,12 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
 	.string "that can battle.\p"
 	.string "I'm sorry, but I'd like you to come back\n"
 	.string "with at least two POKéMON.$"
+
+DewfordTown_Gym_NeoNotReady:
+	msgbox DewfordTown_Gym_NeoNotReadyText, MSGBOX_DEFAULT
+	release
+	end
+DewfordTown_Gym_NeoNotReadyText:
+	.string "BRAWLY: You are not ready yet.\p"
+	.string "Earn six BADGES and grow\n"
+	.string "stronger. Then come back!$"

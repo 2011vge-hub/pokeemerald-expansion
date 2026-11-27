@@ -41,10 +41,6 @@ MossdeepCity_Text_RangerTickets:
 	.string "the market.$"
 
 MossdeepCity_OnTransition:
-	clearflag FLAG_MOSSDEEP_GYM_SWITCH_1
-	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
-	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
-	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call MossdeepCity_EventScript_RangerRescueVisibility
 	end
@@ -126,55 +122,7 @@ MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
 	end
 
-@ Emergency access control: only unlock this gym after a later story
-@ mission explicitly sets FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED.
-@ The guard occupies the actual gym door (38,9). The engine also checks clearance.
-@ Rustboro and other early gyms are NOT restricted by this rule.
-MossdeepCity_EventScript_NeoGymClosed::
-	lock
-	faceplayer
-	goto_if_lt VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_EventScript_NeoGymNeedSailor
-	goto_if_lt VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_EventScript_NeoGymFinishRescue
-	goto_if_lt VAR_NEO_RANGER_RANK, RANGER_RANK_RANGER, MossdeepCity_EventScript_NeoGymSeeCommander
-	msgbox MossdeepCity_Text_NeoGymAwaitClearance, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_EventScript_NeoGymNeedSailor:
-	msgbox MossdeepCity_Text_NeoGymNeedSailor, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_EventScript_NeoGymFinishRescue:
-	msgbox MossdeepCity_Text_NeoGymFinishRescue, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_EventScript_NeoGymSeeCommander:
-	msgbox MossdeepCity_Text_NeoGymSeeCommander, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_Text_NeoGymNeedSailor:
-	.string "Now's not the time. I should\p"
-	.string "check with the sailor nearby.$"
-
-MossdeepCity_Text_NeoGymFinishRescue:
-	.string "The rescue isn't finished yet.\p"
-	.string "I need to get back to the ferry.$"
-
-MossdeepCity_Text_NeoGymSeeCommander:
-	.string "The storm's not over for MOSSDEEP.\p"
-	.string "I should report to CMDR. HALE.$"
-
-MossdeepCity_Text_NeoGymAwaitClearance:
-	.string "No GYM challenge without\p"
-	.string "clearance from COMMANDER HALE.$"
-
-MossdeepCity_EventScript_GymSign::
-	msgbox MossdeepCity_Text_GymSign, MSGBOX_SIGN
-	end
-
+@ Former Gym is retired; its entrance now leads to Ranger Headquarters.
 MossdeepCity_EventScript_CitySign::
 	msgbox MossdeepCity_Text_CitySign, MSGBOX_SIGN
 	end
@@ -505,11 +453,6 @@ MossdeepCity_Text_SpecialSpaceCenterRock:
 MossdeepCity_Text_ItsAWhiteRock:
 	.string "It's a white rock.$"
 
-MossdeepCity_Text_GymSign:
-	.string "MOSSDEEP CITY POKéMON GYM\n"
-	.string "LEADERS: LIZA & TATE\p"
-	.string "“The mystic combination!”$"
-
 MossdeepCity_Text_CitySign:
 	.string "MOSSDEEP CITY\n"
 	.string "“Our slogan: Cherish POKéMON!”$"
@@ -521,8 +464,8 @@ MossdeepCity_Text_SpaceCenterSign:
 MossdeepCity_Text_ScottSomethingWrongWithTown:
 	.string "SCOTT: {PLAYER}{KUN}, feeling good?\n"
 	.string "I'm doing great!\p"
-	.string "I'd heard MOSSDEEP's GYM LEADER is\n"
-	.string "pretty strong, so I decided to come\l"
+	.string "I heard the RANGERS are helping\n"
+	.string "with the storm, so I decided to\l"
 	.string "take a look-see for myself.\p"
 	.string "But there's something wrong about\n"
 	.string "this town.\p"
@@ -611,13 +554,13 @@ MossdeepCity_Text_RangerEscort:
 	.string "up the stairs, past the rising\l"
 	.string "water, to the ferry quay...$"
 
-@ Neo Emerald: Ranger Base sign next to the door (warp 10 at 33,19).
+@ Ranger Headquarters at the former Gym footprint.
 MossdeepCity_EventScript_RangerHQSign::
 	msgbox MossdeepCity_Text_RangerHQSign, MSGBOX_SIGN
 	end
 
 MossdeepCity_Text_RangerHQSign:
-	.string "MOSSDEEP RANGER BASE\p"
+	.string "MOSSDEEP RANGER HQ\p"
 	.string "Storm response in progress.\n"
 	.string "Evacuees: MEDIC on the ground floor.$"
 
