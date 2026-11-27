@@ -9,12 +9,24 @@ RustboroCity_University_3F_EventScript_ArchiveScholar::
 	lockall
 	msgbox RustboroCity_University_3F_Text_ArchiveScholar, MSGBOX_DEFAULT
 	msgbox RustboroCity_University_3F_Text_ArchiveScholarLift, MSGBOX_YESNO
-	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ArchiveScholarDecline
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ReturnPrompt
 	closemessage
 	fadescreen FADE_TO_BLACK
 	warp MAP_RUSTBORO_CITY_UNIVERSITY_4F, 1, 2
 	waitstate
 	end
+RustboroCity_University_3F_EventScript_ReturnPrompt:
+	msgbox RustboroCity_University_3F_Text_ReturnPrompt, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ArchiveScholarDecline
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 7
+	waitstate
+	end
+
+RustboroCity_University_3F_Text_ReturnPrompt:
+	.string "Return to Field Sciences on 2F?$"
+
 RustboroCity_University_3F_EventScript_ArchiveScholarDecline:
 	releaseall
 	end
