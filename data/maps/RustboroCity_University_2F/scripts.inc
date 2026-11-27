@@ -9,17 +9,29 @@ RustboroCity_University_2F_EventScript_Instructor::
 	lockall
 	msgbox RustboroCity_University_2F_Text_Instructor, MSGBOX_DEFAULT
 	msgbox RustboroCity_University_2F_Text_InstructorLift, MSGBOX_YESNO
-	goto_if_ne VAR_RESULT, YES, RustboroCity_University_2F_EventScript_InstructorDecline
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_2F_EventScript_ReturnPrompt
 	closemessage
 	fadescreen FADE_TO_BLACK
 	warp MAP_RUSTBORO_CITY_UNIVERSITY_3F, 3, 2
 	waitstate
 	end
+RustboroCity_University_2F_EventScript_ReturnPrompt:
+	msgbox RustboroCity_University_2F_Text_ReturnPrompt, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, RustboroCity_University_2F_EventScript_InstructorDecline
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_RUSTBORO_CITY_POKEMON_SCHOOL, 5, 9
+	waitstate
+	end
+
+RustboroCity_University_2F_Text_ReturnPrompt:
+	.string "Return to the reception lobby?$"
+
 RustboroCity_University_2F_EventScript_InstructorDecline:
 	releaseall
 	end
 RustboroCity_University_2F_Text_InstructorLift:
-	.string "Take the lift to the laboratory?$"
+	.string "Take the lift to the Climate Archive?$"
 
 RustboroCity_University_2F_Text_Student:
 	.string "FIELD STUDIES II:\n"
