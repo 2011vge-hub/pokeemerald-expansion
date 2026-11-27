@@ -1,8 +1,8 @@
 NeoRanger_FieldLog::
 	lockall
 	goto_if_set FLAG_NEO_C4_REPORTED, NeoLog_Filed
-	goto_if_set FLAG_NEO_C4_SURVEY, NeoLog_SailHome
-	goto_if_set FLAG_NEO_C4_BRIEF, NeoLog_RefugeProgress
+	goto_if_set FLAG_NEO_C4_SURVEY, NeoLog_ReturnReport
+	goto_if_set FLAG_NEO_C4_BRIEF, NeoLog_RefugeTravel
 	goto_if_eq VAR_NEO_CH3_STEP, 9, NeoLog_Dewford
 	goto_if_eq VAR_NEO_CH3_STEP, 8, NeoLog_RelayReport
 	goto_if_eq VAR_NEO_CH3_STEP, 12, NeoLog_Copy
@@ -25,9 +25,16 @@ NeoRanger_FieldLog::
 NeoLog_Filed:
 	msgbox NeoLog_FiledText, MSGBOX_DEFAULT
 	goto NeoLog_Close
+NeoLog_ReturnReport:
+	goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 2, NeoLog_HaleReport
 NeoLog_SailHome:
 	msgbox NeoLog_SailHomeText, MSGBOX_DEFAULT
 	goto NeoLog_Close
+NeoLog_HaleReport:
+	msgbox NeoLog_HaleReportText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_RefugeTravel:
+	goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 2, NeoLog_Dewford
 NeoLog_RefugeProgress:
 	goto_if_set FLAG_NEO_C4_CREW_CHECKED, NeoLog_CrewChecked
 	goto_if_set FLAG_NEO_C4_READING_CHECKED, NeoLog_Bunks
@@ -62,7 +69,11 @@ NeoLog_Cutter:
 	msgbox NeoLog_CutterText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Badge:
+	goto_if_set FLAG_BADGE01_GET, NeoLog_Certification
 	msgbox NeoLog_BadgeText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_Certification:
+	msgbox NeoLog_CertificationText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Liaison:
 	msgbox NeoLog_LiaisonText, MSGBOX_DEFAULT
@@ -101,6 +112,9 @@ NeoLog_FiledText:
 	.string "Dewford survey filed with Hale.\nNo further field orders issued.$"
 NeoLog_SailHomeText:
 	.string "Take Briney back to Route 104.\nReport to Hale in west Rustboro.$"
+NeoLog_HaleReportText:
+	.string "Report the DEWFORD survey to\\n"
+	.string "HALE in west RUSTBORO.$"
 NeoLog_RefugeText:
 	.string "Route 106: enter GRANITE CAVE.\p"
 	.string "Take the ladder by the crates.\n"
@@ -133,6 +147,10 @@ NeoLog_CutterText:
 	.string "Route 116, east of Rustboro.\nUse your Cutter near the berries.$"
 NeoLog_BadgeText:
 	.string "Earn Roxanne's Stone Badge.\nSee Hale in the west field office\lfor your Cutter certification.$"
+NeoLog_CertificationText:
+	.string "STONE BADGE earned!\\p"
+	.string "See HALE in the west RUSTBORO\\n"
+	.string "field office for your CUTTER.$"
 NeoLog_LiaisonText:
 	.string "Return to RUSTBORO UNIVERSITY.\p"
 	.string "Find the field student outside\n"
