@@ -8,11 +8,12 @@ LilycoveCity_OnTransition:
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	call Common_EventScript_SetupRivalGfxId
+	setflag FLAG_HIDE_LILYCOVE_CITY_RIVAL
+	setflag FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS
 	end
 
 LilycoveCity_OnLoad:
-	call_if_unset FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_SetWailmerMetatiles
+	@ Retired original-era Wailmer blockade; preserve native underlying tiles.
 	end
 
 LilycoveCity_EventScript_SetWailmerMetatiles::
@@ -49,15 +50,11 @@ LilycoveCity_EventScript_ReceivedBerry::
 	end
 
 LilycoveCity_EventScript_Man3::
-	msgbox LilycoveCity_Text_ContestHallInTown, MSGBOX_NPC
+	msgbox Lilycove_NeoContestText, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_Girl::
-	lock
-	faceplayer
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_EventScript_GirlAquaGone
-	msgbox LilycoveCity_Text_StrangeCaveInCove, MSGBOX_DEFAULT
-	release
+	msgbox Lilycove_NeoGirlText, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_GirlAquaGone::
@@ -70,11 +67,7 @@ LilycoveCity_EventScript_RichBoy::
 	end
 
 LilycoveCity_EventScript_Sailor2::
-	lock
-	faceplayer
-	goto_if_set FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_Sailor2AquaGone
-	msgbox LilycoveCity_Text_TeamAquaBeenTrainingWailmer, MSGBOX_DEFAULT
-	release
+	msgbox Lilycove_NeoSailorText, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_Sailor2AquaGone::
@@ -83,11 +76,7 @@ LilycoveCity_EventScript_Sailor2AquaGone::
 	end
 
 LilycoveCity_EventScript_Woman2::
-	lock
-	faceplayer
-	goto_if_set FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_Woman2AquaGone
-	msgbox LilycoveCity_Text_SomeoneStoleMyPokemon, MSGBOX_DEFAULT
-	release
+	msgbox Lilycove_NeoReliefText, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_Woman2AquaGone::
@@ -108,11 +97,7 @@ LilycoveCity_EventScript_ExpertF::
 	end
 
 LilycoveCity_EventScript_ExpertM2::
-	lock
-	faceplayer
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_EventScript_ExpertM2AquaGone
-	msgbox LilycoveCity_Text_TeamAquaRenovatedCavern, MSGBOX_DEFAULT
-	release
+	msgbox Lilycove_NeoOldCoveText, MSGBOX_NPC
 	end
 
 LilycoveCity_EventScript_ExpertM2AquaGone::
@@ -754,3 +739,27 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
 
+
+LilycoveCity_NeoShopper:
+	msgbox Lilycove_NeoContestText, MSGBOX_NPC
+	end
+Lilycove_NeoGirlText:
+	.string "The museum keeps pictures of\n"
+	.string "our old coastline. It's so\l"
+	.string "different from the city now!$"
+Lilycove_NeoSailorText:
+	.string "We check the tides before\n"
+	.string "loading relief cargo.\p"
+	.string "STERN's crews keep us supplied.$"
+Lilycove_NeoReliefText:
+	.string "The CONTEST HALL holds charity\n"
+	.string "events for coastal families.\p"
+	.string "MAY is a wonderful organizer.$"
+Lilycove_NeoOldCoveText:
+	.string "That old cove has seen a lot.\p"
+	.string "The RANGERS warn us to stay\n"
+	.string "clear of unsafe passages.$"
+Lilycove_NeoContestText:
+	.string "People come from across HOENN\n"
+	.string "to watch our CONTESTS.\p"
+	.string "Look for MAY at the hall.$"

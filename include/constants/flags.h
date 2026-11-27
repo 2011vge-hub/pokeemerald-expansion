@@ -72,11 +72,11 @@
 #define FLAG_NEO_C4_BRIEF 0x32 // Persistent Chapter 4 survey state
 #define FLAG_NEO_C4_SURVEY 0x33 // Persistent Chapter 4 survey state
 #define FLAG_NEO_C4_REPORTED 0x34 // Persistent Chapter 4 survey state
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
+#define FLAG_NEO_METEOR_BRIEF 0x35 // Neo regional story state
+#define FLAG_NEO_METEOR_POOL 0x36 // Neo regional story state
+#define FLAG_NEO_METEOR_ROCK 0x37 // Neo regional story state
+#define FLAG_NEO_METEOR_REPORTED 0x38 // Neo regional story state
+#define FLAG_NEO_MAY_REVEALED 0x39 // Neo regional story state
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag

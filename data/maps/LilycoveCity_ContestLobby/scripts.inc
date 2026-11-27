@@ -1073,3 +1073,18 @@ LilycoveCity_ContestLobby_Text_MadePokeblocksWithFamily:
 	.string "I bet you can make smoother, better\n"
 	.string "{POKEBLOCK}S if you have more people.$"
 
+
+@ Public May placeholder until adult art is reviewed. No exhibition or story gate here.
+LilycoveCity_ContestLobby_NeoMayPublic::
+	lock
+	faceplayer
+	msgbox LilycoveCity_ContestLobby_NeoMayText, MSGBOX_DEFAULT
+	release
+	end
+LilycoveCity_ContestLobby_NeoMayText:
+	.string "MAY: Welcome to LILYCOVE!\p"
+	.string "Contests bring people together.\n"
+	.string "Today we're helping families\l"
+	.string "affected by the changing coast.\p"
+	.string "Keep doing good out there,\n"
+	.string "RANGER. People depend on you.$"

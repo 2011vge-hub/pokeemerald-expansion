@@ -1,6 +1,12 @@
 MeteorFalls_1F_1R_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MeteorFalls_NeoTransition
 	map_script MAP_SCRIPT_ON_LOAD, MeteorFalls_1F_1R_OnLoad
 	.byte 0
+
+MeteorFalls_NeoTransition:
+	setflag FLAG_HIDE_METEOR_FALLS_TEAM_AQUA
+	setflag FLAG_HIDE_METEOR_FALLS_TEAM_MAGMA
+	end
 
 MeteorFalls_1F_1R_OnLoad:
 	call_if_set FLAG_SYS_GAME_CLEAR, MeteorFalls_1F_1R_EventScript_OpenStevensCave
@@ -14,79 +20,6 @@ MeteorFalls_1F_1R_EventScript_OpenStevensCave::
 	return
 
 MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene::
-	lockall
-	playbgm MUS_ENCOUNTER_MAGMA, FALSE
-	applymovement LOCALID_PLAYER, Common_Movement_FaceDown
-	waitmovement 0
-	delay 30
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_WalkInPlaceDown
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_WithThisMeteorite, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_WalkInPlaceFasterUp
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_2, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_Delay48
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_DontExpectMercyFromMagma, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, MeteorFalls_1F_1R_Movement_MagmaGruntApproachPlayer
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_HoldItRightThereMagma, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_WalkInPlaceFasterLeft
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_2, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	addobject LOCALID_METEOR_FALLS_ARCHIE
-	addobject LOCALID_METEOR_FALLS_AQUA_GRUNT_1
-	addobject LOCALID_METEOR_FALLS_AQUA_GRUNT_2
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	applymovement LOCALID_METEOR_FALLS_ARCHIE, MeteorFalls_1F_1R_Movement_ArchieArrive
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_1, MeteorFalls_1F_1R_Movement_AquaGrunt1Arrive
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_2, MeteorFalls_1F_1R_Movement_AquaGrunt2Arrive
-	waitmovement 0
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, Common_Movement_WalkInPlaceFasterLeft
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_2, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_BeSeeingYouTeamAqua, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_PLAYER, MeteorFalls_1F_1R_Movement_PushPlayerOutOfWay
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, MeteorFalls_1F_1R_Movement_MagmaGrunt1Exit
-	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_2, MeteorFalls_1F_1R_Movement_MagmaGrunt2Exit
-	waitmovement 0
-	removeobject LOCALID_METEOR_FALLS_MAGMA_GRUNT_1
-	removeobject LOCALID_METEOR_FALLS_MAGMA_GRUNT_2
-	applymovement LOCALID_METEOR_FALLS_ARCHIE, MeteorFalls_1F_1R_Movement_ArchieApproachPlayer
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_ArchieSeenYouBefore, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_1, MeteorFalls_1F_1R_Movement_AquaGrunt1ApproachArchie
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_2, MeteorFalls_1F_1R_Movement_AquaGrunt2ApproachArchie
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_BossWeShouldChaseMagma, MSGBOX_DEFAULT
-	applymovement LOCALID_METEOR_FALLS_ARCHIE, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_ArchieYesNoTellingWhatMagmaWillDo, MSGBOX_DEFAULT
-	applymovement LOCALID_METEOR_FALLS_ARCHIE, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	msgbox MeteorFalls_1F_1R_Text_ArchieFarewell, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_METEOR_FALLS_ARCHIE, MeteorFalls_1F_1R_Movement_ArchieExit
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_1, MeteorFalls_1F_1R_Movement_AquaGrunt1Exit
-	applymovement LOCALID_METEOR_FALLS_AQUA_GRUNT_2, MeteorFalls_1F_1R_Movement_AquaGrunt2Exit
-	waitmovement 0
-	fadedefaultbgm
-	removeobject LOCALID_METEOR_FALLS_ARCHIE
-	removeobject LOCALID_METEOR_FALLS_AQUA_GRUNT_1
-	removeobject LOCALID_METEOR_FALLS_AQUA_GRUNT_2
-	setflag FLAG_HIDE_ROUTE_112_TEAM_MAGMA
-	setflag FLAG_MET_ARCHIE_METEOR_FALLS
-	setflag FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT
-	setvar VAR_METEOR_FALLS_STATE, 1
 	releaseall
 	end
 
@@ -220,9 +153,15 @@ MeteorFalls_1F_1R_Movement_PushPlayerOutOfWay:
 MeteorFalls_1F_1R_EventScript_ProfCozmo::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_PROF_COZMO, MeteorFalls_1F_1R_EventScript_MetCozmo
-	setflag FLAG_MET_PROF_COZMO
-	msgbox MeteorFalls_1F_1R_Text_MeetProfCozmo, MSGBOX_DEFAULT
+	goto_if_unset FLAG_NEO_METEOR_BRIEF, MeteorFalls_NeoAwait
+	goto_if_set FLAG_NEO_METEOR_REPORTED, MeteorFalls_NeoDone
+	goto_if_unset FLAG_NEO_METEOR_POOL, MeteorFalls_NeoMissing
+	goto_if_unset FLAG_NEO_METEOR_ROCK, MeteorFalls_NeoMissing
+	msgbox MeteorFalls_NeoCompareText, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, MeteorFalls_NeoTryAgain
+	setflag FLAG_NEO_METEOR_REPORTED
+	call NeoOffice_MissionCredit
+	msgbox MeteorFalls_NeoReportText, MSGBOX_DEFAULT
 	release
 	end
 
@@ -307,3 +246,64 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney:
 	.string "PROF. COZMO: But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
 	.string "METEORITE at MT. CHIMNEY?$"
+
+MeteorFalls_NeoPoolSurvey::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_METEOR_BRIEF, MeteorFalls_NeoAwait
+	msgbox MeteorFalls_NeoPoolText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_METEOR_POOL
+	release
+	end
+MeteorFalls_NeoRockSurvey::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_METEOR_BRIEF, MeteorFalls_NeoAwait
+	msgbox MeteorFalls_NeoRockText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_METEOR_ROCK
+	release
+	end
+MeteorFalls_NeoAwait:
+	msgbox MeteorFalls_NeoAwaitText, MSGBOX_DEFAULT
+	release
+	end
+MeteorFalls_NeoMissing:
+	msgbox MeteorFalls_NeoMissingText, MSGBOX_DEFAULT
+	release
+	end
+MeteorFalls_NeoTryAgain:
+	msgbox MeteorFalls_NeoTryAgainText, MSGBOX_DEFAULT
+	release
+	end
+MeteorFalls_NeoDone:
+	msgbox MeteorFalls_NeoReportText, MSGBOX_DEFAULT
+	release
+	end
+MeteorFalls_NeoAwaitText:
+	.string "COZMO's team is surveying\n"
+	.string "the caverns. Ask at our station\l"
+	.string "in FALLARBOR for details.$"
+MeteorFalls_NeoPoolText:
+	.string "SURVEYOR: The pool is warmer\n"
+	.string "than our old records show.\p"
+	.string "Copy this reading for COZMO.$"
+MeteorFalls_NeoRockText:
+	.string "SURVEYOR: The rock shifted.\n"
+	.string "Our crew stopped work.\p"
+	.string "Copy the fracture report.$"
+MeteorFalls_NeoMissingText:
+	.string "COZMO: Speak to both surveyors\n"
+	.string "nearby. We need two records.$"
+MeteorFalls_NeoCompareText:
+	.string "COZMO: Warm water and new cracks.\p"
+	.string "Should we keep the crew clear\n"
+	.string "until we understand the readings?$"
+MeteorFalls_NeoTryAgainText:
+	.string "COZMO: We can finish later.\n"
+	.string "Let's not risk the crew.$"
+MeteorFalls_NeoReportText:
+	.string "COZMO: Thank you, RANGER.\p"
+	.string "FLANNERY's spring team can\n"
+	.string "compare these findings.\p"
+	.string "Visit LAVARIDGE when you can.\n"
+	.string "We'll send the copies ahead.$"

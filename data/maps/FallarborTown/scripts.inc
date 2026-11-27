@@ -9,11 +9,7 @@ FallarborTown_OnTransition:
 	end
 
 FallarborTown_EventScript_ExpertM::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_EventScript_ExpertMNormal
-	msgbox FallarborTown_Text_ShadyCharactersCozmosHome, MSGBOX_DEFAULT
-	release
+	msgbox Fallarbor_NeoTownResearch, MSGBOX_NPC
 	end
 
 FallarborTown_EventScript_ExpertMNormal::
@@ -26,7 +22,7 @@ FallarborTown_EventScript_Girl::
 	end
 
 FallarborTown_EventScript_Gentleman::
-	msgbox FallarborTown_Text_HaveYouChallengedFlannery, MSGBOX_NPC
+	msgbox Fallarbor_NeoAshGardens, MSGBOX_NPC
 	end
 
 FallarborTown_EventScript_Azurill::
@@ -87,9 +83,19 @@ FallarborTown_Text_BattleTentSign:
 
 FallarborTown_Text_TownSign:
 	.string "FALLARBOR TOWN\n"
-	.string "“A farm community with small gardens.”$"
+	.string "Gardens beneath the ash.$"
 
 FallarborTown_Text_MoveTutorSign:
 	.string "MOVE TUTOR'S HOUSE\n"
 	.string "“New moves taught to POKéMON.”$"
 
+
+Fallarbor_NeoTownResearch:
+	.string "COZMO works with the university\n"
+	.string "on meteor and rock surveys.\p"
+	.string "His field office is at the\n"
+	.string "southwest edge of town.$"
+Fallarbor_NeoAshGardens:
+	.string "We protect seedlings from ash.\p"
+	.string "The gardens have changed, but\n"
+	.string "we still grow our own food.$"

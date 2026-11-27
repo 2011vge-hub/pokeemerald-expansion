@@ -4,10 +4,15 @@ FallarborTown_CozmosHouse_MapScripts::
 FallarborTown_CozmosHouse_EventScript_ProfCozmo::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_RETURN, FallarborTown_CozmosHouse_EventScript_GaveMeteorite
-	checkitem ITEM_METEORITE
-	goto_if_eq VAR_RESULT, TRUE, FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite
-	msgbox FallarborTown_CozmosHouse_Text_MeteoriteWillNeverBeMineNow, MSGBOX_DEFAULT
+	goto_if_set FLAG_NEO_METEOR_REPORTED, Fallarbor_NeoSurveyClosed
+	goto_if_unset FLAG_NEO_C4_REPORTED, Fallarbor_NeoSurveyWait
+	goto_if_unset FLAG_BADGE02_GET, Fallarbor_NeoSurveyWait
+	goto_if_set FLAG_NEO_METEOR_BRIEF, Fallarbor_NeoSurveyDirections
+	msgbox Fallarbor_NeoSurveyOffer, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, Fallarbor_NeoSurveyLater
+	setflag FLAG_NEO_METEOR_BRIEF
+Fallarbor_NeoSurveyDirections:
+	msgbox Fallarbor_NeoSurveyDirectionsText, MSGBOX_DEFAULT
 	release
 	end
 
@@ -46,12 +51,7 @@ FallarborTown_CozmosHouse_EventScript_GaveMeteorite::
 	end
 
 FallarborTown_CozmosHouse_EventScript_CozmosWife::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_RETURN, FallarborTown_CozmosHouse_EventScript_CozmoIsHappy
-	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_CozmosHouse_EventScript_CozmoIsSad
-	msgbox FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls, MSGBOX_DEFAULT
-	release
+	msgbox Fallarbor_NeoStationText, MSGBOX_NPC
 	end
 
 FallarborTown_CozmosHouse_EventScript_CozmoIsSad::
@@ -116,3 +116,41 @@ FallarborTown_CozmosHouse_Text_CozmoIsSoHappy:
 	.string "Look at PROF. COZMO…\n"
 	.string "He's so happy! I think it's cute.$"
 
+
+Fallarbor_NeoSurveyWait:
+	msgbox Fallarbor_NeoSurveyWaitText, MSGBOX_DEFAULT
+	release
+	end
+Fallarbor_NeoSurveyLater:
+	msgbox Fallarbor_NeoSurveyLaterText, MSGBOX_DEFAULT
+	release
+	end
+Fallarbor_NeoSurveyClosed:
+	msgbox Fallarbor_NeoSurveyClosedText, MSGBOX_DEFAULT
+	release
+	end
+Fallarbor_NeoSurveyOffer:
+	.string "RESEARCH AIDE: FLINT's cave\n"
+	.string "comparison reached COZMO.\p"
+	.string "Will you help check his crew\n"
+	.string "and their readings?$"
+Fallarbor_NeoSurveyDirectionsText:
+	.string "NEXT: ROUTE 114, METEOR FALLS.\p"
+	.string "Speak to both surveyors.\n"
+	.string "Then report to COZMO there.$"
+Fallarbor_NeoSurveyWaitText:
+	.string "RESEARCH AIDE: Our station\n"
+	.string "supports the inland surveys.\p"
+	.string "Finish DEWFORD's case and earn\n"
+	.string "the RELIC BADGE first.$"
+Fallarbor_NeoSurveyLaterText:
+	.string "RESEARCH AIDE: Come back\n"
+	.string "whenever you're ready.$"
+Fallarbor_NeoSurveyClosedText:
+	.string "RESEARCH AIDE: The crew is safe.\p"
+	.string "COZMO sent the readings to\n"
+	.string "FLANNERY in LAVARIDGE.$"
+Fallarbor_NeoStationText:
+	.string "This is our field research office.\p"
+	.string "The old observatory records help\n"
+	.string "us understand today's changes.$"
