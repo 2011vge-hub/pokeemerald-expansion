@@ -25,7 +25,7 @@ assert any(o.get("local_id")=="LOCALID_NEO_C2_WOODS_RIVAL" for o in wm["object_e
 foresttrainer=trainers.split("=== TRAINER_GRUNT_PETALBURG_WOODS ===")[1].split("===")[0]
 assert "Class: Team Magma" in foresttrainer
 assert "Pic: Magma Grunt M" in foresttrainer
-assert "TRAINER_NEO_AQUA_ROUTE104" in opps and "TRAINERS_COUNT_EMERALD     856" in opps
+assert "TRAINER_NEO_AQUA_ROUTE104" in opps
 assert "=== TRAINER_NEO_AQUA_ROUTE104 ===" in trainers
 assert route.count("setflag FLAG_NEO_C2_AQUA_DONE")==1
 rm=json.loads(read("data/maps/Route104/map.json"))

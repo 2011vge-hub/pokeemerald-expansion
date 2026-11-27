@@ -1541,3 +1541,14 @@ const struct Tileset gTileset_HallOfFame =
 };
 
 #endif // IS_FRLG
+
+const struct Tileset gTileset_University =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_University,
+    .palettes = gTilesetPalettes_University,
+    .metatiles = gMetatiles_University,
+    .metatileAttributes = gMetatileAttributes_University,
+    .callback = NULL,
+};

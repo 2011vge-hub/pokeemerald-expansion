@@ -440,7 +440,7 @@ const u16 gTilesetPalettes_PokemonCenter[][16] =
     INCGFX_U16("data/tilesets/secondary/pokemon_center/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Cave[] = INCGFX_U32("data/tilesets/secondary/cave/tiles.png", ".4bpp.fastSmol", "-num_tiles 425 -Wnum_tiles");
+const u32 gTilesetTiles_Cave[] = INCGFX_U32("data/tilesets/secondary/cave/tiles.png", ".4bpp.fastSmol", "-num_tiles 449 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Cave[][16] =
 {
@@ -3038,3 +3038,25 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
 const u32 gTilesetTiles_General_Frlg[] = INCGFX_U32("data/tilesets/primary/general_frlg/tiles.png", ".4bpp.smol");
 
 #endif // IS_FRLG
+
+const u32 gTilesetTiles_University[] = INCGFX_U32("data/tilesets/secondary/university/tiles.png", ".4bpp.fastSmol", "-num_tiles 309 -Wnum_tiles");
+
+const u16 gTilesetPalettes_University[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/university/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/university/palettes/15.pal", ".gbapal"),
+};

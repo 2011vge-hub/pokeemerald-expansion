@@ -135,8 +135,13 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 DewfordTown_Gym_EventScript_Brawly::
 	lock
 	faceplayer
+	goto_if_ne VAR_NEO_CH3_STEP, 9, DewfordTown_Gym_NeoCheckBadges
+	goto_if_set FLAG_NEO_C4_BRIEF, DewfordTown_Gym_NeoCheckBadges
+	setflag FLAG_NEO_C4_BRIEF
+	msgbox DewfordTown_NeoSurveyBrief, MSGBOX_DEFAULT
+DewfordTown_Gym_NeoCheckBadges:
 	goto_if_unset FLAG_BADGE01_GET, DewfordTown_Gym_NeoNotReady
-	goto_if_unset FLAG_BADGE07_GET, DewfordTown_Gym_NeoNotReady
+	goto_if_unset FLAG_BADGE02_GET, DewfordTown_Gym_NeoNotReady
 	goto_if_unset FLAG_BADGE03_GET, DewfordTown_Gym_NeoNotReady
 	goto_if_unset FLAG_BADGE04_GET, DewfordTown_Gym_NeoNotReady
 	goto_if_unset FLAG_BADGE05_GET, DewfordTown_Gym_NeoNotReady

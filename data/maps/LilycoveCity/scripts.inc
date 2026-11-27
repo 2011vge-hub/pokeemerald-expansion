@@ -742,7 +742,8 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "I mean, we are totally happy!$"
 
 
-LilycoveCity_NeoShopper:
+LilycoveCity_NeoShopper::
+	goto_if_set FLAG_NEO_MAY_REVEALED, Lilycove_NeoAfterReveal
 	msgbox Lilycove_NeoContestText, MSGBOX_NPC
 	end
 Lilycove_NeoGirlText:

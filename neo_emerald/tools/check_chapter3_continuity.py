@@ -8,8 +8,7 @@ def sc(n): return read("data/maps/"+n+"/scripts.inc")
 def mp(n): return json.loads(read("data/maps/"+n+"/map.json"))
 office=sc("RustboroCity_Flat1_1F")
 assert "goto_if_unset FLAG_NEO_C2_DEBRIEF_DONE, NeoOffice_Early" in office
-assert "call MossdeepCity_RangerBase_2F_EventScript_CountBadges" in office
-assert "goto_if_eq VAR_0x8004, 0, NeoOffice_Badge" in office
+assert "goto_if_unset FLAG_BADGE01_GET, NeoOffice_Badge" in office
 assert "setvar VAR_NEO_CH3_STEP, 6" in office
 assert any(o["script"]=="NeoOffice_Hale" for o in mp("RustboroCity_Flat1_1F")["object_events"])
 route=sc("Route116")

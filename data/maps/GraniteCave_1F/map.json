@@ -52,7 +52,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GraniteCave_NeoRefugeCrew",
+      "script": "GraniteCave_NeoWarden",
       "flag": "0"
     },
     {
@@ -66,7 +66,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GraniteCave_NeoRefugeSurveyor",
+      "script": "GraniteCave_NeoWarden",
       "flag": "0"
     },
     {
@@ -125,6 +125,13 @@
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_GRANITE_CAVE_STEVENS_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 10,
+      "elevation": 3,
+      "dest_map": "MAP_GRANITE_CAVE_REFUGE_HALL",
       "dest_warp_id": "0"
     }
   ],

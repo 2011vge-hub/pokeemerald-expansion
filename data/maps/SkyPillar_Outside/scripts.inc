@@ -117,3 +117,19 @@ SkyPillar_Outside_Text_GotToGoBackForSootopolis:
 	.string "I've got to go back.\p"
 	.string "Everything is in your hands now.\n"
 	.string "Don't fail us!$"
+
+SkyPillar_NeoGuideReady:
+	msgbox SkyPillar_NeoGuideReadyText, MSGBOX_DEFAULT
+	release
+	end
+SkyPillar_NeoGuideWaitText:
+	.string "See the white marks on the steps?\p"
+	.string "That's how high the sea came.\n"
+	.string "The upper galleries are closed\l"
+	.string "while we check the stonework.$"
+SkyPillar_NeoGuideReadyText:
+	.string "The survey crew has cleared\n"
+	.string "the upper galleries.\p"
+	.string "Look for the tide marks as you\n"
+	.string "climb. The oldest ones are cut\l"
+	.string "into the stone itself.$"

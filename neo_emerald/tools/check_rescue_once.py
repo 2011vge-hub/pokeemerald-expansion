@@ -38,7 +38,10 @@ office=(ROOT/office_path).read_text()
 report=office.split('NeoOffice_Report:',1)[1].split('NeoOffice_Complete:',1)[0]
 if report.index('setvar VAR_NEO_CH3_STEP, 9') >= report.index('call NeoOffice_MissionCredit'):
     fail.append('Chapter 3 completion must precede mission credit')
-assert office.count('call NeoOffice_MissionCredit')==1
+assert office.count('call NeoOffice_MissionCredit')==2
+c4=office.split('NeoOffice_C4Report:',1)[1].split('NeoOffice_C4Closed:',1)[0]
+assert c4.index('setflag FLAG_NEO_C4_REPORTED') < c4.index('call NeoOffice_MissionCredit')
+assert office.index('goto_if_set FLAG_NEO_C4_REPORTED') < office.index('goto_if_set FLAG_NEO_C4_SURVEY')
 assert 'goto_if_eq VAR_NEO_CH3_STEP, 9, NeoOffice_Complete' in office
 assert 'goto_if_eq VAR_NEO_CH3_STEP, 8, NeoOffice_Report' in office
 wf=(ROOT/expected).read_text()

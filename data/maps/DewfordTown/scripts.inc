@@ -834,7 +834,7 @@ DewfordTown_NeoReturnOffer:
 DewfordTown_NeoReturnText:
 	.string "BRINEY: Back to my cottage on\n"
 	.string "ROUTE 104?$"
-DewfordTown_NeoSurveyBrief:
+DewfordTown_NeoSurveyBrief::
 	.string "BRAWLY: The cave crew sent word.\p"
 	.string "Head north onto ROUTE 106.\n"
 	.string "Find the HIKER in GRANITE CAVE.\p"

@@ -93,11 +93,22 @@ GraniteCave_NeoRefugeSurveyor::
 GraniteCave_NeoSupplies::
 	msgbox GraniteCave_NeoSuppliesText, MSGBOX_SIGN
 	end
+GraniteCave_NeoWarden::
+	msgbox GraniteCave_NeoRefugeDirectionsText, MSGBOX_NPC
+	end
+GraniteCave_NeoRefugeChild::
+	msgbox GraniteCave_NeoChildText, MSGBOX_NPC
+	end
+GraniteCave_NeoChildText:
+	.string "Grandpa used to dive for stone.\p"
+	.string "Now he knocks on every bunk at\n"
+	.string "lights-out. Even the empty ones.$"
 GraniteCave_NeoRefugeDirectionsText:
-	.string "HIKER: Check the two people\n"
-	.string "at the shelter just west of here.\p"
-	.string "Check the crew and the readings.\n"
-	.string "Then come back to me.$"
+	.string "Take the ladder by the crates.\p"
+	.string "Check the bunk warden, then the\n"
+	.string "gauge keeper east of the bunks.\p"
+	.string "Bring both reports to the Hiker\n"
+	.string "at the cave mouth.$"
 GraniteCave_NeoCrewText:
 	.string "WORKER: Everyone is accounted\n"
 	.string "for. Our supplies are dry.\p"

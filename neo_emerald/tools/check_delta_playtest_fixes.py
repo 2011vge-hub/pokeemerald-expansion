@@ -11,10 +11,9 @@ hq = load("data/maps/MossdeepCity_RangerBase_2F/scripts.inc")
 ferry = load("data/maps/MossdeepCity_Waterfront/scripts.inc")
 school = load("data/maps/RustboroCity_PokemonSchool/scripts.inc")
 moss = json.loads(load("data/maps/MossdeepCity/map.json"))
-gym = next(o for o in moss["object_events"] if o.get("local_id") == "LOCALID_NEO_MOSSDEEP_GYM_GUARD")
-warp = next(w for w in moss["warp_events"] if w["dest_map"] == "MAP_MOSSDEEP_CITY_GYM")
-assert (gym["x"],gym["y"]) == (warp["x"],warp["y"]) == (38,9), "Gym guard must block actual door"
-assert gym["flag"] == "FLAG_NEO_MOSSDEEP_GYM_ACCESS_GRANTED"
+door = next(w for w in moss["warp_events"] if (w["x"], w["y"]) == (38, 9))
+assert door["dest_map"] == "MAP_MOSSDEEP_CITY_RANGER_BASE_1F"
+assert not any((o["x"], o["y"]) == (38, 9) for o in moss["object_events"])
 
 bridge = hq.split("MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:",1)[1].split("MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:",1)[0]
 assert bridge.index("setrespawn HEAL_LOCATION_RUSTBORO_CITY") < bridge.index("warp MAP_RUSTBORO_CITY"), "Last heal location must move to Rustboro before travel"
