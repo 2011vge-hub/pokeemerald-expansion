@@ -17139,3 +17139,94 @@ IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Yawn
 
 
+/* Neo Emerald: public exhibition is optional, before the hidden identity reveal.
+   Placeholder native May portrait must be replaced by approved adult artwork. */
+=== TRAINER_NEO_MAY_EXHIBITION ===
+Name: MAY
+Class: Pkmn Ranger
+Pic: May
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+Roselia
+Level: 17
+- Mega Drain
+- Poison Sting
+- Stun Spore
+- Leech Seed
+
+Togetic
+Level: 18
+- Fairy Wind
+- Yawn
+- Ancient Power
+- Charm
+
+Buneary @ Oran Berry
+Level: 19
+- Quick Attack
+- Fake Out
+- Double Kick
+- Defense Curl
+
+/* Neo Emerald: final confrontation only; never expose this party in public exhibition. */
+=== TRAINER_NEO_MAY_NULL ===
+Name: MAY
+Class: Pkmn Ranger
+Pic: May
+Gender: Female
+Music: Cool
+Double Battle: No
+AI: Basic Trainer / Risky
+
+Roserade @ Black Sludge
+Level: 76
+Ability: Natural Cure
+- Toxic Spikes
+- Sludge Bomb
+- Giga Drain
+- Sleep Powder
+
+Togekiss @ Leftovers
+Level: 77
+Ability: Serene Grace
+- Air Slash
+- Aura Sphere
+- Thunder Wave
+- Roost
+
+Milotic @ Flame Orb
+Level: 78
+Ability: Marvel Scale
+- Scald
+- Ice Beam
+- Recover
+- Haze
+
+Froslass @ Focus Sash
+Level: 79
+Ability: Cursed Body
+- Shadow Ball
+- Ice Beam
+- Will-O-Wisp
+- Destiny Bond
+
+Lopunny @ Lopunnite
+Level: 81
+Ability: Limber
+Happiness: 255
+- Fake Out
+- Close Combat
+- Return
+- Ice Punch
+
+Slaking @ Sitrus Berry
+Level: 82
+Ability: Truant
+- Giga Impact
+- Earthquake
+- Shadow Claw
+- Slack Off
+
