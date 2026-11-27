@@ -74,10 +74,16 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	end
 
 MauvilleCity_Gym_EventScript_Wattson::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE01_GET, MauvilleCity_Gym_NeoWait
+	goto_if_unset FLAG_BADGE02_GET, MauvilleCity_Gym_NeoWait
+	goto_if_unset FLAG_BADGE03_GET, MauvilleCity_Gym_NeoWait
+	goto_if_unset FLAG_BADGE04_GET, MauvilleCity_Gym_NeoWait
 	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
+	goto_if_unset FLAG_NEO_RECEIVED_TM_THUNDERBOLT, MauvilleCity_Gym_EventScript_GiveShockWave2
 	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
 	release
@@ -91,7 +97,7 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_SCOTT
 	setflag FLAG_DEFEATED_MAUVILLE_GYM
-	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE05_GET
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 3
@@ -112,18 +118,18 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	end
 
 MauvilleCity_Gym_EventScript_GiveShockWave2::
-	giveitem ITEM_TM_SHOCK_WAVE
+	giveitem ITEM_TM_THUNDERBOLT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
+	setflag FLAG_NEO_RECEIVED_TM_THUNDERBOLT
 	release
 	end
 
 MauvilleCity_Gym_EventScript_GiveShockWave::
-	giveitem ITEM_TM_SHOCK_WAVE
+	giveitem ITEM_TM_THUNDERBOLT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
+	setflag FLAG_NEO_RECEIVED_TM_THUNDERBOLT
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville::
@@ -236,13 +242,13 @@ MauvilleCity_Gym_EventScript_GymGuidePostVictory::
 
 MauvilleCity_Gym_EventScript_LeftGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE03_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE05_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
 	goto MauvilleCity_Gym_EventScript_GymStatue
 	end
 
 MauvilleCity_Gym_EventScript_RightGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE03_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE05_GET, MauvilleCity_Gym_EventScript_GymStatueCertified
 	goto MauvilleCity_Gym_EventScript_GymStatue
 	end
 
@@ -364,10 +370,8 @@ MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis:
 	.string "You should take this, too!$"
 
 MauvilleCity_Gym_Text_ExplainShockWave:
-	.string "That TM34 there contains SHOCK WAVE.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
-	.string "… … … … … …$"
+	.string "TM24 contains THUNDERBOLT.\p"
+	.string "A powerful ELECTRIC attack!$"
 
 MauvilleCity_Gym_Text_RegisteredWattson:
 	.string "Registered GYM LEADER WATTSON\n"
@@ -419,3 +423,11 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "Come see me with two or more\n"
 	.string "POKéMON, all right?$"
 
+
+MauvilleCity_Gym_NeoWait:
+	msgbox MauvilleCity_Gym_NeoWaitText, MSGBOX_DEFAULT
+	release
+	end
+MauvilleCity_Gym_NeoWaitText:
+	.string "Earn your first four BADGES\n"
+	.string "before challenging this GYM.$"

@@ -1546,7 +1546,7 @@ PetalburgCity_Gym_Text_GymStatue:
 
 PetalburgCity_Gym_Text_GymStatueCertified:
 	.string "PETALBURG CITY POKéMON GYM\p"
-	.string "NORMAN'S CERTIFIED TRAINERS:\n"
+	.string "WALLY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
 PetalburgCity_Gym_Text_NormanPreRematch:
@@ -1596,5 +1596,44 @@ PetalburgCity_Gym_EventScript_NeoNotice::
 PetalburgCity_Gym_Text_NeoStaff:
 	.string "LEADER WALLY is coordinating\n"
 	.string "regional relief work.\p"
-	.string "Gym challenges are temporarily\n"
-	.string "suspended. Please check back.$"
+	.string "Bring five BADGES before\n"
+	.string "challenging LEADER WALLY.$"
+
+PetalburgCity_Gym_EventScript_NeoWally::
+	lock
+	faceplayer
+	goto_if_set FLAG_BADGE06_GET, PetalburgCity_Gym_EventScript_NeoWallyReward
+	goto_if_unset FLAG_BADGE01_GET, PetalburgCity_Gym_EventScript_NeoWallyWait
+	goto_if_unset FLAG_BADGE02_GET, PetalburgCity_Gym_EventScript_NeoWallyWait
+	goto_if_unset FLAG_BADGE03_GET, PetalburgCity_Gym_EventScript_NeoWallyWait
+	goto_if_unset FLAG_BADGE04_GET, PetalburgCity_Gym_EventScript_NeoWallyWait
+	goto_if_unset FLAG_BADGE05_GET, PetalburgCity_Gym_EventScript_NeoWallyWait
+	trainerbattle_no_intro TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NeoWallyDefeat
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_DEFEATED_PETALBURG_GYM
+	message PetalburgCity_Gym_Text_NeoWallyBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+PetalburgCity_Gym_EventScript_NeoWallyReward:
+	goto_if_set FLAG_NEO_RECEIVED_TM_CALM_MIND, PetalburgCity_Gym_EventScript_NeoWallyAfter
+	giveitem ITEM_TM_CALM_MIND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_NEO_RECEIVED_TM_CALM_MIND
+PetalburgCity_Gym_EventScript_NeoWallyAfter:
+	msgbox PetalburgCity_Gym_Text_NeoWallyAfter, MSGBOX_DEFAULT
+	release
+	end
+PetalburgCity_Gym_EventScript_NeoWallyWait:
+	msgbox PetalburgCity_Gym_Text_NeoWallyWait, MSGBOX_DEFAULT
+	release
+	end
+PetalburgCity_Gym_Text_NeoWallyDefeat:
+	.string "Your strength is remarkable.$"
+PetalburgCity_Gym_Text_NeoWallyBadge:
+	.string "Received the BALANCE BADGE!$"
+PetalburgCity_Gym_Text_NeoWallyAfter:
+	.string "Strength and compassion together.\p"
+	.string "Take that lesson to DEWFORD.$"
+PetalburgCity_Gym_Text_NeoWallyWait:
+	.string "I am WALLY, PETALBURG's LEADER.\p"
+	.string "Come back with five BADGES.$"

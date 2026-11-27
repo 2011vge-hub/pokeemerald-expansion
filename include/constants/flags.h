@@ -67,8 +67,8 @@
 #define FLAG_NEO_TUNNEL_SECURED    0x2D // Unused Flag
 #define FLAG_NEO_RECEIVED_RIOLU_EGG 0x2E // One-time Rustboro University gift
 #define FLAG_NEO_RECEIVED_TM_METAL_CLAW 0x2F // One-time first badge reward
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
+#define FLAG_NEO_RECEIVED_TM_CALM_MIND 0x30
+#define FLAG_NEO_RECEIVED_TM_THUNDERBOLT 0x31
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag

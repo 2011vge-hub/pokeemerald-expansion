@@ -44,6 +44,10 @@ LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
 	return
 
 LavaridgeTown_Gym_1F_EventScript_Flannery::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE01_GET, LavaridgeTown_Gym_1F_NeoWait
+	goto_if_unset FLAG_BADGE02_GET, LavaridgeTown_Gym_1F_NeoWait
 	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
@@ -59,7 +63,7 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_WHITEOUT_TO_LAVARIDGE
 	setflag FLAG_DEFEATED_LAVARIDGE_GYM
-	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE03_GET
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 4
@@ -159,13 +163,13 @@ LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory::
 
 LavaridgeTown_Gym_1F_EventScript_LeftGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE04_GET, LavaridgeTown_Gym_1F_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE03_GET, LavaridgeTown_Gym_1F_EventScript_GymStatueCertified
 	goto LavaridgeTown_Gym_1F_EventScript_GymStatue
 	end
 
 LavaridgeTown_Gym_1F_EventScript_RightGymStatue::
 	lockall
-	goto_if_set FLAG_BADGE04_GET, LavaridgeTown_Gym_1F_EventScript_GymStatueCertified
+	goto_if_set FLAG_BADGE03_GET, LavaridgeTown_Gym_1F_EventScript_GymStatueCertified
 	goto LavaridgeTown_Gym_1F_EventScript_GymStatue
 	end
 
@@ -396,3 +400,11 @@ LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons:
 	.string "that can battle?\p"
 	.string "I hate to say this, but when you come\n"
 	.string "see me, bring at least two POKéMON.$"
+
+LavaridgeTown_Gym_1F_NeoWait:
+	msgbox LavaridgeTown_Gym_1F_NeoWaitText, MSGBOX_DEFAULT
+	release
+	end
+LavaridgeTown_Gym_1F_NeoWaitText:
+	.string "Earn your first two BADGES\n"
+	.string "before challenging this GYM.$"

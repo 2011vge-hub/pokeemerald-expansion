@@ -5016,46 +5016,41 @@ Level: 34
 - Sunny Day
 
 === TRAINER_NORMAN_1 ===
-Name: NORMAN
+Name: WALLY
 Class: Leader
-Pic: Leader Norman
+Pic: Wally
 Gender: Male
 Music: Male
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
+Roserade
+Level: 48
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
+Azumarill
+Level: 49
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+Magnezone
+Level: 50
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
+Garchomp
+Level: 51
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
+
+Gardevoir
+Level: 52
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
+
+Gallade @ Galladite
+Level: 53
+IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
+- Psycho Cut
+- Close Combat
+- Night Slash
+- Swords Dance
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
