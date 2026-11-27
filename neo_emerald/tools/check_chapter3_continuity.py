@@ -37,7 +37,7 @@ import re
 log = read("data/scripts/neo_field_log.inc").splitlines()
 labels = {line.rstrip(":"): i for i, line in enumerate(log)
           if re.fullmatch(r"[A-Za-z_]\w*::?", line)}
-def objective(flags, step=9):
+def objective(flags, step=9, boat=0, dispatch=5):
     pc = labels["NeoRanger_FieldLog"] + 1
     for _ in range(100):
         line = log[pc].strip()
@@ -53,7 +53,7 @@ def objective(flags, step=9):
         match = re.fullmatch(r"goto_if_(eq|ge) (\w+), (\d+), (\w+)", line)
         if match:
             mode, var, value, target = match.groups()
-            current = {"VAR_NEO_CH3_STEP": step, "VAR_NEO_FERRY_DISPATCH": 5}[var]
+            current = {"VAR_NEO_CH3_STEP": step, "VAR_NEO_FERRY_DISPATCH": dispatch, "VAR_BOARD_BRINEY_BOAT_STATE": boat}[var]
             if (current == int(value) if mode == "eq" else current >= int(value)):
                 pc = labels[target] + 1
             continue
@@ -76,6 +76,19 @@ for suffixes, expected in cases:
     flags = {"FLAG_NEO_C4_" + suffix for suffix in ["BRIEF"] + suffixes}
     assert objective(flags) == expected, (flags, expected)
 assert objective(set()) == "NeoLog_DewfordText"
+brief = {"FLAG_NEO_C4_BRIEF"}
+survey = brief | {"FLAG_NEO_C4_CREW_CHECKED", "FLAG_NEO_C4_READING_CHECKED", "FLAG_NEO_C4_SURVEY"}
+assert objective(brief, boat=2) == "NeoLog_DewfordText"
+assert objective(survey, boat=0) == "NeoLog_SailHomeText"
+assert objective(survey, boat=2) == "NeoLog_HaleReportText"
+assert objective(survey | {"FLAG_NEO_C4_REPORTED"}, boat=2) == "NeoLog_FiledText"
+assert objective({"FLAG_NEO_C2_DEBRIEF_DONE"}, step=0) == "NeoLog_BadgeText"
+assert objective({"FLAG_NEO_C2_DEBRIEF_DONE", "FLAG_BADGE01_GET"}, step=0) == "NeoLog_CertificationText"
+assert objective(set(), step=0, dispatch=2) == "NeoLog_SailorText"
+assert objective(set(), step=0, dispatch=3) == "NeoLog_RescueText"
+assert objective(set(), step=0, dispatch=4) == "NeoLog_DockText"
+assert objective(set(), step=0, dispatch=5) == "NeoLog_HaleText"
+assert objective({"FLAG_NEO_C1_FLIGHT_RUSTBORO"}, step=0) == "NeoLog_RivalText"
 assert objective({"FLAG_NEO_C2_BRINEY_REPORTED"}, step=0) == "NeoLog_LiaisonText"
 
 # Verify the newly referenced contacts and reciprocal cave warps exist.
