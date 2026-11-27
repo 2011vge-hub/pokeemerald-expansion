@@ -57,3 +57,29 @@ User approves revised Wattson character, roster, rewards and encounter direction
 - Manectric Lv48, Manectite, Mega Manectric with Intimidate: Thunderbolt, Flamethrower, Volt Switch, Snarl. Pre-Mega ability to be selected after engine review.
 Approved reward design: Dynamo Badge, Thunderbolt TM, prize money 9600, fifth-badge eligibility for Rank 4 Specialist Ranger (Hale administers promotion), electrical diagnostic module, New Mauville energy investigation, Manectite as postgame rematch reward.
 Encounter staging: forgetful and jovial before battle; focused, precise and tactically sophisticated in battle; Mega moment dialogue "Just like we practiced, old friend. You and me. One more time." After defeat, insightful tactical praise followed by forgetting player's name and signature laugh. Use advanced AI for screens, pivoting and type-aware switching where supported. Never portray forgetfulness as deliberately bad battle AI. Verify moves, item/ability support, Mega trigger, rewards, badge flag and balance; this is approved design, not runtime implementation. Preserve fixed Gym sequence and prioritize Chapters 1–3 blockers.
+
+## FINAL Gym circuit approval — 2026-11-27
+User has approved all eight Gym design packages, with explicit Roxanne substitutions and the condition that Brawly's movesets complement one another. This section is the authoritative consolidated roster/reward target and supersedes earlier conflicting proposals (including Captain Marina, retired Wattson, old Wally roster, original Coral roster, and Roxanne's Magnemite/Aegislash). Levels and mechanics are implementation balance targets, not proof of runtime functionality.
+| Order | Gym/leader | Roster in intended order (levels) | Badge | TM reward |
+|---|---|---|---|---|
+| 1 | Rustboro / Roxanne (Steel with thematic Rock exception) | Aron 12, Nosepass 14, Pawniard 15 | Stone | Metal Claw |
+| 2 | Relicrest / Professor Flint (Fossil) | Shieldon 21, Amaura 22, Cranidos 23, Kabutops 24, Dracovish 25, Tyrunt 26 | Relic | Ancient Power |
+| 3 | Lavaridge / Flannery (Fire) | Camerupt 28, Torkoal 29, Salazzle 30, Talonflame 31, Arcanine 32, Mega Houndoom 34 | Heat | Overheat |
+| 4 | Slateport / Captain Stern (Water) | Relicanth 36, Golisopod 37, Clawitzer 38, Huntail 39, Gorebyss 40, Mega Sharpedo 41 | Tide | Scald |
+| 5 | Mauville / Wattson (Electric) | Electrode 42, Magnezone 43, Ampharos 44, Rotom-Wash 45, Electivire 46, Mega Manectric 48 | Dynamo | Thunderbolt |
+| 6 | Petalburg / Wally (Mixed) | Roserade 48, Azumarill 49, Magnezone 50, Garchomp 51, Gardevoir 52, Mega Gallade 53 | Balance | Calm Mind |
+| 7 | Dewford / Brawly (Fighting) | Hariyama 54, Grapploct 55, Conkeldurr 56, Kommo-o 57, Rapid Strike Urshifu 58, Mega Lucario 59 | Knuckle | Bulk Up |
+| 8 | Pacifidlog / Coral (Poison) | Glimmora 63, Toxapex 64, Overqwil 64, Dragalge 65, Sneasler 66, Mega Gengar 68 | Venom | Sludge Bomb |
+### Roxanne graduation examination — approved
+Post-Champion university auditorium ceremony: Corviknight 82, Excadrill 83, Empoleon 84, Probopass 85, Metagross 86, Mega Aggron 88. Nosepass is Rock type and intentional heritage exception; Probopass is Rock/Steel. Rewards: honorary university diploma, Aggronite, Flash Cannon TM, permanent campus recognition, qualification toward Master Ranger. Attendance: faculty, students, Hale, Steven and rival. Preserve ordinary first-badge progression and separate one-time ceremony/reward flags.
+### Mega Tyrantrum — approved mechanics
+Rock/Dragon, Strong Jaw, Tyrantrumite, base stats HP82/Atk171/Def149/SpA69/SpD69/Spe81 (BST621). Later Flint rematch only; initial Tyrunt stays. Tyrantrumite rematch reward design. Original sprite and visual design still require separate review and production.
+### Brawly coordinated battle plan — delegated technical proposal
+Single battle, with intelligent switching where supported; distinct roles and complementary coverage rather than six identical physical attackers.
+- Hariyama: Guts + Flame Orb; Fake Out, Knock Off, Close Combat, Heavy Slam. Lead disruption, item removal and Fairy coverage.
+- Grapploct: Technician + Leftovers; Octolock, Drain Punch, Liquidation, Sucker Punch. Trapping/defense erosion and Psychic/Ghost coverage.
+- Conkeldurr: Guts + Flame Orb; Drain Punch, Mach Punch, Facade, Ice Punch. Status resilience, priority and Flying coverage. Repeated held items are acceptable unless target rules prohibit them; alternate item if needed.
+- Kommo-o: Soundproof + Throat Spray; Clangorous Soul, Clanging Scales, Aura Sphere, Flamethrower. Special setup and physical-wall breaking; ensure Throat Spray triggers correctly and AI recognizes setup costs.
+- Rapid Strike Urshifu: Unseen Fist + Mystic Water; Surging Strikes, Close Combat, Aqua Jet, U-turn. Critical-hit pressure, pivot and priority.
+- Lucario: Lucarionite; Mega Adaptability; Nasty Plot, Aura Sphere, Flash Cannon, Vacuum Wave. Special finisher, Fairy coverage and priority; select pre-Mega ability during validation.
+Validate all moves, items, abilities, forms, Mega triggers and AI against target build; preserve intended roles if substitutions are necessary. Brawly is locked until all preceding six badges; rewards Rank 5 qualification (Hale promotes), advanced underwater exploration equipment, Bulk Up and Knuckle Badge. Wally grants Strength gear and sixth-badge eligibility for Dewford. Other prior approved reward specifications remain intact; higher Ranger equipment/rank triggers not explicitly finalized remain balance/implementation proposals. Verify correct ordinal badge flags throughout, TM availability (particularly Metal Claw and Ancient Power), reward idempotency, and Victory Road gates. Do not change existing Gym flags blindly. Implementation, compile, emulator testing and original Mega art are separate milestones. Finish current Chapters 1–3 blockers first.
