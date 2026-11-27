@@ -42,7 +42,7 @@ EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GLACIA, EverGrandeCity_GlaciasRoom_Text_Defeat
+	trainerbattle_double TRAINER_TATE_AND_LIZA_1, EverGrandeCity_GlaciasRoom_NeoDoubleIntro, EverGrandeCity_GlaciasRoom_Text_Defeat, EverGrandeCity_GlaciasRoom_NeoNeedTwo
 	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
 	end
 
@@ -59,25 +59,37 @@ EverGrandeCity_GlaciasRoom_EventScript_Defeated::
 	end
 
 EverGrandeCity_GlaciasRoom_Text_IntroSpeech:
-	.string "Welcome, my name is GLACIA\n"
-	.string "of the ELITE FOUR.\p"
-	.string "I've traveled from afar to HOENN\n"
-	.string "so that I may hone my ice skills.\p"
-	.string "But all I have seen are challenges by\n"
-	.string "weak TRAINERS and their POKéMON.\p"
-	.string "What about you?\p"
-	.string "It would please me to no end if I could\n"
-	.string "go all out against you!$"
+	.string "TATE & LIZA: Welcome!\p"
+	.string "Two minds, one battle.$"
 
 EverGrandeCity_GlaciasRoom_Text_Defeat:
-	.string "You and your POKéMON…\n"
-	.string "How hot your spirits burn!\p"
-	.string "The all-consuming heat overwhelms.\p"
-	.string "It's no surprise that my icy skills\n"
-	.string "failed to harm you.$"
+	.string "A well-earned victory.$"
 
 EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
-	.string "Advance to the next room.\p"
-	.string "And there, confirm the truly fearsome\n"
-	.string "side of the POKéMON LEAGUE.$"
+	.string "Proceed to the next chamber.$"
 
+EverGrandeCity_GlaciasRoom_NeoDoubleIntro:
+	.string "Let's battle together!$"
+EverGrandeCity_GlaciasRoom_NeoNeedTwo:
+	.string "You need two able POKéMON.\p"
+	.string "Speak to LIZA to withdraw.$"
+EverGrandeCity_GlaciasRoom_NeoWithdraw::
+	lock
+	faceplayer
+	msgbox EverGrandeCity_GlaciasRoom_NeoWithdrawText, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, EverGrandeCity_GlaciasRoom_NeoStay
+	clearflag FLAG_DEFEATED_ELITE_4_SIDNEY
+	clearflag FLAG_DEFEATED_ELITE_4_PHOEBE
+	clearflag FLAG_DEFEATED_ELITE_4_GLACIA
+	clearflag FLAG_DEFEATED_ELITE_4_DRAKE
+	setvar VAR_ELITE_4_STATE, 0
+	warp MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F, 9, 9
+	waitstate
+	release
+	end
+EverGrandeCity_GlaciasRoom_NeoStay:
+	release
+	end
+EverGrandeCity_GlaciasRoom_NeoWithdrawText:
+	.string "Return to the LEAGUE lobby?\p"
+	.string "Your challenge will restart.$"
