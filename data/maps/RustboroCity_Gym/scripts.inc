@@ -5,7 +5,7 @@ RustboroCity_Gym_EventScript_Roxanne::
 	trainerbattle_single TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, RustboroCity_Gym_EventScript_RoxanneRematch
-	goto_if_unset FLAG_RECEIVED_TM_ROCK_TOMB, RustboroCity_Gym_EventScript_GiveRockTomb
+	goto_if_unset FLAG_NEO_RECEIVED_TM_METAL_CLAW, RustboroCity_Gym_EventScript_GiveMetalClaw
 	msgbox RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -19,14 +19,14 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setflag FLAG_BADGE01_GET
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
-	goto RustboroCity_Gym_EventScript_GiveRockTomb
+	goto RustboroCity_Gym_EventScript_GiveMetalClaw
 	end
 
-RustboroCity_Gym_EventScript_GiveRockTomb::
-	giveitem ITEM_TM_ROCK_TOMB
+RustboroCity_Gym_EventScript_GiveMetalClaw::
+	giveitem ITEM_TM_METAL_CLAW
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_ROCK_TOMB
-	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	setflag FLAG_NEO_RECEIVED_TM_METAL_CLAW
+	msgbox RustboroCity_Gym_Text_ExplainMetalClaw, MSGBOX_DEFAULT
 	release
 	end
 
@@ -175,15 +175,10 @@ RustboroCity_Gym_Text_StoneBadgeInfoTakeThis:
 	.string "The STONE BADGE is proof of\nyour progress as a TRAINER.\p"
 	.string "If you're a RANGER, report to HALE\nfor your equipment certification.$"
 
-RustboroCity_Gym_Text_ExplainRockTomb:
-	.string "That TECHNICAL MACHINE, TM39,\n"
-	.string "contains ROCK TOMB.\p"
-	.string "It not only inflicts damage by dropping\n"
-	.string "rocks, it also lowers SPEED.\p"
-	.string "If you use a TM, it instantly teaches\n"
-	.string "the move to a POKéMON.\p"
-	.string "Remember, a TM can be used only once,\n"
-	.string "so think before you use it.$"
+RustboroCity_Gym_Text_ExplainMetalClaw:
+	.string "TM51 contains METAL CLAW.\p"
+	.string "This STEEL-type attack may\n"
+	.string "raise your POKéMON's ATTACK.$"
 
 RustboroCity_Gym_Text_RoxannePostBattle:
 	.string "Since you are so strong, you should\n"

@@ -868,7 +868,12 @@
 #define TRAINER_NEO_TUNNEL         856
 #define TRAINER_NEO_MAY_EXHIBITION 857
 #define TRAINER_NEO_MAY_NULL       858
-#define TRAINERS_COUNT_EMERALD     859
+#define TRAINER_NEO_FLINT             859
+#define TRAINER_NEO_STERN             860
+#define TRAINER_NEO_CORAL             861
+#define TRAINER_NEO_GIOVANNI          862
+#define TRAINER_NEO_HALE              863
+#define TRAINERS_COUNT_EMERALD     864
 #define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG

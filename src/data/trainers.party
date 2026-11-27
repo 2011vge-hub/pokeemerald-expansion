@@ -4866,33 +4866,51 @@ Class: Leader
 Pic: Leader Brawly
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Machop
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Karate Chop
-- Low Kick
-- Seismic Toss
-- Bulk Up
+Hariyama
+Level: 54
+- Fake Out
+- Drain Punch
+- Knock Off
+- Bullet Punch
 
-Meditite
-Level: 16
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Focus Punch
-- Light Screen
-- Reflect
+Grapploct
+Level: 55
+- Octolock
+- Drain Punch
 - Bulk Up
+- Protect
 
-Makuhita @ Sitrus Berry
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Arm Thrust
-- Vital Throw
-- Reversal
-- Bulk Up
+Conkeldurr @ Flame Orb
+Level: 56
+Ability: Guts
+- Drain Punch
+- Mach Punch
+- Facade
+- Knock Off
+
+Kommo-o
+Level: 57
+- Clanging Scales
+- Close Combat
+- Iron Defense
+- Body Press
+
+Urshifu Rapid Strike
+Level: 58
+- Surging Strikes
+- Close Combat
+- Aqua Jet
+- U Turn
+
+Lucario @ Lucarionite
+Level: 59
+- Aura Sphere
+- Flash Cannon
+- Dark Pulse
+- Nasty Plot
 
 === TRAINER_WATTSON_1 ===
 Name: WATTSON
@@ -4900,41 +4918,50 @@ Class: Leader
 Pic: Leader Wattson
 Gender: Male
 Music: Male
-Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Voltorb
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rollout
-- Spark
-- Self Destruct
-- Shock Wave
+Electrode
+Level: 42
+- Thunderbolt
+- Volt Switch
+- Light Screen
+- Reflect
 
-Electrike
-Level: 20
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Shock Wave
-- Leer
-- Quick Attack
-- Howl
-
-Magneton
-Level: 22
-IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Supersonic
-- Shock Wave
+Magnezone
+Level: 43
+- Thunderbolt
+- Flash Cannon
+- Volt Switch
 - Thunder Wave
-- Sonic Boom
 
-Manectric @ Sitrus Berry
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Quick Attack
-- Thunder Wave
-- Shock Wave
-- Howl
+Ampharos
+Level: 44
+- Discharge
+- Dragon Pulse
+- Power Gem
+- Cotton Guard
+
+Rotom Wash
+Level: 45
+- Hydro Pump
+- Volt Switch
+- Will O Wisp
+- Thunderbolt
+
+Electivire
+Level: 46
+- Thunder Punch
+- Ice Punch
+- Fire Punch
+- Low Kick
+
+Manectric @ Manectite
+Level: 48
+- Thunderbolt
+- Flamethrower
+- Volt Switch
+- Hidden Power
 
 === TRAINER_FLANNERY_1 ===
 Name: FLANNERY
@@ -4942,41 +4969,51 @@ Class: Leader
 Pic: Leader Flannery
 Gender: Female
 Music: Female
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-Numel
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Take Down
-- Magnitude
-- Sunny Day
-
-Slugma
-Level: 24
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Overheat
-- Smog
-- Light Screen
-- Sunny Day
-
 Camerupt
-Level: 26
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
-- Tackle
-- Sunny Day
-- Attract
+Level: 28
+- Lava Plume
+- Earth Power
+- Rock Slide
+- Amnesia
 
-Torkoal @ White Herb
+Torkoal
 Level: 29
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Overheat
+Ability: Drought
+- Lava Plume
+- Rapid Spin
+- Yawn
+- Protect
+
+Salazzle
+Level: 30
+- Flame Burst
+- Sludge Bomb
+- Toxic
+- Nasty Plot
+
+Talonflame
+Level: 31
+- Flame Charge
+- Acrobatics
+- Roost
+- Quick Attack
+
+Arcanine
+Level: 32
+- Fire Fang
+- Extreme Speed
+- Crunch
+- Morning Sun
+
+Houndoom @ Houndoominite
+Level: 34
+- Flamethrower
+- Dark Pulse
+- Nasty Plot
 - Sunny Day
-- Body Slam
-- Attract
 
 === TRAINER_NORMAN_1 ===
 Name: NORMAN
@@ -17232,4 +17269,260 @@ Ability: Truant
 - Earthquake
 - Shadow Claw
 - Slack Off
+
+
+=== TRAINER_NEO_FLINT ===
+Name: FLINT
+Class: Leader
+Pic: Expert M
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Shieldon @ Eviolite
+Level: 21
+- Rock Tomb
+- Metal Claw
+- Protect
+- Taunt
+
+Amaura
+Level: 22
+- Ancient Power
+- Icy Wind
+- Thunder Wave
+- Aurora Beam
+
+Cranidos
+Level: 23
+- Headbutt
+- Rock Tomb
+- Assurance
+- Leer
+
+Kabutops
+Level: 24
+- Aqua Jet
+- Rock Slide
+- Absorb
+- Hone Claws
+
+Dracovish
+Level: 25
+- Water Gun
+- Bite
+- Ancient Power
+- Protect
+
+Tyrunt @ Sitrus Berry
+Level: 26
+- Rock Tomb
+- Bite
+- Dragon Tail
+- Hone Claws
+
+=== TRAINER_NEO_STERN ===
+Name: STERN
+Class: Leader
+Pic: Sailor
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Relicanth
+Level: 36
+- Rock Slide
+- Aqua Tail
+- Yawn
+- Protect
+
+Golisopod
+Level: 37
+- First Impression
+- Razor Shell
+- Sucker Punch
+- Protect
+
+Clawitzer
+Level: 38
+- Water Pulse
+- Aura Sphere
+- Dark Pulse
+- Ice Beam
+
+Huntail
+Level: 39
+- Aqua Tail
+- Crunch
+- Ice Fang
+- Shell Smash
+
+Gorebyss
+Level: 40
+- Scald
+- Ice Beam
+- Psychic
+- Aqua Ring
+
+Sharpedo @ Sharpedonite
+Level: 41
+- Crunch
+- Waterfall
+- Ice Fang
+- Protect
+
+=== TRAINER_NEO_CORAL ===
+Name: CORAL
+Class: Leader
+Pic: Expert F
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Glimmora @ Focus Sash
+Level: 63
+- Stealth Rock
+- Sludge Wave
+- Power Gem
+- Earth Power
+
+Toxapex @ Black Sludge
+Level: 64
+- Toxic
+- Recover
+- Haze
+- Scald
+
+Overqwil
+Level: 64
+- Barb Barrage
+- Crunch
+- Aqua Tail
+- Swords Dance
+
+Dragalge
+Level: 65
+- Draco Meteor
+- Sludge Bomb
+- Hydro Pump
+- Thunderbolt
+
+Sneasler
+Level: 66
+- Close Combat
+- Dire Claw
+- Acrobatics
+- Swords Dance
+
+Gengar @ Gengarite
+Level: 68
+- Shadow Ball
+- Sludge Bomb
+- Focus Blast
+- Destiny Bond
+
+=== TRAINER_NEO_GIOVANNI ===
+Name: GIOVANNI
+Class: Elite Four
+Pic: Leader Giovanni FRLG
+Gender: Male
+Music: Elite Four
+Double Battle: No
+AI: Basic Trainer
+
+Nidoking
+Level: 70
+- Earth Power
+- Sludge Wave
+- Ice Beam
+- Thunderbolt
+
+Rhyperior
+Level: 71
+- Earthquake
+- Rock Blast
+- Megahorn
+- Stealth Rock
+
+Excadrill
+Level: 71
+- Earthquake
+- Iron Head
+- Rapid Spin
+- Swords Dance
+
+Gliscor
+Level: 72
+- Earthquake
+- U Turn
+- Roost
+- Toxic
+
+Groudon
+Level: 73
+- Earthquake
+- Fire Punch
+- Stone Edge
+- Swords Dance
+
+Garchomp @ Garchompite
+Level: 74
+- Earthquake
+- Dragon Claw
+- Stone Edge
+- Fire Fang
+
+=== TRAINER_NEO_HALE ===
+Name: HALE
+Class: Pkmn Ranger
+Pic: Pokemon Ranger M
+Gender: Male
+Music: Cool
+Double Battle: No
+AI: Basic Trainer
+
+Arcanine
+Level: 90
+- Flare Blitz
+- Extreme Speed
+- Wild Charge
+- Morning Sun
+
+Braviary
+Level: 91
+- Brave Bird
+- Close Combat
+- U Turn
+- Roost
+
+Absol
+Level: 92
+- Night Slash
+- Sucker Punch
+- Play Rough
+- Swords Dance
+
+Swampert
+Level: 93
+- Earthquake
+- Waterfall
+- Ice Punch
+- Stealth Rock
+
+Dragonite
+Level: 94
+- Dragon Claw
+- Extreme Speed
+- Fire Punch
+- Dragon Dance
+
+Breloom
+Level: 95
+- Spore
+- Mach Punch
+- Bullet Seed
+- Drain Punch
 

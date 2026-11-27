@@ -445,3 +445,44 @@ NeoRioluEgg_DeclinedText:
 NeoRioluEgg_NoRoomText:
 	.string "Make room in your party first.\n"
 	.string "I'll keep the EGG safe for you.$"
+
+@ Public exhibition only. Temporary adult NPC until the approved May art is installed.
+RustboroCity_PokemonSchool_EventScript_NeoMayExhibition::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE01_GET, NeoMayExhibition_NoBadge
+	goto_if_defeated TRAINER_NEO_MAY_EXHIBITION, NeoMayExhibition_Won
+	msgbox NeoMayExhibition_Offer, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, NeoMayExhibition_Decline
+	trainerbattle_no_intro TRAINER_NEO_MAY_EXHIBITION, NeoMayExhibition_Defeat
+NeoMayExhibition_Won:
+	msgbox NeoMayExhibition_After, MSGBOX_DEFAULT
+	release
+	end
+NeoMayExhibition_NoBadge:
+	msgbox NeoMayExhibition_Introduction, MSGBOX_DEFAULT
+	release
+	end
+NeoMayExhibition_Decline:
+	msgbox NeoMayExhibition_Later, MSGBOX_DEFAULT
+	release
+	end
+NeoMayExhibition_Introduction:
+	.string "MAY: Hello! I'm a visiting\n"
+	.string "CONTEST COORDINATOR.\p"
+	.string "Earn your first BADGE, then\n"
+	.string "we can have a friendly match.$"
+NeoMayExhibition_Offer:
+	.string "MAY: Ready for a friendly\n"
+	.string "exhibition battle?\p"
+	.string "Let's show what our partners\n"
+	.string "can do together!$"
+NeoMayExhibition_Defeat:
+	.string "Wonderful teamwork!$"
+NeoMayExhibition_After:
+	.string "MAY: Your partners trust you.\p"
+	.string "Keep that bond, wherever your\n"
+	.string "RANGER duties take you.$"
+NeoMayExhibition_Later:
+	.string "No rush! Come back whenever\n"
+	.string "you're ready.$"

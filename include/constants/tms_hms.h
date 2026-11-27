@@ -51,7 +51,11 @@
     F(STEEL_WING) \
     F(SKILL_SWAP) \
     F(SNATCH) \
-    F(OVERHEAT)
+    F(OVERHEAT) \
+    F(METAL_CLAW) \
+    F(ANCIENT_POWER) \
+    F(SCALD) \
+    F(FLASH_CANNON)
 
 #define FOREACH_HM(F) \
     F(CUT) \
