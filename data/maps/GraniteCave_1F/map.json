@@ -40,6 +40,62 @@
       "trainer_sight_or_berry_tree_id": "ITEM_ESCAPE_ROPE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE"
+    },
+    {
+      "local_id": "LOCALID_NEO_CAVE_CREW",
+      "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
+      "x": 31,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GraniteCave_NeoRefugeCrew",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_NEO_CAVE_SURVEYOR",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 34,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GraniteCave_NeoRefugeSurveyor",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_NEO_CAVE_SUPPLIES",
+      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+      "x": 30,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GraniteCave_NeoSupplies",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_NEO_CAVE_SUPPLIES_2",
+      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+      "x": 33,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GraniteCave_NeoSupplies",
+      "flag": "0"
     }
   ],
   "warp_events": [

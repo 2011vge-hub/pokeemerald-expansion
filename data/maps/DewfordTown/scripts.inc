@@ -838,7 +838,7 @@ DewfordTown_NeoSurveyBrief:
 	.string "BRAWLY: The cave crew sent word.\p"
 	.string "Head north onto ROUTE 106.\n"
 	.string "Find the HIKER in GRANITE CAVE.\p"
-	.string "Check the survey with him.\n"
+	.string "Check the refuge and survey.\n"
 	.string "Bring the result back to HALE.$"
 DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"

@@ -44,6 +44,8 @@ GraniteCave_1F_Text_ExplainFlash:
 GraniteCave_NeoSurvey:
 	goto_if_set FLAG_NEO_C4_SURVEY, GraniteCave_NeoSurveyReminder
 	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
+	goto_if_unset FLAG_NEO_C4_CREW_CHECKED, GraniteCave_NeoRefugeDirections
+	goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoRefugeDirections
 	msgbox GraniteCave_NeoSurveyText, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C4_SURVEY
 GraniteCave_NeoSurveyReminder:
@@ -67,3 +69,44 @@ GraniteCave_NeoSurveyReminderText:
 GraniteCave_NeoAwaitText:
 	.string "HIKER: Speak to BRAWLY about\n"
 	.string "the survey before you go deeper.$"
+
+GraniteCave_NeoRefugeDirections:
+	msgbox GraniteCave_NeoRefugeDirectionsText, MSGBOX_DEFAULT
+	release
+	end
+GraniteCave_NeoRefugeCrew::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
+	msgbox GraniteCave_NeoCrewText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C4_CREW_CHECKED
+	release
+	end
+GraniteCave_NeoRefugeSurveyor::
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
+	msgbox GraniteCave_NeoReadingText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C4_READING_CHECKED
+	release
+	end
+GraniteCave_NeoSupplies::
+	msgbox GraniteCave_NeoSuppliesText, MSGBOX_SIGN
+	end
+GraniteCave_NeoRefugeDirectionsText:
+	.string "HIKER: Check the two people\n"
+	.string "at the shelter just west of here.\p"
+	.string "Check the crew and the readings.\n"
+	.string "Then come back to me.$"
+GraniteCave_NeoCrewText:
+	.string "WORKER: Everyone is accounted\n"
+	.string "for. Our supplies are dry.\p"
+	.string "We'll stay clear of the lower\n"
+	.string "caves until the survey is done.$"
+GraniteCave_NeoReadingText:
+	.string "SURVEYOR: The rock has shifted.\p"
+	.string "FLINT's inland team needs\n"
+	.string "a copy of these readings.$"
+GraniteCave_NeoSuppliesText:
+	.string "Emergency shelter supplies.\n"
+	.string "Water, blankets and ropes.$"

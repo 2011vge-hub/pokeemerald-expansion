@@ -84,8 +84,8 @@
 #define FLAG_NEO_SHOAL_HIGH_RECORDED 0x3E // Neo regional field records
 #define FLAG_NEO_SHOAL_REPORTED 0x3F // Neo regional field records
 #define FLAG_NEO_SKY_HISTORY_READ 0x40 // Neo regional field records
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
+#define FLAG_NEO_C4_CREW_CHECKED 0x41 // Refuge welfare check
+#define FLAG_NEO_C4_READING_CHECKED 0x42 // Refuge geology check
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
 #define FLAG_UNUSED_0x045    0x45 // Unused Flag

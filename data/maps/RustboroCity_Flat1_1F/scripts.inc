@@ -24,8 +24,7 @@ NeoOffice_Hale::
 	goto_if_eq VAR_NEO_CH3_STEP, 9, NeoOffice_Complete
 	goto_if_eq VAR_NEO_CH3_STEP, 8, NeoOffice_Report
 	goto_if_ge VAR_NEO_CH3_STEP, 6, NeoOffice_Tunnel
-	call MossdeepCity_RangerBase_2F_EventScript_CountBadges
-	goto_if_eq VAR_0x8004, 0, NeoOffice_Badge
+	goto_if_unset FLAG_BADGE01_GET, NeoOffice_Badge
 	goto_if_ge VAR_NEO_RANGER_RANK, RANGER_RANK_RANGER, NeoOffice_Install
 	setvar VAR_NEO_RANGER_RANK, RANGER_RANK_RANGER
 NeoOffice_Install:
