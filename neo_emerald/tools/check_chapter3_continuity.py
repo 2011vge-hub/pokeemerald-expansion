@@ -86,7 +86,8 @@ station = mp("GraniteCave_SurveyStation")
 entrance = mp("GraniteCave_1F")
 assert any(o["script"] == "GraniteCave_NeoRefugeCrew" for o in hall["object_events"])
 assert any(o["script"] == "GraniteCave_NeoRefugeSurveyor" for o in station["object_events"])
-cave_maps = {m["id"]: m for m in (hall, station, entrance)}
+annex = mp("GraniteCave_ResidentialAnnex")
+cave_maps = {m["id"]: m for m in (hall, station, entrance, annex)}
 for source in cave_maps.values():
     for i, warp in enumerate(source["warp_events"]):
         if warp["dest_map"] not in cave_maps:
@@ -94,3 +95,63 @@ for source in cave_maps.values():
         back = cave_maps[warp["dest_map"]]["warp_events"][int(warp["dest_warp_id"])]
         assert back["dest_map"] == source["id"] and int(back["dest_warp_id"]) == i
 print("Field Log dispatch and refuge warp references passed (static only)")
+
+
+# The residential annex must be included in the same release gate.
+# Verify the actual little-endian engine blockdata from the checkout, not
+# rendered previews or remotely transported binary data.
+import struct
+from collections import deque
+layouts = {item["id"]: item for item in json.loads(read("data/layouts/layouts.json"))["layouts"]}
+assembly = read("data/event_scripts.s")
+groups = json.loads(read("data/maps/map_groups.json"))
+assert any(w["dest_map"] == annex["id"] for w in hall["warp_events"])
+assert any(w["dest_map"] == hall["id"] for w in annex["warp_events"])
+assert any(o["script"] == "GraniteCave_AnnexResident" for o in annex["object_events"])
+assert any(o["script"] == "GraniteCave_AnnexRoster" for o in annex["bg_events"])
+for room in (hall, station, annex):
+    name = room["name"]
+    assert f'.include "data/maps/{name}/scripts.inc"' in assembly, name
+    assert any(isinstance(group, list) and name in group for group in groups.values()), name
+    layout = layouts[room["layout"]]
+    width, height = layout["width"], layout["height"]
+    raw = (R / layout["blockdata_filepath"]).read_bytes()
+    assert len(raw) == width * height * 2, (name, "blockdata bytes", len(raw), width * height * 2)
+    blocks = struct.unpack(f"<{width * height}H", raw)
+    def in_bounds(x, y):
+        return 0 <= x < width and 0 <= y < height
+    def neighbors(x, y):
+        return [(nx, ny) for nx, ny in ((x-1,y),(x+1,y),(x,y-1),(x,y+1)) if in_bounds(nx, ny)]
+    def walkable(x, y):
+        if not in_bounds(x, y):
+            return False
+        block = blocks[y * width + x]
+        return ((block >> 10) & 3) == 0 and (block >> 12) in (0, 3)
+    events = room["warp_events"] + room["object_events"] + room["bg_events"]
+    for event in events:
+        pos = (event["x"], event["y"])
+        assert in_bounds(*pos), (name, "event outside layout", event)
+    for event in room["warp_events"] + room["object_events"]:
+        pos = (event["x"], event["y"])
+        assert walkable(*pos), (name, "blocked or wrong-elevation event", event)
+        assert event["elevation"] in (0, 3), (name, "unexpected event elevation", event)
+    occupied = {(o["x"], o["y"]) for o in room["object_events"]}
+    warps = [(w["x"], w["y"]) for w in room["warp_events"]]
+    assert len(occupied) == len(room["object_events"]), (name, "overlapping NPCs")
+    assert len(set(warps)) == len(warps) and not occupied.intersection(warps), (name, "overlapping warp")
+    # Collision-only reachability; actual warp behavior, facing, and sprite
+    # display still require the emulator.
+    for start in warps:
+        visited = {start}
+        queue = deque([start])
+        while queue:
+            x, y = queue.popleft()
+            for pos in neighbors(x, y):
+                if pos not in visited and pos not in occupied and walkable(*pos):
+                    visited.add(pos)
+                    queue.append(pos)
+        assert set(warps) <= visited, (name, "disconnected warp approaches", start)
+        for event in room["object_events"] + room["bg_events"]:
+            pos = (event["x"], event["y"])
+            assert any(adj in visited for adj in neighbors(*pos)), (name, "unreachable contact", event)
+print("Cave settlement blockdata, event positions and collision-only routes passed (emulator still required)")
