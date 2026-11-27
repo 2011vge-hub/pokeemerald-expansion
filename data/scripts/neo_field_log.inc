@@ -2,7 +2,7 @@ NeoRanger_FieldLog::
 	lockall
 	goto_if_set FLAG_NEO_C4_REPORTED, NeoLog_Filed
 	goto_if_set FLAG_NEO_C4_SURVEY, NeoLog_SailHome
-	goto_if_set FLAG_NEO_C4_BRIEF, NeoLog_Refuge
+	goto_if_set FLAG_NEO_C4_BRIEF, NeoLog_RefugeProgress
 	goto_if_eq VAR_NEO_CH3_STEP, 9, NeoLog_Dewford
 	goto_if_eq VAR_NEO_CH3_STEP, 8, NeoLog_RelayReport
 	goto_if_eq VAR_NEO_CH3_STEP, 12, NeoLog_Copy
@@ -28,8 +28,20 @@ NeoLog_Filed:
 NeoLog_SailHome:
 	msgbox NeoLog_SailHomeText, MSGBOX_DEFAULT
 	goto NeoLog_Close
-NeoLog_Refuge:
+NeoLog_RefugeProgress:
+	goto_if_set FLAG_NEO_C4_CREW_CHECKED, NeoLog_CrewChecked
+	goto_if_set FLAG_NEO_C4_READING_CHECKED, NeoLog_Bunks
 	msgbox NeoLog_RefugeText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_CrewChecked:
+	goto_if_set FLAG_NEO_C4_READING_CHECKED, NeoLog_CaveReport
+	msgbox NeoLog_GaugeText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_Bunks:
+	msgbox NeoLog_BunksText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_CaveReport:
+	msgbox NeoLog_CaveReportText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Dewford:
 	msgbox NeoLog_DewfordText, MSGBOX_DEFAULT
@@ -90,9 +102,25 @@ NeoLog_FiledText:
 NeoLog_SailHomeText:
 	.string "Take Briney back to Route 104.\nReport to Hale in west Rustboro.$"
 NeoLog_RefugeText:
-	.string "Granite Cave, north of Dewford.\nCheck the refuge crew and gauge.\lBring both readings to the Hiker.$"
+	.string "Route 106: enter GRANITE CAVE.\p"
+	.string "Take the ladder by the crates.\n"
+	.string "Check the bunk warden, then\l"
+	.string "the gauge keeper to the east.$"
+NeoLog_BunksText:
+	.string "Gauge readings copied.\p"
+	.string "Return to the refuge bunks.\n"
+	.string "Check the bunk warden.$"
+NeoLog_GaugeText:
+	.string "Refuge crew accounted for.\p"
+	.string "Head east from the bunks.\n"
+	.string "Speak to the gauge keeper.$"
+NeoLog_CaveReportText:
+	.string "Both checks are complete.\p"
+	.string "Return up the refuge ladder.\n"
+	.string "Report to the Hiker near the\l"
+	.string "cave entrance.$"
 NeoLog_DewfordText:
-	.string "Ask Briney at his Route 104\ncottage for passage to Dewford.\lFind Brawly outside the Gym.$"
+	.string "Ask Briney at his Route 104\ncottage for passage to Dewford.\lFind BRAWLY at or in the GYM.$"
 NeoLog_RelayReportText:
 	.string "Take the relay copy to Hale.\nHis office is in west Rustboro.$"
 NeoLog_CopyText:
@@ -106,7 +134,10 @@ NeoLog_CutterText:
 NeoLog_BadgeText:
 	.string "Earn Roxanne's Stone Badge.\nSee Hale in the west field office\lfor your Cutter certification.$"
 NeoLog_LiaisonText:
-	.string "Return to Rustboro University.\nGive the campus field student\lBriney's manifest number.$"
+	.string "Return to RUSTBORO UNIVERSITY.\p"
+	.string "Find the field student outside\n"
+	.string "the university entrance. Give\l"
+	.string "BRINEY's manifest number.$"
 NeoLog_BrineyText:
 	.string "The cargo is safe. Find Briney\nin his cottage on Route 104.$"
 NeoLog_CargoText:
