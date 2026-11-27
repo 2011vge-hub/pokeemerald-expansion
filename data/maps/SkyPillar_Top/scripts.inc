@@ -1,11 +1,9 @@
 SkyPillar_Top_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, SkyPillar_Top_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Top_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, SkyPillar_Top_OnWarp
 	.byte 0
 
 SkyPillar_Top_OnResume:
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, SkyPillar_Top_EventScript_TryRemoveRayquaza
 	end
 
 SkyPillar_Top_EventScript_TryRemoveRayquaza::
@@ -15,8 +13,8 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 	return
 
 SkyPillar_Top_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
-	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
@@ -41,21 +39,11 @@ SkyPillar_Top_EventScript_RayquazaFaceDown::
 	end
 
 SkyPillar_Top_EventScript_Rayquaza::
-	lockall
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setwildbattle SPECIES_RAYQUAZA, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRayquaza
-	setflag FLAG_DEFEATED_RAYQUAZA
-	releaseall
+	lock
+	faceplayer
+	msgbox SkyPillar_NeoHistoryText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_SKY_HISTORY_READ
+	release
 	end
 
 SkyPillar_Top_EventScript_DefeatedRayquaza::
@@ -85,52 +73,9 @@ SkyPillar_Top_EventScript_RanFromRayquaza2::
 	end
 
 SkyPillar_Top_EventScript_AwakenRayquaza::
-	lockall
-	fadeoutbgm 1
-	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	special SpawnCameraObject
-	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanUp
-	waitmovement 0
-	special RemoveCameraObject
-	applymovement LOCALID_RAYQUAZA_SLEEPING, SkyPillar_Top_Movement_RayquazaStir
-	waitmovement 0
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 3  @ shake delay
-	special ShakeCamera
-	waitstate
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 2  @ horizontal pan
-	setvar VAR_0x8006, 8  @ num shakes
-	setvar VAR_0x8007, 5  @ shake delay
-	special ShakeCamera
-	waitstate
-	waitmoncry
-	applymovement LOCALID_RAYQUAZA_SLEEPING, SkyPillar_Top_Movement_RayquazaFlyOff
-	waitmovement 0
-	removeobject LOCALID_RAYQUAZA_SLEEPING
-	msgbox SkyPillar_Top_Text_RayquazaFlewOff, MSGBOX_DEFAULT
-	closemessage
-	delay 20
-	fadeinbgm 1
-	special SpawnCameraObject
-	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
-	waitmovement 0
-	special RemoveCameraObject
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
-	setvar VAR_SKY_PILLAR_STATE, 1
-	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
 	releaseall
 	end
 
-@ Rayquaza has unusual movement frames
-@ See comments, or sAnimTable_Rayquaza
 SkyPillar_Top_Movement_RayquazaStir:
 	delay_16
 	walk_in_place_fast_left  @ Coiled, awake
@@ -180,3 +125,10 @@ SkyPillar_Top_Movement_CameraPanDown:
 SkyPillar_Top_Text_RayquazaFlewOff:
 	.string "The awakened RAYQUAZA flew off…$"
 
+
+SkyPillar_NeoHistoryText:
+	.string "The old stories tell of land,\n"
+	.string "sea and the sky above them.\p"
+	.string "RAYQUAZA once calmed their clash.\p"
+	.string "These records are a reminder:\n"
+	.string "HOENN must live in balance.$"

@@ -9,7 +9,11 @@ MauvilleCity_OnTransition:
 	setflag FLAG_SYS_TV_START
 	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
 	setvar VAR_MAUVILLE_GYM_STATE, 0
-	call_if_set FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON, MauvilleCity_EventScript_MoveWattsonBackToGym
+	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
+	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
+	setflag FLAG_HIDE_MAUVILLE_CITY_WALLY
+	setflag FLAG_HIDE_MAUVILLE_CITY_WALLYS_UNCLE
+	setflag FLAG_HIDE_MAUVILLE_CITY_SCOTT
 	end
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::
@@ -23,7 +27,13 @@ MauvilleCity_EventScript_Boy::
 	end
 
 MauvilleCity_EventScript_Maniac::
-	msgbox MauvilleCity_Text_AllSortsOfPeopleComeThrough, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE05_GET, Mauville_NeoGridWait
+	goto_if_set FLAG_NEO_GRID_REPORTED, Mauville_NeoGridDone
+	goto_if_unset FLAG_NEO_GRID_ASSIGNED, Mauville_NeoGridOffer
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, Mauville_NeoGridReport
+	goto Mauville_NeoGridDirections
 	end
 
 MauvilleCity_EventScript_Woman::
@@ -662,3 +672,58 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+Mauville_NeoGridWait:
+	msgbox Mauville_NeoGridWaitText, MSGBOX_DEFAULT
+	release
+	end
+Mauville_NeoGridOffer:
+	msgbox Mauville_NeoGridOfferText, MSGBOX_YESNO
+	goto_if_ne VAR_RESULT, YES, Mauville_NeoGridDecline
+	checkitem ITEM_BASEMENT_KEY
+	goto_if_eq VAR_RESULT, TRUE, Mauville_NeoGridAssigned
+	giveitem ITEM_BASEMENT_KEY
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+Mauville_NeoGridAssigned:
+	setflag FLAG_NEO_GRID_ASSIGNED
+	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, Mauville_NeoGridReport
+Mauville_NeoGridDirections:
+	msgbox Mauville_NeoGridDirectionsText, MSGBOX_DEFAULT
+	release
+	end
+Mauville_NeoGridDecline:
+	msgbox Mauville_NeoGridDeclineText, MSGBOX_DEFAULT
+	release
+	end
+Mauville_NeoGridReport:
+	setflag FLAG_NEO_GRID_REPORTED
+	call NeoOffice_MissionCredit
+	msgbox Mauville_NeoGridReportText, MSGBOX_DEFAULT
+	release
+	end
+Mauville_NeoGridDone:
+	msgbox Mauville_NeoGridReportText, MSGBOX_DEFAULT
+	release
+	end
+Mauville_NeoGridWaitText:
+	.string "I'm with the power survey team.\p"
+	.string "WATTSON authorizes field work\n"
+	.string "after the DYNAMO BADGE.$"
+Mauville_NeoGridOfferText:
+	.string "The old generator is unstable.\p"
+	.string "Will you isolate it and bring\n"
+	.string "back the diagnostic record?$"
+Mauville_NeoGridDirectionsText:
+	.string "NEW MAUVILLE is on ROUTE 110.\p"
+	.string "Use the key at the entrance.\n"
+	.string "When you can reach it safely,\l"
+	.string "use the red generator switch.\p"
+	.string "Return to me with the record.$"
+Mauville_NeoGridDeclineText:
+	.string "Come back when you're ready.$"
+Mauville_NeoGridReportText:
+	.string "The old grid is isolated.\p"
+	.string "Its records include a break in\n"
+	.string "the regional warning network.\p"
+	.string "I'll send them to DEVON for\n"
+	.string "comparison with the coast.$"

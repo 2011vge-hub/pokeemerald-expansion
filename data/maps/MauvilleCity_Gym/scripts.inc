@@ -85,7 +85,7 @@ MauvilleCity_Gym_EventScript_Wattson::
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
 	goto_if_unset FLAG_NEO_RECEIVED_TM_THUNDERBOLT, MauvilleCity_Gym_EventScript_GiveShockWave2
 	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
-	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Gym_NeoGridHint, MSGBOX_DEFAULT
 	release
 	end
 
@@ -133,7 +133,7 @@ MauvilleCity_Gym_EventScript_GiveShockWave::
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville::
-	msgbox MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Gym_NeoGridHint, MSGBOX_DEFAULT
 	release
 	end
 
@@ -431,3 +431,9 @@ MauvilleCity_Gym_NeoWait:
 MauvilleCity_Gym_NeoWaitText:
 	.string "Earn your first four BADGES\n"
 	.string "before challenging this GYM.$"
+
+MauvilleCity_Gym_NeoGridHint:
+	.string "WATTSON: Hoho! Our grid needs\n"
+	.string "a careful survey, too.\p"
+	.string "Speak to the engineer outside\n"
+	.string "near the GAME CORNER.$"

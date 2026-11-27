@@ -18,6 +18,10 @@ ShoalCave_LowTideEntranceRoom_EventScript_SetLowTide::
 ShoalCave_LowTideEntranceRoom_EventScript_ShellBellExpert::
 	lock
 	faceplayer
+	goto_if_unset FLAG_BADGE05_GET, ShoalCave_NeoCraft
+	msgbox ShoalCave_NeoOfferText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, ShoalCave_NeoRecord
+ShoalCave_NeoCraft:
 	dotimebasedevents
 	call_if_set FLAG_SYS_SHOAL_ITEM, ShoalCave_LowTideEntranceRoom_EventScript_ResetShoalItems
 	checkitem ITEM_SHOAL_SALT, 4
@@ -89,3 +93,44 @@ ShoalCave_LowTideEntranceRoom_EventScript_ResetShoalItems::
 	clearflag FLAG_RECEIVED_SHOAL_SHELL_4
 	clearflag FLAG_SYS_SHOAL_ITEM
 	return
+
+ShoalCave_NeoRecord:
+	goto_if_set FLAG_NEO_SHOAL_REPORTED, ShoalCave_NeoReported
+	goto_if_set FLAG_SYS_SHOAL_TIDE, ShoalCave_NeoHigh
+	setflag FLAG_NEO_SHOAL_LOW_RECORDED
+	msgbox ShoalCave_NeoLowText, MSGBOX_DEFAULT
+	goto ShoalCave_NeoCheck
+ShoalCave_NeoHigh:
+	setflag FLAG_NEO_SHOAL_HIGH_RECORDED
+	msgbox ShoalCave_NeoHighText, MSGBOX_DEFAULT
+ShoalCave_NeoCheck:
+	goto_if_unset FLAG_NEO_SHOAL_LOW_RECORDED, ShoalCave_NeoReturn
+	goto_if_unset FLAG_NEO_SHOAL_HIGH_RECORDED, ShoalCave_NeoReturn
+	setflag FLAG_NEO_SHOAL_REPORTED
+	call NeoOffice_MissionCredit
+ShoalCave_NeoReported:
+	msgbox ShoalCave_NeoReportedText, MSGBOX_DEFAULT
+	release
+	end
+ShoalCave_NeoReturn:
+	msgbox ShoalCave_NeoReturnText, MSGBOX_DEFAULT
+	release
+	end
+ShoalCave_NeoOfferText:
+	.string "GLACIA studies our changing ice.\p"
+	.string "Would you record this tide\n"
+	.string "for her research?$"
+ShoalCave_NeoLowText:
+	.string "Low tide reading recorded.\n"
+	.string "The ice edge has retreated.$"
+ShoalCave_NeoHighText:
+	.string "High tide reading recorded.\n"
+	.string "The water reaches new marks.$"
+ShoalCave_NeoReturnText:
+	.string "Come back at the opposite tide.\p"
+	.string "This survey can wait. You don't\n"
+	.string "need it for your main assignment.$"
+ShoalCave_NeoReportedText:
+	.string "Both tide records are complete.\p"
+	.string "I'll send them to GLACIA.\n"
+	.string "Thank you for your help.$"

@@ -77,13 +77,13 @@
 #define FLAG_NEO_METEOR_ROCK 0x37 // Neo regional story state
 #define FLAG_NEO_METEOR_REPORTED 0x38 // Neo regional story state
 #define FLAG_NEO_MAY_REVEALED 0x39 // Neo regional story state
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
+#define FLAG_NEO_VERDANTURF_VISIT 0x3A // Neo regional field records
+#define FLAG_NEO_GRID_ASSIGNED 0x3B // Neo regional field records
+#define FLAG_NEO_GRID_REPORTED 0x3C // Neo regional field records
+#define FLAG_NEO_SHOAL_LOW_RECORDED 0x3D // Neo regional field records
+#define FLAG_NEO_SHOAL_HIGH_RECORDED 0x3E // Neo regional field records
+#define FLAG_NEO_SHOAL_REPORTED 0x3F // Neo regional field records
+#define FLAG_NEO_SKY_HISTORY_READ 0x40 // Neo regional field records
 #define FLAG_UNUSED_0x041    0x41 // Unused Flag
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag

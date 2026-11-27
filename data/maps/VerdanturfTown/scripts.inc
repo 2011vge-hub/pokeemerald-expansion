@@ -10,10 +10,8 @@ VerdanturfTown_OnTransition:
 VerdanturfTown_EventScript_Twin::
 	lock
 	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_TwinTunnelOpen
-	msgbox VerdanturfTown_Text_ManTryingToDigTunnel, MSGBOX_DEFAULT
-	applymovement LOCALID_VERDANTURF_TWIN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
+	goto_if_eq VAR_NEO_CH3_STEP, 9, Verdanturf_NeoTunnelSafe
+	msgbox Verdanturf_NeoTunnelWaitText, MSGBOX_DEFAULT
 	release
 	end
 
@@ -25,7 +23,13 @@ VerdanturfTown_EventScript_TwinTunnelOpen::
 	end
 
 VerdanturfTown_EventScript_Man::
-	msgbox VerdanturfTown_Text_AirCleanHere, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_ne VAR_NEO_CH3_STEP, 9, Verdanturf_NeoGeneral
+	goto_if_set FLAG_NEO_VERDANTURF_VISIT, Verdanturf_NeoGeneral
+	msgbox Verdanturf_NeoThanksText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_VERDANTURF_VISIT
+	release
 	end
 
 VerdanturfTown_EventScript_Camper::
@@ -33,11 +37,7 @@ VerdanturfTown_EventScript_Camper::
 	end
 
 VerdanturfTown_EventScript_Boy::
-	lock
-	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_BoyTunnelOpen
-	msgbox VerdanturfTown_Text_GuyTryingToBustThroughCave, MSGBOX_DEFAULT
-	release
+	msgbox Verdanturf_NeoHabitatText, MSGBOX_NPC
 	end
 
 VerdanturfTown_EventScript_BoyTunnelOpen::
@@ -107,8 +107,8 @@ VerdanturfTown_Text_EasyToGetToRustboroNow:
 
 VerdanturfTown_Text_TownSign:
 	.string "VERDANTURF TOWN\p"
-	.string "“The windswept highlands with the\n"
-	.string "sweet fragrance of grass.”$"
+	.string "A sanctuary for people and\n"
+	.string "POKéMON.$"
 
 VerdanturfTown_Text_WandasHouse:
 	.string "WANDA'S HOUSE$"
@@ -118,8 +118,34 @@ VerdanturfTown_Text_BattleTentSign:
 	.string "“Feast Your Eyes on Battles!”$"
 
 VerdanturfTown_Text_RusturfTunnelSign:
-	.string "RUSTURF TUNNEL\n"
-	.string "“Linking RUSTBORO and VERDANTURF\p"
-	.string "“The tunnel project has been\n"
-	.string "canceled.”$"
+	.string "RUSTURF TUNNEL\p"
+	.string "Survey and maintenance corridor.\n"
+	.string "Follow RANGER safety notices.$"
 
+
+Verdanturf_NeoTunnelSafe:
+	msgbox Verdanturf_NeoSafeText, MSGBOX_DEFAULT
+	release
+	end
+Verdanturf_NeoGeneral:
+	msgbox Verdanturf_NeoGeneralText, MSGBOX_DEFAULT
+	release
+	end
+Verdanturf_NeoTunnelWaitText:
+	.string "The survey crew is working in\n"
+	.string "RUSTURF. Please give them room.$"
+Verdanturf_NeoSafeText:
+	.string "The two technicians are home!\p"
+	.string "We can tend the gardens again\n"
+	.string "without worrying about them.$"
+Verdanturf_NeoHabitatText:
+	.string "We look after POKéMON that\n"
+	.string "lost their homes in the storms.$"
+Verdanturf_NeoThanksText:
+	.string "You helped the RUSTURF crew?\p"
+	.string "Their families are grateful.\n"
+	.string "You're welcome here anytime.$"
+Verdanturf_NeoGeneralText:
+	.string "Our air is still clean.\p"
+	.string "We help people and POKéMON\n"
+	.string "recover from the coastal storms.$"

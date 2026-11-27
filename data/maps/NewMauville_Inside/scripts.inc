@@ -142,7 +142,8 @@ NewMauville_Inside_EventScript_SetBarrierStateGreenButton::
 
 NewMauville_Inside_EventScript_RedButton::
 	lockall
-	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
+	call_if_set FLAG_NEO_GRID_ASSIGNED, NewMauville_NeoDiagnostic
+	call_if_unset FLAG_NEO_GRID_ASSIGNED, NewMauville_NeoLegacyStop
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	setvar VAR_NEW_MAUVILLE_STATE, 2
 	releaseall
@@ -261,3 +262,14 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+NewMauville_NeoDiagnostic:
+	msgbox NewMauville_NeoDiagnosticText, MSGBOX_DEFAULT
+	return
+NewMauville_NeoLegacyStop:
+	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
+	return
+NewMauville_NeoDiagnosticText:
+	.string "The diagnostic is recorded.\p"
+	.string "The old generator is isolated.\n"
+	.string "Return to the MAUVILLE engineer.$"
