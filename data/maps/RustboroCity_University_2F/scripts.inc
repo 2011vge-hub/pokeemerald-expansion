@@ -20,7 +20,7 @@ RustboroCity_University_2F_EventScript_ReturnPrompt:
 	goto_if_ne VAR_RESULT, YES, RustboroCity_University_2F_EventScript_InstructorDecline
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_RUSTBORO_CITY_POKEMON_SCHOOL, 5, 9
+	warp MAP_RUSTBORO_CITY_POKEMON_SCHOOL, 12, 14
 	waitstate
 	end
 

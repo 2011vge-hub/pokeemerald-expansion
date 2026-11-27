@@ -357,7 +357,7 @@ RustboroCity_PokemonSchool_EventScript_UniversityLift::
 	goto_if_ne VAR_RESULT, YES, RustboroCity_PokemonSchool_EventScript_UniversityLiftDeclined
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 7
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 3
 	waitstate
 	end
 

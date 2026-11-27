@@ -9378,6 +9378,50 @@
       "border_filepath": "data/layouts/MossdeepCity_RangerBriefingRoom/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_RangerBriefingRoom/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_NEO_RUSTBORO_UNIVERSITY_1F",
+      "name": "NeoRustboroUniversity_1F_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/NeoRustboroUniversity_1F/border.bin",
+      "blockdata_filepath": "data/layouts/NeoRustboroUniversity_1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_NEO_RUSTBORO_UNIVERSITY_2F",
+      "name": "NeoRustboroUniversity_2F_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/NeoRustboroUniversity_2F/border.bin",
+      "blockdata_filepath": "data/layouts/NeoRustboroUniversity_2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_NEO_RUSTBORO_UNIVERSITY_3F",
+      "name": "NeoRustboroUniversity_3F_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/NeoRustboroUniversity_3F/border.bin",
+      "blockdata_filepath": "data/layouts/NeoRustboroUniversity_3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_NEO_RUSTBORO_UNIVERSITY_4F",
+      "name": "NeoRustboroUniversity_4F_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/NeoRustboroUniversity_4F/border.bin",
+      "blockdata_filepath": "data/layouts/NeoRustboroUniversity_4F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

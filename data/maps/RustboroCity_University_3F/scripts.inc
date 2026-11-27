@@ -12,7 +12,7 @@ RustboroCity_University_3F_EventScript_ArchiveScholar::
 	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ReturnPrompt
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_RUSTBORO_CITY_UNIVERSITY_4F, 1, 2
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_4F, 3, 2
 	waitstate
 	end
 RustboroCity_University_3F_EventScript_ReturnPrompt:
@@ -20,7 +20,7 @@ RustboroCity_University_3F_EventScript_ReturnPrompt:
 	goto_if_ne VAR_RESULT, YES, RustboroCity_University_3F_EventScript_ArchiveScholarDecline
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 7
+	warp MAP_RUSTBORO_CITY_UNIVERSITY_2F, 3, 3
 	waitstate
 	end
 
