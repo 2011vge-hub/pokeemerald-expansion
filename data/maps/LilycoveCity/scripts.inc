@@ -50,6 +50,7 @@ LilycoveCity_EventScript_ReceivedBerry::
 	end
 
 LilycoveCity_EventScript_Man3::
+	goto_if_set FLAG_NEO_MAY_REVEALED, Lilycove_NeoAfterReveal
 	msgbox Lilycove_NeoContestText, MSGBOX_NPC
 	end
 
@@ -76,6 +77,7 @@ LilycoveCity_EventScript_Sailor2AquaGone::
 	end
 
 LilycoveCity_EventScript_Woman2::
+	goto_if_set FLAG_NEO_MAY_REVEALED, Lilycove_NeoAfterReveal
 	msgbox Lilycove_NeoReliefText, MSGBOX_NPC
 	end
 
@@ -763,3 +765,10 @@ Lilycove_NeoContestText:
 	.string "People come from across HOENN\n"
 	.string "to watch our CONTESTS.\p"
 	.string "Look for MAY at the hall.$"
+
+Lilycove_NeoAfterReveal:
+	msgbox Lilycove_NeoAfterRevealText, MSGBOX_NPC
+	end
+Lilycove_NeoAfterRevealText:
+	.string "Our relief work must go on.\p"
+	.string "Families still need our help.$"
