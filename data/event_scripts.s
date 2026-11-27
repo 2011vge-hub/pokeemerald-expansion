@@ -387,6 +387,7 @@ gStdScripts_End::
 	.include "data/maps/GraniteCave_1F/scripts.inc"
 	.include "data/maps/GraniteCave_RefugeHall/scripts.inc"
 	.include "data/maps/GraniteCave_SurveyStation/scripts.inc"
+	.include "data/maps/GraniteCave_ResidentialAnnex/scripts.inc"
 	.include "data/maps/GraniteCave_B1F/scripts.inc"
 	.include "data/maps/GraniteCave_B2F/scripts.inc"
 	.include "data/maps/GraniteCave_StevensRoom/scripts.inc"

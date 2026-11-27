@@ -9444,6 +9444,17 @@
       "border_filepath": "data/layouts/GraniteCave_SurveyStation/border.bin",
       "blockdata_filepath": "data/layouts/GraniteCave_SurveyStation/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_RESIDENTIAL_ANNEX",
+      "name": "GraniteCave_ResidentialAnnex_Layout",
+      "width": 21,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_ResidentialAnnex/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_ResidentialAnnex/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
