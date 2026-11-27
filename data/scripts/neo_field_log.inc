@@ -51,7 +51,13 @@ NeoLog_CaveReport:
 	msgbox NeoLog_CaveReportText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Dewford:
+	goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 2, NeoLog_DewfordPassage
+	goto_if_set FLAG_VISITED_DEWFORD_TOWN, NeoLog_DewfordBrief
+NeoLog_DewfordPassage:
 	msgbox NeoLog_DewfordText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_DewfordBrief:
+	msgbox NeoLog_DewfordBriefText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_RelayReport:
 	msgbox NeoLog_RelayReportText, MSGBOX_DEFAULT
@@ -135,6 +141,9 @@ NeoLog_CaveReportText:
 	.string "cave entrance.$"
 NeoLog_DewfordText:
 	.string "Ask Briney at his Route 104\ncottage for passage to Dewford.\lFind BRAWLY at or in the GYM.$"
+NeoLog_DewfordBriefText:
+	.string "DEWFORD: Find BRAWLY at or in\\n"
+	.string "the GYM for your cave briefing.$"
 NeoLog_RelayReportText:
 	.string "Take the relay copy to Hale.\nHis office is in west Rustboro.$"
 NeoLog_CopyText:
