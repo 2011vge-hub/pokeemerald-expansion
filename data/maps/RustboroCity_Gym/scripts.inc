@@ -107,16 +107,10 @@ RustboroCity_Gym_Text_GymGuideAdvice:
 	.string "Watch for her coverage moves.\nBring a balanced team!$"
 
 RustboroCity_Gym_Text_GymGuidePostVictory:
-	.string "Whoa! What a breathtaking victory!\n"
-	.string "My cheering must've worked!\p"
-	.string "Great!\n"
-	.string "Check your TRAINER CARD.\p"
-	.string "The STONE BADGE you got should be\n"
-	.string "properly recorded on it.\p"
-	.string "In other words…\p"
-	.string "You've climbed the first step on\n"
-	.string "the stairs to the CHAMPIONSHIP!\p"
-	.string "That's got to feel awesome!$"
+	.string "Well done, RANGER!\p"
+	.string "The STONE BADGE is yours.\n"
+	.string "Visit HALE at the west field\n"
+	.string "office for your next assignment.$"
 
 RustboroCity_Gym_Text_JoshIntro:
 	.string "Don't take us GYM TRAINERS lightly!\n"
@@ -152,20 +146,16 @@ RustboroCity_Gym_Text_MarcPostBattle:
 
 RustboroCity_Gym_Text_RoxanneIntro:
 	.string "ROXANNE: Welcome, young RANGER.\p"
-	.string "My research led me from ROCK\nPOKéMON to the STEEL type.\p"
-	.string "A strong partner is not enough.\nShow me your strategy.$"
+	.string "STEEL is strong, but strength\n"
+	.string "alone will not win every battle.\p"
+	.string "Observe. Adapt. Trust your team.\n"
+	.string "Show me what you have learned.$"
 
 RustboroCity_Gym_Text_RoxanneDefeat:
-	.string "So…\n"
-	.string "I lost…\p"
-	.string "It seems that I still have much more\n"
-	.string "to learn…\p"
-	.string "I understand.\p"
-	.string "The POKéMON LEAGUE's rules state\n"
-	.string "that TRAINERS are to be given this\l"
-	.string "if they defeat a GYM LEADER.\p"
-	.string "Please accept the official POKéMON\n"
-	.string "LEAGUE STONE BADGE.$"
+	.string "ROXANNE: Well reasoned!\p"
+	.string "You adjusted your strategy and\n"
+	.string "trusted your POKéMON.\p"
+	.string "You've earned the STONE BADGE.$"
 
 RustboroCity_Gym_Text_ReceivedStoneBadge:
 	.string "{PLAYER} received the STONE BADGE\n"
@@ -181,10 +171,11 @@ RustboroCity_Gym_Text_ExplainMetalClaw:
 	.string "raise your POKéMON's ATTACK.$"
 
 RustboroCity_Gym_Text_RoxannePostBattle:
-	.string "Since you are so strong, you should\n"
-	.string "challenge other GYM LEADERS.\p"
-	.string "By battling many TRAINERS, you should\n"
-	.string "learn many things.$"
+	.string "ROXANNE: A badge is a beginning,\n"
+	.string "not an end.\p"
+	.string "HALE can certify your field gear.\n"
+	.string "His office is west of the campus.\p"
+	.string "Keep asking questions, RANGER.$"
 
 RustboroCity_Gym_Text_GymStatue:
 	.string "RUSTBORO CITY POKéMON GYM$"
