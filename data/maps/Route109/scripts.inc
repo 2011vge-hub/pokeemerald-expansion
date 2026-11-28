@@ -275,9 +275,18 @@ Route109_Movement_BrineyExitBoat:
 Route109_EventScript_MrBriney::
 	lock
 	faceplayer
+	goto_if_eq VAR_NEO_CH3_STEP, 9, Route109_NeoReturnOffer
 	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route109_EventScript_HaveNotDeliveredDevonGood
 	goto Route109_EventScript_DeliveredDevonGoods
 	end
+
+Route109_NeoReturnOffer:
+	msgbox Route109_NeoReturnText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route109_EventScript_SailToDewford
+	goto Route109_EventScript_ChoseNotToSail
+Route109_NeoReturnText:
+	.string "BRINEY: Ready to head back to\n"
+	.string "DEWFORD, RANGER?$"
 
 Route109_EventScript_HaveNotDeliveredDevonGood::
 	message Route109_Text_BrineySailToDewfordQuestion
