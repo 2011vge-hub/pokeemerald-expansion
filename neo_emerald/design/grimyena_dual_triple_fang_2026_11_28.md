@@ -3,8 +3,8 @@ Date: 2026-11-28
 
 ## User-approved canon
 - Poochyena -> Mightyena -> Grimyena (Lv. 38).
-- Grimyena is Dark, with exactly two physical hyena heads. User approved the two-headed base artwork.
-- Mega Grimyena is Dark/Fire, retaining both physical heads and manifesting a third head made entirely of supernatural fire. New anime artwork and concept sheet generated in this session, awaiting visual approval/native conversion.
+- Grimyena is Dark/Fire, with exactly two physical hyena heads (user confirmed Dark/Fire for the base form). User approved the two-headed base artwork.
+- Mega Grimyena is Dark/Fire, retaining both physical heads and manifesting a third head made entirely of supernatural fire. User selected the battle-front sprite from concept sheet b336085b-121d-4a00-995e-b7ae206f83ab as the Mega visual standard; native conversion pending.
 - Base form: biting attacks have a 50% chance to trigger a second strike immediately (Fire Fang specifically mentioned).
 - Mega form: all damaging attacks have a 50% chance of a second strike and a 35% chance of a third strike.
 
@@ -12,7 +12,7 @@ Date: 2026-11-28
 Dual Fang (base) and Triple Fang (Mega); names pending user confirmation. Treat the 35% as conditional on the second strike occurring, per assistant's explicit interpretation, yielding 50% single, 32.5% double, 17.5% triple among successful eligible attacks. Expected hits 1.675 for Mega, 1.5 for eligible base attacks. If user intends an unconditional 35% triple probability, revise before integration.
 Suggested descriptions: "Biting moves may strike twice." / "Damaging moves may strike two or three times."
 
-## Technical acceptance (proposed, not runtime implemented)
+## Technical acceptance (source implementation started; build and runtime validation pending)
 - Use native biting-move classification; cover Bite, Crunch, Fire/Ice/Thunder Fang, Psychic Fangs and other flagged damaging moves.
 - Mega eligible physical and special damaging moves; no duplication of status moves, self-target effects, PP or turns.
 - Extra hits use the same move and target, normal move typing, and full damage as initial balance-test baseline; no forced Fire typing on third hit.
@@ -25,4 +25,10 @@ Suggested descriptions: "Biting moves may strike twice." / "Damaging moves may s
 - Base sprite sheets: 3157bdf4-3405-481c-9156-4ed316ba6536, c65525a7-14ff-4507-8683-6a7a9d74e6ac, 86cb938c-b2bf-4e6a-913b-6ffa44b032ab
 - Mega anime: 14d9d552-55bf-4699-908a-f9b3f72ae83f
 - Mega sprite concept: d6cf00d2-ed92-4df8-bb56-7a2de97ea3c3
-Use actual approved art for native indexed battle/follower/icon conversion, including normal and shiny palettes. No asset bytes or runtime changes in this document commit.
+Use actual approved art for native indexed battle/follower/icon conversion, including normal and shiny palettes. The selected base art sheet is 86cb938c-b2bf-4e6a-913b-6ffa44b032ab. Native art conversion remains pending.
+
+## Confirmed stone and acquisition
+Grimyenite (exact spelling) is the Mega Stone. Preserve the planned sealed vault in Birch's abandoned Littleroot lab during Wally's chapter; unlocking mechanism remains open. Do not award it earlier. Item, Mega species, vault and award script are not registered by this change.
+
+## Initial battle implementation
+Append Dual Fang and Triple Fang IDs without changing official ability IDs; assign Dual Fang to all base Grimyena ability slots. Use the ordinary multi-hit counter with a 50% base bite roll and Mega weighted outcomes 50/32.5/17.5. Follow existing native special-move exclusions and exclude moves affecting multiple targets at once. Triple Fang is not yet assigned to an obtainable Mega species. Existing Mightyena graphics are placeholders. Retain existing stats and learnset until review. Source change only; compilation, runtime tests and art conversion pending.

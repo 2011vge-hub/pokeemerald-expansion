@@ -342,7 +342,10 @@ enum __attribute__((packed)) Ability
     ABILITY_SPICY_SPRAY = 318,
     ABILITY_AURA_GUARD = 319,
     ABILITIES_COUNT_GEN9,
-    ABILITIES_COUNT = ABILITIES_COUNT_GEN9,
+    // Neo Emerald custom abilities: append only to preserve existing IDs.
+    ABILITY_DUAL_FANG = ABILITIES_COUNT_GEN9,
+    ABILITY_TRIPLE_FANG,
+    ABILITIES_COUNT,
 };
 
 #endif  // GUARD_CONSTANTS_ABILITIES_H

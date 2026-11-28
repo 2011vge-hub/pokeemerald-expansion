@@ -2301,6 +2301,35 @@ static bool32 IsMoveParentalBondAffected(struct BattleCalcValues *cv)
     return TRUE;
 }
 
+// Use the engine's ordinary multi-hit sequence, not Parental Bond's damage modifier.
+// A return of zero means the move follows its normal single-hit path.
+static u32 GetFangStrikeCount(struct BattleCalcValues *cv)
+{
+    enum Ability ability = cv->abilities[cv->battlerAtk];
+
+    if (ability != ABILITY_DUAL_FANG && ability != ABILITY_TRIPLE_FANG)
+        return 0;
+
+    // Special move scripts that cannot safely be replayed are excluded.
+    // Native multi-hit moves and Beat Up are handled before this helper.
+    if (gBattleStruct->numSpreadTargets > 1
+     || cv->battlerAtk == cv->battlerDef
+     || IsMoveParentalBondBanned(cv->move)
+     || IsBattleMoveStatus(cv->move)
+     || gBattleMoveEffects[cv->moveEffect].twoTurnEffect
+     || cv->moveEffect == EFFECT_OHKO
+     || GetActiveGimmick(cv->battlerAtk) == GIMMICK_Z_MOVE
+     || cv->move == MOVE_STRUGGLE)
+        return 0;
+
+    if (ability == ABILITY_DUAL_FANG)
+        return IsBitingMove(cv->move) && RandomPercentage(RNG_HITS, 50) ? 2 : 0;
+
+    // 50% no extra hit, 32.5% two hits, 17.5% three hits.
+    // Equivalent to a 50% second-hit roll followed by a conditional 35% third-hit roll.
+    return RandomWeighted(RNG_HITS, 100, 0, 65, 35);
+}
+
 static void SetPossibleNewSmartTarget(u32 move)
 {
     if (!IsBattlerUnaffectedByMove(gBattlerTarget)
@@ -2399,7 +2428,11 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleCalcValues *cv)
     }
     else
     {
-        gMultiHitCounter = 0;
+        gMultiHitCounter = GetFangStrikeCount(cv);
+        if (gMultiHitCounter > 0)
+        {
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+        }
     }
 
     return CANCELER_RESULT_SUCCESS;

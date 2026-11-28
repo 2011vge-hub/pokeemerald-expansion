@@ -2556,4 +2556,18 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Aura Guard"),
         .description = COMPOUND_STRING("Unimplemented."),
     },
+
+    [ABILITY_DUAL_FANG] =
+    {
+        .name = _("Dual Fang"),
+        .description = COMPOUND_STRING("Biting moves may hit twice."),
+        .aiRating = 7,
+    },
+
+    [ABILITY_TRIPLE_FANG] =
+    {
+        .name = _("Triple Fang"),
+        .description = COMPOUND_STRING("Moves may hit two or three times."),
+        .aiRating = 10,
+    },
 };
