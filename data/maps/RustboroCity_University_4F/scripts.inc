@@ -33,11 +33,12 @@ RustboroCity_University_4F_Text_FacultyAideLift:
 RustboroCity_University_4F_Text_RoxanneGreeting:
 	.string "ROXANNE: Welcome to my\n"
 	.string "office, young RANGER.\p"
-	.string "I lead this university,\n"
-	.string "but I still teach and\n"
-	.string "challenge TRAINERS.\p"
-	.string "There is more than one\n"
-	.string "path to a strong HOENN.$"
+	.string "I lead this university and\n"
+	.string "the RUSTBORO GYM.\p"
+	.string "Our researchers study changes\n"
+	.string "in HOENN's land and climate.\p"
+	.string "Finish your field assignment.\n"
+	.string "Then meet me at the GYM.$"
 
 RustboroCity_University_4F_Text_RoxanneWithBadge:
 	.string "ROXANNE: You earned a\n"
