@@ -307,7 +307,8 @@ RustboroCity_DevonCorp_3F_Text_NeoSteven:
 	.string "HALE and I work closely together.$"
 RustboroCity_DevonCorp_3F_Text_NeoStevenBriefed:
 	.string "STEVEN: Hale sent your report.\p"
-	.string "The pressure readings are odd.\n"
+	.string "Stones remember what we forget.\p"
+	.string "These readings are unusual.\n"
 	.string "We're checking the instruments.\p"
 	.string "Keep the people safe, Ranger.\n"
 	.string "Leave the analysis to our team.$"
