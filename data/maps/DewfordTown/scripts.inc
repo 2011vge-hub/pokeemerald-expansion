@@ -868,7 +868,7 @@ DewfordTown_NeoSurveyBrief::
 	.string "the island to stay together.\p"
 	.string "After the last tremor, three\n"
 	.string "residents missed their check-in.\p"
-	.string "Search the lower floors.\n"
+	.string "Search B3F through B5F.\n"
 	.string "Find the missing residents.\p"
 	.string "Check the warden's roster and\n"
 	.string "the survey station's readings.\p"

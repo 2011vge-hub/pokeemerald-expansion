@@ -51,7 +51,17 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 14,
+      "elevation": 3,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "DewfordUnderground_EventScript_B6DescentBlocked"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
