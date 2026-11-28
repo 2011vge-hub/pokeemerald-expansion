@@ -18,6 +18,11 @@ Route104_EventScript_NeoAquaGrunt::
 	setflag FLAG_NEO_C2_AQUA_DONE
 	removeobject LOCALID_NEO_C2_ROUTE104_AQUA_GRUNT
 	msgbox Route104_Text_C2AquaSaved, MSGBOX_DEFAULT
+	closemessage
+	pokenavcall Route104_Text_C2RivalRadio
+	waitmessage
+	waitbuttonpress
+	closemessage
 	release
 	end
 Route104_EventScript_C2AquaWait:
@@ -51,8 +56,13 @@ Route104_Text_C2AquaLose:
 	.string "You stopped our shipment?!$"
 Route104_Text_C2AquaSaved:
 	.string "The raider retreats.\p"
-	.string "The relief cargo is safe!\n"
-	.string "Check on MR. BRINEY.$"
+	.string "The relief cargo is safe!$"
+Route104_Text_C2RivalRadio:
+	.string "RANGER RADIO: Partner here!\p"
+	.string "I've got a NEO MAGMA grunt\n"
+	.string "in custody back in the WOODS.\p"
+	.string "Check on MR. BRINEY at his\n"
+	.string "cottage. I'll hold things here.$"
 Route104_Text_C2AquaWait:
 	.string "NEO AQUA: Keep clear of\n"
 	.string "our supply shipment!$"
