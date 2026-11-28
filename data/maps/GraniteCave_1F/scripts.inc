@@ -124,8 +124,8 @@ GraniteCave_NeoChildText:
 GraniteCave_NeoRefugeDirectionsText:
 	.string "Take the ladder by the crates.\p"
 	.string "Check the bunk warden's roster.\p"
-	.string "Find the residents in the annex\n"
-	.string "and the survey station east.\p"
+	.string "Find the residents on B3F-B5F.\n"
+	.string "Search the lower passages.\p"
 	.string "Bring both reports to the Hiker\n"
 	.string "at the cave mouth.$"
 GraniteCave_NeoCrewMissingText:
@@ -168,14 +168,14 @@ GraniteCave_NeoAssistantMissing:
 		end
 GraniteCave_NeoWorkerMissingText:
 	.string "WARDEN: Find the repair worker\n"
-	.string "in the residential annex.\p"
-	.string "Take the central ladder.$"
+	.string "on B3F.\p"
+	.string "Use the lower stairs.$"
 GraniteCave_NeoCourierMissingText:
 	.string "WARDEN: We still need to check\n"
-	.string "the courier in the annex.$"
+	.string "the courier on B4F.$"
 GraniteCave_NeoAssistantMissingText:
 	.string "WARDEN: Check the survey assistant.\n"
-	.string "The station is east of here.$"
+	.string "Search B5F.$"
 GraniteCave_NeoAssistantCheckText:
 	.string "ASSISTANT: I'm safe, RANGER.\p"
 	.string "I left the unstable passage\n"

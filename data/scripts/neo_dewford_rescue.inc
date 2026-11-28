@@ -43,3 +43,13 @@ DewfordUnderground_NoBrief:
 	end
 DewfordUnderground_NoBriefText:
 	.string "Speak to BRAWLY about the\nmissing residents first.$"
+
+DewfordUnderground_AnnexRepairIdle::
+	msgbox GraniteCave_AnnexRepairText, MSGBOX_NPC
+	end
+DewfordUnderground_AnnexResidentIdle::
+	msgbox GraniteCave_AnnexResidentText, MSGBOX_NPC
+	end
+DewfordUnderground_SurveyIdle::
+	msgbox DewfordUnderground_NoBriefText, MSGBOX_NPC
+	end
