@@ -37,9 +37,23 @@ Route106_EventScript_ElliotRematch::
 	end
 
 Route106_EventScript_Ned::
-	trainerbattle_single TRAINER_NED, Route106_Text_NedIntro, Route106_Text_NedDefeated
-	msgbox Route106_Text_NedPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_NED, Route106_Text_NeoNedIntro, Route106_Text_NeoNedConcern
+	msgbox Route106_Text_NeoNedConcern, MSGBOX_AUTOCLOSE
 	end
+
+Route106_Text_NeoNedIntro:
+	.string "Something's wrong with my\n"
+	.string "MAGIKARP!\p"
+	.string "Every single one I catch is\n"
+	.string "this weird golden color.\p"
+	.string "They're supposed to be red!\n"
+	.string "Am I doing something wrong?\p"
+	.string "Here, have a battle with them.\n"
+	.string "Maybe you can figure it out!$"
+
+Route106_Text_NeoNedConcern:
+	.string "like are they sick?\n"
+	.string "What do I even do about this?$"
 
 Route106_Text_TrainerTips:
 	.string "TRAINER TIPS\p"
