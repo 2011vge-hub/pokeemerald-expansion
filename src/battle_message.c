@@ -3044,6 +3044,9 @@ static const u8 *BattleStringGetTrainerName(u8 *text, u8 multiplayerId, enum Bat
         return BattleStringGetOpponentName(text, multiplayerId, battler);
 }
 
+static const u8 sText_NeoMagmaClass[] = _("Neo Magma");
+static const u8 sText_NeoAquaClass[] = _("Neo Aqua");
+
 static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
 {
     const u8 *toCpy;
@@ -3065,7 +3068,17 @@ static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
     else if (trainerId == TRAINER_LINK_OPPONENT)
         toCpy = gTrainerClasses[TRAINER_NONE].name;
     else
-        toCpy = gTrainerClasses[GetTrainerClassFromId(trainerId)].name;
+    {
+        u16 trainerClass = GetTrainerClassFromId(trainerId);
+
+        // Keep the native class IDs for music and battle mechanics.
+        if (trainerClass == TRAINER_CLASS_TEAM_MAGMA)
+            toCpy = sText_NeoMagmaClass;
+        else if (trainerClass == TRAINER_CLASS_TEAM_AQUA)
+            toCpy = sText_NeoAquaClass;
+        else
+            toCpy = gTrainerClasses[trainerClass].name;
+    }
 
     return toCpy;
 }
