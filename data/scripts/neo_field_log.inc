@@ -142,12 +142,13 @@ NeoLog_HaleReportText:
 NeoLog_RefugeText:
 	.string "Route 106: enter GRANITE CAVE.\p"
 	.string "Take the ladder by the crates.\n"
-	.string "Check the bunk warden, then\l"
-	.string "the gauge keeper to the east.$"
+	.string "Check the warden's roster.\p"
+	.string "Find the annex residents and\n"
+	.string "the survey assistant to the east.$"
 NeoLog_BunksText:
 	.string "Gauge readings copied.\p"
-	.string "Return to the refuge bunks.\n"
-	.string "Check the bunk warden.$"
+	.string "Check the annex residents.\n"
+	.string "Report to the bunk warden.$"
 NeoLog_GaugeText:
 	.string "Refuge crew accounted for.\p"
 	.string "Head east from the bunks.\n"
