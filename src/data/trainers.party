@@ -6416,9 +6416,47 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
-Level: 11
+Magikarp
+Level: 15
+Shiny: Yes
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
+
+Magikarp
+Level: 16
+Shiny: Yes
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
+
+Magikarp
+Level: 17
+Shiny: Yes
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
+
+Magikarp
+Level: 18
+Shiny: Yes
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
+
+Magikarp
+Level: 19
+Shiny: Yes
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
+
+Magikarp
+Level: 20
+Shiny: Yes
+IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
+- Splash
+- Tackle
 
 === TRAINER_DALE ===
 Name: DALE
