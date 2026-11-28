@@ -1,5 +1,6 @@
 NeoRanger_FieldLog::
 	lockall
+	goto_if_set FLAG_NEO_C4_STERN_REVIEWED, NeoLog_SternReviewed
 	goto_if_set FLAG_NEO_C4_REPORTED, NeoLog_Filed
 	goto_if_set FLAG_NEO_C4_SURVEY, NeoLog_ReturnReport
 	goto_if_set FLAG_NEO_C4_BRIEF, NeoLog_RefugeTravel
@@ -21,6 +22,13 @@ NeoRanger_FieldLog::
 	goto_if_eq VAR_NEO_FERRY_DISPATCH, 3, NeoLog_Rescue
 	goto_if_eq VAR_NEO_FERRY_DISPATCH, 2, NeoLog_Sailor
 	msgbox NeoLog_OrientationText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_SternReviewed:
+	goto_if_set FLAG_NEO_C4_REPORTED, NeoLog_InlandPending
+	msgbox NeoLog_MeetSlateportHaleText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_InlandPending:
+	msgbox NeoLog_InlandPendingText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Filed:
 	msgbox NeoLog_FiledText, MSGBOX_DEFAULT
@@ -120,12 +128,17 @@ NeoLog_Close:
 	end
 NeoLog_FiledText:
 	.string "Dewford survey filed with HALE.\p"
-	.string "Await your next field assignment.$"
+	.string "Meet STERN at SLATEPORT's\n"
+	.string "shipyard, second floor.$"
 NeoLog_SailHomeText:
-	.string "Take Briney back to Route 104.\nReport to Hale in west Rustboro.$"
+	.string "Ask BRINEY to sail to SLATEPORT.\p"
+	.string "Meet STERN at his shipyard,\n"
+	.string "second floor.$"
 NeoLog_HaleReportText:
-	.string "Report the DEWFORD survey to\n"
-	.string "HALE in west RUSTBORO.$"
+	.string "Return via BRINEY to DEWFORD.\n"
+	.string "Sail to SLATEPORT for STERN.\p"
+	.string "HALE in RUSTBORO can also file\n"
+	.string "your survey report.$"
 NeoLog_RefugeText:
 	.string "Route 106: enter GRANITE CAVE.\p"
 	.string "Take the ladder by the crates.\n"
@@ -195,3 +208,11 @@ NeoLog_SailorText:
 	.string "Check in with the ferry crew\nat the waterfront Ranger HQ.$"
 NeoLog_OrientationText:
 	.string "Meet the dispatch team and\nchoose your Ranger partner.$"
+
+NeoLog_MeetSlateportHaleText:
+	.string "STERN compared the readings.\p"
+	.string "Speak to HALE on the second\n"
+	.string "floor of STERN's shipyard.$"
+NeoLog_InlandPendingText:
+	.string "Inland investigation pending.\p"
+	.string "Await desert route clearance.$"
