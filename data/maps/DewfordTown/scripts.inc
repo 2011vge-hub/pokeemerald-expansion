@@ -868,8 +868,8 @@ DewfordTown_NeoSurveyBrief::
 	.string "the island to stay together.\p"
 	.string "After the last tremor, three\n"
 	.string "residents missed their check-in.\p"
-	.string "Head north onto ROUTE 106.\n"
-	.string "Find the HIKER in GRANITE CAVE.\p"
+	.string "Search B3F through B5F.\n"
+	.string "Find the missing residents.\p"
 	.string "Check the warden's roster and\n"
 	.string "the survey station's readings.\p"
 	.string "Bring both reports to the HIKER.$"
@@ -877,3 +877,11 @@ DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"
 	.string "Ask BRINEY for SLATEPORT passage.\n"
 	.string "Show STERN what you found.$"
+
+DewfordTown_NeoBoardwalkSign::
+	msgbox DewfordTown_NeoBoardwalkText, MSGBOX_SIGN
+	end
+DewfordTown_NeoBoardwalkText:
+	.string "DEWFORD - SURFACE LANDING\p"
+	.string "Follow the boardwalk north to\n"
+	.string "DEWFORD UNDERGROUND.$"

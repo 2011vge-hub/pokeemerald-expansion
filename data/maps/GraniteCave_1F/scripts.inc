@@ -124,8 +124,8 @@ GraniteCave_NeoChildText:
 GraniteCave_NeoRefugeDirectionsText:
 	.string "Take the ladder by the crates.\p"
 	.string "Check the bunk warden's roster.\p"
-	.string "Find the residents in the annex\n"
-	.string "and the survey station east.\p"
+	.string "Find the residents on B3F-B5F.\n"
+	.string "Search the lower passages.\p"
 	.string "Bring both reports to the Hiker\n"
 	.string "at the cave mouth.$"
 GraniteCave_NeoCrewMissingText:
@@ -168,16 +168,71 @@ GraniteCave_NeoAssistantMissing:
 		end
 GraniteCave_NeoWorkerMissingText:
 	.string "WARDEN: Find the repair worker\n"
-	.string "in the residential annex.\p"
-	.string "Take the central ladder.$"
+	.string "on B3F.\p"
+	.string "Use the lower stairs.$"
 GraniteCave_NeoCourierMissingText:
 	.string "WARDEN: We still need to check\n"
-	.string "the courier in the annex.$"
+	.string "the courier on B4F.$"
 GraniteCave_NeoAssistantMissingText:
 	.string "WARDEN: Check the survey assistant.\n"
-	.string "The station is east of here.$"
+	.string "Search B5F.$"
 GraniteCave_NeoAssistantCheckText:
 	.string "ASSISTANT: I'm safe, RANGER.\p"
 	.string "I left the unstable passage\n"
 	.string "when the gauge started shaking.\p"
 	.string "Tell the warden I'm accounted for.$"
+
+DewfordUnderground_Merchant::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart DewfordUnderground_Mart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+	.align 2
+DewfordUnderground_Mart:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	pokemartlistend
+DewfordUnderground_Resident::
+	msgbox DewfordUnderground_ResidentText, MSGBOX_NPC
+	end
+DewfordUnderground_ResidentText:
+	.string "Our homes may be carved from\nstone, but they're still home.$"
+DewfordUnderground_Workshop::
+	msgbox DewfordUnderground_WorkshopText, MSGBOX_NPC
+	end
+DewfordUnderground_WorkshopText:
+	.string "We repair the harbor supports\nright here in the workshops.$"
+DewfordUnderground_CenterSign::
+	msgbox DewfordUnderground_CenterText, MSGBOX_SIGN
+	end
+DewfordUnderground_CenterText:
+	.string "POKéMON CENTER - DEWFORD 1F$"
+DewfordUnderground_CivicSign::
+	msgbox DewfordUnderground_CivicText, MSGBOX_SIGN
+	end
+DewfordUnderground_CivicText:
+	.string "UPPER DEWFORD\pRefuge and public services.$"
+DewfordUnderground_ResidentialSign::
+	msgbox DewfordUnderground_ResidentialText, MSGBOX_SIGN
+	end
+DewfordUnderground_ResidentialText:
+	.string "B1F - RESIDENTIAL DISTRICT\pHomes and workshops.$"
+DewfordUnderground_GymSign::
+	msgbox DewfordUnderground_GymText, MSGBOX_SIGN
+	end
+DewfordUnderground_GymText:
+	.string "B2F - DEWFORD POKéMON GYM$"
+DewfordUnderground_ExpeditionSign::
+	msgbox DewfordUnderground_ExpeditionText, MSGBOX_SIGN
+	end
+DewfordUnderground_ExpeditionText:
+	.string "B3F-B5F - LOWER PASSAGES\pExercise caution beyond here.$"

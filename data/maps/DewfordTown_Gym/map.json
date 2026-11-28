@@ -125,15 +125,15 @@
       "x": 5,
       "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_GRANITE_CAVE_B2F",
+      "dest_warp_id": "6"
     },
     {
       "x": 6,
       "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_TOWN",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_GRANITE_CAVE_B2F",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [],

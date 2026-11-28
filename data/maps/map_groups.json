@@ -481,7 +481,10 @@
     "MeteorFalls_StevensCave",
     "GraniteCave_RefugeHall",
     "GraniteCave_SurveyStation",
-    "GraniteCave_ResidentialAnnex"
+    "GraniteCave_ResidentialAnnex",
+    "GraniteCave_B3F",
+    "GraniteCave_B4F",
+    "GraniteCave_B5F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

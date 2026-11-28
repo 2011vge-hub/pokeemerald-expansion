@@ -9455,6 +9455,39 @@
       "border_filepath": "data/layouts/GraniteCave_ResidentialAnnex/border.bin",
       "blockdata_filepath": "data/layouts/GraniteCave_ResidentialAnnex/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_B3F",
+      "name": "GraniteCave_B3F_Layout",
+      "width": 24,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_B3F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_B4F",
+      "name": "GraniteCave_B4F_Layout",
+      "width": 24,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_B4F/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_B4F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_B5F",
+      "name": "GraniteCave_B5F_Layout",
+      "width": 24,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_B5F/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_B5F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
