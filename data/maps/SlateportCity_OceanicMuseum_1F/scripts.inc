@@ -1,5 +1,14 @@
 SlateportCity_OceanicMuseum_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, NeoMuseum_PublicExhibits
 	.byte 0
+
+NeoMuseum_PublicExhibits:
+	goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO, NeoMuseum_PublicExhibitsDone
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_FAMILIAR_AQUA_GRUNT
+	clearflag FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION
+NeoMuseum_PublicExhibitsDone:
+	end
 
 SlateportCity_OceanicMuseum_1F_EventScript_EntranceAttendant::
 	msgbox SlateportCity_OceanicMuseum_1F_Text_PleaseEnjoyYourself, MSGBOX_NPC
