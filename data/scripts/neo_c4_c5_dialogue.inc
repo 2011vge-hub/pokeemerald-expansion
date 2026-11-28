@@ -21,9 +21,14 @@ NeoMilestone_Text_RillDefeat::
 	.string "RILL: So you can hold your\nground.$"
 
 @ C4.08 | victory only; withdraw via validated route
+@ WRITER ONLY: Rill points to Stern's logs, not a confirmed attack or future cargo event.
+@ Hiker independently corroborates existence of ship logs. Stern checks timing.
+@ Neither the admin nor public evidence identifies Null. Do not expose secret loyalties.
 NeoMilestone_Text_RillWithdrawal::
-	.string "RILL: Keep the records. We've\nseen what we came for.\p"
-	.string "Ask why the sea is moving before\nanyone can explain it.$"
+	.string "RILL: Fine. Keep the records.\p"
+	.string "You won here, RANGER. But the\ntide won't wait for you.\p"
+	.string "Ask STERN about the readings\nfrom SLATEPORT's ships.\p"
+	.string "You're not the only one\nfollowing this trail.$"
 
 @ C4.08 | pre-rescue contact; no battle
 NeoMilestone_Text_RillWait::
@@ -43,8 +48,8 @@ NeoMilestone_Text_CaveAfterLoss::
 @ C4.09 | all three and faction resolved, readings copied
 NeoMilestone_Text_CaveCrewReport::
 	.string "HIKER: Three names, three people\nsafe. Good work.\p"
-	.string "Take this report to STERN in\nSLATEPORT.\p"
-	.string "He can compare our reading with\nCAYTON's inland survey.$"
+	.string "That AQUA officer mentioned\nSTERN. He does keep ship logs.\p"
+	.string "Take our report to SLATEPORT.\nLet STERN check their timing.$"
 
 @ C4.09 | return visits
 NeoMilestone_Text_CaveCompleteRepeat::
@@ -179,10 +184,14 @@ NeoMilestone_Text_SableDefeat::
 	.string "SABLE: That was... unexpected.$"
 
 @ C5.06 | victory only; leave data, safe exit
+@ WRITER ONLY: Sable hints at springs; Cayton independently confirms the report.
+@ This is a clue, not a new emergency or premature unlock. Badge 2 precedes Route112.
+@ Keep Vesta/Caspian's goal and embedded-admin loyalties out of public dialogue.
 NeoMilestone_Text_SableWithdrawal::
 	.string "SABLE: Fine. Keep the records.\p"
-	.string "But don't mistake a victory for\nan answer.\p"
-	.string "The ground won't stop changing\njust because we leave.$"
+	.string "You think this is where our\nsearch ends?\p"
+	.string "Ask the people at LAVARIDGE\nwhat happened to their springs.\p"
+	.string "Perhaps then you'll understand\nwhy we're in such a hurry.$"
 
 @ C5.06 | recovery hint at safe entrance
 NeoMilestone_Text_SableAfterLoss::
@@ -195,9 +204,9 @@ NeoMilestone_Text_CaytonLabReport::
 	.string "CAYTON: These fossils survived\nmillions of years.\p"
 	.string "The ground above them is\nchanging in months.\p"
 	.string "Your DEWFORD and desert records\nagree on the timing.\p"
-	.string "The shifts occur near\nmeteorite-bearing rock. That\p"
-	.string "isn't an answer yet.\p"
-	.string "LAVARIDGE's spring crew reported\na similar change.\p"
+	.string "The shifts occur near rock\nbearing meteorite fragments.\p"
+	.string "SABLE mentioned LAVARIDGE?\nTheir spring crew sent a report.\p"
+	.string "A similar shift. We should\ncompare their actual readings.\p"
 	.string "I'll send our results to HALE.\nYou've done good work.$"
 
 @ C5.07 | after safety closure lifted
