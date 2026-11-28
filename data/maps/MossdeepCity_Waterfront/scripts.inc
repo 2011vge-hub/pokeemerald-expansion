@@ -77,6 +77,8 @@ MossdeepCity_Waterfront_EventScript_RescuedChild::
 	end
 
 MossdeepCity_Waterfront_EventScript_FerryCrew::
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_RangerCheckIn
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerCheckIn
 	lock
 	faceplayer
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_Waterfront_EventScript_FerryCrewDone
@@ -121,8 +123,8 @@ MossdeepCity_Waterfront_Text_PartnerTraining:
 MossdeepCity_Waterfront_Text_DispatchDebrief:
 	.string "DISPATCH: Every passenger accounted\n"
 	.string "for. Outstanding, Ranger.\p"
-	.string "Report to CMDR. HALE at RANGER BASE\n"
-	.string "when you can.$"
+	.string "Report to CMDR. HALE upstairs\n"
+	.string "at the HQ beside this dock.$"
 
 MossdeepCity_Waterfront_Text_BoyWaiting:
 	.string "BOY: POOCHYENA's not scared anymore.$"
@@ -137,12 +139,13 @@ MossdeepCity_Waterfront_Text_CrewDone:
 	.string "this route ten years. It's never\l"
 	.string "been late before.$"
 
-@ Terminal facade only; no physical ferry sprite or terminal interior yet.
+@ Waterfront Ranger HQ and evacuation ferry terminal.
 MossdeepCity_Waterfront_EventScript_TerminalSign::
 	msgbox MossdeepCity_Waterfront_Text_TerminalSign, MSGBOX_SIGN
 	end
 
 MossdeepCity_Waterfront_Text_TerminalSign:
-	.string "MOSSDEEP FERRY TERMINAL\p"
-	.string "Evacuation boarding only.\n"
-	.string "Follow RANGER instructions.$"
+	.string "MOSSDEEP RANGER HQ\p"
+	.string "1F: Dispatch and medical aid.\n"
+	.string "2F: Commander HALE.\p"
+	.string "Evacuation boarding at the dock.$"

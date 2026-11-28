@@ -183,12 +183,12 @@ NeoLog_WoodsText:
 NeoLog_RivalText:
 	.string "Meet your Ranger contact by\nthe Rustboro University steps.$"
 NeoLog_HaleText:
-	.string "All passengers accounted for.\nReport to Hale upstairs at HQ.$"
+	.string "All passengers accounted for.\nReport to Hale at waterfront HQ.$"
 NeoLog_DockText:
 	.string "Take the child and Poochyena\nto the waterfront ferry crew.$"
 NeoLog_RescueText:
 	.string "A child is missing. Search near\nthe Mart and the lower stairs.$"
 NeoLog_SailorText:
-	.string "Mossdeep: check in with the\nsailor for the evacuation count.$"
+	.string "Check in with the ferry crew\nat the waterfront Ranger HQ.$"
 NeoLog_OrientationText:
 	.string "Meet the dispatch team and\nchoose your Ranger partner.$"

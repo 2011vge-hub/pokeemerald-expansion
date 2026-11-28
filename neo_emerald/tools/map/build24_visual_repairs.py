@@ -67,23 +67,13 @@ with Image.open(back) as img:
         img.save(back,**kwargs)
     print("Male Ranger battle-back dark hair pixels changed:",changed)
 
-# Mossdeep: fit the existing Ranger HQ native building kit into the former
-# Gym's six-by-five footprint. No old Gym metatile remains in this rectangle.
-# The prior kit was a seven-row tower, so this is a compact provisional
-# adaptation, not a claim of exact fidelity to the concept artwork.
+# Remove the former Gym, preserving all unrelated map and warp indices.
 mp=ROOT/"data/layouts/MossdeepCity_Storm/map.bin"
 data=read_words(mp)
 assert len(data)==80*40
 city=json.loads((ROOT/"data/maps/MossdeepCity/map.json").read_text())
-door=next(w for w in city["warp_events"] if (w["x"],w["y"])==(38,9))
-assert door["dest_map"]=="MAP_MOSSDEEP_CITY_RANGER_BASE_1F"
-kit=[
-    [966,932,932,932,932,814],
-    [944,948,948,948,948,859],
-    [952,954,733,733,955,957],
-    [738,740,740,741,742,719],
-    [746,748,748,749,750,727],
-]
+assert city["warp_events"][1]["dest_map"]=="MAP_MOSSDEEP_CITY_WEATHER_STATION"
+assert (city["warp_events"][1]["x"],city["warp_events"][1]["y"])==(33,19)
 old=[
     [426,427,427,427,427,428],
     [434,435,435,435,435,436],
@@ -91,14 +81,35 @@ old=[
     [448,449,450,453,451,452],
     [456,457,458,461,459,460],
 ]
+previous_kit=[
+    [966,932,932,932,932,814],
+    [944,948,948,948,948,859],
+    [952,954,733,733,955,957],
+    [738,740,740,741,742,719],
+    [746,748,748,749,750,727],
+]
 current=[[data[(5+y)*80+35+x]&1023 for x in range(6)] for y in range(5)]
-assert current==old or current==kit, "Unexpected HQ footprint; protect newer art"
-for y,row in enumerate(kit):
-    for x,mid in enumerate(row):
-        i=(5+y)*80+35+x
-        data[i]=(data[i]&0xfc00)|mid
-assert data[9*80+38]&1023==749
-assert data[9*80+38]>>12==0
+assert current in (old,previous_kit,[[1]*6 for _ in range(5)]), "Unexpected Gym footprint; protect newer art"
+for y in range(5):
+    for x in range(6):
+        data[(5+y)*80+35+x]=1|((4 if y==0 else 5)<<12)
+# Remove the physical GYM sign, not just its text.
+assert data[9*80+34]&1023 in (305,1)
+data[9*80+34]=1|(5<<12)
+# Open the existing inland tower's native glass door into the weather station.
+assert data[19*80+33]&1023==749
+data[19*80+33]&=0x0fff
+assert data[20*80+33]>>12==5 and not (data[20*80+33]>>10)&3
 write_words(mp,data)
-print("Mossdeep Ranger HQ facade replaced in former Gym footprint; entry preserved.")
+
+# The waterfront already uses the original HQ terminal facade. Open its
+# native glass door; preserve the docks, ferry, boarding path and map ID.
+wp=ROOT/"data/layouts/MossdeepCity_Waterfront/map.bin"
+q=read_words(wp)
+assert len(q)==32*40
+assert q[32*32+17]&1023==749, "Unexpected waterfront door tile"
+q[32*32+17]&=0x0fff
+assert q[33*32+17]>>12==5 and not (q[33*32+17]>>10)&3
+write_words(wp,q)
+print("Former Gym and sign removed; inland weather station and waterfront HQ doors opened.")
 print("University ground-level layering corrected; runtime inspection required.")

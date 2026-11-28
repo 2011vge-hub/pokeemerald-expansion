@@ -329,10 +329,10 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 38,
-      "y": 9,
+      "x": 33,
+      "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY_RANGER_BASE_1F",
+      "dest_map": "MAP_MOSSDEEP_CITY_WEATHER_STATION",
       "dest_warp_id": "0"
     },
     {
@@ -441,11 +441,11 @@
     },
     {
       "type": "sign",
-      "x": 34,
-      "y": 9,
+      "x": 32,
+      "y": 19,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MossdeepCity_EventScript_RangerHQSign"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "MossdeepCity_EventScript_WeatherStationSign"
     },
     {
       "type": "sign",

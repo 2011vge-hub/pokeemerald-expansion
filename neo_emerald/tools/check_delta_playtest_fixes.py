@@ -11,9 +11,18 @@ hq = load("data/maps/MossdeepCity_RangerBase_2F/scripts.inc")
 ferry = load("data/maps/MossdeepCity_Waterfront/scripts.inc")
 school = load("data/maps/RustboroCity_PokemonSchool/scripts.inc")
 moss = json.loads(load("data/maps/MossdeepCity/map.json"))
-door = next(w for w in moss["warp_events"] if (w["x"], w["y"]) == (38, 9))
-assert door["dest_map"] == "MAP_MOSSDEEP_CITY_RANGER_BASE_1F"
-assert not any((o["x"], o["y"]) == (38, 9) for o in moss["object_events"])
+water = json.loads(load("data/maps/MossdeepCity_Waterfront/map.json"))
+base = json.loads(load("data/maps/MossdeepCity_RangerBase_1F/map.json"))
+station = json.loads(load("data/maps/MossdeepCity_WeatherStation/map.json"))
+assert not any((w["x"],w["y"])==(38,9) for w in moss["warp_events"])
+assert moss["warp_events"][1]["dest_map"]=="MAP_MOSSDEEP_CITY_WEATHER_STATION"
+assert (moss["warp_events"][1]["x"],moss["warp_events"][1]["y"])==(33,19)
+assert all(w["dest_map"]=="MAP_MOSSDEEP_CITY" and str(w["dest_warp_id"])=="1" for w in station["warp_events"])
+door=water["warp_events"][0]
+assert (door["x"],door["y"])==(17,32) and door["dest_map"]=="MAP_MOSSDEEP_CITY_RANGER_BASE_1F"
+assert all(w["dest_map"]=="MAP_MOSSDEEP_CITY_WATERFRONT" and str(w["dest_warp_id"])=="0" for w in base["warp_events"][:2])
+assert not any((o["x"],o["y"])==(17,32) for o in water["object_events"])
+assert "goto_if_eq VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_RangerCheckIn" in ferry
 
 bridge = hq.split("MossdeepCity_RangerBase_2F_EventScript_Chapter1Debrief:",1)[1].split("MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:",1)[0]
 assert bridge.index("setrespawn HEAL_LOCATION_RUSTBORO_CITY") < bridge.index("warp MAP_RUSTBORO_CITY"), "Last heal location must move to Rustboro before travel"

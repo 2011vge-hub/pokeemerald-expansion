@@ -18,7 +18,7 @@ intro=lobby.split("MossdeepCity_RangerBase_1F_EventScript_NewRecruit:",1)[1].spl
 assert intro.count("special ChooseStarter")==1
 assert intro.index("setvar VAR_NEO_FERRY_DISPATCH, 2") < intro.index("special ChooseStarter")
 group=json.loads(r("data/maps/map_groups.json"))
-assert group["gMapGroup_IndoorMossdeep"][-1]=="MossdeepCity_RangerBriefingRoom"
+assert group["gMapGroup_IndoorMossdeep"][-2:]==["MossdeepCity_RangerBriefingRoom","MossdeepCity_WeatherStation"]
 layouts=json.loads(r("data/layouts/layouts.json"))["layouts"]
 assert sum(l["id"]=="LAYOUT_MOSSDEEP_CITY_RANGER_BRIEFING_ROOM" for l in layouts)==1
 assert 'data/maps/MossdeepCity_RangerBriefingRoom/scripts.inc' in r("data/event_scripts.s"), "Missing room script assembler include"

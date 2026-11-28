@@ -2,7 +2,7 @@ MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
 
-MossdeepCity_RangerCheckIn:
+MossdeepCity_RangerCheckIn::
 	lock
 	faceplayer
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerCheckedIn
@@ -64,13 +64,21 @@ MossdeepCity_EventScript_PokefanFMagmaGone::
 	end
 
 MossdeepCity_EventScript_Sailor::
-	goto_if_ge VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_RangerCheckIn
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_WeatherStationSailor
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_SailorMagmaGone
 	msgbox MossdeepCity_Text_MossdeepTargetedByMagma, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_WeatherStationSailor:
+	msgbox MossdeepCity_Text_WeatherStationSailor, MSGBOX_NPC
+	end
+MossdeepCity_Text_WeatherStationSailor:
+	.string "I'm moving emergency supplies.\p"
+	.string "For evacuation operations, head\n"
+	.string "east to the waterfront HQ.$"
 
 MossdeepCity_EventScript_SailorMagmaGone::
 	msgbox MossdeepCity_Text_FeelReliefOnLand, MSGBOX_DEFAULT
@@ -119,7 +127,7 @@ MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
 	end
 
-@ Former Gym is retired; its entrance now leads to Ranger Headquarters.
+@ Former Gym demolished; Ranger HQ is at the waterfront.
 MossdeepCity_EventScript_CitySign::
 	msgbox MossdeepCity_Text_CitySign, MSGBOX_SIGN
 	end
@@ -551,15 +559,16 @@ MossdeepCity_Text_RangerEscort:
 	.string "up the stairs, past the rising\l"
 	.string "water, to the ferry quay...$"
 
-@ Ranger Headquarters at the former Gym footprint.
-MossdeepCity_EventScript_RangerHQSign::
-	msgbox MossdeepCity_Text_RangerHQSign, MSGBOX_SIGN
+@ Inland civic tower is the weather and resource station.
+MossdeepCity_EventScript_WeatherStationSign::
+	msgbox MossdeepCity_Text_WeatherStationSign, MSGBOX_SIGN
 	end
 
-MossdeepCity_Text_RangerHQSign:
-	.string "MOSSDEEP RANGER HQ\p"
-	.string "1F: Dispatch and medical aid.\n"
-	.string "2F: Commander HALE.$"
+MossdeepCity_Text_WeatherStationSign:
+	.string "MOSSDEEP WEATHER &\n"
+	.string "RESOURCE STATION\p"
+	.string "Storm monitoring and emergency\n"
+	.string "supplies. RANGER HQ: waterfront.$"
 
 MossdeepCity_EventScript_EvacuatedApartment::
 	msgbox MossdeepCity_Text_EvacuatedApartment, MSGBOX_SIGN

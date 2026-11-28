@@ -77,15 +77,15 @@
       "x": 7,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_MOSSDEEP_CITY_WATERFRONT",
+      "dest_warp_id": "0"
     },
     {
       "x": 8,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_MOSSDEEP_CITY_WATERFRONT",
+      "dest_warp_id": "0"
     },
     {
       "x": 13,
