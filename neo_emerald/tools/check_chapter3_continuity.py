@@ -170,3 +170,22 @@ for room in (hall, station, annex):
             pos = (event["x"], event["y"])
             assert any(adj in visited for adj in neighbors(*pos)), (name, "unreachable contact", event)
 print("Cave settlement blockdata, event positions and collision-only routes passed (emulator still required)")
+
+# State-sensitive recovery dialogue must not advance a missing objective.
+cave = sc("GraniteCave_1F")
+survey_block = cave.split("GraniteCave_NeoSurvey:", 1)[1].split("GraniteCave_NeoSurveyReminder:", 1)[0]
+assert survey_block.index("goto_if_unset FLAG_NEO_C4_CREW_CHECKED, GraniteCave_NeoCrewMissing") < survey_block.index("setflag FLAG_NEO_C4_SURVEY")
+assert survey_block.index("goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoReadingMissing") < survey_block.index("setflag FLAG_NEO_C4_SURVEY")
+missing_crew = cave.split("GraniteCave_NeoCrewMissing:", 1)[1].split("GraniteCave_NeoReadingMissing:", 1)[0]
+assert "goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoRefugeDirections" in missing_crew
+assert "msgbox GraniteCave_NeoCrewMissingText, MSGBOX_DEFAULT" in missing_crew
+assert "setflag" not in missing_crew
+missing_reading = cave.split("GraniteCave_NeoReadingMissing:", 1)[1].split("GraniteCave_NeoRefugeDirections:", 1)[0]
+assert "msgbox GraniteCave_NeoReadingMissingText, MSGBOX_DEFAULT" in missing_reading
+assert "setflag" not in missing_reading
+moss = sc("MossdeepCity")
+checkin = moss.split("MossdeepCity_RangerCheckedIn:", 1)[1].split("MossdeepCity_RangerBoardingPending:", 1)[0]
+assert "goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerAllAboard" in checkin
+assert "goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBoardingPending" in checkin
+assert "goto_if_ge VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerAllAboard" not in checkin
+print("Mossdeep pending boarding and Dewford recovery dialogue source guards passed")
