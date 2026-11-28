@@ -544,13 +544,16 @@ NeoTunnelIdle:
 	release
 	end
 NeoTunnelChallenge:
-	.string "NEO MAGMA: Get away from that relay!\n"
-	.string "You're not taking our recording!$"
+	.string "NEO MAGMA: That relay recorded\n"
+	.string "something beneath the rock.\p"
+	.string "Our team needs the data.\n"
+	.string "You aren't taking it, RANGER!$"
 NeoTunnelLoss:
 	.string "The relay is yours.$"
 NeoTunnelAfter:
-	.string "We never cut your signal! Someone\n"
-	.string "got to the relay before us.$"
+	.string "We never cut your signal!\p"
+	.string "Someone reached the relay before\n"
+	.string "we did. Check the recording.$"
 NeoTunnelIdleText:
 	.string "Keep walking, Ranger.$"
 
