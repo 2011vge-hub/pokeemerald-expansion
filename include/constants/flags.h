@@ -87,9 +87,9 @@
 #define FLAG_NEO_C4_CREW_CHECKED 0x41 // Refuge welfare check
 #define FLAG_NEO_C4_READING_CHECKED 0x42 // Refuge geology check
 #define FLAG_NEO_C4_STERN_REVIEWED 0x43 // Slateport seismic correlation; persistent
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
+#define FLAG_NEO_C4_WORKER_SAFE 0x44 // Dewford resident welfare check
+#define FLAG_NEO_C4_COURIER_SAFE 0x45 // Dewford resident welfare check
+#define FLAG_NEO_C4_ASSISTANT_SAFE 0x46 // Dewford resident welfare check
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
