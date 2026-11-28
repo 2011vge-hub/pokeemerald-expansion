@@ -554,6 +554,7 @@ PetalburgWoods_EventScript_NeoMagmaContact::
 	turnobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, DIR_NORTH
 	msgbox PetalburgWoods_Text_NeoMagmaContact, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
+	msgbox PetalburgWoods_Text_NeoMagmaHint, MSGBOX_DEFAULT
 	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NeoPressureEvidence, MSGBOX_DEFAULT
@@ -597,3 +598,9 @@ PetalburgWoods_Text_NeoPressureEvidence:
 	.string "I'll send its readings to HALE.\p"
 	.string "I'll get back to DEVON safely.\n"
 	.string "Your partner is near the trees.$"
+
+PetalburgWoods_Text_NeoMagmaHint:
+	.string "NEO MAGMA: That isn't the only\n"
+	.string "set of readings, RANGER.\p"
+	.string "Ask the crew on ROUTE 104\n"
+	.string "what their ship recorded.$"
