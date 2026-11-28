@@ -53,7 +53,8 @@ Route104_Text_C2AquaChallenge:
 	.string "NEO AQUA: The ship recorded a\npressure surge before the storm.\p"
 	.string "Hand over the log, RANGER!\nWe need those readings!$"
 Route104_Text_C2AquaLose:
-	.string "You stopped our shipment?!$"
+	.string "NEO AQUA: Keep the cargo.\p"
+	.string "The readings are what matter.\nLook at the ship's manifest.$"
 Route104_Text_C2AquaSaved:
 	.string "The raider retreats.\p"
 	.string "The relief cargo is safe!$"
