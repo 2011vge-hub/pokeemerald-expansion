@@ -205,3 +205,18 @@ assert "goto_if_eq VAR_RESULT, YES, Route109_EventScript_SailToDewford" in retur
 assert "goto Route109_EventScript_ChoseNotToSail" in return_offer
 assert "setflag FLAG_DELIVERED_DEVON_GOODS" not in travel + return_offer
 print("Neo maritime route source guards passed (emulator testing required)")
+
+# First Slateport research visit: use the existing survey credit exactly once.
+shipyard = sc("SlateportCity_SternsShipyard_2F")
+assert "goto_if_unset FLAG_NEO_C4_SURVEY, NeoSlateport_ResearchVisibilityDone" in shipyard
+assert "setflag FLAG_NEO_C4_STERN_REVIEWED" in shipyard
+hale = shipyard.split("NeoSlateport_Hale::", 1)[1].split("NeoSlateport_HaleOrders:", 1)[0]
+assert hale.index("goto_if_unset FLAG_NEO_C4_STERN_REVIEWED") < hale.index("setflag FLAG_NEO_C4_REPORTED")
+assert hale.index("goto_if_set FLAG_NEO_C4_REPORTED") < hale.index("addvar VAR_NEO_RANGER_MISSIONS")
+assert "setflag FLAG_DELIVERED_DEVON_GOODS" not in shipyard
+assert "setflag FLAG_BADGE" not in shipyard
+contacts = mp("SlateportCity_SternsShipyard_2F")["object_events"]
+assert {o["script"] for o in contacts} >= {"NeoSlateport_Stern", "NeoSlateport_Hale"}
+assert objective(survey | {"FLAG_NEO_C4_STERN_REVIEWED"}) == "NeoLog_MeetSlateportHaleText"
+assert objective(survey | {"FLAG_NEO_C4_STERN_REVIEWED", "FLAG_NEO_C4_REPORTED"}) == "NeoLog_InlandPendingText"
+print("Slateport research handoff and one-time credit source guards passed")
