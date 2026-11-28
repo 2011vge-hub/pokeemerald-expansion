@@ -59,7 +59,7 @@ GraniteCave_NeoAwait:
 GraniteCave_NeoSurveyText:
 	.string "HIKER: Our crew is safe, but the\n"
 	.string "rock survey has changed.\p"
-	.string "FLINT asked us to compare these\n"
+	.string "CAYTON asked us to compare these\n"
 	.string "readings with his inland site.\p"
 	.string "Here, copy the report for HALE.$"
 GraniteCave_NeoSurveyReminderText:
@@ -116,7 +116,7 @@ GraniteCave_NeoCrewText:
 	.string "caves until the survey is done.$"
 GraniteCave_NeoReadingText:
 	.string "SURVEYOR: The rock has shifted.\p"
-	.string "FLINT's inland team needs\n"
+	.string "CAYTON's inland team needs\n"
 	.string "a copy of these readings.$"
 GraniteCave_NeoSuppliesText:
 	.string "Emergency shelter supplies.\n"
