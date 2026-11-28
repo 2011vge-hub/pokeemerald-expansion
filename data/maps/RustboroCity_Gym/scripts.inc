@@ -108,7 +108,7 @@ RustboroCity_Gym_Text_GymGuideAdvice:
 
 RustboroCity_Gym_Text_GymGuidePostVictory:
 	.string "Well done, RANGER!\p"
-	.string "The STONE BADGE is yours.\n"
+	.string "The STONE BADGE is yours.\p"
 	.string "Visit HALE at the west field\n"
 	.string "office for your next assignment.$"
 
