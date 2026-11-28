@@ -41,4 +41,18 @@ for m in (wm,rm):
     assert len(coords)==len(set(coords)), "NPC overlap"
     for w in m["warp_events"]:
         assert (w["x"],w["y"]) not in coords,"NPC blocks map warp"
+# Regression: vanilla's initial hide flags must not strand Neo Rangers.
+assert "goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route104_MrBrineysHouse_NeoHomeTransition" in house
+home=house.split("Route104_MrBrineysHouse_NeoHomeTransition:",1)[1].split("Route104_MrBrineysHouse_EventScript_HideRustboroRival::",1)[0]
+assert "goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_MrBrineysHouse_NeoHomeDone" in home
+assert "goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 2, Route104_MrBrineysHouse_NeoShowHome" in home
+assert "goto_if_set FLAG_VISITED_DEWFORD_TOWN, Route104_MrBrineysHouse_NeoHomeDone" in home
+assert "clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY" in home
+assert "clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO" in home
+raid=route.split("Route104_EventScript_NeoAquaGrunt::",1)[1].split("Route104_EventScript_C2AquaWait:",1)[0]
+assert raid.index("setflag FLAG_NEO_C2_AQUA_DONE") < raid.index("pokenavcall Route104_Text_C2RivalRadio")
+assert route.count("pokenavcall Route104_Text_C2RivalRadio")==1
+battle_msg=read("src/battle_message.c")
+assert 'sText_NeoMagmaClass[] = _("Neo Magma")' in battle_msg
+assert 'sText_NeoAquaClass[] = _("Neo Aqua")' in battle_msg
 print("Chapter 2 source checks PASS; full playthrough still required")
