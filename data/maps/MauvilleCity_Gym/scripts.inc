@@ -425,15 +425,28 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 
 
 MauvilleCity_Gym_NeoWait:
+	goto_if_set FLAG_NEO_C4_STERN_REVIEWED, MauvilleCity_Gym_NeoInlandWait
 	msgbox MauvilleCity_Gym_NeoWaitText, MSGBOX_DEFAULT
 	release
 	end
 MauvilleCity_Gym_NeoWaitText:
-	.string "Earn your first four BADGES\n"
-	.string "before challenging this GYM.$"
+	.string "WATTSON: Hoho! Eager, are we?\p"
+	.string "Earn four BADGES first. Then\n"
+	.string "we'll make some sparks fly!$"
 
 MauvilleCity_Gym_NeoGridHint:
 	.string "WATTSON: Hoho! Our grid needs\n"
 	.string "a careful survey, too.\p"
 	.string "Speak to the engineer outside\n"
 	.string "near the GAME CORNER.$"
+
+MauvilleCity_Gym_NeoInlandWait:
+	msgbox MauvilleCity_Gym_NeoInlandWaitText, MSGBOX_DEFAULT
+	release
+	end
+MauvilleCity_Gym_NeoInlandWaitText:
+	.string "WATTSON: Hoho! A RANGER!\p"
+	.string "CAYTON's been wearing out my\n"
+	.string "radio with those tremor reports.\p"
+	.string "Earn four BADGES before we\n"
+	.string "battle. Your duty comes first.$"
