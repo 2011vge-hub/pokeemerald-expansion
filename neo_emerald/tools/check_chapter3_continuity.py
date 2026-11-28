@@ -243,3 +243,16 @@ assert "MAP_SCRIPT_ON_FRAME_TABLE" not in dock
 assert "goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding" in dock
 assert dock.index("setvar VAR_NEO_FERRY_DISPATCH, 5") < dock.index("addvar VAR_NEO_RANGER_MISSIONS, 1")
 print("Mossdeep player-controlled evacuation source guards passed")
+
+# Preserve sequel continuity on the first inland expedition.
+assert not any(o["script"].startswith(("Route110_EventScript_RivalTrigger", "Route110_EventScript_BirchScene")) for o in mp("Route110")["coord_events"])
+route110 = sc("Route110")
+assert "call_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route110_NeoHideLegacyCast" in route110
+for flag in ("FLAG_HIDE_ROUTE_110_RIVAL", "FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE", "FLAG_HIDE_ROUTE_110_BIRCH"):
+    assert "setflag " + flag in route110.split("Route110_NeoHideLegacyCast:", 1)[1]
+museum = sc("SlateportCity_OceanicMuseum_2F")
+assert museum.index("goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, NeoMuseum_SternResearch") < museum.index("addobject LOCALID_OCEANIC_MUSEUM_2F_GRUNT_1")
+assert "setflag FLAG_DELIVERED_DEVON_GOODS" not in museum.split("NeoMuseum_SternResearch:", 1)[1]
+assert "goto_if_ne VAR_RESULT, YES, Route104_MrBrineysHouse_NeoDeclineSailing" in sc("Route104_MrBrineysHouse")
+assert "Earn any one" not in sc("RustboroCity").split("RustboroCity_Text_C2HaleRadio:", 1)[1].split("RustboroCity_EventScript_NeoCampusDevonIntern::", 1)[0]
+print("Sequel cast, museum and state-aware dialogue source guards passed")
