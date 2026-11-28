@@ -23,7 +23,11 @@ for key,hook in [("GRUNT","NeoMagmaContact"),("DEVON_EMPLOYEE","NeoResearcherCon
     assert actor["flag"]=="FLAG_NEO_C2_MAGMA_DONE"
 assert not woods["coord_events"]
 assert not mapdata("RustboroCity")["coord_events"]
-assert not mapdata("Route104")["coord_events"]
+# Only the approved pre-Woods partner spar uses Route 104 triggers.
+route_triggers=mapdata("Route104")["coord_events"]
+assert len(route_triggers)==2
+assert {(e["x"],e["y"]) for e in route_triggers}=={(10,28),(11,28)}
+assert all(e["script"]=="Route104_NeoPartnerSpar" and e["var"]=="VAR_TEMP_3" and str(e["var_value"])=="1" for e in route_triggers)
 assert any(o["script"]=="RustboroCity_PokemonSchool_EventScript_UniversityAttendant" for o in mapdata("RustboroCity_PokemonSchool")["object_events"])
 assert any(o.get("local_id")=="LOCALID_NEO_RUSTBORO_RIVAL" for o in mapdata("RustboroCity")["object_events"])
 assert "applymovement LOCALID_NEO_RUSTBORO_RIVAL, RustboroCity_Movement_NeoRivalApproach" in scripts("RustboroCity")

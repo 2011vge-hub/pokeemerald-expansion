@@ -78,6 +78,8 @@ assert max(ids) < 512 + 449, "Cave metatile references an unloaded secondary til
 print("Cave atlas capacity and metatile tile references verified.")
 PY
 
+python3 neo_emerald/tools/map/build24_visual_repairs.py
+
 python3 neo_emerald/tools/validate_design.py
 python3 neo_emerald/tools/check_source.py
 python3 neo_emerald/tools/check_rescue_once.py
