@@ -1,5 +1,4 @@
 MossdeepCity_Waterfront_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, MossdeepCity_Waterfront_OnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_Waterfront_OnTransition
 	.byte 0
 
@@ -16,11 +15,7 @@ MossdeepCity_Waterfront_OnTransitionDone:
 MossdeepCity_Waterfront_FerryVisibilityDone:
 	end
 
-MossdeepCity_Waterfront_OnFrame:
-	map_script_2 VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding
-	.2byte 0
-
-@ On-frame boarding scene. State 5 is set before paying +1 mission and +100 XP.
+@ Crew-triggered boarding scene. State 5 is set before paying +1 mission and +100 XP.
 MossdeepCity_Waterfront_EventScript_Boarding:
 	lockall
 	@ Both evacuees turn toward the Ranger before thanks and boarding.
@@ -79,6 +74,7 @@ MossdeepCity_Waterfront_EventScript_RescuedChild::
 MossdeepCity_Waterfront_EventScript_FerryCrew::
 	goto_if_eq VAR_NEO_FERRY_DISPATCH, 2, MossdeepCity_RangerCheckIn
 	goto_if_eq VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerCheckIn
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding
 	lock
 	faceplayer
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_Waterfront_EventScript_FerryCrewDone
