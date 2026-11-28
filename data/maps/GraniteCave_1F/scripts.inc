@@ -57,11 +57,11 @@ GraniteCave_NeoAwait:
 	release
 	end
 GraniteCave_NeoSurveyText:
-	.string "HIKER: Our crew is safe, but the\n"
-	.string "rock survey has changed.\p"
-	.string "CAYTON asked us to compare these\n"
-	.string "readings with his inland site.\p"
-	.string "Here, copy the report for HALE.$"
+	.string "HIKER: Thanks for checking both.\n"
+	.string "The crew is safe for now.\p"
+	.string "CAYTON wants to compare these\n"
+	.string "tremors with his inland site.\p"
+	.string "Take a copy of our report to HALE.$"
 GraniteCave_NeoSurveyReminderText:
 	.string "NEXT: Speak to BRINEY at the\n"
 	.string "DEWFORD dock, then return to\l"
