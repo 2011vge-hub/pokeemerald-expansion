@@ -189,3 +189,19 @@ assert "goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerAllAboard" in c
 assert "goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBoardingPending" in checkin
 assert "goto_if_ge VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerAllAboard" not in checkin
 print("Mossdeep pending boarding and Dewford recovery dialogue source guards passed")
+
+# Neo first-visit maritime travel: do not fabricate vanilla delivery flags.
+dewford = sc("DewfordTown")
+route109 = sc("Route109")
+travel = dewford.split("DewfordTown_NeoTravelOffer:", 1)[1].split("DewfordTown_NeoSelectSlateportArrival:", 1)[0]
+assert "goto_if_unset FLAG_NEO_C4_SURVEY, DewfordTown_NeoReturnOffer" in travel
+assert "case 0, DewfordTown_EventScript_ChoosePetalburg" in travel
+assert "case 1, DewfordTown_EventScript_ChooseSlateport" in travel
+assert "case MULTI_B_PRESSED, DewfordTown_EventScript_CancelSailSelect" in travel
+assert "goto_if_eq VAR_NEO_CH3_STEP, 9, DewfordTown_NeoSlateportArrival" in dewford
+assert "goto_if_eq VAR_NEO_CH3_STEP, 9, Route109_NeoReturnOffer" in route109
+return_offer = route109.split("Route109_NeoReturnOffer:", 1)[1].split("Route109_NeoReturnText:", 1)[0]
+assert "goto_if_eq VAR_RESULT, YES, Route109_EventScript_SailToDewford" in return_offer
+assert "goto Route109_EventScript_ChoseNotToSail" in return_offer
+assert "setflag FLAG_DELIVERED_DEVON_GOODS" not in travel + return_offer
+print("Neo maritime route source guards passed (emulator testing required)")
