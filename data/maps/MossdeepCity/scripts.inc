@@ -525,10 +525,9 @@ MossdeepCity_RangerChildRescue:
 	msgbox MossdeepCity_Text_RangerEscort, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_NEO_FERRY_DISPATCH, 4
-	fadescreen FADE_TO_BLACK
 	setflag FLAG_NEO_HIDE_LANDING_RESCUEES
-	warp MAP_MOSSDEEP_CITY_WATERFRONT, 19, 37
-	waitstate
+	removeobject LOCALID_MOSSDEEP_RANGER_CHILD
+	removeobject LOCALID_MOSSDEEP_RANGER_POOCHYENA
 	releaseall
 	end
 
@@ -566,9 +565,9 @@ MossdeepCity_Text_RangerPoochyenaCalmed:
 	.string "ready. Let's go!$"
 
 MossdeepCity_Text_RangerEscort:
-	.string "You lead the boy and POOCHYENA\n"
-	.string "up the stairs, past the rising\l"
-	.string "water, to the ferry quay...$"
+	.string "BOY: We can reach the dock now!\p"
+	.string "Meet us at the waterfront, east\n"
+	.string "of town. Talk to the ferry crew.$"
 
 @ Inland civic tower is the weather and resource station.
 MossdeepCity_EventScript_WeatherStationSign::
