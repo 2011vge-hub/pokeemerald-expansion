@@ -92,8 +92,8 @@ MossdeepCity_Waterfront_EventScript_FerryCrewDone:
 	end
 
 MossdeepCity_Waterfront_Text_CrewSpotsThem:
-	.string "SAILOR: There he is! The last\n"
-	.string "two passengers! Nice work, Ranger.$"
+	.string "SAILOR: There they are! Our last\n"
+	.string "two passengers. Well done, RANGER!$"
 
 MossdeepCity_Waterfront_Text_BoyThanks:
 	.string "BOY: Thank you, {PLAYER}!\p"
@@ -101,8 +101,9 @@ MossdeepCity_Waterfront_Text_BoyThanks:
 	.string "after the water came in?$"
 
 MossdeepCity_Waterfront_Text_CrewDodges:
-	.string "SAILOR: ...Equipment fault. Storms\n"
-	.string "do that. Come on, kid. Aboard.$"
+	.string "SAILOR: The equipment failed.\n"
+	.string "That's what we were told.\p"
+	.string "Come on, kid. Time to board.$"
 
 MossdeepCity_Waterfront_Text_FerryDeparts:
 	.string "The ferry's engines roar to life.\p"
