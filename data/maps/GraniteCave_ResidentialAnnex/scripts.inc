@@ -2,7 +2,19 @@ GraniteCave_ResidentialAnnex_MapScripts::
 	.byte 0
 
 GraniteCave_AnnexResident::
-	msgbox GraniteCave_AnnexResidentText, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_AnnexResidentIdle
+	goto_if_set FLAG_NEO_C4_COURIER_SAFE, GraniteCave_AnnexCourierRepeat
+	msgbox GraniteCave_AnnexCourierCheckText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C4_COURIER_SAFE
+GraniteCave_AnnexCourierRepeat:
+	msgbox GraniteCave_AnnexCourierSafeText, MSGBOX_DEFAULT
+	release
+	end
+GraniteCave_AnnexResidentIdle:
+	msgbox GraniteCave_AnnexResidentText, MSGBOX_DEFAULT
+	release
 	end
 GraniteCave_AnnexCook::
 	msgbox GraniteCave_AnnexCookText, MSGBOX_NPC
@@ -11,7 +23,19 @@ GraniteCave_AnnexChild::
 	msgbox GraniteCave_AnnexChildText, MSGBOX_NPC
 	end
 GraniteCave_AnnexRepair::
-	msgbox GraniteCave_AnnexRepairText, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_AnnexRepairIdle
+	goto_if_set FLAG_NEO_C4_WORKER_SAFE, GraniteCave_AnnexWorkerRepeat
+	msgbox GraniteCave_AnnexWorkerCheckText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C4_WORKER_SAFE
+GraniteCave_AnnexWorkerRepeat:
+	msgbox GraniteCave_AnnexWorkerSafeText, MSGBOX_DEFAULT
+	release
+	end
+GraniteCave_AnnexRepairIdle:
+	msgbox GraniteCave_AnnexRepairText, MSGBOX_DEFAULT
+	release
 	end
 GraniteCave_AnnexRoster::
 	msgbox GraniteCave_AnnexRosterText, MSGBOX_SIGN
@@ -40,3 +64,21 @@ GraniteCave_AnnexRosterText:
 	.string "Keep the central aisle clear.\n"
 	.string "Emergency supplies: west wall.\l"
 	.string "Refuge hall: central ladder.$"
+
+GraniteCave_AnnexCourierCheckText:
+	.string "COURIER: I'm on BRAWLY's list.\p"
+	.string "The lower corridor is blocked.\n"
+	.string "I came back here for shelter.\p"
+	.string "I'll stay in the safe rooms.\n"
+	.string "Tell the warden I'm accounted for.$"
+GraniteCave_AnnexCourierSafeText:
+	.string "COURIER: I'm safe, RANGER.\n"
+	.string "The warden can mark me present.$"
+GraniteCave_AnnexWorkerCheckText:
+	.string "WORKER: The support cracked\n"
+	.string "while I was checking the wall.\p"
+	.string "I'm unhurt. I've closed off the\n"
+	.string "damaged passage for now.$"
+GraniteCave_AnnexWorkerSafeText:
+	.string "WORKER: I'll stay in the annex.\n"
+	.string "Tell the warden I'm safe.$"
