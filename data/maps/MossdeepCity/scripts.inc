@@ -590,7 +590,15 @@ MossdeepCity_Text_EvacuatedApartment:
 	.string "ACCOUNTED FOR. -MOSSDEEP RANGERS$"
 
 MossdeepCity_NeoRecoveryWorker::
-	msgbox MossdeepCity_NeoRecoveryWorkerText, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_NeoRecoveryWorkerSafe
+	msgbox MossdeepCity_NeoRecoveryWorkerText, MSGBOX_DEFAULT
+	release
+	end
+MossdeepCity_NeoRecoveryWorkerSafe:
+	msgbox MossdeepCity_NeoRecoveryWorkerSafeText, MSGBOX_DEFAULT
+	release
 	end
 MossdeepCity_NeoRecoveryWorkerText:
 	.string "We're checking the upper roads.\p"
@@ -609,3 +617,9 @@ MossdeepCity_NeoReliefCrate::
 MossdeepCity_NeoReliefCrateText:
 	.string "RANGER relief supplies.\n"
 	.string "Dry blankets and first aid.$"
+
+MossdeepCity_NeoRecoveryWorkerSafeText:
+	.string "Everyone made it aboard!\p"
+	.string "Now we can start checking the\n"
+	.string "roads and getting supplies in.\p"
+	.string "Thanks for helping, RANGER.$"
