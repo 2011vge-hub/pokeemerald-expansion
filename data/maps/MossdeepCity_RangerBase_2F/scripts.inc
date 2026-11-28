@@ -45,7 +45,9 @@ MossdeepCity_RangerBase_2F_Text_Chapter1RescueDebrief:
 	.string "HALE: You found the missing child\n"
 	.string "and brought his POOCHYENA back.\p"
 	.string "Against that flood, you kept\n"
-	.string "your head. Well done, Ranger.$"
+	.string "your head. Well done, Ranger.\p"
+	.string "Our duty isn't winning battles.\n"
+	.string "It's bringing everyone home.$"
 
 MossdeepCity_RangerBase_2F_Text_Chapter1LateSiren:
 	.string "One thing bothers me. The public\n"
