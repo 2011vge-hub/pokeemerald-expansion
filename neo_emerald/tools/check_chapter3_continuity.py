@@ -220,3 +220,14 @@ assert {o["script"] for o in contacts} >= {"NeoSlateport_Stern", "NeoSlateport_H
 assert objective(survey | {"FLAG_NEO_C4_STERN_REVIEWED"}) == "NeoLog_MeetSlateportHaleText"
 assert objective(survey | {"FLAG_NEO_C4_STERN_REVIEWED", "FLAG_NEO_C4_REPORTED"}) == "NeoLog_InlandPendingText"
 print("Slateport research handoff and one-time credit source guards passed")
+
+# Resident checks precede new crew certification; legacy certification remains valid.
+annex_scripts = sc("GraniteCave_ResidentialAnnex")
+crew = sc("GraniteCave_1F").split("GraniteCave_NeoRefugeCrew::", 1)[1].split("GraniteCave_NeoRefugeSurveyor::", 1)[0]
+assert crew.index("goto_if_set FLAG_NEO_C4_CREW_CHECKED") < crew.index("goto_if_unset FLAG_NEO_C4_WORKER_SAFE")
+for resident in ("WORKER_SAFE", "COURIER_SAFE", "ASSISTANT_SAFE"):
+    assert crew.index("goto_if_unset FLAG_NEO_C4_" + resident) < crew.index("setflag FLAG_NEO_C4_CREW_CHECKED")
+assert "setflag FLAG_NEO_C4_WORKER_SAFE" in annex_scripts
+assert "setflag FLAG_NEO_C4_COURIER_SAFE" in annex_scripts
+assert "setflag FLAG_NEO_C4_ASSISTANT_SAFE" in sc("GraniteCave_1F")
+print("Dewford individual welfare checks and legacy crew state guards passed")
