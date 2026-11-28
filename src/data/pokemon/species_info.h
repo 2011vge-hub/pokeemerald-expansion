@@ -171,7 +171,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed     = 100,
         .baseSpAttack  = 70,
         .baseSpDefense = 85,
-        .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
+        .types = MON_TYPES(TYPE_DARK),
         .catchRate = 45,
         .expYield = 220,
         .evYield_Attack = 3,
@@ -185,13 +185,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .speciesName = _("Grimyena"),
         .cryId = CRY_MIGHTYENA,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Infernal"),
+        .categoryName = _("Dual Fang"),
         .height = 15,
         .weight = 510,
         .description = COMPOUND_STRING(
-            "Its fur crackles with embers when it\n"
-            "gives chase. The hottest flames flare\n"
-            "along its mane when guarding its pack."),
+            "Its two heads hunt in perfect harmony.\n"
+            "It fiercely protects its territory and\n"
+            "never abandons a trusted partner."),
         .pokemonScale = 362,
         .pokemonOffset = 9,
         .trainerScale = 256,
