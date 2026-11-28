@@ -87,14 +87,23 @@ GraniteCave_NeoRefugeCrew::
 	lock
 	faceplayer
 	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
-	msgbox GraniteCave_NeoCrewText, MSGBOX_DEFAULT
+	goto_if_set FLAG_NEO_C4_CREW_CHECKED, GraniteCave_NeoCrewConfirmed
+	goto_if_unset FLAG_NEO_C4_WORKER_SAFE, GraniteCave_NeoWorkerMissing
+	goto_if_unset FLAG_NEO_C4_COURIER_SAFE, GraniteCave_NeoCourierMissing
+	goto_if_unset FLAG_NEO_C4_ASSISTANT_SAFE, GraniteCave_NeoAssistantMissing
 	setflag FLAG_NEO_C4_CREW_CHECKED
+GraniteCave_NeoCrewConfirmed:
+	msgbox GraniteCave_NeoCrewText, MSGBOX_DEFAULT
 	release
 	end
 GraniteCave_NeoRefugeSurveyor::
 	lock
 	faceplayer
 	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
+	goto_if_set FLAG_NEO_C4_ASSISTANT_SAFE, GraniteCave_NeoSurveyReadings
+	msgbox GraniteCave_NeoAssistantCheckText, MSGBOX_DEFAULT
+	setflag FLAG_NEO_C4_ASSISTANT_SAFE
+GraniteCave_NeoSurveyReadings:
 	msgbox GraniteCave_NeoReadingText, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C4_READING_CHECKED
 	release
@@ -114,8 +123,9 @@ GraniteCave_NeoChildText:
 	.string "lights-out. Even the empty ones.$"
 GraniteCave_NeoRefugeDirectionsText:
 	.string "Take the ladder by the crates.\p"
-	.string "Check the bunk warden, then the\n"
-	.string "gauge keeper east of the bunks.\p"
+	.string "Check the bunk warden's roster.\p"
+	.string "Find the residents in the annex\n"
+	.string "and the survey station east.\p"
 	.string "Bring both reports to the Hiker\n"
 	.string "at the cave mouth.$"
 GraniteCave_NeoCrewMissingText:
@@ -140,3 +150,31 @@ GraniteCave_NeoReadingText:
 GraniteCave_NeoSuppliesText:
 	.string "Emergency shelter supplies.\n"
 	.string "Water, blankets and ropes.$"
+
+GraniteCave_NeoWorkerMissing:
+		msgbox GraniteCave_NeoWorkerMissingText, MSGBOX_DEFAULT
+		release
+		end
+GraniteCave_NeoCourierMissing:
+		msgbox GraniteCave_NeoCourierMissingText, MSGBOX_DEFAULT
+		release
+		end
+GraniteCave_NeoAssistantMissing:
+		msgbox GraniteCave_NeoAssistantMissingText, MSGBOX_DEFAULT
+		release
+		end
+GraniteCave_NeoWorkerMissingText:
+	.string "WARDEN: Find the repair worker\n"
+	.string "in the residential annex.\p"
+	.string "Take the central ladder.$"
+GraniteCave_NeoCourierMissingText:
+	.string "WARDEN: We still need to check\n"
+	.string "the courier in the annex.$"
+GraniteCave_NeoAssistantMissingText:
+	.string "WARDEN: Check the survey assistant.\n"
+	.string "The station is east of here.$"
+GraniteCave_NeoAssistantCheckText:
+	.string "ASSISTANT: I'm safe, RANGER.\p"
+	.string "I left the unstable passage\n"
+	.string "when the gauge started shaking.\p"
+	.string "Tell the warden I'm accounted for.$"
