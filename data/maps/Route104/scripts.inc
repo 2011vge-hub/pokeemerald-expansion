@@ -162,6 +162,8 @@ Route104_NeoPartnerLoseText:
 	.string "Not bad, rookie!$"
 Route104_NeoPartnerReadyText:
 	.string "Nice work! I can count on you.\p"
+	.string "Dad always says the best partners\n"
+	.string "know when to listen to each other.\p"
 	.string "I'll scout ahead in the WOODS.\n"
 	.string "Find the DEVON researcher.$"
 
