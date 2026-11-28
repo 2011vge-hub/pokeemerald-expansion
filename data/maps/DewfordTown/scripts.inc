@@ -864,11 +864,15 @@ DewfordTown_NeoReturnText:
 	.string "BRINEY: Back to my cottage on\n"
 	.string "ROUTE 104?$"
 DewfordTown_NeoSurveyBrief::
-	.string "BRAWLY: Our cave crew needs help.\p"
+	.string "BRAWLY: We built homes below\n"
+	.string "the island to stay together.\p"
+	.string "After the last tremor, three\n"
+	.string "residents missed their check-in.\p"
 	.string "Head north onto ROUTE 106.\n"
 	.string "Find the HIKER in GRANITE CAVE.\p"
-	.string "Check the shelter and the gauge.\n"
-	.string "Give both reports to the HIKER.$"
+	.string "Check the warden's roster and\n"
+	.string "the survey station's readings.\p"
+	.string "Bring both reports to the HIKER.$"
 DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"
 	.string "Ask BRINEY for SLATEPORT passage.\n"
