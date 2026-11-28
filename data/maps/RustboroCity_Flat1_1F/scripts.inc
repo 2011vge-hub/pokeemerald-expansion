@@ -114,16 +114,19 @@ NeoOffice_Board:
 	.string "Ask him for passage.\p"
 	.string "Speak to BRAWLY near the GYM.\n"
 	.string "Check the cave survey.\p"
-	.string "Return here with your report.$"
+	.string "Then sail to SLATEPORT and meet\n"
+	.string "STERN at his shipyard.$"
 
 NeoOffice_C4ReportText:
 	.string "HALE: Good work. The cave crew\n"
 	.string "is accounted for.\p"
-	.string "Their survey mentions FLINT.\n"
-	.string "We will check his inland records.$"
+	.string "CAYTON needs these records.\p"
+	.string "Meet STERN at his SLATEPORT\n"
+	.string "shipyard to compare them.$"
 NeoOffice_C4ClosedText:
 	.string "DEWFORD survey complete.\p"
-	.string "The inland dispatch is pending.$"
+	.string "Meet STERN at his SLATEPORT\n"
+	.string "shipyard for the next briefing.$"
 
 
 NeoOffice_Secure:
