@@ -40,12 +40,12 @@ GraniteCave_1F_Text_ExplainFlash:
 	.string "from DEWFORD's POKéMON GYM.$"
 
 
-@ Interim entrance-level survey. Expanded cave settlement/refuge assets remain pending.
+@ Refuge survey: preserve the two existing persistent checks and guide incomplete visits.
 GraniteCave_NeoSurvey:
 	goto_if_set FLAG_NEO_C4_SURVEY, GraniteCave_NeoSurveyReminder
 	goto_if_unset FLAG_NEO_C4_BRIEF, GraniteCave_NeoAwait
-	goto_if_unset FLAG_NEO_C4_CREW_CHECKED, GraniteCave_NeoRefugeDirections
-	goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoRefugeDirections
+	goto_if_unset FLAG_NEO_C4_CREW_CHECKED, GraniteCave_NeoCrewMissing
+	goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoReadingMissing
 	msgbox GraniteCave_NeoSurveyText, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C4_SURVEY
 GraniteCave_NeoSurveyReminder:
@@ -70,6 +70,15 @@ GraniteCave_NeoAwaitText:
 	.string "HIKER: Speak to BRAWLY about\n"
 	.string "the survey before you go deeper.$"
 
+GraniteCave_NeoCrewMissing:
+	goto_if_unset FLAG_NEO_C4_READING_CHECKED, GraniteCave_NeoRefugeDirections
+	msgbox GraniteCave_NeoCrewMissingText, MSGBOX_DEFAULT
+	release
+	end
+GraniteCave_NeoReadingMissing:
+	msgbox GraniteCave_NeoReadingMissingText, MSGBOX_DEFAULT
+	release
+	end
 GraniteCave_NeoRefugeDirections:
 	msgbox GraniteCave_NeoRefugeDirectionsText, MSGBOX_DEFAULT
 	release
@@ -109,6 +118,16 @@ GraniteCave_NeoRefugeDirectionsText:
 	.string "gauge keeper east of the bunks.\p"
 	.string "Bring both reports to the Hiker\n"
 	.string "at the cave mouth.$"
+GraniteCave_NeoCrewMissingText:
+	.string "HIKER: I have the gauge readings.\n"
+	.string "We still need the crew report.\p"
+	.string "Take the ladder by the crates.\n"
+	.string "Speak to the worker in the bunks.$"
+GraniteCave_NeoReadingMissingText:
+	.string "HIKER: The crew is accounted for.\n"
+	.string "We still need the gauge readings.\p"
+	.string "Take the ladder, then go east\n"
+	.string "from the bunks to the survey room.$"
 GraniteCave_NeoCrewText:
 	.string "WORKER: Everyone is accounted\n"
 	.string "for. Our supplies are dry.\p"
