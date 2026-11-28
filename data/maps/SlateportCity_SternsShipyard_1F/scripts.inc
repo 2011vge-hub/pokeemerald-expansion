@@ -3,6 +3,7 @@ SlateportCity_SternsShipyard_1F_MapScripts::
 
 SlateportCity_SternsShipyard_1F_EventScript_Dock::
 	lockall
+	goto_if_set FLAG_NEO_C4_SURVEY, NeoSlateport_DockResearch
 	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_SternsShipyard_1F_EventScript_FerryReady
 	goto_if_set FLAG_BADGE07_GET, SlateportCity_SternsShipyard_1F_EventScript_BrineyJoined
 	goto_if_set FLAG_DELIVERED_DEVON_GOODS, SlateportCity_SternsShipyard_1F_EventScript_NeedVeteran
@@ -139,3 +140,17 @@ SlateportCity_SternsShipyard_1F_Text_GetSeasickEasily:
 	.string "I get seasick real easily.\n"
 	.string "So I get to help out here instead.$"
 
+
+NeoSlateport_DockResearch:
+	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox NeoSlateport_DockResearchText, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DOCK, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	releaseall
+	end
+NeoSlateport_DockResearchText:
+	.string "DOCK: You're the DEWFORD RANGER!\p"
+	.string "CAPT. STERN and HALE are upstairs.\n"
+	.string "Take the stairs at the back.$"
