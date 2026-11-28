@@ -610,6 +610,9 @@ enum
 #define OBJ_EVENT_PAL_TAG_LIGHT_2                 0x8002
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x8003
 #define OBJ_EVENT_PAL_TAG_NEON_LIGHT              0x8004
+// Neo faction uniforms; dedicated tags preserve the shared NPC palettes.
+#define OBJ_EVENT_PAL_TAG_NEO_AQUA                0x11E0
+#define OBJ_EVENT_PAL_TAG_NEO_MAGMA               0x11E1
 // Not a real OW palette tag; used for the white flash applied to followers
 #define OBJ_EVENT_PAL_TAG_WHITE                   (OBJ_EVENT_PAL_TAG_NONE - 1)
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
