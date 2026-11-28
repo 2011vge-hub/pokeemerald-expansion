@@ -231,3 +231,15 @@ assert "setflag FLAG_NEO_C4_WORKER_SAFE" in annex_scripts
 assert "setflag FLAG_NEO_C4_COURIER_SAFE" in annex_scripts
 assert "setflag FLAG_NEO_C4_ASSISTANT_SAFE" in sc("GraniteCave_1F")
 print("Dewford individual welfare checks and legacy crew state guards passed")
+
+# Player-controlled Mossdeep evacuation; crew interaction gates boarding.
+rescue = sc("MossdeepCity").split("MossdeepCity_RangerChildRescue:", 1)[1].split("MossdeepCity_EventScript_RangerPoochyena::", 1)[0]
+dock = sc("MossdeepCity_Waterfront")
+assert "\\twarp " not in rescue.replace("\t", "\\t")
+assert "setvar VAR_NEO_FERRY_DISPATCH, 4" in rescue
+for npc in ("CHILD", "POOCHYENA"):
+    assert "removeobject LOCALID_MOSSDEEP_RANGER_" + npc in rescue
+assert "MAP_SCRIPT_ON_FRAME_TABLE" not in dock
+assert "goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_Waterfront_EventScript_Boarding" in dock
+assert dock.index("setvar VAR_NEO_FERRY_DISPATCH, 5") < dock.index("addvar VAR_NEO_RANGER_MISSIONS, 1")
+print("Mossdeep player-controlled evacuation source guards passed")
