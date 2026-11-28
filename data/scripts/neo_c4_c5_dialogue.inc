@@ -318,3 +318,37 @@ NeoMilestone_Text_RelicrestGymTrainer2::
 NeoMilestone_Text_RelicrestGymTrainerDefeat::
 	.string "Looks like you learned something\nfrom that battle!$"
 
+@ Optional C4 comedy encounter: Jackhammer Grunt (Neo Aqua).
+@ Place in a stable side alcove after resident safety checks; never block main route.
+@ Show drilling loop and sound only in range; stop before conversation/battle.
+@ Proposed scoped trainer battle: each opposing Pokemon starts its first entry confused.
+@ Use normal volatile confusion rules and immunity; no status or state leaks to other battles.
+@ Do not reapply on switching back in or affect player party. Reset on loss/retry.
+@ Preserve normal loss handling; mark trainer defeated only on victory. No mandatory clue/reward.
+@ No trainer ID, battle hook, sound or map allocation here; integrate after capacity/collision audit.
+NeoMilestone_Text_JackhammerIntro::
+	.string "NEO AQUA: WHAT DID YOU SAY,\nPUNK?!\p"
+	.string "No, seriously. What did you say?$"
+
+NeoMilestone_Text_JackhammerStop::
+	.string "Hold on! Let me turn this off!\p"
+	.string "Oh! A RANGER! You should've said\nsomething!$"
+
+NeoMilestone_Text_JackhammerChallenge::
+	.string "Wait, you want to battle?\p"
+	.string "All right! I hope my POKéMON\nheard that!$"
+
+NeoMilestone_Text_JackhammerConfused::
+	.string "The opposing POKéMON is confused\nfrom all the noise!$"
+
+NeoMilestone_Text_JackhammerDefeat::
+	.string "WHAT?! I LOST?!$"
+
+NeoMilestone_Text_JackhammerAfter::
+	.string "Maybe I should've bought\nearplugs for my POKéMON, too...\p"
+	.string "All right, no more digging here.$"
+
+NeoMilestone_Text_JackhammerRepeat::
+	.string "Speak up!\p"
+	.string "Just kidding. I can hear you\nnow. Mostly.$"
+
