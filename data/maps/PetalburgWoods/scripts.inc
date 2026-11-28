@@ -555,11 +555,13 @@ PetalburgWoods_EventScript_NeoMagmaContact::
 	msgbox PetalburgWoods_Text_NeoMagmaContact, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
 	msgbox PetalburgWoods_Text_NeoMagmaHint, MSGBOX_DEFAULT
+	closemessage
+	@ Clear the defeated grunt before the researcher addresses the Ranger.
+	removeobject LOCALID_PETALBURG_WOODS_GRUNT
 	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NeoPressureEvidence, MSGBOX_DEFAULT
 	closemessage
-	removeobject LOCALID_PETALBURG_WOODS_GRUNT
 	goto PetalburgWoods_EventScript_RemoveDevonResearcher
 	end
 @ The researcher provides a rescue prompt; only the actual grunt initiates battle.
