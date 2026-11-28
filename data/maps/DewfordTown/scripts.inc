@@ -819,10 +819,11 @@ DewfordTown_NeoBriefEnd:
 	release
 	end
 DewfordTown_NeoGateText:
-	.string "BRAWLY: You're not ready for\n"
-	.string "this challenge yet, RANGER.\p"
-	.string "Earn six BADGES, grow stronger,\n"
-	.string "and come back to DEWFORD.$"
+	.string "BRAWLY: Strength takes time.\p"
+	.string "You're not ready for this\n"
+	.string "challenge yet, RANGER.\p"
+	.string "Earn six BADGES and come back.\n"
+	.string "I'll be waiting.$"
 
 DewfordTown_NeoTravelOffer:
 	goto_if_unset FLAG_NEO_C4_SURVEY, DewfordTown_NeoReturnOffer
