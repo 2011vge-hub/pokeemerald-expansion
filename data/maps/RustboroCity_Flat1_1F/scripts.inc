@@ -98,22 +98,20 @@ NeoOffice_Notice:
 	.string "the woods to the Route 104 cottage.$"
 
 NeoOffice_Log:
-	.string "HALE: Both techs called home.\n"
-	.string "I can take their names down now.\p"
-	.string "Let's hear what you brought back.\p"
-	.string "That's our crew. That's Devon.\n"
-	.string "Hear that third call?\p"
-	.string "It came before the relay cut out.\n"
-	.string "I'll keep the original. Good work.\p"
-	.string "DEWFORD has asked for a survey.\n"
-	.string "We need a second record.$"
+	.string "HALE: Both technicians are safe.\p"
+	.string "Let's hear that relay recording.\p"
+	.string "Our crew... DEVON... and a third\n"
+	.string "signal before the line went dead.\p"
+	.string "Three clues, not three answers.\p"
+	.string "DEWFORD has asked for help.\n"
+	.string "Start with the people who need us.$"
 
 NeoOffice_Board:
 	.string "NEXT: DEWFORD ISLAND.\p"
 	.string "BRINEY's cottage is on ROUTE 104.\n"
 	.string "Ask him for passage.\p"
-	.string "Speak to BRAWLY near the GYM.\n"
-	.string "Check the cave survey.\p"
+	.string "Meet BRAWLY outside the GYM.\n"
+	.string "Check his cave crew and readings.\p"
 	.string "Then sail to SLATEPORT and meet\n"
 	.string "STERN at his shipyard.$"
 
