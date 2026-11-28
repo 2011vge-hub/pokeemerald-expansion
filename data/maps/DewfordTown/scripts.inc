@@ -877,3 +877,11 @@ DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"
 	.string "Ask BRINEY for SLATEPORT passage.\n"
 	.string "Show STERN what you found.$"
+
+DewfordTown_NeoBoardwalkSign::
+	msgbox DewfordTown_NeoBoardwalkText, MSGBOX_SIGN
+	end
+DewfordTown_NeoBoardwalkText:
+	.string "DEWFORD - SURFACE LANDING\p"
+	.string "Follow the boardwalk north to\n"
+	.string "DEWFORD UNDERGROUND.$"
