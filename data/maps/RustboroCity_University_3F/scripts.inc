@@ -2,7 +2,20 @@ RustboroCity_University_3F_MapScripts::
 	.byte 0
 
 RustboroCity_University_3F_EventScript_SensorEngineer::
-	msgbox RustboroCity_University_3F_Text_SensorEngineer, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_NEO_C4_STERN_REVIEWED, RustboroCity_University_3F_NeoCoastalMatch
+	goto_if_set FLAG_NEO_C2_DEBRIEF_DONE, RustboroCity_University_3F_NeoGaugeMatch
+	msgbox RustboroCity_University_3F_Text_SensorEngineer, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_University_3F_NeoGaugeMatch:
+	msgbox RustboroCity_University_3F_Text_NeoGaugeMatch, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_University_3F_NeoCoastalMatch:
+	msgbox RustboroCity_University_3F_Text_NeoCoastalMatch, MSGBOX_DEFAULT
+	release
 	end
 
 RustboroCity_University_3F_EventScript_ArchiveScholar::
@@ -44,3 +57,14 @@ RustboroCity_University_3F_Text_ArchiveScholar:
 	.string "every storm siren record.\p"
 	.string "The latest MOSSDEEP entry\n"
 	.string "is under investigation.$"
+
+RustboroCity_University_3F_Text_NeoGaugeMatch:
+	.string "M-17 was on both of your reports.\p"
+	.string "We're checking when the pressure\n"
+	.string "rose and when the siren sounded.\p"
+	.string "We won't assume a cause yet.$"
+RustboroCity_University_3F_Text_NeoCoastalMatch:
+	.string "STERN sent the DEWFORD readings.\p"
+	.string "The timing matches the inland\n"
+	.string "tremors, but we need more data.\p"
+	.string "CAYTON's team may help us.$"
