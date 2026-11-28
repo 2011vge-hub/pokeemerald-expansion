@@ -1498,6 +1498,9 @@ RustboroCity_EventScript_C2ReportComplete:
 	release
 	end
 RustboroCity_EventScript_C2ReportDone:
+	goto_if_set FLAG_NEO_C4_STERN_REVIEWED, RustboroCity_NeoCampusLater
+	goto_if_ge VAR_NEO_CH3_STEP, 6, RustboroCity_NeoCampusFieldwork
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_NeoCampusCertifiedNext
 	msgbox RustboroCity_Text_C2BadgeNext, MSGBOX_DEFAULT
 	release
 	end
@@ -1516,13 +1519,15 @@ RustboroCity_Text_C2GoBriney:
 RustboroCity_Text_C2HaleRadio:
 	.string "HALE: M-17 appears in both reports.\p"
 	.string "The late siren and pressure\ndata may be connected.\p"
-	.string "Earn any one BADGE, then report\nat our field office for RANK 2.$"
+	.string "Earn ROXANNE's STONE BADGE.\p"
+	.string "Then report to the field office\n"
+	.string "for your RANK 2 certification.$"
 RustboroCity_Text_C2MissionDone:
 	.string "CHAPTER 2 REPORT COMPLETE!\p"
 	.string "Mission and partner training\ncredited.\p"
 	.string "Meet HALE at the field office\nin the flats northwest of the CENTER.$"
 RustboroCity_Text_C2BadgeNext:
-	.string "Earn any one GYM BADGE.\p"
+	.string "Earn ROXANNE's STONE BADGE.\p"
 	.string "Report to HALE at the field office\nnorthwest of the POKéMON CENTER.$"
 
 
@@ -1564,3 +1569,28 @@ RustboroCity_Text_NeoCampusResident:
 	.string "Finals, rent, and a late shift\nat the POKé MART...\p"
 	.string "Champion BRENDAN visited our\ncampus once. I missed the lecture!$"
 
+
+RustboroCity_NeoCampusCertifiedNext:
+	msgbox RustboroCity_NeoCampusCertifiedText, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_NeoCampusFieldwork:
+	msgbox RustboroCity_NeoCampusFieldworkText, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_NeoCampusLater:
+	msgbox RustboroCity_NeoCampusLaterText, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_NeoCampusCertifiedText:
+	.string "Nice work on the STONE BADGE!\p"
+	.string "HALE is at the west field office\n"
+	.string "for your CUTTER certification.$"
+RustboroCity_NeoCampusFieldworkText:
+	.string "Your fieldwork is helping our\n"
+	.string "research team, RANGER.\p"
+	.string "Check your FIELD LOG for orders.$"
+RustboroCity_NeoCampusLaterText:
+	.string "STERN's report came through.\p"
+	.string "We're comparing the coastal\n"
+	.string "and inland records now.$"
