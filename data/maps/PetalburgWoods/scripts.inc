@@ -551,8 +551,11 @@ PetalburgWoods_EventScript_NeoMagmaContact::
 	faceplayer
 	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_EventScript_NeoMagmaAwait
 	goto_if_set FLAG_NEO_C2_MAGMA_DONE, PetalburgWoods_EventScript_NeoMagmaFinished
+	turnobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, DIR_NORTH
 	msgbox PetalburgWoods_Text_NeoMagmaContact, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_FacePlayer
+	waitmovement 0
 	msgbox PetalburgWoods_Text_NeoPressureEvidence, MSGBOX_DEFAULT
 	closemessage
 	removeobject LOCALID_PETALBURG_WOODS_GRUNT
@@ -583,10 +586,14 @@ PetalburgWoods_EventScript_NeoMagmaFinished:
 	releaseall
 	end
 PetalburgWoods_Text_NeoMagmaContact:
-	.string "DEVON: They're stealing our\n"
+	.string "DEVON: RANGER! He's after the\n"
 	.string "pressure-sensor records!\p"
-	.string "NEO MAGMA: Stand aside, RANGER!$"
+	.string "NEO MAGMA: Those readings could\n"
+	.string "tell us what is moving below.\p"
+	.string "We need them. Stand aside!$"
 PetalburgWoods_Text_NeoPressureEvidence:
 	.string "DEVON: Thank you, RANGER!\p"
-	.string "That pressure gauge is marked M-17.\nI'll record its readings for HALE.\p"
+	.string "The gauge is marked M-17.\n"
+	.string "I'll send its readings to HALE.\p"
+	.string "I'll get back to DEVON safely.\n"
 	.string "Your partner is near the trees.$"
