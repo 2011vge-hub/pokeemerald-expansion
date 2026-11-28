@@ -10,7 +10,7 @@ DewfordTown_OnTransition:
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_eq VAR_NEO_CH3_STEP, 9, DewfordTown_NeoReturnOffer
+	goto_if_eq VAR_NEO_CH3_STEP, 9, DewfordTown_NeoTravelOffer
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
@@ -172,8 +172,7 @@ DewfordTown_EventScript_SailToSlateport::
 	clearflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
 	setflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
 	hideobjectat LOCALID_DEWFORD_BOAT, MAP_DEWFORD_TOWN
-	call_if_unset FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateportDeliverGoods
-	call_if_set FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateport
+	call DewfordTown_NeoSelectSlateportArrival
 	closemessage
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	resetobjectsubpriority LOCALID_PLAYER, MAP_DEWFORD_TOWN
@@ -825,6 +824,35 @@ DewfordTown_NeoGateText:
 	.string "Earn six BADGES, grow stronger,\n"
 	.string "and come back to DEWFORD.$"
 
+DewfordTown_NeoTravelOffer:
+	goto_if_unset FLAG_NEO_C4_SURVEY, DewfordTown_NeoReturnOffer
+	message DewfordTown_NeoTravelText
+	waitmessage
+	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
+	switch VAR_RESULT
+	case 0, DewfordTown_EventScript_ChoosePetalburg
+	case 1, DewfordTown_EventScript_ChooseSlateport
+	case 2, DewfordTown_EventScript_CancelSailSelect
+	case MULTI_B_PRESSED, DewfordTown_EventScript_CancelSailSelect
+	goto DewfordTown_EventScript_CancelSailSelect
+
+DewfordTown_NeoSelectSlateportArrival:
+	goto_if_eq VAR_NEO_CH3_STEP, 9, DewfordTown_NeoSlateportArrival
+	call_if_unset FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateportDeliverGoods
+	call_if_set FLAG_DELIVERED_DEVON_GOODS, DewfordTown_EventScript_LandedSlateport
+	return
+DewfordTown_NeoSlateportArrival:
+	msgbox DewfordTown_NeoSlateportArrivalText, MSGBOX_DEFAULT
+	return
+
+DewfordTown_NeoTravelText:
+	.string "BRINEY: The survey is complete!\p"
+	.string "Where are we headed, RANGER?$"
+DewfordTown_NeoSlateportArrivalText:
+	.string "BRINEY: SLATEPORT, safe and sound!\p"
+	.string "I'll wait at the dock if you\n"
+	.string "need to return to DEWFORD.$"
+
 DewfordTown_NeoReturnOffer:
 	msgbox DewfordTown_NeoReturnText, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_ChoosePetalburg
@@ -835,11 +863,11 @@ DewfordTown_NeoReturnText:
 	.string "BRINEY: Back to my cottage on\n"
 	.string "ROUTE 104?$"
 DewfordTown_NeoSurveyBrief::
-	.string "BRAWLY: The cave crew sent word.\p"
+	.string "BRAWLY: Our cave crew needs help.\p"
 	.string "Head north onto ROUTE 106.\n"
 	.string "Find the HIKER in GRANITE CAVE.\p"
-	.string "Check the refuge and survey.\n"
-	.string "Bring the result back to HALE.$"
+	.string "Check the shelter and the gauge.\n"
+	.string "Give both reports to the HIKER.$"
 DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"
 	.string "Take BRINEY back to ROUTE 104.\n"
