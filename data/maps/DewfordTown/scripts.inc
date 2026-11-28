@@ -850,8 +850,8 @@ DewfordTown_NeoTravelText:
 	.string "Where are we headed, RANGER?$"
 DewfordTown_NeoSlateportArrivalText:
 	.string "BRINEY: SLATEPORT, safe and sound!\p"
-	.string "I'll wait at the dock if you\n"
-	.string "need to return to DEWFORD.$"
+	.string "Head north to STERN's SHIPYARD.\n"
+	.string "I'll wait here if you need me.$"
 
 DewfordTown_NeoReturnOffer:
 	msgbox DewfordTown_NeoReturnText, MSGBOX_YESNO
@@ -870,5 +870,5 @@ DewfordTown_NeoSurveyBrief::
 	.string "Give both reports to the HIKER.$"
 DewfordTown_NeoSurveyReturn:
 	.string "BRAWLY: The crew is safe.\p"
-	.string "Take BRINEY back to ROUTE 104.\n"
-	.string "Report to HALE in RUSTBORO.$"
+	.string "Ask BRINEY for SLATEPORT passage.\n"
+	.string "Show STERN what you found.$"
