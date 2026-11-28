@@ -119,7 +119,7 @@ NeoLog_FiledText:
 NeoLog_SailHomeText:
 	.string "Take Briney back to Route 104.\nReport to Hale in west Rustboro.$"
 NeoLog_HaleReportText:
-	.string "Report the DEWFORD survey to\\n"
+	.string "Report the DEWFORD survey to\n"
 	.string "HALE in west RUSTBORO.$"
 NeoLog_RefugeText:
 	.string "Route 106: enter GRANITE CAVE.\p"
@@ -142,7 +142,7 @@ NeoLog_CaveReportText:
 NeoLog_DewfordText:
 	.string "Ask Briney at his Route 104\ncottage for passage to Dewford.\lFind BRAWLY at or in the GYM.$"
 NeoLog_DewfordBriefText:
-	.string "DEWFORD: Find BRAWLY at or in\\n"
+	.string "DEWFORD: Find BRAWLY at or in\n"
 	.string "the GYM for your cave briefing.$"
 NeoLog_RelayReportText:
 	.string "Take the relay copy to Hale.\nHis office is in west Rustboro.$"
@@ -157,8 +157,8 @@ NeoLog_CutterText:
 NeoLog_BadgeText:
 	.string "Earn Roxanne's Stone Badge.\nSee Hale in the west field office\lfor your Cutter certification.$"
 NeoLog_CertificationText:
-	.string "STONE BADGE earned!\\p"
-	.string "See HALE in the west RUSTBORO\\n"
+	.string "STONE BADGE earned!\p"
+	.string "See HALE in the west RUSTBORO\n"
 	.string "field office for your CUTTER.$"
 NeoLog_LiaisonText:
 	.string "Return to RUSTBORO UNIVERSITY.\p"
