@@ -11,6 +11,7 @@ Route110_OnResume:
 Route110_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
+	call_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route110_NeoHideLegacyCast
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
 	end
 
@@ -987,3 +988,10 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+
+@ Keep legacy local IDs and scripts for compatibility, not active story encounters.
+Route110_NeoHideLegacyCast:
+	setflag FLAG_HIDE_ROUTE_110_RIVAL
+	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
+	setflag FLAG_HIDE_ROUTE_110_BIRCH
+	return
