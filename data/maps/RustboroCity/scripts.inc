@@ -1440,8 +1440,10 @@ RustboroCity_Text_NeoRivalFirstAssignment:
 	.string "strange equipment in the WOODS.\p"
 	.string "We need to investigate without\n"
 	.string "putting wild POKéMON at risk.\p"
-	.string "Our next lead is near BRINEY's\n"
-	.string "old cottage on ROUTE 104.$"
+	.string "After we check the woods, we'll\n"
+	.string "follow the supply route south.\p"
+	.string "BRINEY's cottage is our next\n"
+	.string "contact point.$"
 
 RustboroCity_Text_NeoRivalAwaitingTransfer:
 	.string "RANGER LIAISON: We are expecting\n"
