@@ -4,7 +4,7 @@
 #include "bg.h"
 
 // Exported type declarations
-#define MAP_NAME_LENGTH 16
+#define MAP_NAME_LENGTH 19
 
 enum RegionMapType
 {

@@ -1324,6 +1324,10 @@ Route104_NeoDewfordArrival:
 	releaseall
 	end
 Route104_NeoDewfordArrivalText:
-	.string "BRINEY: DEWFORD at last!\p"
-	.string "Find BRAWLY by the GYM.\n"
-	.string "I'll be here when you need me.$"
+	.string "BRINEY: Here we are, RANGER.\p"
+	.string "Hard to believe this was once\n"
+	.string "a whole town above the water.\p"
+	.string "The people stayed. They just\n"
+	.string "found a new place to live.\p"
+	.string "Follow the boardwalk north.\n"
+	.string "BRAWLY is on B2F.$"

@@ -61,5 +61,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "DewfordUnderground_EventScript_B6DescentBlocked"
     }
-  ]
+  ],
+  "floor_number": "-5"
 }
