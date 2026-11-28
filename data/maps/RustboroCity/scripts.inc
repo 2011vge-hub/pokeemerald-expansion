@@ -7,9 +7,21 @@ RustboroCity_OnTransition:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	call Common_EventScript_SetupRivalGfxId
 	call RustboroCity_EventScript_SetupNeoRivalGfxId
+	call RustboroCity_NeoPartnerVisibility
 	call RustboroCity_EventScript_QueueNeoArrivalGreeting
 	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
 	end
+
+RustboroCity_NeoPartnerVisibility:
+	setflag FLAG_TEMP_1
+	goto_if_unset FLAG_NEO_C1_FLIGHT_RUSTBORO, RustboroCity_NeoPartnerVisibilityDone
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, RustboroCity_NeoPartnerShow
+	goto_if_unset FLAG_NEO_C2_BRINEY_REPORTED, RustboroCity_NeoPartnerVisibilityDone
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_NeoPartnerVisibilityDone
+RustboroCity_NeoPartnerShow:
+	clearflag FLAG_TEMP_1
+RustboroCity_NeoPartnerVisibilityDone:
+	return
 
 @ New Ranger rival graphics use slot 1; vanilla rival remains in slot 0.
 RustboroCity_EventScript_SetupNeoRivalGfxId:
@@ -1334,6 +1346,8 @@ RustboroCity_EventScript_NeoArrivalShared:
 	closemessage
 	applymovement LOCALID_NEO_RUSTBORO_RIVAL, RustboroCity_Movement_NeoRivalReturn
 	waitmovement 0
+	setflag FLAG_TEMP_1
+	removeobject LOCALID_NEO_RUSTBORO_RIVAL
 RustboroCity_EventScript_NeoArrivalFinish:
 	releaseall
 	end
@@ -1370,6 +1384,9 @@ RustboroCity_EventScript_NeoRivalSharedIntroduction:
 	msgbox RustboroCity_Text_NeoRivalHaleFamily, MSGBOX_DEFAULT
 	msgbox RustboroCity_Text_NeoRivalFirstAssignment, MSGBOX_DEFAULT
 	setflag FLAG_NEO_C2_RIVAL_MET
+	closemessage
+	setflag FLAG_TEMP_1
+	removeobject LOCALID_NEO_RUSTBORO_RIVAL
 	release
 	end
 
@@ -1379,7 +1396,12 @@ RustboroCity_EventScript_NeoRivalBeforeFlight:
 	end
 
 RustboroCity_EventScript_NeoRivalAfterMeeting:
-	msgbox RustboroCity_Text_NeoRivalRepeatInstructions, MSGBOX_DEFAULT
+	goto_if_set FLAG_NEO_C2_DEBRIEF_DONE, RustboroCity_NeoPartnerGym
+	msgbox RustboroCity_Text_NeoPartnerReport, MSGBOX_DEFAULT
+	release
+	end
+RustboroCity_NeoPartnerGym:
+	msgbox RustboroCity_Text_NeoPartnerGym, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1402,7 +1424,18 @@ RustboroCity_Text_NeoRivalHaleFamily:
 	.string "We are assigned to the same\n"
 	.string "supply corridor. Keep up, okay?$"
 
+RustboroCity_Text_NeoPartnerReport:
+	.string "I handed the grunt over to\n"
+	.string "the local RANGERS.\p"
+	.string "HALE needs our evidence. Find\n"
+	.string "him at the west field office.$"
+RustboroCity_Text_NeoPartnerGym:
+	.string "Report filed. Your next step\n"
+	.string "is ROXANNE's GYM challenge.\p"
+	.string "Earn that badge, partner!$"
 RustboroCity_Text_NeoRivalFirstAssignment:
+	.string "Meet me on ROUTE 104, just\n"
+	.string "outside the WOODS.\p"
 	.string "NEO MAGMA was seen operating\n"
 	.string "strange equipment in the WOODS.\p"
 	.string "We need to investigate without\n"

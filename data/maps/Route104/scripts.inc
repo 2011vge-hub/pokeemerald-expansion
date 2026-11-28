@@ -86,8 +86,84 @@ Route104_EventScript_StartSailToDewford::
 Route104_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_HIDE_ROUTE_104_RIVAL
+	call RustboroCity_EventScript_SetupNeoRivalGfxId
+	call Route104_NeoPartnerVisibility
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
 	end
+
+
+@ One pre-mission spar, on the two walkable northern Woods approach tiles.
+Route104_NeoPartnerVisibility:
+	setflag FLAG_TEMP_1
+	setvar VAR_TEMP_3, 0
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, Route104_NeoPartnerVisibilityDone
+	goto_if_set FLAG_NEO_C2_MAGMA_DONE, Route104_NeoPartnerVisibilityDone
+	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_NeoPartnerVisibilityDone
+	clearflag FLAG_TEMP_1
+	setvar VAR_TEMP_3, 1
+Route104_NeoPartnerVisibilityDone:
+	return
+
+Route104_NeoPartnerSpar::
+	lockall
+	goto_if_set FLAG_NEO_C2_MAGMA_DONE, Route104_NeoPartnerSparEnd
+	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_NeoPartnerSparEnd
+	applymovement LOCALID_NEO_ROUTE104_PARTNER, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox Route104_NeoPartnerChallengeText, MSGBOX_DEFAULT
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, Route104_NeoSparNessa
+	switch VAR_STARTER_MON
+	case 0, Route104_NeoSparVern0
+	case 1, Route104_NeoSparVern1
+	case 2, Route104_NeoSparVern2
+	goto Route104_NeoPartnerSparEnd
+Route104_NeoSparNessa:
+	switch VAR_STARTER_MON
+	case 0, Route104_NeoSparNessa0
+	case 1, Route104_NeoSparNessa1
+	case 2, Route104_NeoSparNessa2
+	goto Route104_NeoPartnerSparEnd
+Route104_NeoSparVern0:
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TREECKO, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoSparVern1:
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_MUDKIP, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoSparVern2:
+	trainerbattle_no_intro TRAINER_BRENDAN_RUSTBORO_TORCHIC, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoSparNessa0:
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TREECKO, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoSparNessa1:
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MUDKIP, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoSparNessa2:
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TORCHIC, Route104_NeoPartnerLoseText
+	goto Route104_NeoPartnerSparWon
+Route104_NeoPartnerSparWon:
+	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setvar VAR_TEMP_3, 0
+	msgbox Route104_NeoPartnerReadyText, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_TEMP_1
+	removeobject LOCALID_NEO_ROUTE104_PARTNER
+Route104_NeoPartnerSparEnd:
+	releaseall
+	end
+Route104_NeoPartnerChallengeText:
+	.string "Before we enter the WOODS,\n"
+	.string "let's see how well we work\l"
+	.string "with our POKéMON in battle!\p"
+	.string "Ready, partner? Show me what\n"
+	.string "you learned in MOSSDEEP!$"
+Route104_NeoPartnerLoseText:
+	.string "Not bad, rookie!$"
+Route104_NeoPartnerReadyText:
+	.string "Nice work! I can count on you.\p"
+	.string "I'll scout ahead in the WOODS.\n"
+	.string "Find the DEVON researcher.$"
 
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::
 	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_EventScript_HideWhiteHerbFlorist

@@ -4,6 +4,14 @@ PetalburgWoods_MapScripts::
 
 PetalburgWoods_OnTransition:
 	call RustboroCity_EventScript_SetupNeoRivalGfxId
+	setflag FLAG_TEMP_1
+	goto_if_unset FLAG_NEO_C2_RIVAL_MET, PetalburgWoods_NeoPartnerVisibilityDone
+	goto_if_set FLAG_NEO_C2_BRINEY_REPORTED, PetalburgWoods_NeoPartnerVisibilityDone
+	goto_if_set FLAG_NEO_C2_MAGMA_DONE, PetalburgWoods_NeoPartnerShow
+	goto_if_unset FLAG_DEFEATED_RIVAL_ROUTE_104, PetalburgWoods_NeoPartnerVisibilityDone
+PetalburgWoods_NeoPartnerShow:
+	clearflag FLAG_TEMP_1
+PetalburgWoods_NeoPartnerVisibilityDone:
 	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
@@ -268,7 +276,12 @@ PetalburgWoods_EventScript_C2AwaitMagma:
 	release
 	end
 PetalburgWoods_EventScript_C2CutDone:
+	goto_if_set FLAG_NEO_C2_AQUA_DONE, PetalburgWoods_NeoPartnerCustody
 	msgbox PetalburgWoods_Text_C2CutAgain, MSGBOX_DEFAULT
+	release
+	end
+PetalburgWoods_NeoPartnerCustody:
+	msgbox PetalburgWoods_Text_NeoPartnerCustody, MSGBOX_DEFAULT
 	release
 	end
 PetalburgWoods_Text_C2Orders:
@@ -288,6 +301,10 @@ PetalburgWoods_Text_C2CutSuccess:
 	.string "The path stays open.\n"
 	.string "Your turn comes at RANK 2.\p"
 	.string "Next: BRINEY on ROUTE 104.$"
+PetalburgWoods_Text_NeoPartnerCustody:
+	.string "I've got the MAGMA suspect.\p"
+	.string "Check on BRINEY and report\n"
+	.string "back to HALE. I'll catch up.$"
 PetalburgWoods_Text_C2CutAgain:
 	.string "Our CUTTER work is done.\p"
 	.string "Meet the relief crew near\n"

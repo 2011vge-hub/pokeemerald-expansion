@@ -55,4 +55,26 @@ assert route.count("pokenavcall Route104_Text_C2RivalRadio")==1
 battle_msg=read("src/battle_message.c")
 assert 'sText_NeoMagmaClass[] = _("Neo Magma")' in battle_msg
 assert 'sText_NeoAquaClass[] = _("Neo Aqua")' in battle_msg
+# Partner phase gates: one map at a time, no repeat spar after old completed missions.
+assert all(o["flag"]=="FLAG_TEMP_1" for o in wm["object_events"] if o.get("local_id")=="LOCALID_NEO_C2_WOODS_RIVAL")
+cm=json.loads(read("data/maps/RustboroCity/map.json"))
+assert next(o for o in cm["object_events"] if o.get("local_id")=="LOCALID_NEO_RUSTBORO_RIVAL")["flag"]=="FLAG_TEMP_1"
+partner=next(o for o in rm["object_events"] if o.get("local_id")=="LOCALID_NEO_ROUTE104_PARTNER")
+assert partner["flag"]=="FLAG_TEMP_1"
+spar_tiles={(o["x"],o["y"]) for o in rm["coord_events"] if o["script"]=="Route104_NeoPartnerSpar"}
+assert spar_tiles=={(10,28),(11,28)}
+import struct
+raw=(R/"data/layouts/Route104/map.bin").read_bytes()
+tiles=struct.unpack("<3200H",raw)
+for x,y in spar_tiles|{(partner["x"],partner["y"])}:
+    assert ((tiles[y*40+x]>>10)&3)==0 and tiles[y*40+x]>>12==3
+for name in ("MAY","BRENDAN"):
+    for variant in ("TREECKO","MUDKIP","TORCHIC"):
+        ident=f"TRAINER_{name}_RUSTBORO_{variant}"
+        assert f"trainerbattle_no_intro {ident}, Route104_NeoPartnerLoseText" in route
+        party=trainers.split(f"=== {ident} ===",1)[1].split("===",1)[0]
+        assert ("Name: NESSA" if name=="MAY" else "Name: VERN") in party
+assert "goto_if_set FLAG_NEO_C2_MAGMA_DONE, Route104_NeoPartnerVisibilityDone" in route
+assert "setflag FLAG_DEFEATED_RIVAL_ROUTE_104" in route.split("Route104_NeoPartnerSparWon:",1)[1].split("Route104_NeoPartnerSparEnd:",1)[0]
+assert "goto_if_set FLAG_NEO_C2_BRINEY_REPORTED, PetalburgWoods_NeoPartnerVisibilityDone" in woods
 print("Chapter 2 source checks PASS; full playthrough still required")

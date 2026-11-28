@@ -94,6 +94,10 @@ NeoLog_Demo:
 	msgbox NeoLog_DemoText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Woods:
+	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, NeoLog_WoodsReady
+	msgbox NeoLog_SparText, MSGBOX_DEFAULT
+	goto NeoLog_Close
+NeoLog_WoodsReady:
 	msgbox NeoLog_WoodsText, MSGBOX_DEFAULT
 	goto NeoLog_Close
 NeoLog_Rival:
@@ -171,6 +175,9 @@ NeoLog_CargoText:
 	.string "Follow Route 104 south.\nCheck on the relief crew and\ltheir cargo near the cottage.$"
 NeoLog_DemoText:
 	.string "Find your partner by the fallen\ntrees in Petalburg Woods.$"
+NeoLog_SparText:
+	.string "Meet your partner on ROUTE 104\n"
+	.string "outside the WOODS for a spar.$"
 NeoLog_WoodsText:
 	.string "Follow Route 104 into the Woods.\nFind the Devon researcher and\lspeak to the Neo Magma grunt.$"
 NeoLog_RivalText:
