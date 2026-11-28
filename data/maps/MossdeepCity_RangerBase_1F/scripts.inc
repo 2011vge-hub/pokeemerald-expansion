@@ -86,6 +86,7 @@ MossdeepCity_RangerBase_1F_EventScript_Dispatch::
 	lock
 	faceplayer
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_DispatchDone
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBase_1F_EventScript_DispatchBoarding
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_DispatchSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_DispatchCheckIn, MSGBOX_DEFAULT
 	release
@@ -129,6 +130,7 @@ MossdeepCity_RangerBase_1F_EventScript_Rookie::
 	lock
 	faceplayer
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_RookieDone
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBase_1F_EventScript_RookieBoarding
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_RookieSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_RookieWelcome, MSGBOX_DEFAULT
 	release
@@ -226,6 +228,7 @@ MossdeepCity_RangerBase_1F_Text_QuartermasterBagFull:
 
 MossdeepCity_RangerBase_1F_EventScript_MissionBoard::
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerBase_1F_EventScript_MissionBoardDone
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBase_1F_EventScript_MissionBoardBoarding
 	goto_if_ge VAR_NEO_FERRY_DISPATCH, 3, MossdeepCity_RangerBase_1F_EventScript_MissionBoardSearch
 	msgbox MossdeepCity_RangerBase_1F_Text_MissionBoardCheckIn, MSGBOX_SIGN
 	end
@@ -259,3 +262,27 @@ MossdeepCity_RangerBase_1F_Text_MissionBoardSearch:
 	.string "2. MISSING: boy + POOCHYENA,\l"
 	.string "   near the MART.\p"
 	.string "3. Escort stragglers aboard.$"
+
+MossdeepCity_RangerBase_1F_EventScript_DispatchBoarding:
+	msgbox MossdeepCity_RangerBase_1F_Text_DispatchBoarding, MSGBOX_DEFAULT
+	release
+	end
+MossdeepCity_RangerBase_1F_EventScript_RookieBoarding:
+	msgbox MossdeepCity_RangerBase_1F_Text_RookieBoarding, MSGBOX_DEFAULT
+	release
+	end
+MossdeepCity_RangerBase_1F_EventScript_MissionBoardBoarding:
+	msgbox MossdeepCity_RangerBase_1F_Text_MissionBoardBoarding, MSGBOX_SIGN
+	end
+MossdeepCity_RangerBase_1F_Text_DispatchBoarding:
+	.string "JUNE: The missing pair are safe.\p"
+	.string "Confirm boarding with the sailor\n"
+	.string "at the waterfront, RANGER.$"
+MossdeepCity_RangerBase_1F_Text_RookieBoarding:
+	.string "ARI: You found both of them!\p"
+	.string "Meet the sailor at the dock.\n"
+	.string "I'll tell dispatch you're back.$"
+MossdeepCity_RangerBase_1F_Text_MissionBoardBoarding:
+	.string "MISSION BOARD - EVACUATION\p"
+	.string "Missing passengers located.\n"
+	.string "Confirm boarding at the dock.$"
