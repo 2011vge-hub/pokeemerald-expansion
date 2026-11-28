@@ -4,8 +4,22 @@ Route104_MrBrineysHouse_MapScripts::
 
 Route104_MrBrineysHouse_OnTransition:
 	setflag FLAG_LANDMARK_MR_BRINEY_HOUSE
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, Route104_MrBrineysHouse_NeoHomeTransition
 	call_if_eq VAR_BRINEY_HOUSE_STATE, 1, Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos
 	call_if_set FLAG_RECEIVED_POKENAV, Route104_MrBrineysHouse_EventScript_HideRustboroRival
+	end
+
+@ Neo Chapter 2 has no vanilla Peeko rescue to reveal the cottage NPCs.
+@ Restore visibility on map entry, including existing saves, but do not
+@ duplicate Briney during departure or while his boat is at Dewford.
+Route104_MrBrineysHouse_NeoHomeTransition:
+	goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_MrBrineysHouse_NeoHomeDone
+	goto_if_eq VAR_BOARD_BRINEY_BOAT_STATE, 2, Route104_MrBrineysHouse_NeoShowHome
+	goto_if_set FLAG_VISITED_DEWFORD_TOWN, Route104_MrBrineysHouse_NeoHomeDone
+Route104_MrBrineysHouse_NeoShowHome:
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+Route104_MrBrineysHouse_NeoHomeDone:
 	end
 
 Route104_MrBrineysHouse_EventScript_HideRustboroRival::
