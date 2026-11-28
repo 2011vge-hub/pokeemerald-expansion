@@ -4,6 +4,7 @@ SlateportCity_OceanicMuseum_2F_MapScripts::
 SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	lock
 	faceplayer
+	goto_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, NeoMuseum_SternResearch
 	msgbox SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, TRUE
@@ -433,3 +434,12 @@ SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
 	.string "“S.S. ANNE\p"
 	.string "“A replica of the luxury liner that\n"
 	.string "circles the globe.”$"
+
+NeoMuseum_SternResearch:
+	msgbox NeoMuseum_SternResearchText, MSGBOX_DEFAULT
+	release
+	end
+NeoMuseum_SternResearchText:
+	.string "STERN: Our current research is\n"
+	.string "at the SHIPYARD, upstairs.\p"
+	.string "Bring your field report there.$"
