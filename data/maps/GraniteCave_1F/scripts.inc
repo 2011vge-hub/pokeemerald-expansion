@@ -63,9 +63,9 @@ GraniteCave_NeoSurveyText:
 	.string "tremors with his inland site.\p"
 	.string "Take a copy of our report to HALE.$"
 GraniteCave_NeoSurveyReminderText:
-	.string "NEXT: Speak to BRINEY at the\n"
-	.string "DEWFORD dock, then return to\l"
-	.string "HALE in RUSTBORO.$"
+	.string "NEXT: BRINEY at the DEWFORD dock.\p"
+	.string "Sail to SLATEPORT. Find STERN\n"
+	.string "at his shipyard.$"
 GraniteCave_NeoAwaitText:
 	.string "HIKER: Speak to BRAWLY about\n"
 	.string "the survey before you go deeper.$"
