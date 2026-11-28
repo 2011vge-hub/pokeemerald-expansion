@@ -119,7 +119,8 @@ NeoLog_Close:
 	releaseall
 	end
 NeoLog_FiledText:
-	.string "Dewford survey filed with Hale.\nNo further field orders issued.$"
+	.string "Dewford survey filed with HALE.\p"
+	.string "Await your next field assignment.$"
 NeoLog_SailHomeText:
 	.string "Take Briney back to Route 104.\nReport to Hale in west Rustboro.$"
 NeoLog_HaleReportText:
@@ -144,9 +145,11 @@ NeoLog_CaveReportText:
 	.string "Report to the Hiker near the\l"
 	.string "cave entrance.$"
 NeoLog_DewfordText:
-	.string "Ask Briney at his Route 104\ncottage for passage to Dewford.\lFind BRAWLY at or in the GYM.$"
+	.string "Ask BRINEY at his ROUTE 104\n"
+	.string "cottage for passage to DEWFORD.\p"
+	.string "Meet BRAWLY outside the GYM.$"
 NeoLog_DewfordBriefText:
-	.string "DEWFORD: Find BRAWLY at or in\n"
+	.string "DEWFORD: Meet BRAWLY outside\n"
 	.string "the GYM for your cave briefing.$"
 NeoLog_RelayReportText:
 	.string "Take the relay copy to Hale.\nHis office is in west Rustboro.$"
