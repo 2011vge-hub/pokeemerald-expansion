@@ -6,6 +6,7 @@ SlateportCity_MapScripts::
 SlateportCity_OnTransition:
 	setvar VAR_SLATEPORT_MUSEUM_1F_STATE, 0
 	call SlateportCity_EventScript_EnterSlateport
+	call_if_set FLAG_NEO_C1_FLIGHT_RUSTBORO, NeoSlateport_HideLegacyQueue
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_MovePeopleForSternInterview
 	call_if_eq VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1, SlateportCity_EventScript_SetReadyForScottScene
 	end
@@ -1350,3 +1351,7 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+NeoSlateport_HideLegacyQueue:
+	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
+	return
