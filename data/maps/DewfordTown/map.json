@@ -106,8 +106,8 @@
       "x": 6,
       "y": 9,
       "elevation": 3,
-      "dest_map": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GRANITE_CAVE_1F",
+      "dest_warp_id": "5"
     },
     {
       "x": 8,

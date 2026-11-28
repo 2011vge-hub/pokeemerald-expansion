@@ -181,3 +181,58 @@ GraniteCave_NeoAssistantCheckText:
 	.string "I left the unstable passage\n"
 	.string "when the gauge started shaking.\p"
 	.string "Tell the warden I'm accounted for.$"
+
+DewfordUnderground_Merchant::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart DewfordUnderground_Mart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+	.align 2
+DewfordUnderground_Mart:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	pokemartlistend
+DewfordUnderground_Resident::
+	msgbox DewfordUnderground_ResidentText, MSGBOX_NPC
+	end
+DewfordUnderground_ResidentText:
+	.string "Our homes may be carved from\nstone, but they're still home.$"
+DewfordUnderground_Workshop::
+	msgbox DewfordUnderground_WorkshopText, MSGBOX_NPC
+	end
+DewfordUnderground_WorkshopText:
+	.string "We repair the harbor supports\nright here in the workshops.$"
+DewfordUnderground_CenterSign::
+	msgbox DewfordUnderground_CenterText, MSGBOX_SIGN
+	end
+DewfordUnderground_CenterText:
+	.string "POKéMON CENTER - DEWFORD 1F$"
+DewfordUnderground_CivicSign::
+	msgbox DewfordUnderground_CivicText, MSGBOX_SIGN
+	end
+DewfordUnderground_CivicText:
+	.string "UPPER DEWFORD\pRefuge and public services.$"
+DewfordUnderground_ResidentialSign::
+	msgbox DewfordUnderground_ResidentialText, MSGBOX_SIGN
+	end
+DewfordUnderground_ResidentialText:
+	.string "B1F - RESIDENTIAL DISTRICT\pHomes and workshops.$"
+DewfordUnderground_GymSign::
+	msgbox DewfordUnderground_GymText, MSGBOX_SIGN
+	end
+DewfordUnderground_GymText:
+	.string "B2F - DEWFORD POKéMON GYM$"
+DewfordUnderground_ExpeditionSign::
+	msgbox DewfordUnderground_ExpeditionText, MSGBOX_SIGN
+	end
+DewfordUnderground_ExpeditionText:
+	.string "B3F-B5F - LOWER PASSAGES\pExercise caution beyond here.$"
