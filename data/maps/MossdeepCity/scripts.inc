@@ -12,8 +12,14 @@ MossdeepCity_RangerCheckIn::
 	end
 
 MossdeepCity_RangerCheckedIn:
-	goto_if_ge VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerAllAboard
+	goto_if_ge VAR_NEO_FERRY_DISPATCH, 5, MossdeepCity_RangerAllAboard
+	goto_if_eq VAR_NEO_FERRY_DISPATCH, 4, MossdeepCity_RangerBoardingPending
 	msgbox MossdeepCity_Text_RangerStillMissing, MSGBOX_DEFAULT
+	release
+	end
+
+MossdeepCity_RangerBoardingPending:
+	msgbox MossdeepCity_Text_RangerBoardingPending, MSGBOX_DEFAULT
 	release
 	end
 
@@ -21,6 +27,11 @@ MossdeepCity_RangerAllAboard:
 	msgbox MossdeepCity_Text_RangerAllAboard, MSGBOX_DEFAULT
 	release
 	end
+
+MossdeepCity_Text_RangerBoardingPending:
+	.string "SAILOR: You've found them!\p"
+	.string "Meet the crew at the waterfront\n"
+	.string "dock to finish boarding.$"
 
 MossdeepCity_Text_RangerAllAboard:
 	.string "SAILOR: Head count's complete.\n"
